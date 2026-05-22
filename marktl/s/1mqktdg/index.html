@@ -3,7 +3,7 @@
 <head>
   
   
-  <title>법은 수단이고, 정의가 목적이다 | Georgetown Law Commencement 2026</title>
+  <title>법은 수단이고 정의가 목적이다 | Georgetown Law Center Commencement 2026 리서치 리포트</title>
   
   
   
@@ -11,24 +11,23 @@
   
   <style>
     :root {
-      --ink: #17211f;
-      --muted: #66736f;
-      --paper: #fbfaf6;
-      --panel: #ffffff;
-      --line: #dedbd1;
-      --deep: #24433d;
-      --accent: #9b5c31;
-      --accent-soft: #f1e2d4;
-      --green-soft: #e5efea;
-      --gold: #c99b4a;
-      --shadow: 0 18px 45px rgba(23, 33, 31, 0.10);
+      --ink: #1f252b;
+      --muted: #66707c;
+      --soft: #f6f2ec;
+      --paper: #fffdf9;
+      --line: #e3ddd3;
+      --accent: #8e3f2f;
+      --accent-2: #275d68;
+      --accent-3: #b9822f;
+      --deep: #16242d;
+      --card: #ffffff;
+      --shadow: 0 18px 48px rgba(31, 37, 43, .09);
       --radius: 8px;
-      --max: 1120px;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      --serif: Georgia, "Times New Roman", "Noto Serif KR", serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -36,480 +35,392 @@
 
     body {
       margin: 0;
-      background:
-        linear-gradient(180deg, rgba(229, 239, 234, 0.78), rgba(251, 250, 246, 0.92) 36rem),
-        var(--paper);
       color: var(--ink);
-      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        linear-gradient(180deg, rgba(246,242,236,.92), rgba(255,253,249,.98) 360px),
+        var(--paper);
+      font-family: var(--sans);
       line-height: 1.72;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
 
     a {
-      color: var(--deep);
+      color: var(--accent-2);
       text-decoration-thickness: 1px;
-      text-underline-offset: 0.18em;
+      text-underline-offset: 3px;
     }
 
     .wrap {
-      width: min(var(--max), calc(100% - 40px));
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    header {
-      padding: 56px 0 32px;
-      border-bottom: 1px solid rgba(36, 67, 61, 0.14);
+    .hero {
+      padding: 72px 0 42px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(142,63,47,.08), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(39,93,104,.09), transparent 30%);
     }
 
-    .eyebrow {
+    .kicker {
       display: inline-flex;
-      align-items: center;
       gap: 10px;
-      margin: 0 0 22px;
-      color: var(--deep);
-      font-size: 0.86rem;
+      align-items: center;
+      margin-bottom: 24px;
+      color: var(--accent);
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
+    .kicker::before {
       content: "";
+      display: inline-block;
       width: 34px;
       height: 2px;
       background: var(--accent);
-      display: inline-block;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
-      gap: 40px;
-      align-items: end;
     }
 
     h1 {
+      max-width: 980px;
       margin: 0;
-      max-width: 920px;
-      color: #11211e;
-      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
-      font-size: clamp(2.45rem, 6vw, 5.35rem);
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 82px);
       line-height: 1.04;
       letter-spacing: 0;
+      color: var(--deep);
     }
 
     .subtitle {
-      margin: 24px 0 0;
       max-width: 760px;
-      color: #41504c;
-      font-size: clamp(1.05rem, 2vw, 1.34rem);
-      line-height: 1.7;
+      margin: 26px 0 0;
+      color: #39434d;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.62;
     }
 
-    .meta-card {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(36, 67, 61, 0.16);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .meta-card dl {
-      margin: 0;
-      display: grid;
-      gap: 13px;
-    }
-
-    .meta-card dt {
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .meta-card dd {
-      margin: 2px 0 0;
-      color: var(--ink);
-      font-weight: 650;
-    }
-
-    .share-frame {
-      margin-top: 34px;
-      padding: 18px 0 0;
-      border-top: 1px solid rgba(36, 67, 61, 0.14);
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    nav.toc {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      background: rgba(251, 250, 246, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    nav.toc .wrap {
+    .meta-row {
       display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      padding: 13px 0;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
-    nav.toc a {
-      flex: 0 0 auto;
-      color: #41504c;
-      font-size: 0.92rem;
-      font-weight: 700;
-      text-decoration: none;
+    .pill {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+    }
+
+    .share-box {
+      margin-top: 34px;
+      padding: 18px 20px;
+      max-width: 820px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 32px rgba(31,37,43,.06);
+    }
+
+    .share-box strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--deep);
     }
 
     main {
-      padding: 46px 0 72px;
+      padding: 44px 0 72px;
     }
 
-    .article-grid {
+    .layout {
       display: grid;
-      grid-template-columns: minmax(0, 760px) minmax(240px, 1fr);
+      grid-template-columns: minmax(0, 1fr) 286px;
       gap: 44px;
       align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 24px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 8px 28px rgba(31,37,43,.05);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      color: #3a4650;
+      font-size: 14px;
+      text-decoration: none;
+      border-top: 1px solid #eee7dc;
     }
 
     article {
       min-width: 0;
     }
 
-    aside {
-      position: sticky;
-      top: 70px;
-      display: grid;
-      gap: 18px;
-    }
-
     section {
-      margin: 0 0 58px;
+      margin: 0 0 54px;
     }
 
     h2 {
       margin: 0 0 18px;
-      color: #142723;
-      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
-      font-size: clamp(1.75rem, 3vw, 2.45rem);
-      line-height: 1.22;
-      letter-spacing: 0;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      line-height: 1.18;
+      color: var(--deep);
     }
 
     h3 {
       margin: 30px 0 10px;
-      color: var(--deep);
-      font-size: 1.18rem;
-      line-height: 1.45;
+      font-size: 20px;
+      line-height: 1.35;
+      color: #25323b;
     }
 
     p {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
     }
 
-    .lead {
-      color: #33423f;
-      font-size: 1.13rem;
-      line-height: 1.82;
+    .lede {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      font-size: 18px;
     }
 
     .abstract {
-      background: var(--panel);
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+    }
+
+    .panel {
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      background: var(--card);
+      box-shadow: 0 14px 36px rgba(31,37,43,.06);
     }
 
-    .abstract strong {
-      color: var(--deep);
-    }
-
-    .key-findings {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .finding {
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 15px;
-      padding: 18px;
-      background: var(--green-soft);
-      border: 1px solid rgba(36, 67, 61, 0.14);
-      border-radius: var(--radius);
-    }
-
-    .num {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      background: var(--deep);
-      color: white;
-      border-radius: 50%;
-      font-weight: 900;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .finding h3 {
-      margin: 0 0 4px;
-      color: #142723;
-      font-size: 1.02rem;
-    }
-
-    .finding p {
-      margin: 0;
-      color: #45524f;
-      font-size: 0.98rem;
-    }
-
-    blockquote {
-      margin: 34px 0;
-      padding: 28px 30px;
-      background: #f7efe7;
-      border-left: 5px solid var(--accent);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      color: #2f2922;
-      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
-      font-size: clamp(1.28rem, 2.3vw, 1.72rem);
-      line-height: 1.55;
-    }
-
-    blockquote cite {
-      display: block;
-      margin-top: 13px;
-      color: var(--muted);
-      font-family: "Pretendard", "Noto Sans KR", sans-serif;
-      font-size: 0.92rem;
-      font-style: normal;
-      font-weight: 700;
-    }
-
-    .note-card,
-    .side-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: 0 12px 28px rgba(23, 33, 31, 0.07);
-    }
-
-    .side-card h2,
-    .side-card h3 {
+    .panel h3 {
       margin-top: 0;
-      font-family: "Pretendard", "Noto Sans KR", sans-serif;
-      font-size: 1rem;
     }
 
-    .side-card p,
-    .side-card li {
-      color: #52605d;
-      font-size: 0.94rem;
-    }
-
-    .badge-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .badge {
-      display: inline-flex;
-      padding: 6px 10px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(155, 92, 49, 0.18);
-      border-radius: 999px;
-      color: #734421;
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-
-    .evidence {
+    .key-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 24px 0;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .evidence .note-card {
-      box-shadow: none;
+    .key-list li {
+      padding: 14px 16px;
+      border-left: 3px solid var(--accent-3);
+      background: #fbf7ef;
     }
 
-    .stat {
+    .pullquote {
+      margin: 42px 0;
+      padding: 34px 38px;
+      border-top: 3px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+      color: var(--deep);
+      background: #fbfaf6;
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.42;
+    }
+
+    .pullquote cite {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 14px;
+      font-style: normal;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .evidence-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .evidence-card .label {
+      display: inline-block;
+      margin-bottom: 10px;
       color: var(--accent);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.25rem;
-      line-height: 1;
+      font-size: 12px;
       font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
-    .stat-label {
-      margin-top: 8px;
-      color: #4f5b58;
-      font-size: 0.95rem;
+    .diagram {
+      margin: 28px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      min-height: 132px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: #f4f8f8;
+      border: 1px solid #d5e4e5;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 24px 0;
-      background: var(--panel);
+      margin: 22px 0;
+      background: #fff;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      overflow: hidden;
-      display: table;
+      font-size: 15px;
     }
 
-    th,
-    td {
+    th, td {
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
-      text-align: left;
       vertical-align: top;
+      text-align: left;
     }
 
     th {
-      background: #eaf1ed;
       color: var(--deep);
-      font-size: 0.9rem;
+      background: #f4efe7;
+      font-weight: 800;
     }
 
-    td {
-      color: #3e4b48;
-    }
-
-    tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin: 26px 0;
-    }
-
-    .flow div {
-      min-height: 116px;
-      padding: 16px 14px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-top: 4px solid var(--gold);
+    .note {
+      padding: 18px 20px;
       border-radius: var(--radius);
-    }
-
-    .flow strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--deep);
-    }
-
-    ul,
-    ol {
-      padding-left: 1.35rem;
-    }
-
-    li {
-      margin: 0 0 9px;
+      background: #f3f6f7;
+      border: 1px solid #d9e5e8;
+      color: #34434a;
     }
 
     .checklist {
       list-style: none;
       padding: 0;
+      margin: 16px 0 0;
       display: grid;
       gap: 10px;
     }
 
     .checklist li {
-      margin: 0;
-      padding: 14px 16px 14px 44px;
-      background: var(--panel);
+      padding: 13px 15px;
+      background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      position: relative;
     }
 
     .checklist li::before {
       content: "□";
-      position: absolute;
-      left: 16px;
-      top: 13px;
-      color: var(--accent);
-      font-weight: 900;
+      margin-right: 10px;
+      color: var(--accent-2);
+      font-weight: 800;
     }
 
-    .source-box {
-      background: #142723;
-      color: #f4f1ea;
+    .source-note {
+      padding: 24px;
       border-radius: var(--radius);
-      padding: 26px;
+      background: var(--deep);
+      color: #eef2f2;
     }
 
-    .source-box h2 {
-      color: #fff;
+    .source-note a {
+      color: #b7dce1;
     }
 
-    .source-box a {
-      color: #f4d29d;
+    .source-note small {
+      color: #bac5c9;
     }
 
     footer {
-      padding: 34px 0 54px;
+      padding: 34px 0 58px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.94rem;
+      background: #f7f4ee;
+      font-size: 14px;
     }
 
     @media (max-width: 900px) {
-      .hero,
-      .article-grid {
+      .layout {
         grid-template-columns: 1fr;
       }
 
-      aside {
+      .toc {
         position: static;
+        order: -1;
       }
 
-      .evidence,
+      .abstract,
+      .evidence-grid,
       .flow {
         grid-template-columns: 1fr;
       }
 
-      header {
-        padding-top: 38px;
+      .hero {
+        padding-top: 48px;
       }
     }
 
     @media (max-width: 560px) {
       .wrap {
-        width: min(100% - 26px, var(--max));
+        width: min(100% - 28px, 1120px);
       }
 
-      .abstract,
-      .note-card,
-      .side-card,
-      .source-box {
-        padding: 18px;
+      .lede,
+      .panel,
+      .diagram,
+      .pullquote {
+        padding: 20px;
       }
 
-      th,
-      td {
+      th, td {
         padding: 12px;
-        font-size: 0.92rem;
-      }
-
-      table {
-        display: block;
-        overflow-x: auto;
       }
     }
   </style>
@@ -523,303 +434,217 @@
 <link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1mqktdg/">
 </head>
 <body>
-  <header>
-    <div class="wrap hero">
-      <div>
-        <p class="eyebrow">Research Report · Editorial Blog</p>
-        <h1>법은 수단이고, 정의가 목적이다</h1>
-        <p class="subtitle">조지타운 로스쿨 2026 졸업식이 남긴 질문: 분열된 시대의 변호사는 어떻게 말하고, 맞서고, 희망을 만들어야 하는가.</p>
-        <p class="share-frame">공유용 한 줄: <strong>“희망은 기다리는 감정이 아니라, 행동이 만든 결과다.”</strong></p>
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Research Report · Editorial Blog</div>
+      <h1>법은 수단이고 정의가 목적이다</h1>
+      <p class="subtitle">조지타운 로스쿨 2026년 졸업식에서 읽는 법률가의 공적 책임, 시민적 대화, 권력 견제, 그리고 행동으로 만들어지는 희망.</p>
+      <div class="meta-row" aria-label="문서 정보">
+        <span class="pill">Georgetown University</span>
+        <span class="pill">Published: 2026-05-18</span>
+        <span class="pill">주제: 법률 교육 · 시민의 자유 · 정의와 봉사</span>
       </div>
-
-      <aside class="meta-card" aria-label="문서 정보">
-        <dl>
-          <div>
-            <dt>Source</dt>
-            <dd>Georgetown University · Law Center Commencement 2026</dd>
-          </div>
-          <div>
-            <dt>Published</dt>
-            <dd>2026년 5월 18일</dd>
-          </div>
-          <div>
-            <dt>Topics</dt>
-            <dd>법률 교육, 시민의 자유, 정의와 봉사, 희망과 행동</dd>
-          </div>
-        </dl>
-        <div class="badge-list">
-          <span class="badge">법률가의 사명</span>
-          <span class="badge">민주주의</span>
-          <span class="badge">Cura Personalis</span>
-          <span class="badge">공익 법률</span>
-        </div>
-      </aside>
+      <div class="share-box">
+        <strong>공유용 요약</strong>
+        분열의 시대에 변호사는 단순한 법 기술자가 아니라, 갈등을 문명적으로 다루고 권력 남용을 견제하며 절망 대신 행동을 선택하는 공적 행위자다.
+      </div>
     </div>
   </header>
 
-  <nav class="toc" aria-label="본문 목차">
-    <div class="wrap">
-      <a href="#abstract">초록</a>
-      <a href="#findings">핵심 발견</a>
-      <a href="#evidence">증거와 맥락</a>
-      <a href="#framework">분석 프레임</a>
-      <a href="#implications">시사점</a>
-      <a href="#actions">실천 항목</a>
-      <a href="#sources">출처 노트</a>
+  <main class="wrap">
+    <div class="layout">
+      <article>
+        <section id="abstract">
+          <h2>Abstract</h2>
+          <div class="lede">
+            이 리포트는 조지타운 대학교 법률 센터 2026년 졸업식을 하나의 공적 텍스트로 읽는다. 행사는 졸업 축하의 형식을 취하지만, 핵심 메시지는 더 넓다. 법률가는 첨예한 분쟁을 폭력 대신 언어와 절차로 다루는 사람이며, 권력이 법을 사유화하려 할 때 이를 견제하는 사람이고, 냉소가 쉬워진 시대에 행동을 통해 희망을 생산하는 사람이라는 주장이다.
+          </div>
+
+          <div class="abstract">
+            <div class="panel">
+              <h3>핵심 논지</h3>
+              <p>데이비드 콜 교수의 축사는 민주주의에서 법의 두 기능을 선명하게 제시한다. 첫째, 법은 분쟁 해결의 공적 장이다. 둘째, 법은 권력 남용에 대한 제도적 제동 장치다. 여기에 조지타운의 예수회 전통인 <em>cura personalis</em>, 즉 전인적 인격체에 대한 존중이 더해지면서 법률 교육은 기술 훈련을 넘어 윤리적 형성의 문제로 확장된다.</p>
+            </div>
+            <div class="panel">
+              <h3>읽는 법</h3>
+              <p>이 글은 졸업식 전체를 시간순 기록으로 반복하기보다, 공적 메시지와 증거를 중심으로 재구성했다. 환영사, 종교 간 기도, 축사, 학위 수여, 폐회사에 흩어진 주제를 통합해 “법률가의 사명”이라는 하나의 논증으로 정리한다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <ul class="key-list">
+            <li><strong>법률가는 갈등을 문명화한다.</strong> 좋은 변호사는 상대의 논리를 약화시켜 caricature로 만드는 사람이 아니라, 가장 강한 형태로 이해한 뒤 설득력 있게 대응하는 사람이다.</li>
+            <li><strong>법은 권력에 대한 언어다.</strong> 가족 분리 정책에 대한 ACLU의 소송 사례는 법이 국가 권력의 폭주를 멈추게 할 수 있음을 보여준다.</li>
+            <li><strong>정의는 법보다 크다.</strong> “법은 단지 수단일 뿐이고, 정의가 목적이다”라는 메시지는 법률 실무의 윤리적 기준을 명확히 한다.</li>
+            <li><strong>희망은 감정이 아니라 실천의 결과다.</strong> 절망과 냉소는 관찰자의 자세에서 자라지만, 행동은 희망을 만든다.</li>
+            <li><strong>전인적 인격체의 관점은 법률가의 기본 태도다.</strong> 의뢰인, 상대방, 공동체 구성원을 단일한 신분이나 행위로 축소하지 않는 시선이 필요하다.</li>
+          </ul>
+        </section>
+
+        <section id="context">
+          <h2>분열의 시대에 졸업한다는 것</h2>
+          <p>2026년 졸업생들은 팬데믹, 소셜 미디어와 스마트폰 문화, 인공지능에 대한 불안, 정치적 양극화, 불평등, 기후 위기, 민주주의 제도의 약화라는 조건 속에서 법률 교육을 마쳤다. 이 배경은 단순한 시대 진단이 아니다. 연설의 논리는 바로 여기서 시작된다. 세상이 복잡하고 위험할수록 법률가는 자신이 가진 도구가 무엇을 위해 쓰이는지 더 분명히 알아야 한다.</p>
+          <p>행사에서 강조된 조지타운의 정체성도 이 맥락과 맞닿아 있다. 종교 간 자문위원회의 공동 기도는 서로 다른 신앙과 정치적 견해를 가진 학생들이 상대를 바꾸려 하기보다, 들을 수 있는 공간을 만드는 경험을 보여준다. 이는 축사의 핵심인 “문명적 논쟁”을 의례적 차원에서 먼저 보여준 장면이기도 하다.</p>
+
+          <blockquote class="pullquote">
+            “희망은 행동의 원인이 아니라 행동의 결과이다.”
+            <cite>코넬 웨스트와 로베르토 앵거의 사유를 빌린 축사의 핵심 메시지</cite>
+          </blockquote>
+        </section>
+
+        <section id="evidence">
+          <h2>Evidence Sections</h2>
+          <div class="evidence-grid">
+            <div class="evidence-card">
+              <span class="label">Evidence 01</span>
+              <h3>분쟁 해결의 장으로서 법</h3>
+              <p>콜 교수는 변호사가 “논쟁하는 법”을 배운다고 설명한다. 여기서 논쟁은 공격이나 승리의 기술이 아니라, 사회의 가장 첨예한 갈등을 절차와 언어 안으로 들여와 다루는 공적 기술이다. 조지타운 대법원 연구소가 다양한 정치적 성향의 변호사들에게 모의 변론을 제공하는 사례는 이 원리를 실천적으로 보여준다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">Evidence 02</span>
+              <h3>권력 남용을 견제하는 법</h3>
+              <p>ACLU에서 콜 교수가 참여한 가족 분리 정책 대응은 법의 견제 기능을 보여주는 대표 사례다. 행정부 정책으로 수천 가족이 분리되었고, 소송은 이를 중단시키고 재결합과 구제의 길을 열었다. 이 사례는 법률가의 일이 추상적 원칙을 넘어 실제 인간의 삶을 복원할 수 있음을 증명한다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">Evidence 03</span>
+              <h3>정의를 향한 윤리적 선택</h3>
+              <p>법은 약자를 보호할 수도 있지만 약자를 압박하는 데에도 쓰일 수 있다. 그래서 졸업생들에게 던져진 질문은 “어떤 법률가가 될 것인가”다. 적을 처벌하는 권력의 도구가 될 것인가, 취약한 사람에게 목소리를 주는 정의의 도구가 될 것인가.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">Evidence 04</span>
+              <h3>냉소주의에 맞서는 희망</h3>
+              <p>브라이언 스티븐슨의 문장을 빌려, 축사는 정의의 가장 큰 적을 절망으로 지목한다. 불의는 저항의 대상을 제공하지만, 절망은 저항할 이유 자체를 약화시킨다. 따라서 희망은 낙관적 감정이 아니라 행동의 습관으로 이해된다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="diagram">
+          <h2>핵심 구조</h2>
+          <div class="diagram">
+            <div class="flow" aria-label="법률가의 사명 흐름도">
+              <div class="step">
+                <strong>1. 경청</strong>
+                상대의 주장을 가장 강한 형태로 이해한다.
+              </div>
+              <div class="step">
+                <strong>2. 논증</strong>
+                갈등을 폭력이 아니라 절차와 언어로 다룬다.
+              </div>
+              <div class="step">
+                <strong>3. 견제</strong>
+                권력 남용 앞에서 법적 수단으로 대응한다.
+              </div>
+              <div class="step">
+                <strong>4. 희망</strong>
+                행동을 통해 냉소를 넘어서는 가능성을 만든다.
+              </div>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>주제</th>
+                <th>연설의 메시지</th>
+                <th>공적 의미</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>문명적 논쟁</td>
+                <td>상대의 관점을 존중하며 강한 논증으로 응답한다.</td>
+                <td>양극화된 사회에서 민주적 대화를 회복한다.</td>
+              </tr>
+              <tr>
+                <td>권력 견제</td>
+                <td>법은 사람의 지배가 아니라 법의 지배를 지키는 장치다.</td>
+                <td>국가 권력이 개인의 존엄을 침해하지 못하게 한다.</td>
+              </tr>
+              <tr>
+                <td>전인적 인격체</td>
+                <td>사람을 하나의 행위, 신분, 입장으로 축소하지 않는다.</td>
+                <td>법률 실무의 인간성을 회복한다.</td>
+              </tr>
+              <tr>
+                <td>행동하는 희망</td>
+                <td>희망은 기다리는 것이 아니라 실천 속에서 생긴다.</td>
+                <td>시민적 무력감과 냉소주의를 넘어선다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="concepts">
+          <h2>Key Concepts</h2>
+          <div class="panel">
+            <h3>Cura Personalis · 전인적 인격체</h3>
+            <p>예수회 교육 전통에서 중요한 개념으로, 사람을 하나의 역할이나 사건으로만 보지 않고 전체적 존재로 바라보는 태도다. 법률가에게 이는 의뢰인, 상대방, 공동체 구성원을 더 복합적인 인간으로 이해하라는 요청이 된다.</p>
+
+            <h3>Rule of Law · 법의 지배</h3>
+            <p>권력자가 자의적으로 통치하는 체제가 아니라, 공적 규칙과 절차가 권력을 제한하는 체제다. 콜 교수의 축사에서 법률 전문직은 이 이상을 현실 속에서 지키는 직업으로 제시된다.</p>
+
+            <h3>Pro Bono · 공익 봉사</h3>
+            <p>졸업생들이 20,000시간 이상의 공익 봉사를 수행했다는 언급은 법률 교육이 개인의 경력 준비만이 아니라 공적 책임의 훈련이기도 함을 보여준다.</p>
+          </div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications</h2>
+          <p>이 졸업식의 메시지는 로스쿨 졸업생에게만 해당하지 않는다. 전문성을 가진 모든 사람에게 적용된다. 지식은 중립적인 장식품이 아니라 선택을 요구하는 힘이다. 특히 법률 지식은 누군가의 자유, 가족, 주거, 안전, 명예, 생계와 직접 연결된다.</p>
+          <p>따라서 이 리포트가 끌어내는 실천적 함의는 세 가지다. 첫째, 전문직 윤리는 위기 순간에만 등장하는 예외 규칙이 아니라 일상적 판단의 기준이어야 한다. 둘째, 시민적 대화는 상대를 설득하기 전에 상대를 정확히 이해하는 능력에서 시작된다. 셋째, 희망은 사회적 조건이 좋아질 때 생기는 보상이 아니라, 조건을 바꾸려는 행동 속에서 만들어지는 역량이다.</p>
+
+          <div class="note">
+            <strong>독자를 위한 질문:</strong> 지금 내가 가진 전문성은 누구의 목소리를 키우고, 누구의 고통을 줄이며, 어떤 권력의 남용을 멈추는 데 쓰일 수 있는가?
+          </div>
+        </section>
+
+        <section id="actions">
+          <h2>Action Items</h2>
+          <ul class="checklist">
+            <li>나를 여기까지 이끈 가족, 친구, 동료에게 구체적으로 감사 인사를 전하기</li>
+            <li>나와 의견이 다른 사람의 주장을 가장 강한 형태로 요약해 보기</li>
+            <li>불의를 보았을 때 침묵하지 않고 사용할 수 있는 제도적 수단을 찾기</li>
+            <li>냉소가 들 때 작고 구체적인 행동 하나를 선택하기</li>
+            <li>사람을 하나의 정치적 입장, 직업, 실수, 혐의로 축소하지 않기</li>
+          </ul>
+        </section>
+
+        <section id="source">
+          <h2>Source Notes</h2>
+          <div class="source-note">
+            <p><strong>원자료:</strong> Georgetown University, “Law Center Commencement 2026”</p>
+            <p><a>https://www.youtube.com/live/lv2lcwCT4X0</a></p>
+            <p><small>이 HTML 문서는 제공된 Obsidian Markdown 노트를 바탕으로 작성된 독립형 연구 리포트입니다. 보안 및 게시 요건에 따라 iframe, JavaScript, 외부 CSS, 원격 자산을 사용하지 않았습니다.</small></p>
+          </div>
+        </section>
+
+        <section id="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>졸업식은 대개 끝맺음의 의례처럼 보인다. 그러나 이 연설에서 졸업은 시작의 언어다. 세계는 더 친절해지기를 기다리는 것이 아니라, 더 정확히 듣고, 더 공정하게 논증하고, 더 용기 있게 권력을 견제하는 사람들을 필요로 한다.</p>
+          <p>법은 그 자체로 구원이 아니다. 하지만 제대로 쓰일 때 법은 약한 사람에게 목소리를 주고, 폭력 대신 절차를 제공하며, 절망 대신 행동의 가능성을 연다. 그래서 이 졸업식의 가장 오래 남는 문장은 결국 하나로 모인다. 법은 수단이고, 정의가 목적이다.</p>
+        </section>
+      </article>
+
+      <aside class="toc" aria-label="목차">
+        <h2>Contents</h2>
+        <a href="#abstract">Abstract</a>
+        <a href="#findings">Key Findings</a>
+        <a href="#context">Context</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#diagram">Structure</a>
+        <a href="#concepts">Key Concepts</a>
+        <a href="#implications">Implications</a>
+        <a href="#actions">Action Items</a>
+        <a href="#source">Source Notes</a>
+      </aside>
     </div>
-  </nav>
-
-  <main class="wrap article-grid">
-    <article>
-      <section id="abstract" class="abstract">
-        <h2>초록</h2>
-        <p class="lead">이 보고서는 조지타운 대학교 법률 센터 2026년 졸업식 영상의 주요 메시지를 공공 독자를 위한 에디토리얼 아티클 형식으로 재구성한 것이다. 행사의 중심 메시지는 명확하다. 변호사는 단순한 법 기술자가 아니라, 사회의 첨예한 분쟁을 문명적으로 다루고, 권력 남용을 견제하며, 절망의 시대에 행동으로 희망을 만드는 공적 행위자다.</p>
-        <p>데이비드 콜 교수의 축사는 법의 두 기능을 강조한다. 첫째, 법은 갈등을 폭력이나 조롱이 아니라 논증과 절차 안에서 다루는 장이다. 둘째, 법은 권력자가 법 위에 서지 못하게 하는 견제 장치다. 여기에 조지타운의 예수회 전통인 <strong>전인적 인격체, Cura Personalis</strong>가 결합되며, 졸업식은 법률 교육의 목적을 “전문성의 완성”이 아니라 “정의와 봉사를 향한 책임의 시작”으로 제시한다.</p>
-      </section>
-
-      <section id="findings">
-        <h2>핵심 발견</h2>
-        <div class="key-findings">
-          <div class="finding">
-            <div class="num">1</div>
-            <div>
-              <h3>법은 문명적 분쟁 해결의 공적 장이다</h3>
-              <p>좋은 변호사는 상대를 침묵시키는 사람이 아니라, 상대의 가장 강한 논리를 이해한 뒤 더 설득력 있게 응답하는 사람이다.</p>
-            </div>
-          </div>
-          <div class="finding">
-            <div class="num">2</div>
-            <div>
-              <h3>법률 전문직은 권력 남용의 방파제다</h3>
-              <p>법의 지배는 추상적 구호가 아니라, 정부와 권력자가 개인의 자유와 존엄을 침해할 때 실제로 작동해야 하는 제도적 약속이다.</p>
-            </div>
-          </div>
-          <div class="finding">
-            <div class="num">3</div>
-            <div>
-              <h3>희망은 감정이 아니라 행동의 부산물이다</h3>
-              <p>냉소주의는 불의를 방치하게 만든다. 반대로 작은 법적 행동, 시민적 행동, 윤리적 선택은 희망을 생성한다.</p>
-            </div>
-          </div>
-          <div class="finding">
-            <div class="num">4</div>
-            <div>
-              <h3>Cura Personalis는 법률가의 인간 이해를 넓힌다</h3>
-              <p>의뢰인, 상대방, 공동체 구성원을 단일한 정체성으로 축소하지 않고 전체 인간으로 보는 태도가 법률 실무의 윤리적 기반이 된다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <blockquote>
-        “법은 단지 수단일 뿐이고, 정의가 목적이다.”
-        <cite>조지타운 법률 교육의 예수회적 지향으로 제시된 핵심 문장</cite>
-      </blockquote>
-
-      <section id="evidence">
-        <h2>증거와 맥락</h2>
-        <p>졸업식의 메시지는 축하의 언어에 머물지 않는다. 연사들은 졸업생들이 들어서는 세계를 분열, 불평등, 기술 변화, 기후 위기, 민주주의의 취약성으로 설명한다. 이 배경 속에서 법률가는 사회적 갈등을 다루는 전문직이자 공적 책임을 지닌 시민으로 호출된다.</p>
-
-        <div class="evidence" aria-label="주요 수치">
-          <div class="note-card">
-            <div class="stat">20,000+</div>
-            <div class="stat-label">2026년 졸업생들이 수행한 프로 보노 봉사 시간</div>
-          </div>
-          <div class="note-card">
-            <div class="stat">4,000+</div>
-            <div class="stat-label">가족 분리 정책과 관련해 언급된 피해 가족 규모</div>
-          </div>
-          <div class="note-card">
-            <div class="stat">36M+</div>
-            <div class="stat-label">미국 내 빈곤 상태에 있는 사람들로 언급된 규모</div>
-          </div>
-          <div class="note-card">
-            <div class="stat">1789</div>
-            <div class="stat-label">존 캐롤 대주교가 조지타운 설립 기반을 마련한 해</div>
-          </div>
-        </div>
-
-        <h3>졸업식의 구조</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>순서</th>
-              <th>핵심 내용</th>
-              <th>의미</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>개회와 기도</td>
-              <td>종교 간 자문위원회의 공동 기도와 감사</td>
-              <td>다원적 공동체 안에서 경청과 공존의 가치를 확인</td>
-            </tr>
-            <tr>
-              <td>헌장 낭독</td>
-              <td>1815년 연방 헌장과 학위 수여 권한 확인</td>
-              <td>대학의 역사성과 공적 사명을 연결</td>
-            </tr>
-            <tr>
-              <td>축사</td>
-              <td>데이비드 콜 교수의 법, 권력, 희망에 관한 연설</td>
-              <td>법률가의 민주적 책임을 졸업생에게 부여</td>
-            </tr>
-            <tr>
-              <td>학위 수여</td>
-              <td>J.S.D., LL.M., J.D. 및 공동 학위 수여</td>
-              <td>전문성의 완성과 공적 실천의 출발</td>
-            </tr>
-            <tr>
-              <td>폐회사와 축복</td>
-              <td>봉사, 학문적 자유, 평생 학습, 정의 추구 강조</td>
-              <td>졸업생을 대학 공동체의 지속적 구성원으로 선언</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="framework">
-        <h2>분석 프레임: 법률가의 세 가지 책임</h2>
-        <p>이 졸업식은 법률가의 역할을 세 겹으로 제시한다. 논쟁하는 사람, 견제하는 사람, 희망을 만드는 사람이다. 이 세 역할은 서로 분리되지 않는다. 문명적 논쟁은 권력 견제의 언어를 제공하고, 권력 견제는 희망이 허황된 낙관이 아니라 제도적 행동이 되게 한다.</p>
-
-        <div class="flow" aria-label="분석 흐름도">
-          <div>
-            <strong>1. 경청</strong>
-            상대의 논리를 약화해 소비하지 않고, 가장 강한 형태로 이해한다.
-          </div>
-          <div>
-            <strong>2. 논증</strong>
-            법과 절차 안에서 갈등을 다루며 문명적 해결 가능성을 만든다.
-          </div>
-          <div>
-            <strong>3. 견제</strong>
-            권력자가 법 위에 서려 할 때 법의 지배를 구체적으로 작동시킨다.
-          </div>
-          <div>
-            <strong>4. 선택</strong>
-            법을 정의의 도구로 쓸지, 특권의 방패로 쓸지 윤리적으로 결정한다.
-          </div>
-          <div>
-            <strong>5. 희망</strong>
-            기다리는 대신 행동함으로써 냉소와 절망을 약화시킨다.
-          </div>
-        </div>
-
-        <h3>핵심 개념 정리</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>개념</th>
-              <th>설명</th>
-              <th>공적 함의</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>문명적 논쟁</td>
-              <td>상대의 관점을 진지하게 이해하고 절차 안에서 설득하는 태도</td>
-              <td>분열 사회에서 폭력과 조롱을 대체하는 민주적 기술</td>
-            </tr>
-            <tr>
-              <td>법의 지배</td>
-              <td>사람이 아니라 법이 권력을 통제한다는 원칙</td>
-              <td>정부 권한과 개인 자유 사이의 경계 설정</td>
-            </tr>
-            <tr>
-              <td>Cura Personalis</td>
-              <td>사람을 전체적이고 복합적인 존재로 보는 예수회 가치</td>
-              <td>의뢰인과 공동체를 도구화하지 않는 법률 윤리</td>
-            </tr>
-            <tr>
-              <td>행동으로서의 희망</td>
-              <td>희망을 감정이 아니라 실천의 결과로 보는 관점</td>
-              <td>냉소주의를 넘어서는 시민적 참여의 근거</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <blockquote>
-        “정의의 적은 불의가 아니라 절망이다.”
-        <cite>브라이언 스티븐슨의 관점을 빌려 강조된 졸업식의 중심 경고</cite>
-      </blockquote>
-
-      <section id="implications">
-        <h2>시사점</h2>
-        <h3>1. 법률 교육은 기술 훈련을 넘어 시민 훈련이어야 한다</h3>
-        <p>졸업식의 메시지는 법률 교육을 시험, 메모, 판례, 변론 기술의 축적으로만 보지 않는다. 법률 교육은 갈등을 다루는 방식, 권력을 의심하는 습관, 취약한 사람을 전체 인간으로 보는 태도를 함께 길러야 한다.</p>
-
-        <h3>2. 학문적 자유는 대학의 행정 문제가 아니라 민주주의의 기반이다</h3>
-        <p>폐회사에서 언급된 대학의 자율성은 단순한 기관 방어가 아니다. 무엇을 가르치고, 어떻게 가르치며, 누가 가르칠지를 스스로 결정할 수 있어야 대학은 정치 권력의 확성기가 아니라 비판적 사고의 장소로 남는다.</p>
-
-        <h3>3. 법은 중립적 도구가 아니다</h3>
-        <p>법은 정의를 증진할 수도 있고, 약자를 압박하는 언어가 될 수도 있다. 따라서 법률가의 윤리적 선택이 중요하다. 같은 법률 지식도 누구를 위해, 어떤 목적을 위해 쓰이는지에 따라 전혀 다른 사회적 결과를 낳는다.</p>
-      </section>
-
-      <section id="actions">
-        <h2>실천 항목</h2>
-        <p>이 졸업식의 메시지를 개인과 조직의 실천으로 옮기면 다음과 같은 체크리스트가 된다.</p>
-        <ul class="checklist">
-          <li>나를 여기까지 이끈 가족, 친구, 동료, 교사에게 구체적으로 감사 표현하기</li>
-          <li>다른 의견을 가진 사람과도 존중과 절차를 지키며 논쟁하기</li>
-          <li>불의를 보았을 때 방관하지 않고 가능한 법적·시민적 수단을 찾기</li>
-          <li>의뢰인과 상대방을 단일한 정체성으로 축소하지 않기</li>
-          <li>냉소주의를 지적 우월감으로 착각하지 않고 작은 행동을 시작하기</li>
-          <li>“법은 수단, 정의는 목적”이라는 문장을 직업적 판단의 기준으로 삼기</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>독자를 위한 결론</h2>
-        <p>조지타운 로스쿨 2026 졸업식은 한 학교의 의례를 넘어, 법률가가 공적 삶에서 어떤 사람이 되어야 하는지를 묻는 장면이다. 그 답은 화려하지 않다. 더 잘 듣고, 더 정직하게 논증하고, 권력 앞에서 물러서지 않으며, 절망이 편해지는 순간에도 행동하는 것이다.</p>
-        <p>희망은 시대가 좋아질 때 자연스럽게 찾아오는 감정이 아니다. 이 졸업식이 말하는 희망은 법정에서, 교실에서, 공공기관에서, 거리에서, 그리고 매일의 윤리적 선택 속에서 만들어지는 것이다. 법은 그 자체로 목적이 될 수 없다. 법이 향해야 할 이름은 여전히 정의다.</p>
-      </section>
-
-      <section id="sources" class="source-box">
-        <h2>출처 노트</h2>
-        <p>본 문서는 사용자가 제공한 Obsidian Markdown 노트를 바탕으로 작성한 독립형 HTML 연구 보고서다. 원 자료는 Georgetown University 채널의 <a>Law Center Commencement 2026</a> 영상으로 표기되어 있다.</p>
-        <p>영상 임베드는 sanitized mode 요구사항에 따라 제거했으며, JavaScript, iframe, 외부 CSS, 외부 스크립트, 원격 자산을 사용하지 않았다.</p>
-      </section>
-    </article>
-
-    <aside aria-label="요약 사이드바">
-      <div class="side-card">
-        <h2>Article Snapshot</h2>
-        <p><strong>핵심 주장:</strong> 변호사의 일은 법을 다루는 데서 끝나지 않는다. 법을 정의의 방향으로 사용하도록 선택하는 데서 시작된다.</p>
-      </div>
-
-      <div class="side-card">
-        <h3>Copy-Ready Share Text</h3>
-        <p>조지타운 로스쿨 2026 졸업식은 법률가에게 묻는다. 분열과 절망의 시대에 당신은 법을 누구를 위해, 어떤 목적을 위해 사용할 것인가?</p>
-      </div>
-
-      <div class="side-card">
-        <h3>Key Names</h3>
-        <ul>
-          <li>David Cole</li>
-          <li>Bryan Stevenson</li>
-          <li>Cornell West</li>
-          <li>Roberto Unger</li>
-          <li>Thurgood Marshall</li>
-          <li>Ruth Bader Ginsburg</li>
-          <li>Amy Stephens</li>
-        </ul>
-      </div>
-
-      <div class="side-card">
-        <h3>Further Questions</h3>
-        <ul>
-          <li>법률가는 양극화된 사회에서 어떤 방식으로 대화를 회복할 수 있는가?</li>
-          <li>AI 시대의 법률 교육은 어떤 윤리 교육을 강화해야 하는가?</li>
-          <li>학문적 자유를 지키는 법적·사회적 장치는 무엇인가?</li>
-        </ul>
-      </div>
-    </aside>
   </main>
 
   <footer>
     <div class="wrap">
-      <p>Clipped source note date: 2026-05-18 · Standalone sanitized HTML research report · Editorial blog format.</p>
+      Research report converted from an Obsidian Markdown note · Sanitized standalone HTML · No scripts, iframes, external CSS, or remote assets.
     </div>
   </footer>
 </body>
