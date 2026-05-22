@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  
+  
+  <title>우주 데이터센터의 새 경쟁자: 궤도, 해저, 해상으로 이동하는 AI 인프라 전쟁</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #151719;
+      --muted: #626a73;
+      --soft: #eef2f4;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --line: #d9e0e4;
+      --navy: #18324a;
+      --teal: #19747e;
+      --rust: #a6533a;
+      --gold: #c89434;
+      --green: #496b55;
+      --shadow: 0 20px 60px rgba(22, 32, 41, .10);
+      --radius: 8px;
+      --measure: 760px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f2f6f7 0, var(--paper) 420px),
+        var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      padding: 72px 24px 46px;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(25, 116, 126, .16), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(200, 148, 52, .18), transparent 24%),
+        linear-gradient(135deg, #10283e 0%, #223b4c 54%, #efe7d8 54.2%, #f7f2e9 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, rgba(251, 250, 247, .95));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 56px;
+      align-items: end;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: #d7e8e9;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 840px;
+      font-family: ui-serif, Georgia, "Noto Serif KR", "Nanum Myeongjo", serif;
+      font-size: clamp(40px, 7vw, 82px);
+      line-height: 1.06;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      max-width: 740px;
+      margin: 26px 0 0;
+      color: #e8eef0;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.65;
+      text-wrap: balance;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, .92);
+      color: var(--ink);
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: #3f474f;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .article-meta {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 24px 80px;
+      display: grid;
+      grid-template-columns: minmax(0, var(--measure)) 280px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    aside {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+    }
+
+    .toc {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 10px 35px rgba(22, 32, 41, .06);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+
+    .toc a {
+      display: block;
+      padding: 8px 0;
+      border-top: 1px solid #edf1f3;
+      color: #3d4750;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      color: var(--teal);
+    }
+
+    section {
+      margin: 0 0 56px;
+    }
+
+    .lede {
+      padding: 30px 0 10px;
+      font-size: 20px;
+      line-height: 1.78;
+      color: #27313a;
+    }
+
+    .lede p {
+      margin-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-family: ui-serif, Georgia, "Noto Serif KR", "Nanum Myeongjo", serif;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.22;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin: 30px 0 10px;
+      color: #24313d;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .abstract,
+    .share-box,
+    .finding-card,
+    .note-box,
+    .source-notes {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 14px 44px rgba(22, 32, 41, .06);
+    }
+
+    .abstract {
+      padding: 28px;
+      border-top: 4px solid var(--teal);
+    }
+
+    .abstract h2 {
+      margin-bottom: 12px;
+      font-size: 26px;
+    }
+
+    .share-box {
+      margin: 32px 0 0;
+      padding: 22px;
+      background: #f7faf9;
+    }
+
+    .share-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .share-box p {
+      margin: 0;
+      color: #3e4a45;
+      font-size: 16px;
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .finding-card {
+      padding: 22px;
+      border-top: 4px solid var(--gold);
+    }
+
+    .finding-card:nth-child(2) {
+      border-top-color: var(--teal);
+    }
+
+    .finding-card:nth-child(3) {
+      border-top-color: var(--rust);
+    }
+
+    .finding-card:nth-child(4) {
+      border-top-color: var(--green);
+    }
+
+    .finding-card b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .finding-card p {
+      margin: 0;
+      color: #48515a;
+      font-size: 15px;
+    }
+
+    blockquote {
+      margin: 34px 0;
+      padding: 4px 0 4px 28px;
+      border-left: 5px solid var(--rust);
+      color: #24313d;
+      font-family: ui-serif, Georgia, "Noto Serif KR", "Nanum Myeongjo", serif;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.48;
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      font-size: 14px;
+      font-style: normal;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .timeline-item time {
+      color: var(--rust);
+      font-weight: 900;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #3f4850;
+    }
+
+    .table-wrap {
+      margin: 28px 0;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 10px 35px rgba(22, 32, 41, .05);
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid #e8edf0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf4f5;
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(25, 116, 126, .08), transparent),
+        #fff;
+      box-shadow: 0 12px 38px rgba(22, 32, 41, .06);
+    }
+
+    .diagram-title {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow span {
+      display: grid;
+      place-items: center;
+      min-height: 88px;
+      padding: 12px;
+      border: 1px solid #d8e2e5;
+      border-radius: var(--radius);
+      background: #f8fbfb;
+      color: #29343d;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.45;
+    }
+
+    .flow span:nth-child(2) {
+      background: #fff8ea;
+    }
+
+    .flow span:nth-child(3) {
+      background: #f3f8f3;
+    }
+
+    .flow span:nth-child(4) {
+      background: #f9efec;
+    }
+
+    .note-box {
+      padding: 22px;
+      background: #fffaf1;
+      border-color: #ead9b5;
+    }
+
+    .note-box strong {
+      color: #7a4a16;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 22px 0 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 16px 18px 16px 44px;
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 17px;
+      top: 16px;
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .source-notes {
+      padding: 28px;
+      background: #f8f9f8;
+    }
+
+    .source-notes h2 {
+      font-size: 28px;
+    }
+
+    .source-notes ol {
+      padding-left: 22px;
+      margin: 0;
+    }
+
+    .source-notes li {
+      margin: 0 0 12px;
+      color: #46505a;
+    }
+
+    .ending {
+      padding: 34px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .ending p:first-child {
+      color: var(--navy);
+      font-family: ui-serif, Georgia, "Noto Serif KR", "Nanum Myeongjo", serif;
+      font-size: 28px;
+      line-height: 1.48;
+    }
+
+    footer {
+      padding: 34px 24px 54px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      background: #f2f4f3;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-inner,
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 560px;
+      }
+
+      aside {
+        position: static;
+        order: -1;
+      }
+
+      .toc {
+        display: none;
+      }
+
+      .findings-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero,
+      .article-meta,
+      main,
+      footer {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .abstract,
+      .share-box,
+      .finding-card,
+      .note-box,
+      .source-notes,
+      .diagram {
+        padding: 20px;
+      }
+
+      blockquote {
+        padding-left: 18px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .hero {
+        color: var(--ink);
+        background: #fff;
+        padding-bottom: 24px;
+      }
+
+      .hero::after,
+      aside {
+        display: none;
+      }
+
+      main,
+      .hero-inner {
+        display: block;
+        max-width: 780px;
+      }
+
+      .hero-card,
+      .finding-card,
+      .abstract,
+      .source-notes {
+        box-shadow: none;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="우주 데이터센터의 새로운 경쟁자가 출현했나?">
+<meta property="og:description" content="[!Reflection] $1 우주 데이터센터의 새로운 경쟁자가 출현했나? $1 2026\. 5. 17. 0:10 $1 연합과 인터뷰한 기사가 나와서 관련 글을 쓴적이 있다. $1$1인터뷰를 하는 질문 내용중에 관심있게 보는 산업과 종목에 대한 질문이 있어서 다음과 같이 답변을 했다. \관심 있게 보는 산업과 종목은. ▲">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/19lhrdd/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="우주 데이터센터의 새로운 경쟁자가 출현했나?">
+<meta name="twitter:description" content="[!Reflection] $1 우주 데이터센터의 새로운 경쟁자가 출현했나? $1 2026\. 5. 17. 0:10 $1 연합과 인터뷰한 기사가 나와서 관련 글을 쓴적이 있다. $1$1인터뷰를 하는 질문 내용중에 관심있게 보는 산업과 종목에 대한 질문이 있어서 다음과 같이 답변을 했다. \관심 있게 보는 산업과 종목은. ▲">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/19lhrdd/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="kicker">Research Report · AI Infrastructure</p>
+          <h1>우주 데이터센터의 새 경쟁자: 궤도, 해저, 해상으로 이동하는 AI 인프라 전쟁</h1>
+          <p class="subtitle">AI 데이터센터의 병목은 더 이상 서버 성능만의 문제가 아니다. 전력, 냉각, 부지, 인허가가 동시에 막히면서 데이터센터의 무대가 지상 밖으로 확장되고 있다.</p>
+        </div>
+        <div class="hero-card" aria-label="Article summary">
+          <strong>Share framing</strong>
+          <p>우주 데이터센터는 장기 옵션, 부유식 해상 데이터센터는 가까운 현실이다. 승부처는 발사비, 냉각, 전력 조달, 그리고 칩 교체 가능성이다.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-meta">
+      <span class="pill">원문 기반 재구성</span>
+      <span class="pill">작성일 2026.05.18</span>
+      <span class="pill">주제: 우주 데이터센터 · FDC · 냉각 인프라</span>
+    </div>
+
+    <main>
+      <article class="content">
+        <section class="lede" id="overview">
+          <p>AI 시대의 데이터센터는 전력을 먹고 열을 뿜는 거대한 산업 설비가 됐다. 고성능 GPU와 AI 가속기가 늘어날수록 전력망 접속, 냉각 효율, 지역 주민 수용성, 부지 확보가 모두 병목으로 떠오른다.</p>
+          <p>이 글은 우주 데이터센터, 해저 데이터센터, 부유식 해상 데이터센터라는 세 가지 대안을 비교한다. 핵심 질문은 단순하다. “AI 연산을 어디에 두는 것이 가장 싸고 빠르며 오래 확장 가능한가?”</p>
+
+          <div class="share-box">
+            <strong>Social-ready excerpt</strong>
+            <p>지상 데이터센터의 한계가 뚜렷해지자, AI 인프라는 우주와 바다로 이동하고 있다. 우주는 발사비가 관건이고, 해저는 유지보수가 약점이며, 부유식 해상 데이터센터는 가장 빠르게 상용화될 가능성이 있다.</p>
+          </div>
+        </section>
+
+        <section class="abstract" id="abstract">
+          <h2>초록</h2>
+          <p>AI 데이터센터의 급증은 냉각, 전력망, 부지 인허가 문제를 확대하고 있다. 이에 따라 중국의 우주 AI 데이터센터 구상, 스페이스X와 xAI의 우주 데이터센터 논의, 마이크로소프트의 해저 데이터센터 실험, 일본·한국 조선업계의 부유식 해상 데이터센터 프로젝트가 새로운 인프라 대안으로 부상했다.</p>
+          <p>우주 데이터센터는 장기적으로 전력과 부지 문제를 우회할 수 있지만 발사비와 복사냉각이 관건이다. 해저 데이터센터는 냉각과 안정성 측면에서 가능성을 보였으나 최신 AI 칩 교체가 어렵다. 부유식 해상 데이터센터는 해수 냉각, 발전소 인접 배치, 이동성, 빠른 구축 속도 때문에 상대적으로 가까운 상용화 후보로 평가된다.</p>
+        </section>
+
+        <section id="findings">
+          <h2>핵심 발견</h2>
+          <div class="findings-grid">
+            <div class="finding-card">
+              <b>냉각은 AI 데이터센터의 중심 전쟁터다</b>
+              <p>HVAC, 칠러, 액침 냉각, 해수 냉각, 복사냉각까지 냉각 방식의 선택이 데이터센터 입지와 비용 구조를 좌우한다.</p>
+            </div>
+            <div class="finding-card">
+              <b>우주 데이터센터의 임계값은 발사비다</b>
+              <p>kg당 발사비가 500달러 수준에 가까워질수록 우주 데이터센터의 비용 경쟁 가능성이 커진다는 관측이 제시된다.</p>
+            </div>
+            <div class="finding-card">
+              <b>해저 데이터센터는 기술보다 운영성이 문제였다</b>
+              <p>마이크로소프트의 실험은 고장률 측면에서 긍정적이었지만, 봉인된 구조 탓에 최신 AI 칩 교체가 어렵다는 한계를 드러냈다.</p>
+            </div>
+            <div class="finding-card">
+              <b>부유식 해상 데이터센터는 가장 가까운 대안이다</b>
+              <p>선박 개조, 발전소 인접 배치, 해수 냉각, 짧은 구축 기간이 결합되며 조선업과 데이터센터 산업의 접점이 생기고 있다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="cooling">
+          <h2>데이터센터의 첫 번째 병목: 열</h2>
+          <p>AI 데이터센터는 기존 클라우드 데이터센터보다 열 밀도가 높다. GPU 클러스터가 촘촘하게 배치될수록 서버룸의 공조 방식만으로는 한계가 생기고, 칠러·액침 냉각·냉각수 루프·외기 활용 등 복합 냉각 기술이 중요해진다.</p>
+          <p>이 때문에 삼성전자와 LG전자 같은 전자·공조 기업도 데이터센터 냉각 시장에 진입하고 있다. 삼성전자는 HVAC 역량 확보를 위해 인수합병을 택했고, LG전자는 칠러 중심의 공조 사업 확장으로 대응하고 있다. 글로벌 시장에서는 존슨컨트롤스, 트레인, 다이킨, 캐리어, 버티브 같은 기업들이 앞서 있는 구도다.</p>
+
+          <blockquote>
+            AI 데이터센터의 경쟁력은 칩 성능만으로 결정되지 않는다. 같은 전력을 더 오래, 더 차갑게, 더 안정적으로 쓰는 능력이 인프라의 격차를 만든다.
+            <cite>편집 재구성</cite>
+          </blockquote>
+
+          <div class="note-box">
+            <p><strong>관찰 포인트:</strong> 냉각 기술은 단순한 보조 설비가 아니라 데이터센터의 입지, 설비 투자비, 운영비, 확장 속도를 결정하는 핵심 인프라가 되고 있다.</p>
+          </div>
+        </section>
+
+        <section id="space">
+          <h2>우주 데이터센터: 가능성은 커졌지만 냉각은 더 어렵다</h2>
+          <p>우주 데이터센터의 논리는 매력적이다. 지상 부지와 주민 반대, 전력망 접속 문제를 우회하고, 태양광 에너지를 직접 활용할 수 있다는 구상이다. 중국은 “삼체 컴퓨팅 별자리”라는 이름으로 지구 궤도에 상호 연결된 위성 기반 AI 데이터센터를 구축하는 계획을 추진하고 있으며, 장기적으로 2,800기 규모의 위성군을 목표로 제시한 것으로 정리된다.</p>
+          <p>하지만 우주는 냉각 측면에서 지상보다 불리하다. 지상에서는 공기 대류와 액체 냉각을 조합할 수 있지만, 우주에 가까운 진공 환경에서는 열을 방출하는 주요 방식이 복사냉각이다. 이는 큰 방열판과 정교한 열 설계를 요구하고, 결국 발사 중량과 비용 문제로 연결된다.</p>
+
+          <div class="diagram" aria-label="Space data center constraint diagram">
+            <p class="diagram-title">우주 데이터센터의 비용 구조</p>
+            <div class="flow">
+              <span>AI 연산 수요 증가</span>
+              <span>전력·부지 병목</span>
+              <span>우주 태양광·위성망 구상</span>
+              <span>발사비·복사냉각이 관문</span>
+            </div>
+          </div>
+
+          <p>스페이스X의 스타십 같은 초대형 재사용 로켓은 이 구상의 핵심 변수다. 발사비가 kg당 500달러 수준에 근접하면 우주 데이터센터가 지상 데이터센터와 비용 경쟁을 시작할 수 있다는 계산이 제시된다. 더 낮은 내부 발사원가나 높은 재사용률이 현실화되면 장기적인 경제성은 더 강해질 수 있다.</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <time>2025년</time>
+              <p>중국의 우주 데이터센터 구상이 본격적으로 언급되고, 초기 위성 발사와 위성군 확장 계획이 주목받는다.</p>
+            </div>
+            <div class="timeline-item">
+              <time>2026년</time>
+              <p>스페이스X, xAI, 스타십, 우주 태양광 발전 구상이 연결되며 우주 AI 인프라 논의가 확대된다.</p>
+            </div>
+            <div class="timeline-item">
+              <time>2030년 목표</time>
+              <p>중국은 대규모 위성군을 단계적으로 확대해 우주 기반 AI 연산 인프라를 구축하려는 장기 목표를 제시한다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="undersea">
+          <h2>해저 데이터센터: 냉각은 해결했지만 교체성이 막혔다</h2>
+          <p>마이크로소프트가 실험한 해저 데이터센터는 바다를 자연 냉각원으로 활용한다는 점에서 강력한 아이디어였다. 2018년 스코틀랜드 오크니섬 인근에 서버 설비를 해저에 설치했고, 2년 뒤 회수해 성능을 확인했다. 고장률이 낮게 나오는 등 기술적 가능성은 확인됐다.</p>
+          <p>문제는 유지보수와 업그레이드였다. 해저 데이터센터는 수명이 다할 때까지 봉인되는 구조에 가깝다. 일반 클라우드 서버라면 긴 교체 주기가 허용될 수 있지만, AI 인프라에서는 최신 GPU와 가속기의 세대 교체 속도가 사업 경쟁력과 직결된다. 칩을 바꾸기 어렵다는 점은 치명적인 제약이 됐다.</p>
+        </section>
+
+        <section id="fdc">
+          <h2>부유식 해상 데이터센터: 새 경쟁자의 등장</h2>
+          <p>부유식 해상 데이터센터, 즉 FDC는 해저 데이터센터의 장점과 약점을 재조합한 모델이다. 데이터센터를 바다속에 봉인하지 않고 해상 플랫폼이나 개조 선박 위에 올린다. 냉각은 해수를 활용하고, 장비 교체와 정비는 해상에서 수행한다.</p>
+          <p>일본에서는 MOL, 히타치, NYK, NTT 등이 자동차운반선을 데이터센터로 개조하는 프로젝트를 추진하고 있다. 목표 시점은 2027년 가동으로 정리된다. 한국에서는 삼성중공업이 50MW급 부유식 해상 데이터센터 개념설계 인증을 획득했고, 발전선·FSRU·FLNG 같은 해양 에너지 인프라와 연결하는 구상이 제시된다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>유형</th>
+                  <th>핵심 장점</th>
+                  <th>주요 약점</th>
+                  <th>상용화 감각</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>지상 데이터센터</td>
+                  <td>기존 운영 경험, 유지보수 용이, 인력 접근성</td>
+                  <td>부지·전력망·인허가·주민 반대</td>
+                  <td>현재 주류이나 확장 병목 심화</td>
+                </tr>
+                <tr>
+                  <td>우주 데이터센터</td>
+                  <td>부지 제약 완화, 우주 태양광 활용 가능성, 장기 확장성</td>
+                  <td>발사비, 복사냉각, 수리·교체 난도</td>
+                  <td>장기 옵션</td>
+                </tr>
+                <tr>
+                  <td>해저 데이터센터</td>
+                  <td>강력한 자연 냉각, 낮은 고장률 가능성</td>
+                  <td>봉인 구조, 최신 AI 칩 교체 어려움</td>
+                  <td>실험 성공 후 확장 제한</td>
+                </tr>
+                <tr>
+                  <td>부유식 해상 데이터센터</td>
+                  <td>해수 냉각, 장비 교체 가능, 발전소 인접 배치, 이동성</td>
+                  <td>해상 운영비, 기상 리스크, 지상 대비 비용 증가 가능성</td>
+                  <td>비교적 가까운 상용화 후보</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>FDC의 장점은 속도다. 지상 데이터센터는 부지 매입, 인허가, 송전망 연결, 건설까지 5~7년이 걸릴 수 있다. 반면 개조 또는 건조된 해상 데이터센터가 있다면 발전소 인근에 정박해 몇 달 안에 전력 연결과 가동을 시도할 수 있다는 논리다.</p>
+        </section>
+
+        <section id="implications">
+          <h2>투자와 산업의 함의</h2>
+          <p>데이터센터의 입지가 지상에서 우주와 바다로 넓어지면 수혜 산업도 달라진다. 서버와 반도체뿐 아니라 공조, 조선, 해양플랜트, 발전선, 위성통신, 재사용 로켓, 전력 인프라가 모두 같은 테마 안으로 들어온다.</p>
+          <ul class="checklist">
+            <li>냉각 기업은 AI 인프라의 필수 공급망으로 재평가될 가능성이 있다.</li>
+            <li>재사용 로켓의 발사비 하락은 우주 데이터센터 경제성의 핵심 촉매다.</li>
+            <li>조선업은 FDC, 발전선, FSRU, FLNG와 결합해 데이터센터 인프라 시장에 진입할 수 있다.</li>
+            <li>AI 칩의 빠른 세대 교체는 데이터센터 모델 선택에서 유지보수성을 중요한 변수로 만든다.</li>
+            <li>전력망 병목이 심한 지역에서는 이동식·해상형 데이터센터의 매력이 커질 수 있다.</li>
+          </ul>
+
+          <blockquote>
+            우주 데이터센터는 미래의 선택지이고, 부유식 해상 데이터센터는 더 가까운 실험장이다. 둘 다 같은 문제에서 출발한다. 지상 데이터센터만으로는 AI 수요를 따라가기 어렵다는 점이다.
+            <cite>편집 재구성</cite>
+          </blockquote>
+        </section>
+
+        <section class="source-notes" id="notes">
+          <h2>소스 노트와 해석 기준</h2>
+          <ol>
+            <li>이 문서는 제공된 Obsidian Markdown 원문을 바탕으로 공개용 리서치 리포트 형식에 맞춰 재구성한 편집본이다.</li>
+            <li>원문 출처는 네이버 블로그 글 “우주 데이터센터의 새로운 경쟁자가 출현했나?”이며, 작성자로 “메르”가 표시되어 있다.</li>
+            <li>본문의 기업명, 프로젝트명, 날짜, 수치들은 원문에 포함된 서술을 기준으로 정리했다. 일부 표현은 독자 친화성을 위해 요약·재배열했다.</li>
+            <li>투자 판단을 위한 확정적 권유가 아니라 산업 구조와 관찰 포인트를 정리한 리서치 형식의 글이다.</li>
+          </ol>
+        </section>
+
+        <section class="ending" id="closing">
+          <p>데이터센터 경쟁은 이제 “어떤 칩을 쓰는가”에서 “그 칩을 어디에서, 어떤 전력과 냉각으로 돌리는가”로 확장되고 있다.</p>
+          <p>우주 데이터센터가 게임 체인저가 되려면 발사비와 복사냉각의 벽을 넘어야 한다. 해저 데이터센터는 냉각 실험에서는 강점을 보였지만 교체성에서 막혔다. 반면 부유식 해상 데이터센터는 완벽한 해답은 아니어도, 전력망 병목과 인허가 지연을 우회할 수 있는 현실적인 중간 경로로 보인다.</p>
+          <p>따라서 앞으로 볼 지표는 명확하다. 스타십급 로켓의 발사비, 우주 태양광의 실증 속도, FDC의 실제 전력 조달 비용, 그리고 해상 운영 환경에서의 서버 안정성이다. AI 인프라의 다음 전장은 지상 서버룸이 아니라 궤도와 바다 위에서 열릴 가능성이 커지고 있다.</p>
+        </section>
+      </article>
+
+      <aside aria-label="Table of contents">
+        <nav class="toc">
+          <h2>Contents</h2>
+          <a href="#overview">개요</a>
+          <a href="#abstract">초록</a>
+          <a href="#findings">핵심 발견</a>
+          <a href="#cooling">냉각 병목</a>
+          <a href="#space">우주 데이터센터</a>
+          <a href="#undersea">해저 데이터센터</a>
+          <a href="#fdc">부유식 해상 데이터센터</a>
+          <a href="#implications">산업적 함의</a>
+          <a href="#notes">소스 노트</a>
+        </nav>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>Standalone editorial HTML report · No JavaScript, no external assets · Based on the provided Obsidian Markdown note.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
