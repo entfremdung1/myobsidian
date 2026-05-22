@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Law Center Commencement 2026</title>
+  <style>
+    :root{
+      --bg:#f7f4ee;
+      --paper:#fffdf8;
+      --ink:#20201d;
+      --muted:#6d685f;
+      --line:#ded6c8;
+      --accent:#7b1e2b;
+      --accent-2:#0f5f65;
+      --soft:#efe7dc;
+      --soft-blue:#e8f1f1;
+      --quote:#f8eadf;
+      --shadow:0 18px 50px rgba(40,32,20,.10);
+      --radius:18px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(123,30,43,.10), transparent 34rem),
+        linear-gradient(180deg,#fbf8f2 0%,var(--bg) 42%,#f5f1ea 100%);
+      color:var(--ink);
+      font-family: ui-serif, Georgia, "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+      line-height:1.78;
+      word-break:keep-all;
+    }
+    a{color:var(--accent);text-decoration-thickness:.08em;text-underline-offset:.18em}
+    .page{max-width:var(--max);margin:0 auto;padding:32px 22px 80px}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      padding:56px 0 34px;
+      border-bottom:1px solid var(--line);
+    }
+    .kicker{
+      font:700 12px/1.2 ui-sans-serif,system-ui,sans-serif;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    h1{
+      margin:.2em 0 .25em;
+      font-size:clamp(2.4rem,7vw,5.7rem);
+      line-height:.98;
+      letter-spacing:0;
+      max-width:920px;
+    }
+    .subtitle{
+      max-width:780px;
+      color:#47423c;
+      font-size:clamp(1.05rem,2vw,1.35rem);
+      line-height:1.75;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+      font:600 13px/1.3 ui-sans-serif,system-ui,sans-serif;
+      color:var(--muted);
+    }
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,253,248,.72);
+      padding:8px 11px;
+      border-radius:999px;
+    }
+    .layout{
+      display:grid;
+      grid-template-columns:270px minmax(0,1fr);
+      gap:42px;
+      align-items:start;
+      margin-top:34px;
+    }
+    nav{
+      position:sticky;
+      top:18px;
+      background:rgba(255,253,248,.82);
+      backdrop-filter:blur(14px);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      font-family:ui-sans-serif,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    }
+    nav h2{margin:0 0 12px;font-size:14px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+    nav a{
+      display:block;
+      padding:8px 8px;
+      border-radius:9px;
+      color:#3b3731;
+      text-decoration:none;
+      font-size:14px;
+      line-height:1.35;
+    }
+    nav a:hover,nav a.active{background:var(--soft);color:var(--accent)}
+    .nav-actions{display:grid;gap:8px;margin-top:14px}
+    button{
+      border:1px solid var(--line);
+      background:#fffaf1;
+      color:#342f29;
+      border-radius:10px;
+      padding:9px 11px;
+      font:700 13px/1 ui-sans-serif,system-ui,sans-serif;
+      cursor:pointer;
+    }
+    button:hover{border-color:#c8b9a5;background:#fff4df}
+    main{min-width:0}
+    section.article-section{
+      background:rgba(255,253,248,.78);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:clamp(24px,4vw,42px);
+      margin-bottom:24px;
+      box-shadow:0 10px 30px rgba(40,32,20,.055);
+    }
+    h2{
+      margin:0 0 20px;
+      font-size:clamp(1.55rem,3vw,2.35rem);
+      line-height:1.18;
+      letter-spacing:0;
+    }
+    h3{
+      margin:2.1em 0 .65em;
+      color:#2a2824;
+      font-size:1.18rem;
+      line-height:1.35;
+    }
+    h3:first-child{margin-top:0}
+    p{margin:0 0 1.05em}
+    ul,ol{padding-left:1.35em;margin:0 0 1.2em}
+    li{margin:.35em 0}
+    strong{color:#171512}
+    .video-card{
+      background:linear-gradient(135deg,#2b2723,#5b1d28);
+      color:#fff7ef;
+      border-radius:16px;
+      padding:28px;
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .video-card:after{
+      content:"";
+      position:absolute;
+      inset:auto -80px -110px auto;
+      width:260px;height:260px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:50%;
+    }
+    .video-card a{color:#fff;text-decoration-color:rgba(255,255,255,.45)}
+    .video-title{font-size:1.6rem;line-height:1.25;font-weight:800;max-width:620px}
+    .callout{
+      border-left:5px solid var(--accent-2);
+      background:var(--soft-blue);
+      border-radius:14px;
+      padding:20px 22px;
+      margin:18px 0 24px;
+    }
+    .callout.summary{border-left-color:var(--accent);background:#faece5}
+    .callout.tip{border-left-color:#8a6b12;background:#fbf2d8}
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 10px;
+      font:800 12px/1 ui-sans-serif,system-ui,sans-serif;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    blockquote.pull{
+      margin:30px 0;
+      padding:24px 28px;
+      border-left:6px solid var(--accent);
+      background:var(--quote);
+      border-radius:0 16px 16px 0;
+      font-size:1.2rem;
+      line-height:1.7;
+      color:#31261f;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+      margin:18px 0 12px;
+    }
+    .mini-card{
+      background:#fffaf1;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+    }
+    .mini-card h3{margin:0 0 8px;font-size:1rem;color:var(--accent)}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:18px 0 22px;
+      font-family:ui-sans-serif,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+      font-size:.95rem;
+      background:#fffaf3;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      display:table;
+    }
+    th,td{border-bottom:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
+    th{background:#efe4d4;color:#3d3028;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+    tr:last-child td{border-bottom:0}
+    .checklist li{list-style:none;position:relative}
+    .checklist li:before{
+      content:"□";
+      position:absolute;
+      left:-1.35em;
+      color:var(--accent);
+      font-weight:800;
+    }
+    details{
+      border:1px solid var(--line);
+      background:#fffaf2;
+      border-radius:14px;
+      padding:0;
+      margin:14px 0;
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:15px 18px;
+      font:800 15px/1.35 ui-sans-serif,system-ui,sans-serif;
+      color:#342f29;
+      background:#f3eadc;
+    }
+    details .inside{padding:18px 20px}
+    .clipped{
+      margin-top:36px;
+      color:var(--muted);
+      font:600 13px/1.4 ui-sans-serif,system-ui,sans-serif;
+      text-align:center;
+    }
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr}
+      nav{position:relative;top:0}
+      .grid{grid-template-columns:1fr}
+      section.article-section{padding:24px 18px}
+      body{word-break:normal}
+    }
+    @media print{
+      body{background:#fff}
+      nav,.nav-actions,button{display:none}
+      .page{max-width:none;padding:0}
+      section.article-section{box-shadow:none;break-inside:avoid}
+      a{color:#000}
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Law Center Commencement 2026">
+<meta property="og:description" content="Video &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/https://www.youtube.com/live/lv2lcwCT4X0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;acceleromete">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/1mqktdg/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Law Center Commencement 2026">
+<meta name="twitter:description" content="Video &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/https://www.youtube.com/live/lv2lcwCT4X0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;acceleromete">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1mqktdg/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="kicker">Georgetown University · Deep Learning Note</div>
+      <h1>Law Center Commencement 2026</h1>
+      <p class="subtitle">분열된 세상에서 변호사가 법을 통해 분쟁을 문명적으로 해결하고, 권력을 견제하며, 행동으로 희망을 만들어야 한다는 메시지를 중심으로 정리한 졸업식 분석 노트.</p>
+      <div class="meta">
+        <span class="pill">Created: 2026-05-18</span>
+        <span class="pill">Category: Education</span>
+        <span class="pill">Tags: youtube, deep-analysi</span>
+        <span class="pill">Topics: 법률 교육 · 시민의 자유 · 정의와 봉사 · 희망과 행동</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav aria-label="문서 목차">
+        <h2>Contents</h2>
+        <a href="#video">Video</a>
+        <a href="#summary">1. Executive Summary</a>
+        <a href="#chapters">2. Chapter Analysis</a>
+        <a href="#concepts">3. Key Concepts</a>
+        <a href="#notes">4. Detailed Notes</a>
+        <a href="#actions">5. Action Items</a>
+        <a href="#feynman">6. Feynman Explanation</a>
+        <a href="#my-notes">7. My Notes</a>
+        <div class="nav-actions">
+          <button type="button" id="copyOutline">Copy Outline</button>
+          <button type="button" id="toggleDetails">Expand Sections</button>
+        </div>
+      </nav>
+
+      <main>
+        <section id="video" class="article-section">
+          <h2>Video</h2>
+          <div class="video-card">
+            <div>
+              <div class="label">Source</div>
+              <div class="video-title">Law Center Commencement 2026</div>
+              <p>Channel: Georgetown University<br>Published: 2026-05-18T05:57:39-07:00</p>
+            </div>
+            <p><a href="https://www.youtube.com/live/lv2lcwCT4X0">Open original YouTube source</a></p>
+          </div>
+        </section>
+
+        <section id="summary" class="article-section">
+          <h2>1. Executive Summary</h2>
+          <div class="callout summary">
+            <div class="label">Executive Summary</div>
+            <p>이 영상은 조지타운 로스쿨 2026년 졸업식으로, 분열된 세상에서 변호사들이 분쟁을 해결하고 권력을 견제하며 희망의 주체로서 행동해야 한다는 핵심 메시지를 전달합니다.</p>
+            <ol>
+              <li>변호사는 법을 통해 사회의 첨예한 분쟁을 문명적으로 해결하는 중요한 역할을 합니다.</li>
+              <li>법률 전문직은 권력 남용을 견제하고 정의와 자유를 옹호하는 데 필수적입니다.</li>
+              <li>졸업생들은 ‘전인적 인격체’(cura personalis)를 이해하고, 냉소주의에 맞서 행동함으로써 희망을 만들어내는 주체가 되어야 합니다.</li>
+            </ol>
+            <p>이 영상은 졸업식을 구성하는 환영사, 기도, 헌장 낭독, 축사, 학위 수여, 폐회사를 순차적으로 보여줍니다. 주로 조지타운 로스쿨 졸업생과 그 가족, 친구들, 교직원 및 동문들을 대상으로 하여 법률 전문가로서의 책임감과 사명을 강조합니다.</p>
+          </div>
+        </section>
+
+        <section id="chapters" class="article-section">
+          <h2>2. Chapter Analysis</h2>
+
+          <details open>
+            <summary>환영 및 개회</summary>
+            <div class="inside">
+              <p>딘 타이틀바운드(Dean Titlebound)가 조지타운 대학교 법률 센터 2026년 졸업식의 시작을 알립니다. 그는 오늘날의 역사적인 155기 졸업생들을 축하하며, 참석한 가족과 친구들에게 감사 인사를 전합니다. 식순의 첫 부분으로, 모든 참석자들에게 기립하여 라 카펠라(La Capella)와 졸업생들이 부르는 국가를 경청해 줄 것을 요청합니다. 이후, 법률 센터의 ‘종교 간 자문위원회’ 학생 및 창립 멤버들을 단상으로 초청하여 개회 기도를 진행합니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>개회 기도</summary>
+            <div class="inside">
+              <p>종교 간 자문위원회(Interfaith Advisory Council)를 대표하는 카알리 캣(Carly Kat), 이안 스태플턴(Ian Stapleton), 타하세드(Tahased), 토미 와인스타인(Tommy Weinstein)이 단상에 올라 공동 기도를 올립니다. 그들은 2023년 9월에 위원회가 설립되었고, 2023년 10월의 어려운 시기에도 불구하고 무슬림, 가톨릭, 기독교, 유대교, 다르마 학생들이 정치나 신학적 견해 변경 강요 없이 서로 경청하고 공간을 마련하기 위해 모였다고 설명합니다.</p>
+              <p>지난 3년간 봉사, 감사, 빛, 금식과 같은 공통 주제를 중심으로 다양한 행사를 개최해 왔으며, 이러한 정신으로 오늘 졸업식을 공동 기도로 시작한다고 말합니다. 그들은 하느님께 부모님과 가족, 교수님, 친구들에게 감사할 수 있도록 도와달라고 요청하며, 이 감사가 행동으로 이어져 법 지식을 정의와 해방의 수단으로 사용할 수 있도록 인도해 달라고 기도합니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>조지타운 헌장 낭독</summary>
+            <div class="inside">
+              <p>딘 타이틀바운드는 설립자인 존 캐롤(John Carroll) 대주교가 1789년에 땅을 소유했으며, 1815년에 학생 수가 100명을 넘자 연방 헌장을 신청했다고 설명합니다. 이 헌장은 미국 공화국 역사상 최초의 연방 헌장이며, 미국 헌법의 아버지인 제임스 매디슨 대통령이 서명했습니다.</p>
+              <p>마리 맷슨(Marie Matson)은 1815년 3월 1일에 제임스 매디슨 대통령이 승인한 콜롬비아 특별구 조지타운 대학에 관한 법률인 연방 헌장을 낭독합니다. 이 헌장은 대학이 학생들에게 학위 및 학술 명예를 수여할 수 있는 권한을 부여하는 내용을 담고 있습니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>축사 연사 소개: 데이비드 콜 교수</summary>
+            <div class="inside">
+              <p>딘 타이틀바운드는 축사 연사인 데이비드 콜(David Cole) 교수를 소개합니다. 콜 교수는 수정헌법 제1조 분야의 선도적인 전문가이며, 조지타운 로스쿨의 명예 조지 J. 미첼(George J. Mitchell) 교수이자 미국 시민자유연맹(ACLU)의 전 전국 법률 국장입니다.</p>
+              <p>그는 40년 동안 헌법 변호사로서 여러 중요한 대법원 사건을 변론했습니다. 예로는 깃발 소각에 수정헌법 제1조 보호를 확대한 1989년 <em>Texas v. Johnson</em>, 성적 지향 및 성 정체성에 따른 차별을 1964년 민권법 제7조에 따른 성차별로 인정한 2020년 <em>Bostock v. Clayton County</em>, 그리고 2024년 <em>NRA v. VUO</em> 사건이 언급됩니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>축사: 데이비드 콜 교수</summary>
+            <div class="inside">
+              <p>데이비드 콜 교수는 자신을 졸업식의 ‘두 번째 선택’ 연사로 소개하며, 원래 연사가 철회한 상황을 농담조로 ‘대체 교사’라고 표현합니다. 그는 다른 의견을 가진 사람들의 말에 귀 기울이는 것의 중요성을 강조하며, 대학이 원래 연사의 초청을 취소하지 않은 것을 옹호합니다.</p>
+              <p>그는 졸업생들이 팬데믹, 스마트폰 중독, 인공지능의 불안감 등 독특한 도전 속에서도 법률 메모를 작성하고, 법률 용어를 배우며, 스터디 그룹을 만들고, 20,000시간 이상의 공익 활동을 수행한 것을 칭찬합니다.</p>
+
+              <blockquote class="pull">법은 단지 수단일 뿐이고, 정의가 목적이다.</blockquote>
+
+              <p>콜 교수는 졸업생들이 분열된 국가, 급진적으로 불평등한 사회, 기후 변화에 시달리는 세계, 당파적 게리맨더링과 민주주의의 타락, 그리고 사법 시스템의 왜곡이라는 현실에 발을 디딘다고 경고합니다. 그는 민주주의에서 법과 변호사가 수행하는 두 가지 필수 기능을 설명합니다.</p>
+
+              <div class="grid">
+                <div class="mini-card">
+                  <h3>기능 1: 문명적 분쟁 해결</h3>
+                  <p>법은 가장 첨예한 분쟁을 문명적으로 해결하는 장입니다. 좋은 변호사는 상대방을 존중하며 개방적이고 문명적인 방식으로 논쟁하는 법을 배웁니다.</p>
+                </div>
+                <div class="mini-card">
+                  <h3>기능 2: 권력 남용 견제</h3>
+                  <p>법과 변호사는 권력 남용을 견제합니다. ACLU에서 가족 분리 정책에 맞서 싸운 사례는 법이 권력에 맞서는 모습을 보여줍니다.</p>
+                </div>
+              </div>
+
+              <p>그는 법이 고귀한 직업이 될 수 있지만, 동시에 악용될 수도 있음을 인정합니다. 졸업생들은 정의를 옹호하는 방식 또는 정의를 방해하는 방식으로 실천할 수 있는 선택에 직면할 것이며, 조지타운 로스쿨 동문으로서 올바른 편에 서기를 바란다고 역설합니다.</p>
+
+              <blockquote class="pull">정의의 적은 불의가 아니라 절망이다.</blockquote>
+
+              <p>콜 교수는 희망이 행동의 결과라는 관점을 제시합니다. 우리가 희망을 가지고 태어나서 행동하는 것이 아니라, 행동을 선택할 때 희망을 만들어낸다는 의미입니다. 그는 2026년 조지타운 졸업생들에게 희망의 주체가 되어 일어서라고 독려하며 축사를 마무리합니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>학위 수여</summary>
+            <div class="inside">
+              <p>딘 타이틀바운드와 로버트 M. 그로브스(Robert M. Groves) 총장이 단상에 올라 졸업생들에게 학위를 수여합니다. 법학박사(J.S.D.), 법학석사(LL.M.), 공동 학위, 이그제큐티브 법학석사, 법률 연구 석사, 법무박사(J.D.) 후보자들이 순차적으로 호명되어 학위를 받습니다.</p>
+              <p>LL.M.은 법률 옹호, 환경 및 에너지 법률, 일반 연구, 글로벌 보건 법률 및 거버넌스, 국제 비즈니스 및 경제 법률, 국제 법률 연구, 국가 및 글로벌 보건 법률, 국가 안보 법률, 조세, 기술 법률 및 정책 등 다양한 전문 분야를 포함합니다.</p>
+            </div>
+          </details>
+
+          <details open>
+            <summary>폐회사와 폐회 기도</summary>
+            <div class="inside">
+              <p>로버트 M. 그로브스 총장은 졸업생들이 조지타운의 졸업생으로서 다른 사람들을 위해 기술을 사용해야 한다는 같은 소명을 가지고 있다고 강조합니다. 그는 조지타운이 다양한 신앙, 문화, 사상을 가진 사람들 간의 진지하고 지속적인 대화를 통해 지적, 윤리적, 영적 이해를 증진한다고 말합니다.</p>
+              <p>제이미 크로우(Jamie Krowc)는 폐회 기도에서 졸업생들이 평생 정의를 추구하고, 성찰적인 평생 학습자가 되며, 시민 생활에 책임감 있고 적극적인 참여자가 되고, 다른 사람들을 위해 아낌없이 봉사하기를 기원합니다.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="concepts" class="article-section">
+          <h2>3. Key Concepts</h2>
+          <div class="callout">
+            <div class="label">핵심 개념</div>
+            <p>원문에는 핵심 개념을 담은 JSON 코드 블록이 포함되어 있으나, 제공된 노트에서는 해당 블록이 중간에서 끊겨 있습니다.</p>
+            <table>
+              <thead>
+                <tr><th>개념</th><th>노트상 의미</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Interfaith Advisory Council</td><td>다양한 종교 전통의 학생들이 상호 경청과 공동 기도를 위해 구성한 종교 간 자문위원회.</td></tr>
+                <tr><td>Cura Personalis</td><td>사람을 단일한 정체성으로 축소하지 않고 전체 인격으로 바라보는 예수회 가치.</td></tr>
+                <tr><td>Law as Forum</td><td>사회적 분쟁을 폭력이 아닌 문명적 논쟁과 절차로 해결하는 법의 기능.</td></tr>
+                <tr><td>Law as Check on Power</td><td>권력 남용을 제한하고 취약한 사람을 보호하는 법률 전문직의 역할.</td></tr>
+                <tr><td>Hope Through Action</td><td>희망은 관찰이 아니라 행동을 통해 생겨난다는 축사의 핵심 윤리.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="notes" class="article-section">
+          <h2>4. Detailed Notes</h2>
+
+          <h3>1. 배경 맥락 및 중요성</h3>
+          <p>이 영상은 조지타운 대학교 법률 센터 2026년 졸업식을 기록한 것으로, 단순한 졸업 축하를 넘어선 깊이 있는 사회적, 윤리적 메시지를 담고 있습니다. 졸업생들은 팬데믹, 스마트폰과 소셜 미디어의 영향, 그리고 인공지능이 세계를 재편할 것이라는 불안감 속에서 대학 생활을 보냈습니다.</p>
+          <p>그들은 극심한 당파적 분열, 심각한 경제적 불평등, 기후 변화라는 실존적 위협, 그리고 민주주의가 위협받는 시대에 발을 내딛고 있습니다. 데이비드 콜 교수의 축사와 그로브스 총장의 폐회사는 법률 전문가로서 졸업생들이 이러한 복잡한 사회 문제를 해결하는 데 어떻게 기여해야 하는지를 강조합니다.</p>
+
+          <h3>2. 주요 주장 및 뒷받침 증거</h3>
+          <table>
+            <thead>
+              <tr><th>주장</th><th>뒷받침 증거</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>졸업생들은 상당한 난관을 헤치고 나왔다.</td>
+                <td>팬데믹, 스마트폰과 소셜 미디어, 인공지능의 불안 속에서도 법률 교육과 20,000시간 이상의 프로 보노 봉사를 완수했습니다.</td>
+              </tr>
+              <tr>
+                <td>법과 변호사는 민주주의에서 필수 기능을 수행한다.</td>
+                <td>법은 분쟁 해결의 장이며, 동시에 권력 남용을 견제하는 수단입니다.</td>
+              </tr>
+              <tr>
+                <td>변호사는 정의를 옹호하고 희망을 창조해야 한다.</td>
+                <td>법은 오용될 수 있으므로, 졸업생들은 공정성과 취약한 이들의 방어를 선택해야 합니다.</td>
+              </tr>
+              <tr>
+                <td>조지타운의 예수회 정체성은 봉사 지향적 법률 교육을 제공한다.</td>
+                <td>Cura Personalis와 다양한 신앙·문화·사상 간의 지속적 대화가 강조됩니다.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>3. 접근 방식과 마음가짐</h3>
+          <ol>
+            <li>법률 메모 작성, 법률 용어 습득, 스터디 그룹 참여를 통해 전문성을 함양합니다.</li>
+            <li>프로 보노 서비스를 통해 사회적 책임을 다합니다.</li>
+            <li>자신을 지원해 준 가족과 친구들에게 감사 인사를 전합니다.</li>
+            <li>정치적 분열, 불평등, 기후 변화, 민주주의 위협을 인식합니다.</li>
+            <li>상대방의 관점을 이해하고 존중하며 문명적으로 논쟁합니다.</li>
+            <li>법을 사용하여 권력 남용에 맞서고 취약한 이들을 옹호합니다.</li>
+            <li>공정성을 증진하고 모든 사람을 동등하게 대하는 방식으로 법을 실천합니다.</li>
+            <li>전인적 인격체 관점을 유지합니다.</li>
+            <li>행동을 통해 희망을 만들어내는 주체가 됩니다.</li>
+            <li>법 지식과 기술을 정의와 해방이라는 목적을 위해 사용합니다.</li>
+          </ol>
+
+          <h3>4. 언급된 데이터 및 통계</h3>
+          <table>
+            <thead>
+              <tr><th>항목</th><th>수치 또는 내용</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>미국 부의 불평등</td><td>상위 1%가 하위 90%를 합친 것보다 더 많은 부를 소유하며, 3,600만 명 이상이 빈곤 속에 살고 있음.</td></tr>
+              <tr><td>프로 보노 봉사</td><td>2026년 졸업생들은 총 20,000시간 이상의 프로 보노 봉사를 수행.</td></tr>
+              <tr><td>기금 조성 시도</td><td>1월 6일 시위대 법률 비용을 위해 17억 달러 규모 기금을 조성하려 했다는 언급.</td></tr>
+              <tr><td>가족 분리 정책</td><td>4,000명 이상의 가족이 분리되었고, 2023년 합의를 통해 법적 지위, 서비스, 손해 배상이 제공됨.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>5. 인정된 한계</h3>
+          <ul>
+            <li>현재와 같은 어려운 시기에는 희망을 잃고 냉소적이 되기 쉽다는 점.</li>
+            <li>깊이 양극화된 시대에 상대방의 관점에 개방적인 것이 매우 어렵다는 점.</li>
+            <li>법이 정의를 옹호하는 대신 약자를 착취하거나 위협하는 데 악용될 수 있다는 점.</li>
+            <li>정부가 고등 교육 과정에 개입하려는 시도와 대학의 학문적 자유 문제가 존재한다는 점.</li>
+          </ul>
+        </section>
+
+        <section id="actions" class="article-section">
+          <h2>5. Action Items</h2>
+
+          <div class="callout tip">
+            <div class="label">즉각적인 조치</div>
+            <ul class="checklist">
+              <li>나를 여기까지 이끌어준 가족과 친구들에게 진심으로 감사 인사를 전하기.</li>
+              <li>다른 의견을 가진 사람들과도 존중하고 문명적인 대화에 참여하기.</li>
+              <li>사회의 불의를 외면하지 않고, 법적 수단을 사용하여 적극적으로 맞서 싸우기.</li>
+              <li>냉소주의에 빠지기보다, 작은 행동이라도 실천하여 희망을 만들어내는 주체가 되기.</li>
+            </ul>
+          </div>
+
+          <h3>장기적인 적용 분야</h3>
+          <ul>
+            <li><strong>법률 실무 및 경력:</strong> 법을 공정성을 증진하고 권력 남용을 견제하는 수단으로 활용합니다.</li>
+            <li><strong>사회 및 시민 참여:</strong> 당파적 분열과 불평등 속에서 능동적인 시민으로서 사회적 대화에 기여합니다.</li>
+            <li><strong>대인 관계 및 리더십:</strong> Cura Personalis의 가치를 적용하여 타인의 복합적 인간성을 이해하고 존중합니다.</li>
+            <li><strong>개인적 성장 및 학습:</strong> 희망이 행동의 결과라는 믿음을 바탕으로 성찰하는 평생 학습자로 살아갑니다.</li>
+            <li><strong>윤리적 의사 결정:</strong> “법은 단지 수단일 뿐이고, 정의가 목적이다”라는 모토를 의사 결정의 기준으로 삼습니다.</li>
+          </ul>
+
+          <h3>언급된 책 또는 자료</h3>
+          <table>
+            <thead>
+              <tr><th>분류</th><th>이름</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>사상가/작가</td><td>코넬 웨스트, 로베르토 앵거, 브라이언 스티븐슨</td></tr>
+              <tr><td>법률 관련 인물</td><td>써굿 마셜, 루스 베이더 긴즈버그, 존 마셜, 에이미 스티븐스</td></tr>
+              <tr><td>단체/기관</td><td>ACLU, Georgetown’s Institute for Constitutional Advocacy and Protection</td></tr>
+            </tbody>
+          </table>
+
+          <h3>추가 탐색을 위한 질문</h3>
+          <ul>
+            <li>법률 전문가들은 현재 사회의 심각한 당파적 분열을 어떻게 완화하고 문명적인 대화를 촉진할 수 있을까요?</li>
+            <li>법률 교육 기관은 Cura Personalis의 가치를 실제 법률 실무에 적용하도록 어떤 프로그램을 강화해야 할까요?</li>
+            <li>변호사들이 희망을 지속적으로 유지하고 전파하기 위한 구체적인 전략은 무엇일까요?</li>
+            <li>인공지능이 법률 시장과 정의 실현에 미칠 장기적 영향은 무엇이며, 법률 전문가들은 어떻게 대비해야 할까요?</li>
+            <li>대학의 학문적 자유와 자율성을 보호하기 위한 법적, 사회적 방안은 무엇일까요?</li>
+          </ul>
+        </section>
+
+        <section id="feynman" class="article-section">
+          <h2>6. Feynman Explanation</h2>
+          <p>여러분, 오늘 우리는 조지타운 로스쿨을 졸업하며 새로운 시작을 합니다. 그런데 이 세상이 그리 만만치 않다는 이야기를 들었죠. 팬데믹이라는 큰 폭풍을 겪었고, 스마트폰이라는 마법 상자에 중독되기도 했으며, 인공지능이라는 거대한 로봇이 우리 일자리를 빼앗을까 걱정하는 시대에 살고 있습니다.</p>
+          <p>이런 혼란스러운 세상에서 변호사는 어떤 역할을 해야 할까요? 연사님은 변호사에게 두 가지 중요한 역할이 있다고 말씀하셨어요. 첫째, 법은 사람들이 서로 싸울 때 규칙 안에서 논쟁하고 평화롭게 해결할 수 있도록 돕는 공정한 경기장입니다. 상대방의 입장을 충분히 이해해야 나의 주장도 더 설득력을 얻을 수 있습니다.</p>
+          <p>둘째, 법은 강력한 사람이 약한 사람을 함부로 하지 못하게 막는 안전띠 역할을 합니다. ACLU에서 트럼프 정부의 가족 분리 정책에 맞서 싸운 경험은 법이 정부의 잘못된 권력 사용을 막고 수천 가족이 다시 만날 수 있도록 도운 사례입니다.</p>
+          <blockquote class="pull">희망은 그냥 주어지는 것이 아니라, 행동할 때 생겨납니다.</blockquote>
+          <p>하지만 법이라는 도구는 나쁜 일에도 쓰일 수 있습니다. 그래서 변호사는 어떤 선택을 할지 고민해야 합니다. 불의를 보고 싸울 것인가, 아니면 눈을 감을 것인가. ‘법은 단지 수단일 뿐이고, 정의가 목적이다’라는 조지타운 로스쿨의 모토를 기억해야 합니다.</p>
+          <p>총장님은 조지타운의 중요한 가치인 전인적 인격체(Cura Personalis)에 대해서도 이야기했습니다. 사람을 한두 가지 모습만 보고 판단하지 않고, 그 사람의 모든 면모를 존중하고 이해해야 한다는 뜻입니다. 변호사라면 의뢰인을 그들이 저질렀다고 하는 행동만으로 판단하지 않고, 전체적인 인간성을 보고 존중하며 변호해야 합니다.</p>
+          <p>결국 졸업생들은 어려운 세상에서 법이라는 도구를 가지고 정의라는 목표를 향해 나아가야 합니다. 그러기 위해서는 사람을 전체적으로 바라보고, 법의 두 가지 역할을 기억하며, 냉소주의에 맞서 계속 행동해야 합니다.</p>
+        </section>
+
+        <section id="my-notes" class="article-section">
+          <h2>7. My Notes</h2>
+          <div class="grid">
+            <div class="mini-card">
+              <h3>Related Knowledge</h3>
+              <p>비어 있음</p>
+            </div>
+            <div class="mini-card">
+              <h3>Ideas</h3>
+              <p>비어 있음</p>
+            </div>
+            <div class="mini-card">
+              <h3>Personal Memo</h3>
+              <p>비어 있음</p>
+            </div>
+          </div>
+          <p class="clipped">Clipped: 2026-05-18T21:36:26-04:00</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const links = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(section => observer.observe(section));
+
+    document.getElementById('copyOutline').addEventListener('click', async () => {
+      const outline = links.map(a => a.textContent.trim()).join('\n');
+      try {
+        await navigator.clipboard.writeText(outline);
+        const button = document.getElementById('copyOutline');
+        const old = button.textContent;
+        button.textContent = 'Outline Copied';
+        setTimeout(() => button.textContent = old, 1300);
+      } catch {
+        alert(outline);
+      }
+    });
+
+    document.getElementById('toggleDetails').addEventListener('click', () => {
+      const details = [...document.querySelectorAll('details')];
+      const shouldOpen = details.some(d => !d.open);
+      details.forEach(d => d.open = shouldOpen);
+      document.getElementById('toggleDetails').textContent = shouldOpen ? 'Collapse Sections' : 'Expand Sections';
+    });
+  </script>
+</body>
+</html>
