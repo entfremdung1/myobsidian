@@ -4,22 +4,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
-  <title>Solicitation의 성립, 항변, 병합: 시험에서 바로 쓰는 형법 정리</title>
+  <title>Solicitation의 성립과 한계: 범죄 권유는 언제 완성되는가</title>
   
   <style>
     :root {
-      --bg: #f7f5f0;
-      --paper: #fffdf8;
       --ink: #1f2933;
-      --muted: #68717d;
-      --line: #ded8cd;
-      --accent: #8f3f2d;
-      --accent-2: #245c63;
-      --soft: #eee7da;
-      --soft-2: #e5eef0;
-      --warning: #b45309;
-      --code: #f1ece4;
-      --shadow: 0 24px 70px rgba(31, 41, 51, 0.11);
+      --muted: #5b6776;
+      --soft: #f5f7f8;
+      --paper: #fffdf8;
+      --line: #d9dedf;
+      --accent: #8b3f2f;
+      --accent-2: #245b63;
+      --gold: #b3832d;
+      --green: #3f6f57;
+      --shadow: 0 24px 60px rgba(31, 41, 51, 0.10);
       --radius: 8px;
     }
 
@@ -34,13 +32,10 @@
     body {
       margin: 0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.76), rgba(247,245,240,0.92)),
-        radial-gradient(circle at 15% 8%, rgba(36,92,99,0.12), transparent 26%),
-        radial-gradient(circle at 90% 4%, rgba(143,63,45,0.12), transparent 24%),
-        var(--bg);
+        linear-gradient(180deg, #f8f5ef 0%, #fffdf8 32%, #f6f8f8 100%);
       color: var(--ink);
-      font-family: ui-serif, "Apple SD Gothic Neo", "Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
-      line-height: 1.72;
+      font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", Georgia, serif;
+      line-height: 1.78;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
@@ -48,489 +43,438 @@
     a {
       color: var(--accent-2);
       text-decoration-thickness: 1px;
-      text-underline-offset: 0.18em;
+      text-underline-offset: 4px;
     }
 
     .page {
-      max-width: 1180px;
+      width: min(1120px, calc(100% - 36px));
       margin: 0 auto;
-      padding: 32px 22px 72px;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 330px;
-      gap: 34px;
-      align-items: end;
-      padding: 64px 0 42px;
+    header.hero {
+      padding: 72px 0 38px;
       border-bottom: 1px solid var(--line);
     }
 
     .kicker {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 18px;
+      gap: 10px;
+      margin-bottom: 22px;
       color: var(--accent);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.78rem;
-      font-weight: 760;
-      letter-spacing: 0.08em;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .kicker::before {
       content: "";
       width: 34px;
-      height: 1px;
+      height: 2px;
       background: var(--accent);
+      display: inline-block;
     }
 
     h1 {
-      max-width: 850px;
+      max-width: 920px;
       margin: 0;
-      font-size: clamp(2.45rem, 6vw, 5.55rem);
-      line-height: 1.05;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 1.06;
       letter-spacing: 0;
-      color: #171f29;
+      font-weight: 900;
     }
 
     .dek {
-      max-width: 780px;
-      margin: 24px 0 0;
-      color: #414b57;
-      font-size: clamp(1.08rem, 2vw, 1.34rem);
-      line-height: 1.78;
-    }
-
-    .share-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    .share-card strong {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 0.86rem;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .share-card p {
-      margin: 0;
-      color: #3f4954;
-      font-size: 0.97rem;
-      line-height: 1.64;
+      max-width: 760px;
+      margin: 26px 0 0;
+      color: #394651;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.72;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     }
 
     .meta {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-top: 32px;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.92rem;
     }
 
-    .meta span {
-      padding: 7px 10px;
-      background: rgba(255,253,248,0.72);
+    .pill {
       border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.62);
+      padding: 7px 11px;
       border-radius: 999px;
     }
 
-    .layout {
+    main {
       display: grid;
-      grid-template-columns: 250px minmax(0, 760px);
-      gap: 56px;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 54px;
+      padding: 44px 0 80px;
       align-items: start;
-      padding-top: 46px;
-    }
-
-    aside {
-      position: sticky;
-      top: 24px;
-      align-self: start;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    .toc {
-      padding: 18px;
-      background: rgba(255,253,248,0.78);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    .toc h2 {
-      margin: 0 0 12px;
-      font-size: 0.82rem;
-      color: var(--accent);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .toc a {
-      display: block;
-      padding: 8px 0;
-      color: #3c4651;
-      font-size: 0.93rem;
-      text-decoration: none;
-      border-top: 1px solid rgba(222,216,205,0.75);
-    }
-
-    .toc a:first-of-type {
-      border-top: 0;
     }
 
     article {
       min-width: 0;
     }
 
+    aside {
+      position: sticky;
+      top: 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(31, 41, 51, 0.06);
+      padding: 22px;
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin: 0 0 12px;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0;
+    }
+
+    .toc {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .toc li + li {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #edf0f0;
+    }
+
+    .share-copy {
+      margin: 0;
+      padding: 14px;
+      background: #f7f1e8;
+      border-left: 3px solid var(--gold);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.9rem;
+      color: #44382c;
+      line-height: 1.65;
+    }
+
     section {
       margin: 0 0 54px;
     }
 
-    h2 {
-      margin: 0 0 18px;
-      color: #171f29;
-      font-size: clamp(1.7rem, 3vw, 2.55rem);
-      line-height: 1.22;
-      letter-spacing: 0;
+    .abstract {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: var(--shadow);
     }
 
-    h3 {
-      margin: 32px 0 12px;
-      color: #273340;
-      font-size: 1.24rem;
-      line-height: 1.38;
+    .abstract h2,
+    section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.22;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    section h3 {
+      margin: 30px 0 10px;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     }
 
     p {
       margin: 0 0 18px;
-      font-size: 1.06rem;
+      font-size: 1.04rem;
     }
 
-    .abstract,
-    .card,
-    .source-note,
-    .ending {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: 0 14px 36px rgba(31, 41, 51, 0.07);
+    .lead {
+      font-size: 1.14rem;
+      color: #33424c;
     }
 
-    .abstract {
-      border-left: 5px solid var(--accent-2);
-    }
-
-    .label {
-      display: block;
-      margin-bottom: 10px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--accent-2);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .findings {
+    .key-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      margin-top: 18px;
+      margin-top: 22px;
     }
 
     .finding {
-      min-height: 152px;
-      padding: 20px;
-      background: var(--paper);
+      background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
+      padding: 18px;
     }
 
-    .finding b {
+    .finding strong {
       display: block;
       margin-bottom: 8px;
       color: var(--accent);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.9rem;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.95rem;
     }
 
     .finding p {
       margin: 0;
-      color: #414b57;
-      font-size: 0.98rem;
-      line-height: 1.64;
+      font-size: 0.96rem;
+      color: #3b4752;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
     }
 
     .pullquote {
       margin: 34px 0;
       padding: 28px 30px;
-      background: #17222d;
-      color: #fffaf1;
-      border-radius: var(--radius);
-      font-size: clamp(1.25rem, 2vw, 1.72rem);
+      border-top: 3px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(139, 63, 47, 0.07), rgba(255, 255, 255, 0));
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
       line-height: 1.55;
-    }
-
-    .pullquote cite {
-      display: block;
-      margin-top: 14px;
-      color: #cad7da;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.88rem;
-      font-style: normal;
-    }
-
-    ul,
-    ol {
-      margin: 12px 0 0;
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin: 8px 0;
-      padding-left: 0.2rem;
+      font-weight: 800;
+      color: #2d3439;
     }
 
     .rule-list {
+      padding: 0;
+      margin: 22px 0 0;
+      list-style: none;
       display: grid;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 14px;
     }
 
-    .rule {
-      padding: 18px 20px;
-      background: rgba(255,253,248,0.8);
+    .rule-list li {
+      position: relative;
+      padding: 18px 18px 18px 48px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.68;
+    }
+
+    .rule-list li::before {
+      content: "!";
+      position: absolute;
+      left: 17px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 28px 0;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+
+    .step {
+      position: relative;
+      min-height: 124px;
+      padding: 16px;
+      background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
     }
 
-    .rule strong {
-      color: var(--accent);
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -16px;
+      top: 44%;
+      color: var(--accent-2);
+      font-weight: 900;
+      z-index: 2;
     }
 
-    code {
-      padding: 0.13em 0.35em;
-      background: var(--code);
-      border: 1px solid rgba(222,216,205,0.9);
-      border-radius: 5px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9em;
-      word-break: break-word;
+    .step b {
+      display: block;
+      color: var(--accent-2);
+      margin-bottom: 8px;
+      font-size: 0.92rem;
     }
 
-    .table-wrap {
-      overflow-x: auto;
-      margin: 24px 0 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
+    .step span {
+      display: block;
+      color: #44515b;
+      font-size: 0.92rem;
+      line-height: 1.6;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 650px;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.94rem;
-      line-height: 1.55;
+      margin: 26px 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 0.95rem;
     }
 
     th,
     td {
-      padding: 15px 16px;
-      text-align: left;
+      padding: 14px 16px;
       vertical-align: top;
       border-bottom: 1px solid var(--line);
+      text-align: left;
     }
 
     th {
-      background: var(--soft);
-      color: #2a3542;
-      font-weight: 780;
+      width: 30%;
+      background: #eef4f3;
+      color: #203a3f;
+      font-weight: 800;
     }
 
+    tr:last-child th,
     tr:last-child td {
       border-bottom: 0;
     }
 
-    .diagram {
-      margin: 26px 0;
-      padding: 24px;
-      background: var(--soft-2);
-      border: 1px solid #cbdadd;
-      border-radius: var(--radius);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .node {
-      min-height: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      background: var(--paper);
-      border: 1px solid #c9d5d8;
-      border-radius: var(--radius);
-      text-align: center;
-      font-weight: 700;
-      color: #1f3540;
-    }
-
-    .arrow {
-      color: var(--accent-2);
-      font-weight: 900;
-      font-size: 1.3rem;
-    }
-
     .note {
-      margin-top: 14px;
-      color: #52616b;
-      font-size: 0.93rem;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent-2);
+      background: #eef5f4;
+      color: #263d42;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      border-radius: 0 var(--radius) var(--radius) 0;
     }
 
-    .warning {
-      border-left: 5px solid var(--warning);
+    .source-notes {
+      background: #f4f2ed;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 34px;
     }
 
-    .copy-block {
-      margin-top: 14px;
-      padding: 18px;
-      background: #1f2933;
-      color: #fffaf1;
-      border-radius: var(--radius);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.62;
+    .source-notes ul {
+      margin: 0;
+      padding-left: 22px;
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
     }
 
-    .source-note {
-      background: #fbfaf7;
-    }
-
-    .source-note ul {
-      color: #46515d;
+    .source-notes li + li {
+      margin-top: 10px;
     }
 
     .ending {
-      background: linear-gradient(135deg, #fffdf8, #edf4f3);
-      border-color: #cddbd9;
+      padding: 34px;
+      background: #263238;
+      color: #f8fbfb;
+      border-radius: var(--radius);
     }
 
-    .ending p:last-child {
-      margin-bottom: 0;
+    .ending h2 {
+      color: #fff;
     }
 
-    footer {
-      margin-top: 56px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.88rem;
+    .ending p {
+      color: #d8e0e0;
     }
 
-    @media (max-width: 940px) {
-      .hero,
-      .layout {
+    .takeaway-box {
+      margin-top: 24px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+
+    code {
+      padding: 0.14em 0.32em;
+      border-radius: 4px;
+      background: #f0ece5;
+      color: #6e3429;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .ending code {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffe4ba;
+    }
+
+    @media (max-width: 900px) {
+      main {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
 
       aside {
         position: static;
+        order: -1;
       }
 
-      .toc {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0 18px;
-      }
-
-      .toc h2 {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .page {
-        padding: 22px 16px 52px;
-      }
-
-      .hero {
-        padding-top: 38px;
-      }
-
-      .findings,
-      .toc {
-        grid-template-columns: 1fr;
-      }
-
-      .abstract,
-      .card,
-      .source-note,
-      .ending,
-      .share-card {
-        padding: 20px;
-      }
-
+      .key-grid,
       .flow {
         grid-template-columns: 1fr;
       }
 
-      .arrow {
-        transform: rotate(90deg);
-        justify-self: center;
+      .step:not(:last-child)::after {
+        content: "↓";
+        right: 18px;
+        top: auto;
+        bottom: -20px;
       }
 
-      p {
-        font-size: 1rem;
+      header.hero {
+        padding-top: 48px;
       }
     }
 
-    @media print {
-      body {
-        background: #fff;
-      }
-
+    @media (max-width: 560px) {
       .page {
-        max-width: none;
-        padding: 0;
+        width: min(100% - 24px, 1120px);
       }
 
-      aside,
-      .share-card {
-        display: none;
-      }
-
-      .hero,
-      .layout {
-        display: block;
-      }
-
+      .panel,
       .abstract,
-      .card,
-      .source-note,
-      .ending,
-      .finding,
-      .diagram {
-        box-shadow: none;
-        break-inside: avoid;
+      .source-notes,
+      .ending {
+        padding: 20px;
+      }
+
+      th,
+      td {
+        display: block;
+        width: 100%;
+      }
+
+      th {
+        border-bottom: 0;
+      }
+
+      td {
+        padding-top: 4px;
       }
     }
   </style>
@@ -544,237 +488,303 @@
 <link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/rnnrch/">
 </head>
 <body>
-  <main class="page">
-    <header class="hero">
-      <div>
-        <div class="kicker">Criminal Law Research Report</div>
-        <h1>Solicitation은 언제 완성되는가</h1>
-        <p class="dek">범죄 권유죄는 상대방이 실제로 동의했는지, 실행했는지보다 피고가 범죄 실행을 바라며 권유했는지를 묻는다. 시험에서는 이 지점을 놓치면 conspiracy, attempt, completed crime과 쉽게 섞인다.</p>
-        <div class="meta" aria-label="문서 정보">
-          <span>주제: Solicitation</span>
-          <span>관점: Common Law &amp; MPC</span>
-          <span>형식: Editorial Research Report</span>
-        </div>
+  <header class="hero">
+    <div class="page">
+      <div class="kicker">Criminal Law Research Report</div>
+      <h1>Solicitation의 성립과 한계: 범죄 권유는 언제 완성되는가</h1>
+      <p class="dek">
+        범죄를 실제로 저지르지 않았고 상대방도 동의하지 않았다. 그래도 처벌될 수 있을까.
+        Solicitation은 바로 이 지점에서 출발한다. 핵심은 상대방의 반응이 아니라, 피고가 특정 범죄의 실행을 진심으로 원하며 권유했는지이다.
+      </p>
+      <div class="meta" aria-label="문서 정보">
+        <span class="pill">형법 · Inchoate Crimes</span>
+        <span class="pill">Common Law / MPC 비교</span>
+        <span class="pill">Blog-ready Research Report</span>
       </div>
-      <aside class="share-card" aria-label="공유용 요약">
-        <strong>Share framing</strong>
-        <p>Solicitation은 “상대방이 범죄를 했는가”가 아니라 “피고가 범죄 실행을 원하며 권유했는가”의 문제다. 권유가 밖으로 발신되는 순간 이미 완성될 수 있다.</p>
-      </aside>
-    </header>
+    </div>
+  </header>
 
-    <div class="layout">
-      <aside>
-        <nav class="toc" aria-label="목차">
-          <h2>Contents</h2>
-          <a href="#abstract">Abstract</a>
-          <a href="#findings">Key Findings</a>
-          <a href="#elements">성립 요건</a>
-          <a href="#core-rule">핵심 룰</a>
-          <a href="#defenses">항변</a>
-          <a href="#merger">Merger</a>
-          <a href="#protected-class">Protected Class</a>
-          <a href="#implications">시험상 함의</a>
-        </nav>
-      </aside>
-
+  <div class="page">
+    <main>
       <article>
         <section id="abstract" class="abstract">
-          <span class="label">Abstract</span>
-          <p>Solicitation은 피고가 타인에게 범죄를 실행하도록 <code>encourage</code>, <code>command</code>, 또는 <code>request</code>하고, 그 범죄가 실제로 실행되기를 바라는 <code>specific intent</code>를 가질 때 성립한다. 상대방의 수락, 실행, 진정한 동의는 필요하지 않으며, 권유가 전달되거나 전달되도록 발신되는 순간 범죄는 완성될 수 있다.</p>
-          <p>이 리포트의 결론은 간명하다. Solicitation은 본질적으로 <strong>one-party crime</strong>이다. 따라서 undercover의 가장된 동의, factual impossibility, 사후 철회는 대부분 책임을 끊지 못한다. 다만 MPC의 실질적 예방을 동반한 renunciation, 그리고 statute가 보호하려는 계급에 대한 예외는 별도로 검토해야 한다.</p>
-        </section>
+          <h2>Abstract</h2>
+          <p class="lead">
+            Solicitation은 타인에게 범죄를 저지르도록 <code>encourage</code>, <code>command</code>, 또는 <code>request</code>하는 순간 문제 된다. 그러나 모든 말이 solicitation이 되는 것은 아니다. 피고에게는 상대방이 실제로 범죄를 실행하기를 바라는 <code>specific intent</code>가 필요하다.
+          </p>
+          <p>
+            이 보고서는 solicitation의 성립요건, 완료 시점, 항변, merger, protected class exemption을 중심으로 정리한다. 특히 시험에서 반복되는 포인트는 세 가지다. 첫째, solicitation은 상대방의 동의가 필요 없는 <code>one-party crime</code>이다. 둘째, communication이 이루어지면 범죄는 완성된다. 셋째, 완성범이나 attempt로 발전하면 solicitation은 보통 흡수된다.
+          </p>
 
-        <section id="findings">
-          <h2>Key Findings</h2>
-          <div class="findings">
+          <div class="key-grid" id="key-findings">
             <div class="finding">
-              <b>1. 말의 형식보다 실질</b>
-              <p>정중한 부탁이든 강한 명령이든, 실질이 “범죄를 해 달라”는 취지이면 solicitation의 행위요건이 될 수 있다.</p>
-            </div>
-            <div class="finding">
-              <b>2. Specific intent가 중심</b>
-              <p>농담, 분노의 과장, 비꼼이 문제 되는 경우에는 피고가 정말 실행을 원했는지가 쟁점이다.</p>
+              <strong>Key Finding 1</strong>
+              <p>말의 형식보다 실질이 중요하다. 정중한 부탁도 범죄 실행을 향한 요청이면 solicitation이 될 수 있다.</p>
             </div>
             <div class="finding">
-              <b>3. 상대방의 반응은 부차적</b>
-              <p>상대방이 거절하거나 undercover로 가장 동의했더라도, 피고의 권유와 의사가 있으면 성립할 수 있다.</p>
+              <strong>Key Finding 2</strong>
+              <p>상대방이 거절하거나 잠입수사관처럼 가장 동의만 해도 solicitation 성립에는 영향이 없다.</p>
             </div>
             <div class="finding">
-              <b>4. 이후 범죄로 병합될 수 있음</b>
-              <p>권유가 attempt나 completed crime으로 발전하면 solicitation은 보통 더 큰 범죄에 흡수된다.</p>
+              <strong>Key Finding 3</strong>
+              <p>Common law에서는 withdrawal 또는 renunciation이 완전한 항변이 되지 않는다.</p>
+            </div>
+            <div class="finding">
+              <strong>Key Finding 4</strong>
+              <p>완성범이나 attempt가 성립하면 초기 solicitation은 merger 원칙에 따라 흡수될 수 있다.</p>
             </div>
           </div>
         </section>
 
-        <section id="elements">
-          <h2>성립 요건: 권유와 특정 의사</h2>
-          <p>Solicitation의 출발점은 피고의 말이나 메시지가 단순한 잡담을 넘어, 타인이 범죄를 저지르도록 향해 있었는지다. 추상적 희망, 감정적 발언, 모호한 불평만으로는 부족하다. 상대방에게 범죄 실행을 요청하는 성격이 확인되어야 한다.</p>
+        <section id="requirements">
+          <h2>1. 성립요건: 범죄를 부탁했다는 것만으로 충분한가</h2>
+          <p>
+            Solicitation의 출발점은 피고의 말 또는 전달 행위다. 피고는 타인에게 범죄를 저지르도록 권유하거나, 명령하거나, 요청해야 한다. 단순한 잡담, 추상적 희망, 분노 섞인 과장만으로는 부족하다. 표현이 공손한 부탁인지 강압적인 명령인지는 결정적이지 않다. 법적으로 중요한 것은 그 말의 실질이 “범죄를 해 달라”는 취지였는지이다.
+          </p>
 
-          <div class="rule-list">
-            <div class="rule">
-              <strong>행위요건:</strong> 피고는 타인에게 범죄를 실행하도록 <code>encourage</code>, <code>command</code>, 또는 <code>request</code>해야 한다.
-            </div>
-            <div class="rule">
-              <strong>의사요건:</strong> 피고는 <code>specific intent</code>로 그 사람이 범죄를 실제로 실행하기를 원해야 한다.
-            </div>
-            <div class="rule">
-              <strong>전달요건:</strong> communication이 실제로 수신되었는지는 중요하지 않다. 피고가 범죄 권유를 밖으로 발신하려고 행동했으면 충분할 수 있다.
-            </div>
+          <div class="pullquote">
+            Solicitation에서 가장 먼저 물어야 할 질문은 “상대방이 들었는가”가 아니라 “피고가 범죄 실행을 향한 요청을 밖으로 내보냈는가”이다.
           </div>
 
-          <blockquote class="pullquote">
-            Solicitation은 “말을 했는가”만으로 끝나지 않는다. 핵심은 그 말이 범죄 실행을 향했고, 피고가 그 실행을 실제로 원했는가다.
-            <cite>Analytical takeaway</cite>
-          </blockquote>
+          <h3>Specific Intent가 중심이다</h3>
+          <p>
+            Solicitation은 말만 했다고 자동 성립하는 범죄가 아니다. 피고는 상대방이 실제로 범죄를 실행하기를 바라는 <code>specific intent</code>를 가져야 한다. 그래서 농담, 비꼼, 화가 나서 내뱉은 과장 표현이 문제 되는 경우에는 피고가 정말로 범죄 실행을 의도했는지를 따져야 한다.
+          </p>
 
-          <p>따라서 편지가 중간에 분실되거나 메시지를 상대방이 읽지 못한 경우에도, 피고가 범죄 권유를 발신했다면 completed solicitation이 문제 될 수 있다. 핵심은 <code>상대방이 들었는지</code>가 아니라 <code>피고가 범죄 권유를 전달하려고 행동했는지</code>이다.</p>
-        </section>
-
-        <section id="core-rule">
-          <h2>핵심 룰: One-Party Crime</h2>
-          <p>Solicitation은 conspiracy처럼 agreement가 필요한 범죄가 아니다. 상대방의 동의나 실행 여부는 원칙적으로 무관하며, 권유한 사람 1명의 행위와 의사만으로 완성될 수 있다.</p>
-
-          <div class="diagram" aria-label="solicitation 완성 시점 도식">
-            <div class="flow">
-              <div class="node">피고의 범죄 실행 의사<br><code>specific intent</code></div>
-              <div class="arrow">→</div>
-              <div class="node">상대방에게 권유·명령·요청</div>
-              <div class="arrow">→</div>
-              <div class="node">Communication 시점에 완성 가능</div>
-            </div>
-            <p class="note">상대방의 수락, 진정한 동의, 실제 실행은 solicitation 성립의 필수요건이 아니다.</p>
-          </div>
-
-          <h3>Undercover와 Feigned Agreement</h3>
-          <p>상대방이 속으로는 범죄를 할 생각이 전혀 없고, 단지 수사나 연기를 위해 맞장구친 경우에도 solicitation은 성립할 수 있다. 이른바 feigned agreement 상황에서 중요한 것은 상대방의 진심이 아니라 피고가 범죄를 하라고 권유했다는 사실이다.</p>
-
-          <div class="card warning">
-            <span class="label">Exam Signal</span>
-            <p>언더커버 경찰, 가장 동의한 경비원, 실제 실행 의사가 없는 청소원에게 범죄를 부탁한 사실관계가 나오면 “상대방이 진심으로 동의하지 않았으므로 불성립”이라고 쓰면 위험하다. Solicitation은 one-party crime이라는 문장부터 세워야 한다.</p>
-          </div>
-        </section>
-
-        <section id="defenses">
-          <h2>항변: 철회와 불능은 어디까지 통하는가</h2>
-          <p>Common law에서는 <code>withdrawal</code> 또는 <code>renunciation</code>이 solicitation의 완전한 방어가 되지 않는다. 이유는 간단하다. Solicitation은 communication 시점에 이미 완성되기 때문이다. 이후 피고가 “하지 마”라고 철회해도, 이미 성립한 범죄를 소급해서 없애지는 못한다.</p>
-
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>쟁점</th>
-                  <th>Common Law</th>
-                  <th>MPC</th>
-                  <th>시험 포인트</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Withdrawal / Renunciation</td>
-                  <td>원칙적으로 방어 아님</td>
-                  <td>피해 예방이 있으면 제한적 가능</td>
-                  <td>단순 후회가 아니라 실질적 예방 조치가 있었는지 확인</td>
-                </tr>
-                <tr>
-                  <td>Factual Impossibility</td>
-                  <td>방어 아님</td>
-                  <td>대체로 방어 아님</td>
-                  <td>상대방이 undercover라 범죄 실현이 불가능해도 책임 가능</td>
-                </tr>
-                <tr>
-                  <td>Communication 미수신</td>
-                  <td>수신 여부보다 발신 행위가 중요</td>
-                  <td>사안별 문언 검토</td>
-                  <td>편지 분실, 메시지 미열람에도 completed solicitation 가능</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p>MPC는 조금 더 좁은 문을 남긴다. 피고가 단순히 마음을 바꾼 것만으로는 부족하고, 범죄가 실제로 일어나지 않도록 막는 방향의 조치가 요구된다. 즉 MPC의 renunciation은 사후적 후회를 넓게 봐주는 장치가 아니라 <strong>실질적 예방</strong>을 요구하는 제한적 항변이다.</p>
-        </section>
-
-        <section id="merger">
-          <h2>Merger: 권유가 실행 단계로 발전한 경우</h2>
-          <p>Solicitation이 실제 범죄나 attempt로 이어지면, 초기 solicitation은 보통 별도의 독립 처벌로 남지 않고 더 큰 범죄에 흡수된다. 시험에서는 “초기 권유”와 “이후 실행 단계”가 모두 제시되어도 최종적으로 어떤 범죄가 남는지를 묻는 경우가 많다.</p>
-
-          <div class="rule-list">
-            <div class="rule">
-              <strong>Solicitation + Completed Crime:</strong> 권유한 범죄가 완성되면 solicitation은 completed crime에 <code>merges</code>된다.
-            </div>
-            <div class="rule">
-              <strong>Solicitation + Attempt:</strong> 범죄가 완성되지 않았더라도 attempt 단계까지 발전하면 solicitation은 attempt에 흡수된다.
-            </div>
-          </div>
-
-          <div class="diagram" aria-label="merger 도식">
-            <div class="flow">
-              <div class="node">초기 권유<br>Solicitation</div>
-              <div class="arrow">→</div>
-              <div class="node">실행 착수<br>Attempt</div>
-              <div class="arrow">→</div>
-              <div class="node">범죄 완성<br>Completed Crime</div>
-            </div>
-            <p class="note">진행 단계가 높아질수록 solicitation은 별도 책임으로 남기보다 attempt 또는 completed crime에 병합된다.</p>
-          </div>
-
-          <p>예컨대 살인청부 후 실제 살해가 완성된 경우, solicitation은 murder로 병합된다. 이때 분석의 초점은 solicitation 성립 여부를 부정하는 것이 아니라, 성립한 solicitation이 최종 범죄에 흡수된다는 점이다.</p>
-        </section>
-
-        <section id="protected-class">
-          <h2>Protected Class Exemption</h2>
-          <p>Protected class exemption은 solicitation 분석에서 가장 쉽게 빠뜨리는 예외다. 핵심은 statute가 보호하려는 사람을 다시 solicitation으로 처벌하면 입법 목적에 반할 수 있다는 점이다.</p>
-
-          <div class="card">
-            <span class="label">Interpretive Rule</span>
-            <p>어떤 법이 특정인을 <code>가해자</code>가 아니라 <code>보호대상</code>으로 보는 구조라면, 그 사람에게 같은 사건으로 solicitation 책임까지 묻는 것은 부자연스러울 수 있다. 따라서 먼저 statute가 누구를 처벌하려는 법인지 읽어야 한다.</p>
-          </div>
-
-          <p>대표적으로 다인 범죄에서 statute가 특정 참여자만 처벌하고 다른 참여자를 보호 또는 비처벌 대상으로 두는 경우가 있다. 법이 판매자만 처벌하고 구매자는 보호 계급에 가깝게 다루는 구조라면, 구매자가 거래를 요청했다는 이유만으로 solicitation이 항상 성립한다고 단정할 수 없다.</p>
-        </section>
-
-        <section id="implications">
-          <h2>시험상 함의: 빠르게 쓰는 분석 순서</h2>
-          <p>Solicitation 문제는 사실관계가 짧아도 쟁점이 압축되어 있다. 가장 안전한 접근은 권유, 의사, 완성 시점, 항변, 병합, 예외를 순서대로 점검하는 것이다.</p>
-
-          <ol>
-            <li>피고가 타인에게 범죄 실행을 <code>encourage</code>, <code>command</code>, 또는 <code>request</code>했는지 본다.</li>
-            <li>그 말이 농담이나 과장이 아니라 범죄 실행을 바라는 <code>specific intent</code>를 동반했는지 검토한다.</li>
-            <li>상대방이 실제로 수락했는지보다 communication이 발신 또는 전달되었는지 확인한다.</li>
-            <li>상대방이 undercover이거나 가장 동의했더라도 one-party crime 원칙을 적용한다.</li>
-            <li>철회, renunciation, factual impossibility 항변은 common law와 MPC를 나누어 판단한다.</li>
-            <li>이후 attempt나 completed crime이 있으면 merger를 검토한다.</li>
-            <li>마지막으로 statute가 보호하려는 계급에 피고가 속하는지 확인한다.</li>
-          </ol>
-
-          <div class="copy-block" aria-label="답안용 문장">
-            답안용 문장: Solicitation은 피고가 특정 범죄의 실행을 의도하면서 타인에게 그 범죄를 권유·명령·요청하면 성립하는 one-party crime이다. 따라서 상대방의 실제 동의, 실행 여부, 또는 undercover의 가장 동의는 원칙적으로 성립을 막지 않는다.
-          </div>
-        </section>
-
-        <section class="source-note">
-          <span class="label">Source Notes</span>
-          <ul>
-            <li>관련 문제: Q.5 언더커버 경찰에게 청탁한 경우 solicitation 성립.</li>
-            <li>관련 문제: Q.14 경비원의 feigned agreement에도 solicitation 성립.</li>
-            <li>관련 문제: Q.34 풀 청소원의 feigned agreement 상황.</li>
-            <li>관련 문제: Q.40 며칠 전 철회는 common law상 방어가 되지 않음.</li>
-            <li>관련 문제: Q.13 살인청부 후 살해 완성 시 solicitation은 murder로 병합.</li>
-            <li>관련 문제: Q.37 마약 구매자와 protected class exemption 가능성.</li>
+          <ul class="rule-list">
+            <li><strong>요청의 방향성:</strong> 말이 상대방의 범죄 실행을 향해야 한다. 막연한 불만이나 바람은 부족하다.</li>
+            <li><strong>의사의 강도:</strong> 피고가 상대방의 범죄 실행을 진정으로 원해야 한다. 이것이 <code>specific intent</code> 요건이다.</li>
+            <li><strong>전달의 시도:</strong> communication이 실제로 수신되었는지는 중요하지 않다. 피고가 범죄 권유를 발신했다면 completed solicitation이 될 수 있다.</li>
           </ul>
         </section>
 
-        <section class="ending">
-          <span class="label">Reader-Friendly Ending</span>
-          <p>Solicitation의 큰 그림은 “범죄가 실제로 일어났는가”가 아니다. 이 범죄는 실행 이전의 위험한 권유를 독립적으로 포착한다. 그래서 권유가 발신되는 순간 완성될 수 있고, 상대방이 진심으로 동의하지 않았다는 사정도 대개 결정적이지 않다.</p>
-          <p>다만 답안은 여기서 멈추면 부족하다. Common law와 MPC의 renunciation 차이, factual impossibility의 부정, attempt와 completed crime으로의 merger, protected class exemption까지 붙여야 solicitation 문제가 완성된다.</p>
+        <section id="completion">
+          <h2>2. 완료 시점: 왜 One-Party Crime인가</h2>
+          <p>
+            Solicitation은 conspiracy와 달리 agreement를 요구하지 않는다. 상대방이 바로 거절해도, 속으로 범죄를 할 생각이 전혀 없어도, 심지어 잠입수사관이 연기한 동의에 불과해도 피고의 solicitation 책임은 남을 수 있다. 그래서 solicitation은 흔히 <code>one-party crime</code>으로 설명된다.
+          </p>
+
+          <div class="flow" aria-label="Solicitation 성립 흐름도">
+            <div class="step">
+              <b>1. Intent</b>
+              <span>피고가 특정 범죄 실행을 원한다.</span>
+            </div>
+            <div class="step">
+              <b>2. Communication</b>
+              <span>상대방에게 권유, 명령, 요청을 발신한다.</span>
+            </div>
+            <div class="step">
+              <b>3. Completion</b>
+              <span>communication 시점에 solicitation이 완성된다.</span>
+            </div>
+            <div class="step">
+              <b>4. Later Events</b>
+              <span>거절, 무응답, 철회는 이미 완성된 범죄를 소급해 없애지 않는다.</span>
+            </div>
+          </div>
+
+          <h3>Feigned Agreement도 충분하다</h3>
+          <p>
+            상대방이 잠입경찰이거나 수사를 위해 맞장구친 사람이라면, 상대방에게는 범죄 실행 의사가 없다. 그러나 solicitation에서 중요한 것은 상대방의 진심이 아니다. 피고가 범죄를 하라고 권유했다는 사실과 그 권유에 담긴 피고의 의사가 핵심이다.
+          </p>
+
+          <table>
+            <tbody>
+              <tr>
+                <th>상대방이 즉시 거절</th>
+                <td>solicitation은 이미 성립할 수 있다. 동의나 실행은 필요하지 않다.</td>
+              </tr>
+              <tr>
+                <th>상대방이 잠입수사관</th>
+                <td>feigned agreement라도 성립 가능하다. factual impossibility는 방어가 되지 않는다.</td>
+              </tr>
+              <tr>
+                <th>메시지를 읽지 못함</th>
+                <td>수신 여부보다 발신 시도가 중요하다. 권유를 밖으로 내보냈다면 completed solicitation이 될 수 있다.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="note">
+            관련 문제 포인트: Q.5는 언더커버 경찰에게 청탁한 사례, Q.14는 경비원의 feigned agreement, Q.34는 풀 청소원 feigned agreement 상황으로 정리할 수 있다.
+          </p>
         </section>
 
-        <footer>
-          Standalone HTML research report. No JavaScript, remote assets, external CSS, or iframes.
-        </footer>
+        <section id="defenses">
+          <h2>3. 항변: 나중에 마음을 바꾸면 달라지는가</h2>
+          <p>
+            Common law의 기본 입장은 엄격하다. solicitation은 communication 시점에 이미 완성되므로, 이후에 피고가 마음을 바꾸거나 “하지 말라”고 철회하더라도 이미 성립한 범죄를 없애지는 못한다. 따라서 <code>withdrawal</code> 또는 <code>renunciation</code>은 common law에서 절대 방어가 되지 않는다.
+          </p>
+
+          <h3>MPC의 제한적 Renunciation</h3>
+          <p>
+            MPC는 조금 더 유연하지만, 단순한 후회를 넓게 받아들이지는 않는다. 피해 또는 범죄 발생을 실제로 막는 방향의 조치가 요구된다. 즉, 핵심은 “마음을 바꾸었는가”가 아니라 “범죄가 일어나지 않도록 실질적으로 예방했는가”이다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>항변 쟁점</th>
+                <th>Common Law</th>
+                <th>MPC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Withdrawal / Renunciation</th>
+                <td>방어가 되지 않는다. 이미 communication 시점에 완성된다.</td>
+                <td>피해 prevention이 있으면 제한적으로 가능하다.</td>
+              </tr>
+              <tr>
+                <th>Factual Impossibility</th>
+                <td>방어가 되지 않는다. 상대방이 실제로 범죄를 저지를 수 없었어도 피고의 권유 책임은 남는다.</td>
+                <td>일반적으로 solicitation 책임을 무너뜨리는 사유가 아니다.</td>
+              </tr>
+              <tr>
+                <th>농담 또는 과장</th>
+                <td colspan="2">진정한 <code>specific intent</code>가 있었는지의 문제로 분석한다.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="note">
+            관련 문제 포인트: Q.40은 며칠 전 철회한 사례로, common law에서는 철회가 solicitation의 완전한 방어가 되지 않는다는 점을 확인하는 문제다.
+          </p>
+        </section>
+
+        <section id="merger">
+          <h2>4. Merger: 권유 이후 범죄가 더 진행되면 무엇이 남는가</h2>
+          <p>
+            Solicitation은 초기 단계의 범죄다. 따라서 같은 범죄가 실제로 완성되거나 attempt 단계까지 발전하면, 초기 solicitation은 보통 더 큰 범죄에 흡수된다. 이를 <code>merger</code>라고 한다.
+          </p>
+
+          <div class="pullquote">
+            시험에서는 “solicitation이 있었는가”만 묻지 않는다. 이후 사건이 어디까지 진행되었는지를 보고, 최종적으로 어떤 범죄가 남는지를 물을 수 있다.
+          </div>
+
+          <table>
+            <tbody>
+              <tr>
+                <th>Solicitation + Completed Crime</th>
+                <td>solicitation은 completed crime으로 merge된다. 별도 중복 처벌보다 완성범이 중심이 된다.</td>
+              </tr>
+              <tr>
+                <th>Solicitation + Attempt</th>
+                <td>범죄가 완성되지는 않았더라도 attempt 단계까지 나아가면 solicitation은 attempt에 흡수될 수 있다.</td>
+              </tr>
+              <tr>
+                <th>대표 문제</th>
+                <td>Q.13: 살인청부 이후 살해가 완성된 경우 solicitation은 murder로 merge된다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="protected-class">
+          <h2>5. Protected Class Exemption: 법이 보호하려는 사람을 처벌할 수 있는가</h2>
+          <p>
+            Protected class exemption은 입법 목적을 읽는 문제다. 어떤 statute가 특정한 사람을 가해자가 아니라 보호대상으로 설정했다면, 그 보호 계급에 속한 사람을 같은 사건에서 solicitation으로 처벌하는 것은 입법 목적에 반할 수 있다.
+          </p>
+
+          <p>
+            특히 다인 범죄에서 statute가 특정 참여자만 처벌하고 다른 참여자를 보호하거나 비처벌 대상으로 두는 구조라면 주의해야 한다. 예컨대 법이 판매자만 처벌하고 구매자는 보호 또는 비처벌 대상으로 남겨둔 경우, 구매자가 거래를 요청했다는 이유만으로 항상 solicitation 책임이 성립한다고 단정할 수 없다.
+          </p>
+
+          <ul class="rule-list">
+            <li><strong>먼저 statute를 읽는다:</strong> 이 법이 누구를 처벌하려는 법인지, 누구를 보호하려는 법인지가 출발점이다.</li>
+            <li><strong>보호 계급이면 예외 가능:</strong> 보호대상에게 solicitation 책임까지 묻는 것이 입법 목적과 충돌할 수 있다.</li>
+            <li><strong>대표 문제:</strong> Q.37은 마약 구매자가 protected class일 수 있는지를 묻는 구조다.</li>
+          </ul>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 문제를 푸는 순서</h2>
+          <p>
+            Solicitation 문제는 사실관계가 길어질수록 단순한 권유 범죄처럼 보이지 않을 수 있다. 하지만 분석 순서는 비교적 안정적이다. 먼저 피고의 말이 범죄 실행을 향한 요청인지 본다. 다음으로 피고에게 <code>specific intent</code>가 있었는지 확인한다. 그다음 communication이 발신되었는지, 상대방의 반응이 실제로 법적으로 중요한지 검토한다.
+          </p>
+
+          <table>
+            <tbody>
+              <tr>
+                <th>1단계</th>
+                <td>피고가 <code>encourage</code>, <code>command</code>, 또는 <code>request</code>했는가.</td>
+              </tr>
+              <tr>
+                <th>2단계</th>
+                <td>피고가 상대방의 범죄 실행을 진정으로 원했는가. 즉, <code>specific intent</code>가 있는가.</td>
+              </tr>
+              <tr>
+                <th>3단계</th>
+                <td>communication이 발신되었는가. 실제 수신, 동의, 실행은 필수 요소가 아니다.</td>
+              </tr>
+              <tr>
+                <th>4단계</th>
+                <td>withdrawal, impossibility, feigned agreement, protected class exemption을 검토한다.</td>
+              </tr>
+              <tr>
+                <th>5단계</th>
+                <td>completed crime 또는 attempt가 있으면 merger를 적용한다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="source-notes" class="source-notes">
+          <h2>Source Notes</h2>
+          <ul>
+            <li>Q.5: 언더커버 경찰에게 청탁한 사례. 상대방의 진정한 동의가 없어도 solicitation 성립 가능.</li>
+            <li>Q.13: 살인청부 이후 살해가 완성된 사례. solicitation은 murder로 merge.</li>
+            <li>Q.14: 경비원의 feigned agreement. 상대방의 내심은 solicitation 성립을 좌우하지 않음.</li>
+            <li>Q.34: 풀 청소원 feigned agreement. factual impossibility와 one-party crime 원칙 확인.</li>
+            <li>Q.37: 마약 구매자 protected class 가능성. statute의 보호 목적을 먼저 읽어야 함.</li>
+            <li>Q.40: 며칠 전 철회. common law에서 withdrawal은 solicitation의 완전한 방어가 아님.</li>
+          </ul>
+        </section>
+
+        <section id="ending" class="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>
+            Solicitation은 “범죄가 실제로 일어났는가”보다 앞선 지점에서 처벌 가능성을 만든다. 그래서 시험에서는 결과보다 의사와 전달에 집중해야 한다. 상대방이 거절했는지, 속으로 속였는지, 실제로 범죄가 가능했는지는 대개 부차적이다.
+          </p>
+          <p>
+            가장 압축된 공식은 이렇다. <code>specific intent</code>를 가진 범죄 권유가 communication으로 밖에 나가면 solicitation은 완성된다. 이후 사건이 attempt나 completed crime으로 진행되면 merger를 확인하고, statute가 보호하려는 사람에게 책임을 묻는 구조인지까지 점검하면 된다.
+          </p>
+          <div class="takeaway-box">
+            <strong>Copy-ready takeaway:</strong>
+            Solicitation is complete upon communication of a request, command, or encouragement made with the specific intent that another person commit a crime; agreement, completion, and actual ability are not required.
+          </div>
+        </section>
       </article>
-    </div>
-  </main>
+
+      <aside aria-label="Article navigation and share framing">
+        <div class="panel">
+          <h2>Contents</h2>
+          <ol class="toc">
+            <li><a href="#abstract">Abstract & Key Findings</a></li>
+            <li><a href="#requirements">성립요건</a></li>
+            <li><a href="#completion">완료 시점</a></li>
+            <li><a href="#defenses">항변</a></li>
+            <li><a href="#merger">Merger</a></li>
+            <li><a href="#protected-class">Protected Class</a></li>
+            <li><a href="#implications">Implications</a></li>
+          </ol>
+        </div>
+
+        <div class="panel">
+          <h3>Share Framing</h3>
+          <p class="share-copy">
+            범죄 권유는 언제 완성되는가: solicitation의 핵심은 상대방의 동의가 아니라 피고의 specific intent와 communication이다.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Core Rule</h3>
+          <p class="share-copy">
+            Communication + Specific Intent = Completed Solicitation. 이후 거절, 무응답, feigned agreement는 원칙적으로 성립을 막지 않는다.
+          </p>
+        </div>
+      </aside>
+    </main>
+  </div>
 </body>
 </html>
