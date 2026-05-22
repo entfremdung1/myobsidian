@@ -1,429 +1,9 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  
-  
-  <title>법은 수단이고 정의가 목적이다 | Georgetown Law Center Commencement 2026 리서치 리포트</title>
-  
-  
-  
-  
-  
-  <style>
-    :root {
-      --ink: #1f252b;
-      --muted: #66707c;
-      --soft: #f6f2ec;
-      --paper: #fffdf9;
-      --line: #e3ddd3;
-      --accent: #8e3f2f;
-      --accent-2: #275d68;
-      --accent-3: #b9822f;
-      --deep: #16242d;
-      --card: #ffffff;
-      --shadow: 0 18px 48px rgba(31, 37, 43, .09);
-      --radius: 8px;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      --serif: Georgia, "Times New Roman", "Noto Serif KR", serif;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        linear-gradient(180deg, rgba(246,242,236,.92), rgba(255,253,249,.98) 360px),
-        var(--paper);
-      font-family: var(--sans);
-      line-height: 1.72;
-      word-break: keep-all;
-      overflow-wrap: break-word;
-    }
-
-    a {
-      color: var(--accent-2);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
-    .wrap {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 72px 0 42px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 15% 20%, rgba(142,63,47,.08), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(39,93,104,.09), transparent 30%);
-    }
-
-    .kicker {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 24px;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .kicker::before {
-      content: "";
-      display: inline-block;
-      width: 34px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    h1 {
-      max-width: 980px;
-      margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(40px, 7vw, 82px);
-      line-height: 1.04;
-      letter-spacing: 0;
-      color: var(--deep);
-    }
-
-    .subtitle {
-      max-width: 760px;
-      margin: 26px 0 0;
-      color: #39434d;
-      font-size: clamp(18px, 2.1vw, 24px);
-      line-height: 1.62;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .pill {
-      padding: 7px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.62);
-    }
-
-    .share-box {
-      margin-top: 34px;
-      padding: 18px 20px;
-      max-width: 820px;
-      border-left: 4px solid var(--accent-2);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 10px 32px rgba(31,37,43,.06);
-    }
-
-    .share-box strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--deep);
-    }
-
-    main {
-      padding: 44px 0 72px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 286px;
-      gap: 44px;
-      align-items: start;
-    }
-
-    .toc {
-      position: sticky;
-      top: 24px;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.82);
-      box-shadow: 0 8px 28px rgba(31,37,43,.05);
-    }
-
-    .toc h2 {
-      margin: 0 0 12px;
-      font-size: 14px;
-      color: var(--accent);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .toc a {
-      display: block;
-      padding: 8px 0;
-      color: #3a4650;
-      font-size: 14px;
-      text-decoration: none;
-      border-top: 1px solid #eee7dc;
-    }
-
-    article {
-      min-width: 0;
-    }
-
-    section {
-      margin: 0 0 54px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.5vw, 42px);
-      line-height: 1.18;
-      color: var(--deep);
-    }
-
-    h3 {
-      margin: 30px 0 10px;
-      font-size: 20px;
-      line-height: 1.35;
-      color: #25323b;
-    }
-
-    p {
-      margin: 0 0 16px;
-    }
-
-    .lede {
-      padding: 28px;
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      font-size: 18px;
-    }
-
-    .abstract {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 22px;
-    }
-
-    .panel {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: 0 14px 36px rgba(31,37,43,.06);
-    }
-
-    .panel h3 {
-      margin-top: 0;
-    }
-
-    .key-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .key-list li {
-      padding: 14px 16px;
-      border-left: 3px solid var(--accent-3);
-      background: #fbf7ef;
-    }
-
-    .pullquote {
-      margin: 42px 0;
-      padding: 34px 38px;
-      border-top: 3px solid var(--accent);
-      border-bottom: 1px solid var(--line);
-      color: var(--deep);
-      background: #fbfaf6;
-      font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.42;
-    }
-
-    .pullquote cite {
-      display: block;
-      margin-top: 14px;
-      color: var(--muted);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-style: normal;
-    }
-
-    .evidence-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .evidence-card {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .evidence-card .label {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .diagram {
-      margin: 28px 0;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .step {
-      min-height: 132px;
-      padding: 18px;
-      border-radius: var(--radius);
-      background: #f4f8f8;
-      border: 1px solid #d5e4e5;
-    }
-
-    .step strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--accent-2);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 22px 0;
-      background: #fff;
-      border: 1px solid var(--line);
-      font-size: 15px;
-    }
-
-    th, td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--line);
-      vertical-align: top;
-      text-align: left;
-    }
-
-    th {
-      color: var(--deep);
-      background: #f4efe7;
-      font-weight: 800;
-    }
-
-    .note {
-      padding: 18px 20px;
-      border-radius: var(--radius);
-      background: #f3f6f7;
-      border: 1px solid #d9e5e8;
-      color: #34434a;
-    }
-
-    .checklist {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .checklist li {
-      padding: 13px 15px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    .checklist li::before {
-      content: "□";
-      margin-right: 10px;
-      color: var(--accent-2);
-      font-weight: 800;
-    }
-
-    .source-note {
-      padding: 24px;
-      border-radius: var(--radius);
-      background: var(--deep);
-      color: #eef2f2;
-    }
-
-    .source-note a {
-      color: #b7dce1;
-    }
-
-    .source-note small {
-      color: #bac5c9;
-    }
-
-    footer {
-      padding: 34px 0 58px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      background: #f7f4ee;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .toc {
-        position: static;
-        order: -1;
-      }
-
-      .abstract,
-      .evidence-grid,
-      .flow {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 48px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .wrap {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .lede,
-      .panel,
-      .diagram,
-      .pullquote {
-        padding: 20px;
-      }
-
-      th, td {
-        padding: 12px;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 <meta property="og:type" content="article">
 <meta property="og:title" content="Law Center Commencement 2026">
 <meta property="og:description" content="Video &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/https://www.youtube.com/live/lv2lcwCT4X0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;acceleromete">
@@ -432,220 +12,94 @@
 <meta name="twitter:title" content="Law Center Commencement 2026">
 <meta name="twitter:description" content="Video &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/https://www.youtube.com/live/lv2lcwCT4X0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;acceleromete">
 <link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1mqktdg/">
-</head>
-<body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="kicker">Research Report · Editorial Blog</div>
-      <h1>법은 수단이고 정의가 목적이다</h1>
-      <p class="subtitle">조지타운 로스쿨 2026년 졸업식에서 읽는 법률가의 공적 책임, 시민적 대화, 권력 견제, 그리고 행동으로 만들어지는 희망.</p>
-      <div class="meta-row" aria-label="문서 정보">
-        <span class="pill">Georgetown University</span>
-        <span class="pill">Published: 2026-05-18</span>
-        <span class="pill">주제: 법률 교육 · 시민의 자유 · 정의와 봉사</span>
+<span class="concept-tag">NRA v. VUO (2024)</span>
+      <span class="concept-tag">Georgetown Supreme Court Institute</span>
+    </div>
+  </section>
+
+  <!-- ── Source Notes ───────────────────────────────── -->
+  <section class="section">
+    <span class="label">Source Notes · 참고 자료</span>
+    <h2 class="section__title">인용 및 언급된 주요 인물과 판례</h2>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <span class="ref-card__cat">인용 사상가</span>
+        <ul class="ref-card__list">
+          <li>Bryan Stevenson — 법률가, 인권운동가, <em>Just Mercy</em> 저자</li>
+          <li>Cornell West — 철학자, 민주주의 운동가</li>
+          <li>Roberto Unger — 법철학자, 하버드 로스쿨</li>
+          <li>Pedro Arrupe SJ — 예수회 전 총장</li>
+        </ul>
       </div>
-      <div class="share-box">
-        <strong>공유용 요약</strong>
-        분열의 시대에 변호사는 단순한 법 기술자가 아니라, 갈등을 문명적으로 다루고 권력 남용을 견제하며 절망 대신 행동을 선택하는 공적 행위자다.
+      <div class="ref-card">
+        <span class="ref-card__cat">법률 인물</span>
+        <ul class="ref-card__list">
+          <li>Thurgood Marshall — 최초 흑인 대법관</li>
+          <li>Ruth Bader Ginsburg — 대법관, 여성 권리 운동가</li>
+          <li>John Marshall — 초대 대법원장</li>
+          <li>Amy Stevens — <em>Bostock</em> 사건 의뢰인</li>
+        </ul>
+      </div>
+      <div class="ref-card">
+        <span class="ref-card__cat">주요 판례</span>
+        <ul class="ref-card__list">
+          <li>Texas v. Johnson (1989) — 국기 소각과 표현의 자유</li>
+          <li>Bostock v. Clayton County (2020) — 성 정체성과 고용 차별</li>
+          <li>NRA v. VUO (2024) — 단체의 표현의 자유</li>
+          <li>Masterpiece Cake Shop 사건</li>
+        </ul>
+      </div>
+      <div class="ref-card">
+        <span class="ref-card__cat">기관 및 단체</span>
+        <ul class="ref-card__list">
+          <li>ACLU (미국 시민자유연맹)</li>
+          <li>Georgetown Supreme Court Institute</li>
+          <li>ICAP (헌법 옹호 및 보호 연구소)</li>
+          <li>Interfaith Advisory Council</li>
+        </ul>
       </div>
     </div>
-  </header>
 
-  <main class="wrap">
-    <div class="layout">
-      <article>
-        <section id="abstract">
-          <h2>Abstract</h2>
-          <div class="lede">
-            이 리포트는 조지타운 대학교 법률 센터 2026년 졸업식을 하나의 공적 텍스트로 읽는다. 행사는 졸업 축하의 형식을 취하지만, 핵심 메시지는 더 넓다. 법률가는 첨예한 분쟁을 폭력 대신 언어와 절차로 다루는 사람이며, 권력이 법을 사유화하려 할 때 이를 견제하는 사람이고, 냉소가 쉬워진 시대에 행동을 통해 희망을 생산하는 사람이라는 주장이다.
-          </div>
-
-          <div class="abstract">
-            <div class="panel">
-              <h3>핵심 논지</h3>
-              <p>데이비드 콜 교수의 축사는 민주주의에서 법의 두 기능을 선명하게 제시한다. 첫째, 법은 분쟁 해결의 공적 장이다. 둘째, 법은 권력 남용에 대한 제도적 제동 장치다. 여기에 조지타운의 예수회 전통인 <em>cura personalis</em>, 즉 전인적 인격체에 대한 존중이 더해지면서 법률 교육은 기술 훈련을 넘어 윤리적 형성의 문제로 확장된다.</p>
-            </div>
-            <div class="panel">
-              <h3>읽는 법</h3>
-              <p>이 글은 졸업식 전체를 시간순 기록으로 반복하기보다, 공적 메시지와 증거를 중심으로 재구성했다. 환영사, 종교 간 기도, 축사, 학위 수여, 폐회사에 흩어진 주제를 통합해 “법률가의 사명”이라는 하나의 논증으로 정리한다.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="findings">
-          <h2>Key Findings</h2>
-          <ul class="key-list">
-            <li><strong>법률가는 갈등을 문명화한다.</strong> 좋은 변호사는 상대의 논리를 약화시켜 caricature로 만드는 사람이 아니라, 가장 강한 형태로 이해한 뒤 설득력 있게 대응하는 사람이다.</li>
-            <li><strong>법은 권력에 대한 언어다.</strong> 가족 분리 정책에 대한 ACLU의 소송 사례는 법이 국가 권력의 폭주를 멈추게 할 수 있음을 보여준다.</li>
-            <li><strong>정의는 법보다 크다.</strong> “법은 단지 수단일 뿐이고, 정의가 목적이다”라는 메시지는 법률 실무의 윤리적 기준을 명확히 한다.</li>
-            <li><strong>희망은 감정이 아니라 실천의 결과다.</strong> 절망과 냉소는 관찰자의 자세에서 자라지만, 행동은 희망을 만든다.</li>
-            <li><strong>전인적 인격체의 관점은 법률가의 기본 태도다.</strong> 의뢰인, 상대방, 공동체 구성원을 단일한 신분이나 행위로 축소하지 않는 시선이 필요하다.</li>
-          </ul>
-        </section>
-
-        <section id="context">
-          <h2>분열의 시대에 졸업한다는 것</h2>
-          <p>2026년 졸업생들은 팬데믹, 소셜 미디어와 스마트폰 문화, 인공지능에 대한 불안, 정치적 양극화, 불평등, 기후 위기, 민주주의 제도의 약화라는 조건 속에서 법률 교육을 마쳤다. 이 배경은 단순한 시대 진단이 아니다. 연설의 논리는 바로 여기서 시작된다. 세상이 복잡하고 위험할수록 법률가는 자신이 가진 도구가 무엇을 위해 쓰이는지 더 분명히 알아야 한다.</p>
-          <p>행사에서 강조된 조지타운의 정체성도 이 맥락과 맞닿아 있다. 종교 간 자문위원회의 공동 기도는 서로 다른 신앙과 정치적 견해를 가진 학생들이 상대를 바꾸려 하기보다, 들을 수 있는 공간을 만드는 경험을 보여준다. 이는 축사의 핵심인 “문명적 논쟁”을 의례적 차원에서 먼저 보여준 장면이기도 하다.</p>
-
-          <blockquote class="pullquote">
-            “희망은 행동의 원인이 아니라 행동의 결과이다.”
-            <cite>코넬 웨스트와 로베르토 앵거의 사유를 빌린 축사의 핵심 메시지</cite>
-          </blockquote>
-        </section>
-
-        <section id="evidence">
-          <h2>Evidence Sections</h2>
-          <div class="evidence-grid">
-            <div class="evidence-card">
-              <span class="label">Evidence 01</span>
-              <h3>분쟁 해결의 장으로서 법</h3>
-              <p>콜 교수는 변호사가 “논쟁하는 법”을 배운다고 설명한다. 여기서 논쟁은 공격이나 승리의 기술이 아니라, 사회의 가장 첨예한 갈등을 절차와 언어 안으로 들여와 다루는 공적 기술이다. 조지타운 대법원 연구소가 다양한 정치적 성향의 변호사들에게 모의 변론을 제공하는 사례는 이 원리를 실천적으로 보여준다.</p>
-            </div>
-            <div class="evidence-card">
-              <span class="label">Evidence 02</span>
-              <h3>권력 남용을 견제하는 법</h3>
-              <p>ACLU에서 콜 교수가 참여한 가족 분리 정책 대응은 법의 견제 기능을 보여주는 대표 사례다. 행정부 정책으로 수천 가족이 분리되었고, 소송은 이를 중단시키고 재결합과 구제의 길을 열었다. 이 사례는 법률가의 일이 추상적 원칙을 넘어 실제 인간의 삶을 복원할 수 있음을 증명한다.</p>
-            </div>
-            <div class="evidence-card">
-              <span class="label">Evidence 03</span>
-              <h3>정의를 향한 윤리적 선택</h3>
-              <p>법은 약자를 보호할 수도 있지만 약자를 압박하는 데에도 쓰일 수 있다. 그래서 졸업생들에게 던져진 질문은 “어떤 법률가가 될 것인가”다. 적을 처벌하는 권력의 도구가 될 것인가, 취약한 사람에게 목소리를 주는 정의의 도구가 될 것인가.</p>
-            </div>
-            <div class="evidence-card">
-              <span class="label">Evidence 04</span>
-              <h3>냉소주의에 맞서는 희망</h3>
-              <p>브라이언 스티븐슨의 문장을 빌려, 축사는 정의의 가장 큰 적을 절망으로 지목한다. 불의는 저항의 대상을 제공하지만, 절망은 저항할 이유 자체를 약화시킨다. 따라서 희망은 낙관적 감정이 아니라 행동의 습관으로 이해된다.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="diagram">
-          <h2>핵심 구조</h2>
-          <div class="diagram">
-            <div class="flow" aria-label="법률가의 사명 흐름도">
-              <div class="step">
-                <strong>1. 경청</strong>
-                상대의 주장을 가장 강한 형태로 이해한다.
-              </div>
-              <div class="step">
-                <strong>2. 논증</strong>
-                갈등을 폭력이 아니라 절차와 언어로 다룬다.
-              </div>
-              <div class="step">
-                <strong>3. 견제</strong>
-                권력 남용 앞에서 법적 수단으로 대응한다.
-              </div>
-              <div class="step">
-                <strong>4. 희망</strong>
-                행동을 통해 냉소를 넘어서는 가능성을 만든다.
-              </div>
-            </div>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>주제</th>
-                <th>연설의 메시지</th>
-                <th>공적 의미</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>문명적 논쟁</td>
-                <td>상대의 관점을 존중하며 강한 논증으로 응답한다.</td>
-                <td>양극화된 사회에서 민주적 대화를 회복한다.</td>
-              </tr>
-              <tr>
-                <td>권력 견제</td>
-                <td>법은 사람의 지배가 아니라 법의 지배를 지키는 장치다.</td>
-                <td>국가 권력이 개인의 존엄을 침해하지 못하게 한다.</td>
-              </tr>
-              <tr>
-                <td>전인적 인격체</td>
-                <td>사람을 하나의 행위, 신분, 입장으로 축소하지 않는다.</td>
-                <td>법률 실무의 인간성을 회복한다.</td>
-              </tr>
-              <tr>
-                <td>행동하는 희망</td>
-                <td>희망은 기다리는 것이 아니라 실천 속에서 생긴다.</td>
-                <td>시민적 무력감과 냉소주의를 넘어선다.</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section id="concepts">
-          <h2>Key Concepts</h2>
-          <div class="panel">
-            <h3>Cura Personalis · 전인적 인격체</h3>
-            <p>예수회 교육 전통에서 중요한 개념으로, 사람을 하나의 역할이나 사건으로만 보지 않고 전체적 존재로 바라보는 태도다. 법률가에게 이는 의뢰인, 상대방, 공동체 구성원을 더 복합적인 인간으로 이해하라는 요청이 된다.</p>
-
-            <h3>Rule of Law · 법의 지배</h3>
-            <p>권력자가 자의적으로 통치하는 체제가 아니라, 공적 규칙과 절차가 권력을 제한하는 체제다. 콜 교수의 축사에서 법률 전문직은 이 이상을 현실 속에서 지키는 직업으로 제시된다.</p>
-
-            <h3>Pro Bono · 공익 봉사</h3>
-            <p>졸업생들이 20,000시간 이상의 공익 봉사를 수행했다는 언급은 법률 교육이 개인의 경력 준비만이 아니라 공적 책임의 훈련이기도 함을 보여준다.</p>
-          </div>
-        </section>
-
-        <section id="implications">
-          <h2>Implications</h2>
-          <p>이 졸업식의 메시지는 로스쿨 졸업생에게만 해당하지 않는다. 전문성을 가진 모든 사람에게 적용된다. 지식은 중립적인 장식품이 아니라 선택을 요구하는 힘이다. 특히 법률 지식은 누군가의 자유, 가족, 주거, 안전, 명예, 생계와 직접 연결된다.</p>
-          <p>따라서 이 리포트가 끌어내는 실천적 함의는 세 가지다. 첫째, 전문직 윤리는 위기 순간에만 등장하는 예외 규칙이 아니라 일상적 판단의 기준이어야 한다. 둘째, 시민적 대화는 상대를 설득하기 전에 상대를 정확히 이해하는 능력에서 시작된다. 셋째, 희망은 사회적 조건이 좋아질 때 생기는 보상이 아니라, 조건을 바꾸려는 행동 속에서 만들어지는 역량이다.</p>
-
-          <div class="note">
-            <strong>독자를 위한 질문:</strong> 지금 내가 가진 전문성은 누구의 목소리를 키우고, 누구의 고통을 줄이며, 어떤 권력의 남용을 멈추는 데 쓰일 수 있는가?
-          </div>
-        </section>
-
-        <section id="actions">
-          <h2>Action Items</h2>
-          <ul class="checklist">
-            <li>나를 여기까지 이끈 가족, 친구, 동료에게 구체적으로 감사 인사를 전하기</li>
-            <li>나와 의견이 다른 사람의 주장을 가장 강한 형태로 요약해 보기</li>
-            <li>불의를 보았을 때 침묵하지 않고 사용할 수 있는 제도적 수단을 찾기</li>
-            <li>냉소가 들 때 작고 구체적인 행동 하나를 선택하기</li>
-            <li>사람을 하나의 정치적 입장, 직업, 실수, 혐의로 축소하지 않기</li>
-          </ul>
-        </section>
-
-        <section id="source">
-          <h2>Source Notes</h2>
-          <div class="source-note">
-            <p><strong>원자료:</strong> Georgetown University, “Law Center Commencement 2026”</p>
-            <p><a>https://www.youtube.com/live/lv2lcwCT4X0</a></p>
-            <p><small>이 HTML 문서는 제공된 Obsidian Markdown 노트를 바탕으로 작성된 독립형 연구 리포트입니다. 보안 및 게시 요건에 따라 iframe, JavaScript, 외부 CSS, 원격 자산을 사용하지 않았습니다.</small></p>
-          </div>
-        </section>
-
-        <section id="ending">
-          <h2>Reader-Friendly Ending</h2>
-          <p>졸업식은 대개 끝맺음의 의례처럼 보인다. 그러나 이 연설에서 졸업은 시작의 언어다. 세계는 더 친절해지기를 기다리는 것이 아니라, 더 정확히 듣고, 더 공정하게 논증하고, 더 용기 있게 권력을 견제하는 사람들을 필요로 한다.</p>
-          <p>법은 그 자체로 구원이 아니다. 하지만 제대로 쓰일 때 법은 약한 사람에게 목소리를 주고, 폭력 대신 절차를 제공하며, 절망 대신 행동의 가능성을 연다. 그래서 이 졸업식의 가장 오래 남는 문장은 결국 하나로 모인다. 법은 수단이고, 정의가 목적이다.</p>
-        </section>
-      </article>
-
-      <aside class="toc" aria-label="목차">
-        <h2>Contents</h2>
-        <a href="#abstract">Abstract</a>
-        <a href="#findings">Key Findings</a>
-        <a href="#context">Context</a>
-        <a href="#evidence">Evidence</a>
-        <a href="#diagram">Structure</a>
-        <a href="#concepts">Key Concepts</a>
-        <a href="#implications">Implications</a>
-        <a href="#actions">Action Items</a>
-        <a href="#source">Source Notes</a>
-      </aside>
+    <div class="source-notes">
+      <p><strong>원본 자료:</strong> Georgetown University Law Center Commencement 2026. Georgetown University 공식 YouTube 채널. 2026-05-18T05:57:39-07:00.</p>
+      <p><strong>주요 연사:</strong> Dean William Titlebound · Prof. David Cole (George J. Mitchell Professor Emeritus, 전 ACLU 법률 국장) · President Robert M. Groves · Rev. Jamie Krowc</p>
+      <p><strong>분석 완료:</strong> 2026-05-18T21:36:26-04:00</p>
+      <p><strong>분류:</strong> 법률 교육 · 시민의 자유 · 정의와 봉사 · 희망과 행동 · 예수회 교육 철학</p>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <div class="wrap">
-      Research report converted from an Obsidian Markdown note · Sanitized standalone HTML · No scripts, iframes, external CSS, or remote assets.
+  <!-- ── Closing ────────────────────────────────────── -->
+  <div class="closing">
+    <h2 class="closing__title">일어서라 — 희망의 주체가 되어</h2>
+    <p class="closing__text">
+      어떤 시대에도 법률가들은 선택의 기로에 선다. 불의를 보고 외면할 것인가, 맞서 싸울 것인가.
+      써굿 마셜도, 루스 베이더 긴즈버그도, ACLU의 수많은 변호사들도
+      처음부터 희망이 있어서 싸운 것이 아니었다. 그들이 싸웠기 때문에 희망이 만들어졌다.
+    </p>
+    <p class="closing__text">
+      2026년 조지타운 졸업생들이 받은 가장 중요한 선물은 학위가 아니다.
+      법이라는 도구와, 그것을 정의를 위해 사용하겠다는 선택의 자유다.
+      다른 사람들이 앉으라고 할 때, 일어서는 것 — 그것이 희망이다.
+    </p>
+    <div class="closing__motto">
+      "법은 단지 수단일 뿐이고, 정의가 목적이다."
+      <small>— 예수회 전통 모토 / Georgetown University Law Center</small>
     </div>
-  </footer>
+  </div>
+
+</div>
+</main>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>Georgetown University Law Center Commencement 2026 심층 분석 리포트</p>
+    <p>분석 기록일: 2026-05-18 &nbsp;·&nbsp; 클리핑 완료: 2026-05-18T21:36:26-04:00 &nbsp;·&nbsp; 카테고리: 교육 · 법률 · 사회</p>
+  </div>
+</footer>
+
+</body>
+</html>
 </body>
 </html>
