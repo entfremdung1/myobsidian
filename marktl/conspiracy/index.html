@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Conspiracy 책임의 구조: 합의, 공모자 수, 철회와 Pinkerton 책임</title>
+  
+  
+  
+  
+  
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1d1d1f;
+      --muted: #66615a;
+      --line: #ded7cc;
+      --accent: #8f2d2d;
+      --accent-2: #1f5f6f;
+      --soft: #f1e8dc;
+      --soft-2: #e8f0ef;
+      --code: #27211d;
+      --shadow: 0 18px 55px rgba(68, 50, 33, .12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 280px),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: .08em;
+      text-underline-offset: .2em;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 36px;
+      align-items: end;
+      padding: 64px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .excerpt {
+      margin: 24px 0 0;
+      max-width: 760px;
+      color: #44403b;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      line-height: 1.68;
+    }
+
+    .share-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .share-card h2 {
+      margin: 0 0 10px;
+      font-size: .95rem;
+      letter-spacing: 0;
+    }
+
+    .share-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.6;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.52);
+      color: #574f47;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 44px;
+      margin-top: 44px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, .78);
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: .88rem;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.35;
+      text-decoration: none;
+      border-top: 1px solid rgba(222, 215, 204, .68);
+    }
+
+    .toc a:first-of-type {
+      border-top: 0;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 42px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 34px);
+      box-shadow: 0 12px 35px rgba(68, 50, 33, .08);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 1.14rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    code {
+      padding: .12em .35em;
+      border-radius: 5px;
+      background: #efe5d7;
+      color: var(--code);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .abstract {
+      border-left: 5px solid var(--accent);
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .finding {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf6ef;
+    }
+
+    .finding strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: .94rem;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 26px 28px;
+      border-top: 3px solid var(--accent-2);
+      border-bottom: 1px solid var(--line);
+      color: #1f4249;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.35;
+      background: var(--soft-2);
+    }
+
+    .table-wrap {
+      margin: 18px 0;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #efe4d5;
+      color: #332d27;
+      font-size: .9rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin: 22px 0 4px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf8f1;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .node {
+      min-height: 82px;
+      padding: 14px;
+      border: 1px solid #d2c6b8;
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .node b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    .node span {
+      display: block;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    .note {
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent-2);
+      background: var(--soft-2);
+      color: #304d52;
+    }
+
+    .issue-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .issue {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .issue h3 {
+      margin-top: 0;
+    }
+
+    .source-notes {
+      background: #28231f;
+      color: #f5efe5;
+    }
+
+    .source-notes h2,
+    .source-notes h3 {
+      color: #fff8ed;
+    }
+
+    .source-notes code {
+      background: #3c332c;
+      color: #ffe9c7;
+    }
+
+    .source-notes .tag {
+      background: #352d27;
+      border-color: #5b4c40;
+      color: #f4ddbf;
+    }
+
+    .ending {
+      padding: 36px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(143,45,45,.12), rgba(31,95,111,.12)),
+        var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .ending p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .finding-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 20px 15px 56px;
+      }
+
+      .panel,
+      .ending {
+        padding: 20px;
+      }
+
+      .pullquote {
+        padding: 22px 18px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="conspiracy">
+<meta property="og:description" content="가. 요건 (1) 2인 이상 사이에 agreement(명시적 또는 묵시적)가 있어야 한다. (합의는 말로 직접 약속한 경우뿐 아니라, 행동의 조합상 &quot;함께 하기로 했다&quot;는 점이 드러나도 충분하다.) (2) 공모자에게 위법행위를 commit하려는 specific intent가 있어야 한다. (즉, 단순히 범죄 가능성을 알았">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/mrx72a/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="conspiracy">
+<meta name="twitter:description" content="가. 요건 (1) 2인 이상 사이에 agreement(명시적 또는 묵시적)가 있어야 한다. (합의는 말로 직접 약속한 경우뿐 아니라, 행동의 조합상 &quot;함께 하기로 했다&quot;는 점이 드러나도 충분하다.) (2) 공모자에게 위법행위를 commit하려는 specific intent가 있어야 한다. (즉, 단순히 범죄 가능성을 알았">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/mrx72a/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="kicker">Research Report · Criminal Law</p>
+        <h1>Conspiracy 책임의 구조: 합의, 공모자 수, 철회와 Pinkerton 책임</h1>
+        <p class="excerpt">
+          Conspiracy는 단순한 준비행위가 아니라 “함께 범죄를 이루려는 합의” 자체를 처벌하는 독립 범죄다.
+          시험에서는 합의의 존재보다 더 자주, 어떤 이론이 적용되는지, 누가 공모자 수에 포함되는지,
+          철회가 어떤 책임을 끊는지가 결론을 바꾼다.
+        </p>
+        <div class="meta" aria-label="article tags">
+          <span class="tag">Bilateral vs Unilateral</span>
+          <span class="tag">Overt Act</span>
+          <span class="tag">Wharton’s Rule</span>
+          <span class="tag">Withdrawal</span>
+          <span class="tag">Pinkerton</span>
+        </div>
+      </div>
+
+      <aside class="share-card" aria-label="share framing">
+        <h2>공유용 요약</h2>
+        <p>
+          잠입수사관과의 합의는 왜 common law와 MPC에서 결론이 달라질까?
+          Conspiracy의 핵심은 “합의, 의도, 공모자 수, 철회 효과”를 분리해 보는 데 있다.
+        </p>
+      </aside>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="table of contents">
+        <strong>목차</strong>
+        <a href="#abstract">초록</a>
+        <a href="#findings">핵심 발견</a>
+        <a href="#elements">성립요건</a>
+        <a href="#theories">Bilateral · Unilateral</a>
+        <a href="#limits">공모자 수의 한계</a>
+        <a href="#structures">공모 구조</a>
+        <a href="#liability">책임 확장과 철회</a>
+        <a href="#sources">Source Notes</a>
+        <a href="#implications">Implications</a>
+      </nav>
+
+      <main>
+        <section id="abstract" class="panel abstract">
+          <h2>초록</h2>
+          <p>
+            이 글은 미국 형법상 <code>conspiracy</code>의 성립과 책임 범위를 시험 답안 구조에 맞추어 정리한다.
+            기본 성립요건은 2인 이상 사이의 <code>agreement</code>, 위법행위를 이루려는 <code>specific intent</code>,
+            그리고 관할에 따라 요구되는 <code>overt act</code>다. 그러나 실제 쟁점은 여기서 끝나지 않는다.
+          </p>
+          <p>
+            Common law의 bilateral theory는 최소 두 명의 guilty mind를 요구하는 반면, MPC와 modern approach의
+            unilateral theory는 한 명의 진정한 범죄 의사만으로도 성립 가능성을 인정한다. 따라서 undercover,
+            protected class, Wharton’s Rule, withdrawal, Pinkerton 책임은 모두 같은 질문으로 돌아온다.
+            “이 사람을 공모자로 셀 수 있는가, 그리고 어떤 책임까지 확장되는가?”
+          </p>
+        </section>
+
+        <section id="findings" class="panel">
+          <h2>Key Findings</h2>
+          <div class="finding-grid">
+            <article class="finding">
+              <strong>1. 합의는 명시적일 필요가 없다</strong>
+              행동 패턴, 역할 분담, 반복 연락, 이익 공유 등 정황증거로 <code>agreement</code>를 추론할 수 있다.
+            </article>
+            <article class="finding">
+              <strong>2. 의도는 단순 인식보다 강해야 한다</strong>
+              범죄 가능성을 알았다는 정도로는 부족하고, 목표 범죄를 실제로 이루려는 <code>specific intent</code>가 필요하다.
+            </article>
+            <article class="finding">
+              <strong>3. 관할 선택이 결론을 바꾼다</strong>
+              Common law는 overt act를 요구하지 않지만, modern majority와 MPC는 작은 외부 행동이라도 요구한다.
+            </article>
+            <article class="finding">
+              <strong>4. 철회는 책임별로 효과가 다르다</strong>
+              Common law에서 완성된 conspiracy 자체는 지우지 못하지만, 이후의 추가 범죄 책임은 끊을 수 있다.
+            </article>
+          </div>
+        </section>
+
+        <section id="elements" class="panel">
+          <h2>성립요건: 합의, 의도, 외부행위</h2>
+          <p>
+            Conspiracy의 출발점은 두 명 이상 사이의 <code>agreement</code>다. 이 합의는 말로 직접 약속한 경우뿐 아니라,
+            행동의 조합상 “함께 하기로 했다”는 점이 드러나는 경우에도 인정될 수 있다.
+          </p>
+          <p>
+            두 번째 요건은 공모자에게 위법행위를 <code>commit</code>하려는 <code>specific intent</code>가 있어야 한다는 점이다.
+            단순히 범죄 가능성을 알았다는 것만으로는 부족하다. 피고인이 그 범죄가 실제로 이루어지기를 의도했는지가 핵심이다.
+          </p>
+          <p>
+            세 번째 요건인 <code>overt act</code>는 관할에 따라 달라진다. Common law에서는 합의만으로 conspiracy가 성립하며,
+            overt act가 필요하지 않다. 반면 modern majority와 MPC 기준에서는 overt act가 필요하다. 다만 이 행위는 범죄의
+            본격적 실행까지 요구하지 않는다. 약속 장소를 정하거나 준비 연락을 하는 정도의 작은 외부 행동도 충분할 수 있다.
+          </p>
+
+          <div class="diagram" aria-label="conspiracy elements diagram">
+            <div class="flow">
+              <div class="node">
+                <b>Agreement</b>
+                <span>명시적 또는 묵시적 합의</span>
+              </div>
+              <div class="node">
+                <b>Specific Intent</b>
+                <span>목표 범죄를 이루려는 의사</span>
+              </div>
+              <div class="node">
+                <b>Overt Act</b>
+                <span>Modern majority · MPC에서 요구</span>
+              </div>
+              <div class="node">
+                <b>Liability</b>
+                <span>공모 자체와 예견 가능한 추가 범죄</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="note">
+            답안의 첫 문장은 대개 “이 관할이 common law인지, modern/MPC인지”를 확인하는 데서 시작해야 한다.
+            overt act의 필요 여부와 feigned agreement의 결론이 여기서 갈린다.
+          </p>
+        </section>
+
+        <section id="theories" class="panel">
+          <h2>Bilateral vs Unilateral</h2>
+          <p>
+            Conspiracy에서 가장 시험 친화적인 대비는 bilateral theory와 unilateral theory다. 같은 사실관계라도 어느 이론을
+            적용하느냐에 따라 성립 여부가 달라진다.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Theory</th>
+                  <th>적용</th>
+                  <th>핵심 효과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Bilateral</code> Common law</td>
+                  <td>최소 2명의 guilty mind 필요</td>
+                  <td>상대방이 진정한 범죄 의사가 없으면 conspiracy 불성립</td>
+                </tr>
+                <tr>
+                  <td><code>Unilateral</code> MPC · modern</td>
+                  <td>1명의 guilty mind면 충분</td>
+                  <td>상대방이 undercover라도 피고인의 의도만으로 성립 가능</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pullquote">
+            Bilateral은 “진짜 범죄 의사를 가진 사람이 둘”이고, unilateral은 “적어도 한 명”이다.
+          </div>
+
+          <h3>Feigned Agreement: 잠입수사관 문제</h3>
+          <p>
+            상대방이 경찰 잠입수사관처럼 겉으로만 동의한 경우, common law의 bilateral theory에서는 진정한 합의가 무너진다.
+            따라서 conspiracy가 성립하지 않는다. 그러나 unilateral theory에서는 피고인 한 명만 진정한 범죄 의도를 가지고 있어도
+            conspiracy가 성립할 수 있다.
+          </p>
+          <p>
+            관련 문제의 방향은 명확하다. Q.6은 MPC unilateral 기준으로 성립, Q.12와 Q.34는 common law bilateral 기준으로
+            불성립이 된다.
+          </p>
+        </section>
+
+        <section id="limits" class="panel">
+          <h2>공모자 수의 한계</h2>
+          <div class="issue-list">
+            <article class="issue">
+              <h3>Plurality Requirements</h3>
+              <p>
+                Bilateral approach에서는 다른 공모자가 모두 무죄이면 남은 한 명도 conspiracy로 처벌될 수 없다.
+                또한 corporation과 단일 agent만 있는 경우에는 대부분 관할에서 conspiracy가 성립하지 않는다.
+              </p>
+              <p>
+                이유는 단순하다. Bilateral conspiracy는 본질적으로 둘 이상의 진짜 합의를 요구한다.
+                한쪽만 남으면 애초에 합의 당사자 수가 부족해진다. 관련 문제는 Q.28과 Q.29다.
+              </p>
+            </article>
+
+            <article class="issue">
+              <h3>Wharton’s Rule</h3>
+              <p>
+                2명 이상이 필요한 범죄가 정확히 그 인원만으로 실행된 경우에는 conspiracy를 별도로 인정할 수 없다.
+                대표 예시는 bigamy, dueling, incest다.
+              </p>
+              <p>
+                핵심 취지는 중복 처벌 방지다. 본죄 자체가 원래 복수 인원을 전제로 하는데, 같은 인원만으로 다시 conspiracy를
+                인정하면 처벌이 과잉 확장될 수 있다. 관련 문제는 Q.23이다.
+              </p>
+            </article>
+
+            <article class="issue">
+              <h3>Protected Class</h3>
+              <p>
+                Statute가 보호하려는 계급은 conspiracy의 guilty mind를 제공할 수 없다.
+                법이 보호하려는 피해자 집단을 공모자 수를 채우는 쪽으로 계산하면 법의 취지에 반하기 때문이다.
+              </p>
+              <p>
+                따라서 보호 대상자는 conspiracy의 상대방으로 세지지 않는다. 관련 문제는 Q.10과 Q.39다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="structures" class="panel">
+          <h2>Hub-and-Spoke와 Chain</h2>
+          <p>
+            다수인이 등장하는 conspiracy 문제에서는 구조를 먼저 그려야 한다. 누가 누구와 연결되어 있는지, 그리고 각자가 전체
+            계획의 존재를 어느 정도 인식했는지가 single conspiracy와 multiple conspiracies를 나눈다.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>구조</th>
+                  <th>판단 기준</th>
+                  <th>결론 방향</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hub-and-Spoke</td>
+                  <td>Spokes가 서로의 존재와 연결 구조를 아는가</td>
+                  <td>서로 모르면 multiple isolated conspiracies</td>
+                </tr>
+                <tr>
+                  <td>Chain</td>
+                  <td>전체 유통·수행 구조를 함께 떠받치는 community of interest가 있는가</td>
+                  <td>서로 직접 몰라도 single conspiracy 가능</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Hub-and-spoke에서는 “spokes끼리 연결의식이 있는가”가 중요하다. Chain에서는 “전체 구조를 함께 성립시키는
+            이해관계가 있는가”가 더 중요하다. 관련 문제는 Q.8과 Q.18이다.
+          </p>
+        </section>
+
+        <section id="liability" class="panel">
+          <h2>책임 확장과 철회</h2>
+
+          <h3>Pinkerton Rule</h3>
+          <p>
+            <code>Pinkerton</code> rule에 따르면 공모자는 conspiracy 범위 내에서 예견 가능한 substantive crimes에 책임을 진다.
+            직접 실행하지 않았더라도, 공모 과정에서 충분히 예상 가능한 추가 범죄라면 공동 공모자에게 책임이 확장될 수 있다.
+          </p>
+          <p>
+            예컨대 강도의 도주차 운전자가 공모 범위 내에서 발생한 예견 가능한 살인에 대해 책임지는 구조가 가능하다.
+            관련 문제는 Q.27이다.
+          </p>
+
+          <h3>Withdrawal</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>시점 또는 대상</th>
+                  <th>효과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Conspiracy 성립 전, common law</td>
+                  <td>Conspiracy 자체 부정 가능</td>
+                </tr>
+                <tr>
+                  <td>Conspiracy 성립 후, common law</td>
+                  <td>완성된 conspiracy 자체에 대한 절대 방어 아님</td>
+                </tr>
+                <tr>
+                  <td>Co-conspirator의 추가 범죄</td>
+                  <td>Withdrawal로 future crimes 책임 면제 가능</td>
+                </tr>
+                <tr>
+                  <td>MPC</td>
+                  <td>Successful thwart가 있으면 conspiracy 자체 방어 가능</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            시험 포인트는 “어떤 책임에서 빠져나오려는가”다. 이미 완성된 conspiracy 자체는 common law에서 지울 수 없지만,
+            이후 발생할 추가 범죄에 대한 Pinkerton식 책임은 끊을 수 있다. 관련 문제는 Q.11, Q.36, Q.26이다.
+          </p>
+
+          <h3>Merge 없음과 현장 부재</h3>
+          <p>
+            Conspiracy는 completed crime에 merge되지 않는다. 따라서 목표 범죄가 실제로 완성되어도 conspiracy와 completed crime은
+            모두 처벌될 수 있다. 합의의 위험성과 실행 결과를 별도로 보기 때문이다. 관련 문제는 Q.13이다.
+          </p>
+          <p>
+            또한 target crime 실행 시 모든 conspirator가 현장에 있을 필요는 없다. 공모는 역할 분담 범죄이므로,
+            배후 지원자나 준비 담당도 공모 책임에서 빠지지 않는다. 관련 문제는 Q.3이다.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2>Agreement 입증: 정황증거로 충분하다</h2>
+          <p>
+            Conspiracy는 은밀하게 이루어지는 경우가 많다. 그래서 명시적 합의가 없어도 행동 패턴과 관계에서
+            <code>agreement</code>를 추론할 수 있다. 직접증거가 반드시 필요한 것은 아니다.
+          </p>
+          <p>
+            같은 시간대의 협조 행동, 반복적인 연락, 역할 분담, 이익 공유는 모두 합의를 추론하는 재료가 된다.
+            관련 문제는 Q.17이다.
+          </p>
+          <div class="pullquote">
+            Conspiracy 답안에서 합의는 “말”보다 “구조와 행동”으로 입증되는 경우가 많다.
+          </div>
+        </section>
+
+        <section id="sources" class="panel source-notes">
+          <h2>Source Notes</h2>
+          <p>
+            이 리포트는 제공된 Obsidian 노트의 쟁점 배열과 문제 참조를 바탕으로 작성되었다.
+            각 Q 번호는 원노트가 표시한 학습용 참조이며, 본문에서는 결론 방향을 확인하는 용도로 정리했다.
+          </p>
+          <div class="meta">
+            <span class="tag">Q.6 · Q.12 · Q.34: Feigned Agreement</span>
+            <span class="tag">Q.11 · Q.35: Common Law Overt Act</span>
+            <span class="tag">Q.23: Wharton’s Rule</span>
+            <span class="tag">Q.27: Pinkerton</span>
+            <span class="tag">Q.28 · Q.29: Plurality</span>
+            <span class="tag">Q.10 · Q.39: Protected Class</span>
+          </div>
+        </section>
+
+        <section id="implications" class="ending">
+          <h2>Implications</h2>
+          <p>
+            Conspiracy 문제는 요건 암기보다 분기점 통제가 중요하다. 먼저 관할을 확인하고, 다음으로 합의 상대방을 공모자로
+            셀 수 있는지 판단해야 한다. 그 뒤 overt act, protected class, Wharton’s Rule, withdrawal, Pinkerton 책임을
+            각각 독립된 층위로 검토하면 결론이 흔들리지 않는다.
+          </p>
+          <p>
+            한 문장으로 정리하면 이렇다. Conspiracy는 “범죄를 함께 이루려는 합의”를 처벌하지만, 법은 그 “함께”의 의미를
+            이론별로 다르게 본다. 답안의 힘은 바로 그 차이를 정확히 드러내는 데 있다.
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
