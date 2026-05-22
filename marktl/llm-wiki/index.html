@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>LLM 위키: 개인 지식 기반을 축적형 시스템으로 바꾸는 방법</title>
+  
+  
+  
+  
+  
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --paper: #fffdf8;
+      --ink: #202124;
+      --muted: #6a665f;
+      --line: #ded8ca;
+      --accent: #0f766e;
+      --accent-2: #9a3412;
+      --accent-soft: #e2f2ef;
+      --warm: #f3e7d6;
+      --code: #2f2a23;
+      --shadow: 0 18px 50px rgba(32, 33, 36, .08);
+      --radius: 8px;
+      --serif: Georgia, "Times New Roman", "Noto Serif KR", "Apple SD Gothic Neo", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      line-height: 1.78;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .18em;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        linear-gradient(90deg, rgba(15,118,110,.08) 0 1px, transparent 1px) 0 0 / 72px 72px,
+        linear-gradient(180deg, rgba(154,52,18,.06), transparent 24rem),
+        var(--bg);
+    }
+
+    .hero {
+      padding: 72px 22px 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner,
+    .article,
+    .source-notes {
+      width: min(1120px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 24px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent-2);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 960px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 86px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: #3f3b35;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.65;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255,253,248,.72);
+    }
+
+    .share-box {
+      margin-top: 34px;
+      max-width: 760px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,253,248,.82);
+      box-shadow: var(--shadow);
+    }
+
+    .share-box strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .share-box p {
+      margin: 0;
+      color: #37332d;
+      font-size: 16px;
+    }
+
+    .article {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 56px;
+      padding: 56px 0 70px;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    aside {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.84);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    aside h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    aside ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    aside li + li {
+      margin-top: 8px;
+    }
+
+    section {
+      margin: 0 0 58px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 34px 0 12px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 18px;
+    }
+
+    .lead-card,
+    .finding-grid article,
+    .note-card,
+    .workflow,
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .lead-card {
+      padding: 28px;
+    }
+
+    .lead-card h2,
+    .lead-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .abstract-label {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .finding-grid article {
+      padding: 20px;
+    }
+
+    .finding-grid strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--accent-2);
+      font-size: 15px;
+    }
+
+    .finding-grid p {
+      margin: 0;
+      color: #3e3932;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    blockquote {
+      margin: 36px 0;
+      padding: 6px 0 6px 28px;
+      border-left: 5px solid var(--accent);
+      font-family: var(--serif);
+      color: #24211d;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.45;
+    }
+
+    blockquote p {
+      margin: 0;
+      font: inherit;
+    }
+
+    .callout {
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      border: 1px solid #bddbd6;
+      margin: 26px 0;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .diagram {
+      margin: 32px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fffdf8, #f7efe4);
+      box-shadow: var(--shadow);
+    }
+
+    .diagram-title {
+      margin: 0 0 18px;
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .layers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .layer {
+      position: relative;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .layer::after {
+      content: "→";
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-2);
+      font-weight: 900;
+      background: var(--paper);
+      padding: 0 4px;
+    }
+
+    .layer:last-child::after { content: ""; }
+
+    .layer strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 17px;
+    }
+
+    .layer span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .workflow {
+      padding: 24px;
+      counter-reset: step;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step:last-child { border-bottom: 0; }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-weight: 900;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 28px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+      background: var(--paper);
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    th {
+      background: #eee4d4;
+      color: #2d2924;
+      font-weight: 900;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      font-family: var(--mono);
+      color: var(--code);
+      background: #eee6d9;
+      border-radius: 5px;
+      padding: .12em .34em;
+      font-size: .9em;
+    }
+
+    pre {
+      overflow-x: auto;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: #27231f;
+      color: #f7efe4;
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 14px 16px 14px 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      position: relative;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .note-card {
+      padding: 24px;
+      background: #fffaf0;
+    }
+
+    .note-card h3 {
+      margin-top: 0;
+    }
+
+    .source-notes {
+      padding: 34px 0 72px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .source-notes h2 {
+      color: var(--ink);
+      font-size: 28px;
+    }
+
+    .source-notes p,
+    .source-notes li {
+      font-size: 15px;
+    }
+
+    .source-notes ul {
+      padding-left: 20px;
+    }
+
+    .ending {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: #173f3b;
+      color: #f7f5ef;
+    }
+
+    .ending h2 {
+      color: #fffdf8;
+    }
+
+    .ending p {
+      color: #e5f0ed;
+    }
+
+    @media (max-width: 900px) {
+      .article {
+        display: block;
+      }
+
+      aside {
+        position: static;
+        margin-bottom: 40px;
+      }
+
+      .finding-grid,
+      .layers {
+        grid-template-columns: 1fr;
+      }
+
+      .layer::after {
+        content: "↓";
+        right: auto;
+        left: 24px;
+        top: auto;
+        bottom: -18px;
+        transform: none;
+      }
+
+      .layer:last-child::after { content: ""; }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        padding-top: 46px;
+      }
+
+      .hero-inner,
+      .article,
+      .source-notes {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .lead-card,
+      .diagram,
+      .workflow,
+      .ending {
+        padding: 20px;
+      }
+
+      p {
+        font-size: 16.5px;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="llm-wiki">
+<meta property="og:description" content="[!Reflection] LLM 위키 LLM을 활용하여 개인 지식 기반을 구축하는 패턴. 이 파일은 아이디어 파일이며, OpenAI Codex, Claude Code, OpenCode/Pi 등과 같은 LLM 에이전트에 복사하여 붙여넣도록 설계되었습니다. 이 파일의 목적은 고수준의 아이디어를 전달하는 것이며, 구체적인 내용">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/i3vxv7/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="llm-wiki">
+<meta name="twitter:description" content="[!Reflection] LLM 위키 LLM을 활용하여 개인 지식 기반을 구축하는 패턴. 이 파일은 아이디어 파일이며, OpenAI Codex, Claude Code, OpenCode/Pi 등과 같은 LLM 에이전트에 복사하여 붙여넣도록 설계되었습니다. 이 파일의 목적은 고수준의 아이디어를 전달하는 것이며, 구체적인 내용">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/i3vxv7/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="kicker">Research Report · Editorial Brief</div>
+        <h1>LLM 위키: 개인 지식 기반을 축적형 시스템으로 바꾸는 방법</h1>
+        <p class="subtitle">RAG처럼 매번 자료를 다시 찾는 방식에서 벗어나, LLM이 지속적으로 갱신되는 마크다운 위키를 구축하고 관리하는 지식 운영 패턴.</p>
+        <div class="meta-row" aria-label="문서 메타데이터">
+          <span class="pill">작성일 2026-04-30</span>
+          <span class="pill">주제 개인 지식 관리</span>
+          <span class="pill">형식 연구 보고서</span>
+          <span class="pill">출처 Andrej Karpathy gist 기반</span>
+        </div>
+        <div class="share-box">
+          <strong>공유용 한 문장</strong>
+          <p>LLM은 더 이상 질문에 답하는 검색기가 아니라, 개인 지식의 장부를 유지하는 위키 관리자일 수 있다.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="article">
+      <main>
+        <section id="abstract" class="lead-card">
+          <div class="abstract-label">Abstract</div>
+          <h2>검색이 아니라 축적이다</h2>
+          <p>일반적인 파일 업로드나 RAG 시스템은 질문이 들어올 때마다 관련 조각을 찾아 답변을 합성한다. 반면 LLM 위키 패턴은 원본 자료를 읽고, 그 내용을 구조화된 마크다운 페이지에 통합하며, 모순·상호 참조·요약을 지속적으로 관리한다.</p>
+          <p>핵심은 LLM이 원본 자료와 사용자 사이에 놓인 영구적인 지식 산물을 운영한다는 점이다. 사용자는 자료를 고르고 질문을 던진다. LLM은 위키를 쓰고, 정리하고, 갱신한다.</p>
+        </section>
+
+        <section id="findings">
+          <h2>핵심 발견</h2>
+          <div class="finding-grid">
+            <article>
+              <strong>1. 지식은 재생성보다 컴파일이 유리하다</strong>
+              <p>같은 자료를 매번 다시 검색하고 조합하는 대신, 한 번 정리한 지식을 계속 갱신하면 탐색의 누적 효과가 생긴다.</p>
+            </article>
+            <article>
+              <strong>2. LLM의 강점은 장부 정리에 있다</strong>
+              <p>요약, 링크 보강, 모순 표시, 색인 갱신처럼 사람이 쉽게 포기하는 유지 관리 작업을 LLM이 맡을 수 있다.</p>
+            </article>
+            <article>
+              <strong>3. 위키는 대화 기록보다 오래 산다</strong>
+              <p>좋은 답변과 분석 결과를 새 페이지로 저장하면 사용자의 질문 자체가 지식 기반을 성장시키는 입력이 된다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="problem">
+          <h2>문제: RAG는 기억하지 않는다</h2>
+          <p>많은 사람이 LLM과 문서를 함께 사용할 때 경험하는 방식은 단순하다. 파일을 올리고, 질문을 하고, LLM이 그때그때 관련 부분을 찾아 답한다. NotebookLM, ChatGPT 파일 업로드, 다수의 RAG 시스템이 이 모델에 가깝다.</p>
+          <p>이 방식은 유용하지만 중요한 한계가 있다. LLM은 매 질문마다 자료 속 지식을 다시 발견해야 한다. 다섯 개의 문서를 종합해야 하는 미묘한 질문이 들어오면, LLM은 매번 관련 조각을 찾아 다시 붙인다. 질문이 끝나면 그 종합은 대부분 대화 속에만 남는다.</p>
+
+          <blockquote>
+            <p>LLM 위키의 핵심 차이는 “답변 생성”이 아니라 “지식 산물 유지”에 있다.</p>
+          </blockquote>
+
+          <div class="callout">
+            <p><strong>핵심 전환:</strong> 원본 문서에서 답변을 매번 뽑아내는 시스템에서, 원본 문서를 기반으로 계속 진화하는 위키를 관리하는 시스템으로 이동한다.</p>
+          </div>
+        </section>
+
+        <section id="architecture">
+          <h2>아키텍처: 세 개의 층</h2>
+          <p>LLM 위키는 단순한 메모 묶음이 아니다. 원본 자료, LLM이 관리하는 위키, 그리고 운영 규칙을 담은 스키마가 분리되어야 한다. 이 분리가 있어야 원본의 신뢰성과 위키의 유연성을 동시에 얻을 수 있다.</p>
+
+          <div class="diagram" role="img" aria-label="원본 자료, 위키, 스키마로 구성된 LLM 위키 구조">
+            <div class="diagram-title">System Diagram</div>
+            <div class="layers">
+              <div class="layer">
+                <strong>원본 자료</strong>
+                <span>논문, 기사, 보고서, 이미지, 데이터 파일. 변경하지 않는 진실의 원천.</span>
+              </div>
+              <div class="layer">
+                <strong>LLM 위키</strong>
+                <span>요약, 엔티티 페이지, 개념 페이지, 비교표, 종합 메모. LLM이 생성·갱신.</span>
+              </div>
+              <div class="layer">
+                <strong>스키마</strong>
+                <span>AGENTS.md, CLAUDE.md 같은 운영 규칙. 위키 구조와 워크플로를 정의.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>층</th>
+                  <th>역할</th>
+                  <th>수정 주체</th>
+                  <th>설계 원칙</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>원본 자료</td>
+                  <td>증거와 맥락의 출처</td>
+                  <td>사용자</td>
+                  <td>가능하면 불변으로 보존한다</td>
+                </tr>
+                <tr>
+                  <td>위키</td>
+                  <td>축적된 지식의 작업 산물</td>
+                  <td>LLM</td>
+                  <td>읽기 쉽고, 연결되고, 갱신 가능해야 한다</td>
+                </tr>
+                <tr>
+                  <td>스키마</td>
+                  <td>운영 규칙과 품질 기준</td>
+                  <td>사용자와 LLM</td>
+                  <td>도메인에 맞게 점진적으로 발전시킨다</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="operation">
+          <h2>운영 방식: 수집, 질의, 점검</h2>
+          <p>실제 운영은 세 가지 리듬으로 돌아간다. 새 자료를 넣고, 위키에 질문하고, 주기적으로 위키의 건강 상태를 점검한다. 이 과정에서 LLM은 챗봇이 아니라 편집자이자 기록 관리자로 움직인다.</p>
+
+          <div class="workflow">
+            <div class="step">
+              <div>
+                <strong>자료 수집</strong>
+                <p>새 소스를 원본 컬렉션에 추가하면 LLM이 읽고, 요약 페이지를 만들고, 관련 엔티티와 개념 페이지를 갱신한다.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <strong>질의와 종합</strong>
+                <p>질문이 들어오면 LLM은 먼저 위키를 탐색하고, 관련 페이지를 읽은 뒤, 인용과 함께 답변을 구성한다.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <strong>답변의 재저장</strong>
+                <p>가치 있는 비교, 분석, 발견은 새 페이지로 저장한다. 탐색 활동도 지식 기반의 일부가 된다.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div>
+                <strong>정기 점검</strong>
+                <p>모순, 오래된 주장, 고립된 페이지, 빠진 상호 참조, 조사 공백을 찾아 위키를 건강하게 유지한다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="index-log">
+          <h2>색인과 로그: 위키를 움직이는 두 파일</h2>
+          <p>위키가 커질수록 LLM과 사용자가 어디에 무엇이 있는지 파악할 수 있어야 한다. 여기서 <code>index.md</code>와 <code>log.md</code>가 중요해진다.</p>
+
+          <h3><code>index.md</code>: 콘텐츠 중심 지도</h3>
+          <p><code>index.md</code>는 모든 페이지의 카탈로그다. 각 페이지는 링크, 한 줄 요약, 날짜, 출처 수 같은 메타데이터와 함께 정리된다. LLM은 질문에 답할 때 먼저 색인을 읽고 관련 페이지로 이동한다. 중간 규모의 위키에서는 이 방식만으로도 충분히 강력하다.</p>
+
+          <h3><code>log.md</code>: 시간순 운영 기록</h3>
+          <p><code>log.md</code>는 수집, 질의, 점검 같은 활동을 시간순으로 기록하는 추가 전용 로그다. 일관된 접두사를 사용하면 간단한 Unix 도구로 최근 작업을 파악할 수 있다.</p>
+
+          <pre><code>## [2026-04-02] ingest | Article Title
+## [2026-04-05] query | Competitor comparison
+## [2026-04-08] lint | Broken links and stale claims</code></pre>
+        </section>
+
+        <section id="tools">
+          <h2>도구: 작게 시작하고 필요할 때 확장한다</h2>
+          <p>초기에는 마크다운 파일과 색인만으로 충분하다. 규모가 커지면 검색 도구나 Obsidian 플러그인을 붙일 수 있다. 중요한 것은 도구가 위키 운영의 중심이 아니라 보조 장치라는 점이다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>도구</th>
+                  <th>쓰임</th>
+                  <th>적합한 시점</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Obsidian Web Clipper</td>
+                  <td>웹 기사를 마크다운으로 수집</td>
+                  <td>원본 자료를 빠르게 모을 때</td>
+                </tr>
+                <tr>
+                  <td>Obsidian Graph View</td>
+                  <td>페이지 연결 구조 파악</td>
+                  <td>허브와 고립 페이지를 확인할 때</td>
+                </tr>
+                <tr>
+                  <td>Dataview</td>
+                  <td>프런트매터 기반 동적 목록 생성</td>
+                  <td>태그, 날짜, 출처 수를 체계화할 때</td>
+                </tr>
+                <tr>
+                  <td>Marp</td>
+                  <td>위키 콘텐츠에서 슬라이드 생성</td>
+                  <td>연구 결과를 발표 자료로 바꿀 때</td>
+                </tr>
+                <tr>
+                  <td>qmd 또는 로컬 검색 스크립트</td>
+                  <td>마크다운 위키 검색</td>
+                  <td>페이지 수가 늘어 색인만으로 부족할 때</td>
+                </tr>
+                <tr>
+                  <td>Git</td>
+                  <td>버전 기록, 브랜치, 협업</td>
+                  <td>위키를 장기 프로젝트로 운영할 때</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="applications">
+          <h2>적용 영역</h2>
+          <p>이 패턴은 지식이 시간에 따라 축적되고, 연결과 갱신이 중요한 영역에 특히 적합하다.</p>
+
+          <ul class="checklist">
+            <li><strong>개인 지식 관리:</strong> 목표, 건강, 심리, 일기, 기사, 팟캐스트 메모를 연결해 자신에 대한 장기적 그림을 만든다.</li>
+            <li><strong>연구:</strong> 논문, 보고서, 기사에서 발전하는 논지를 추적하고 종합한다.</li>
+            <li><strong>책 읽기:</strong> 장, 인물, 장소, 사건, 주제를 연결해 개인용 팬 위키처럼 만든다.</li>
+            <li><strong>비즈니스와 팀:</strong> 회의록, 프로젝트 문서, 고객 통화, 슬랙 스레드를 내부 위키로 유지한다.</li>
+            <li><strong>분석 프로젝트:</strong> 경쟁사 분석, 실사, 출장 계획, 강의 노트, 취미 연구처럼 누적형 탐색이 필요한 작업에 적용한다.</li>
+          </ul>
+        </section>
+
+        <section id="why-it-works">
+          <h2>왜 효과적인가</h2>
+          <p>지식 기반을 유지하는 데서 가장 지루한 일은 읽기나 사고가 아니다. 진짜 부담은 상호 참조를 갱신하고, 요약을 최신으로 유지하고, 새 증거가 기존 주장과 충돌할 때 표시하고, 여러 페이지의 일관성을 맞추는 일이다.</p>
+          <p>사람들은 이 관리 비용 때문에 위키를 포기한다. LLM은 바로 그 비용을 낮춘다. 지루해하지 않고, 여러 파일을 한 번에 수정할 수 있으며, 정해진 규칙에 따라 링크와 로그를 갱신할 수 있다.</p>
+
+          <blockquote>
+            <p>인간 연구자는 방향을 정하고 질문을 던진다. LLM은 기록 관리와 편집 노동을 맡는다.</p>
+          </blockquote>
+
+          <p>이 아이디어는 바네바 부시의 메멕스와도 닿아 있다. 사적이고 능동적으로 관리되는 지식 저장소, 그리고 문서 간 연결이 문서 자체만큼 가치 있는 시스템. 당시 해결되지 않았던 질문은 “누가 유지 관리를 할 것인가”였다. LLM은 그 답의 한 형태가 될 수 있다.</p>
+        </section>
+
+        <section id="implications">
+          <h2>시사점</h2>
+          <div class="note-card">
+            <h3>LLM 위키는 개인용 연구 인프라다</h3>
+            <p>이 접근은 완성된 제품보다 운영 패턴에 가깝다. 디렉터리 구조, 페이지 형식, 스키마 규칙, 검색 도구는 도메인과 취향에 맞게 달라질 수 있다. 중요한 것은 원본을 보존하고, 위키를 지속적으로 갱신하고, 좋은 답변을 다시 지식 기반에 편입하는 습관이다.</p>
+          </div>
+
+          <p>작게 시작하는 것이 좋다. 원본 폴더 하나, 위키 폴더 하나, <code>index.md</code>, <code>log.md</code>, 그리고 LLM에게 줄 운영 규칙 문서만 있어도 충분하다. 이후 이미지 처리, Dataview, 검색 엔진, 슬라이드 생성 같은 기능은 필요가 생길 때 붙이면 된다.</p>
+        </section>
+
+        <section id="ending" class="ending">
+          <h2>읽고 끝나는 지식에서, 자라는 지식으로</h2>
+          <p>LLM 위키의 가장 큰 약속은 단순하다. 좋은 질문, 좋은 자료, 좋은 답변이 흩어지지 않게 만드는 것이다. 지식은 대화창에 잠깐 나타났다가 사라지는 출력물이 아니라, 계속 다듬어지는 공용 작업물이 된다.</p>
+          <p>LLM을 검색 도구로만 쓰면 매번 처음부터 시작한다. LLM을 위키 관리자로 쓰면 어제의 탐색이 오늘의 기반이 된다.</p>
+        </section>
+      </main>
+
+      <aside aria-label="문서 목차">
+        <h2>목차</h2>
+        <ol>
+          <li><a href="#abstract">초록</a></li>
+          <li><a href="#findings">핵심 발견</a></li>
+          <li><a href="#problem">문제 정의</a></li>
+          <li><a href="#architecture">아키텍처</a></li>
+          <li><a href="#operation">운영 방식</a></li>
+          <li><a href="#index-log">색인과 로그</a></li>
+          <li><a href="#tools">도구</a></li>
+          <li><a href="#applications">적용 영역</a></li>
+          <li><a href="#why-it-works">작동 원리</a></li>
+          <li><a href="#implications">시사점</a></li>
+        </ol>
+      </aside>
+    </div>
+
+    <footer class="source-notes">
+      <h2>Source Notes</h2>
+      <p>이 HTML 연구 보고서는 제공된 Obsidian Markdown 노트 「llm-wiki」를 바탕으로 공개용 editorial blog 형식에 맞게 재구성한 문서다.</p>
+      <ul>
+        <li>원문 출처: <a>https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f</a></li>
+        <li>원본 생성일: 2026-04-30</li>
+        <li>내용 처리: 제목, 초록, 핵심 발견, 증거 섹션, 표, 시스템 다이어그램, 시사점, 결말부를 포함하도록 편집 구조를 강화했다.</li>
+        <li>배포 조건: JavaScript, iframe, 외부 CSS, 외부 스크립트, 원격 자산 없이 독립 실행 가능한 단일 HTML 문서로 작성했다.</li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
