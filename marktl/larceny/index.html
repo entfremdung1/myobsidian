@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Larceny 완전 정리: Common Law 절도의 5요소와 시험 함정</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #1e2428;
+      --muted: #667078;
+      --soft: #f6f3ee;
+      --paper: #fffdf8;
+      --line: #ded8cd;
+      --accent: #a3472f;
+      --accent-dark: #743322;
+      --blue: #2d6173;
+      --green: #496b4f;
+      --gold: #b88427;
+      --code: #f1ebe3;
+      --shadow: 0 18px 50px rgba(33, 30, 24, 0.08);
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f8f4ec 0%, #fffdf8 420px),
+        var(--paper);
+      font-family: ui-serif, "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", Georgia, serif;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    code {
+      padding: 0.12em 0.36em;
+      border-radius: 5px;
+      background: var(--code);
+      color: #6e3529;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header.hero {
+      padding: 72px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 26px 0 0;
+      color: #3c454b;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      line-height: 1.78;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+    }
+
+    main {
+      padding: 34px 0 70px;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 275px;
+      gap: 42px;
+      align-items: start;
+    }
+
+    aside {
+      position: sticky;
+      top: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, 0.88);
+      box-shadow: var(--shadow);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    aside h2 {
+      margin: 0 0 12px;
+      font-size: 0.92rem;
+      color: var(--accent-dark);
+    }
+
+    aside ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    aside li {
+      margin: 8px 0;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 46px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.28;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      color: #283238;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    ul, ol {
+      margin: 14px 0 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .abstract,
+    .share-box,
+    .findings,
+    .case-card,
+    .note-card,
+    .matrix,
+    .ending {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+      box-shadow: var(--shadow);
+    }
+
+    .abstract {
+      padding: 26px;
+      background: #fffaf1;
+    }
+
+    .abstract h2,
+    .findings h2,
+    .share-box h2 {
+      margin-top: 0;
+      font-size: 1.28rem;
+    }
+
+    .share-box {
+      margin-top: 22px;
+      padding: 20px;
+      background: #f3f7f6;
+    }
+
+    .copy-block {
+      margin: 12px 0 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue);
+      background: #ffffff;
+      color: #34434a;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    .findings {
+      padding: 24px;
+      background: #f8fbf7;
+    }
+
+    .findings ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .findings li {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .findings li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 6px 0 6px 24px;
+      border-left: 5px solid var(--accent);
+      color: #2c3337;
+      font-size: clamp(1.22rem, 2.5vw, 1.65rem);
+      line-height: 1.58;
+      font-weight: 700;
+    }
+
+    .rule-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0;
+      list-style: none;
+      counter-reset: rules;
+    }
+
+    .rule-list li {
+      counter-increment: rules;
+      margin: 0;
+      padding: 16px;
+      min-height: 138px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .rule-list li::before {
+      content: counter(rules);
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .case-card {
+      padding: 18px;
+      background: #ffffff;
+    }
+
+    .case-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .case-card p {
+      margin: 0;
+      color: #40494f;
+      font-size: 0.97rem;
+      line-height: 1.68;
+    }
+
+    .note-card {
+      margin-top: 18px;
+      padding: 18px 20px;
+      background: #fff7e8;
+      border-color: #e3cfa9;
+    }
+
+    .note-card strong {
+      color: #744f16;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    th, td {
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f4efe6;
+      color: #3a332b;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .diagram {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .step {
+      padding: 14px;
+      border-radius: 8px;
+      background: #eef4f4;
+      border: 1px solid #d5e0df;
+      color: #2f4247;
+      font-size: 0.92rem;
+      line-height: 1.48;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--blue);
+    }
+
+    .source-notes {
+      padding: 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fbf8f2;
+    }
+
+    .source-notes h2 {
+      font-size: 1.35rem;
+    }
+
+    .source-notes p,
+    .source-notes li {
+      color: #4f575c;
+      font-size: 0.98rem;
+    }
+
+    .ending {
+      padding: 28px;
+      background: #253033;
+      color: #f8f3eb;
+    }
+
+    .ending h2 {
+      color: #fff;
+    }
+
+    .ending p {
+      color: #e4ddd1;
+    }
+
+    @media (max-width: 920px) {
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+        order: -1;
+      }
+
+      .rule-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 24px, var(--max));
+      }
+
+      header.hero {
+        padding-top: 46px;
+      }
+
+      .abstract,
+      .findings,
+      .share-box,
+      .ending {
+        padding: 20px;
+      }
+
+      .rule-list,
+      .case-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .rule-list li {
+        min-height: auto;
+      }
+
+      body {
+        line-height: 1.72;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      aside,
+      .share-box {
+        box-shadow: none;
+      }
+
+      .article-grid {
+        display: block;
+      }
+
+      aside {
+        position: static;
+        margin-bottom: 28px;
+      }
+
+      .case-card,
+      .abstract,
+      .findings,
+      .diagram,
+      .ending {
+        box-shadow: none;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="larceny">
+<meta property="og:description" content="2. Larceny (절도) 가. 요건 (5요소) (1) Trespassory taking (비동의 점유 이전)이 있어야 한다. (2) Carrying away (asportation)이 있어야 하며, slight movement로 충분하다. (3) Tangible personal property를 대상으로 해야 한다. ">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/1xy3sq1/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="larceny">
+<meta name="twitter:description" content="2. Larceny (절도) 가. 요건 (5요소) (1) Trespassory taking (비동의 점유 이전)이 있어야 한다. (2) Carrying away (asportation)이 있어야 하며, slight movement로 충분하다. (3) Tangible personal property를 대상으로 해야 한다. ">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1xy3sq1/">
+</head>
+<body>
+  <header class="hero">
+    <div class="page">
+      <p class="kicker">Research Report · Criminal Law · Common Law Theft</p>
+      <h1>Larceny 완전 정리: 절도는 “언제” 완성되는가</h1>
+      <p class="subtitle">
+        Common law larceny의 5요소는 단순해 보이지만, 실제 시험은 거의 항상
+        <code>taking</code>의 순간, <code>carrying away</code>의 최소 기준,
+        그리고 <code>intent to permanently deprive</code>의 형성 시점을 묻는다.
+        이 글은 문제형 사례를 기준으로 절도와 larceny by trick의 경계를 정리한다.
+      </p>
+      <div class="meta-row" aria-label="article metadata">
+        <span class="pill">공개용 에디토리얼 리포트</span>
+        <span class="pill">핵심 쟁점: asportation · intent · consent · title</span>
+        <span class="pill">독자: 형법·Bar Exam 학습자</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="article-grid">
+      <article>
+        <section class="abstract" id="abstract">
+          <h2>Abstract</h2>
+          <p>
+            Larceny는 “남의 유형 동산을 비동의로 가져가 영구히 박탈하려는 범죄”로 요약된다.
+            그러나 정답을 가르는 지점은 요약문 밖에 있다. 물건이 몇 걸음만 이동해도 충분한지,
+            처음에는 빌릴 생각이었는데 나중에 마음이 바뀌면 어떤지, 주인이 나중에 허락하면
+            이미 성립한 절도가 사라지는지, 사기로 받은 것이 possession인지 title인지가 핵심이다.
+          </p>
+          <p>
+            결론부터 말하면, common law larceny는 taking 시점에 집중한다.
+            그 순간 비동의 점유 이전과 약간의 이동, 남의 유형 동산, 영구 박탈 의사가 결합하면
+            범죄는 이미 완성된다.
+          </p>
+
+          <div class="share-box" id="share">
+            <h2>Social Share Framing</h2>
+            <p class="copy-block">
+              “Larceny는 매장 밖으로 나가야 완성되는 범죄가 아니다. 반지를 원래 자리에서 옮긴 순간,
+              지갑을 코트 안에 숨기고 몇 걸음 움직인 순간에도 절도는 완성될 수 있다.”
+            </p>
+          </div>
+        </section>
+
+        <section class="findings" id="findings">
+          <h2>Key Findings</h2>
+          <ul>
+            <li>Larceny는 다섯 요소가 모두 필요하다: trespassory taking, carrying away, tangible personal property, of another, intent to permanently deprive.</li>
+            <li>Carrying away는 매우 낮은 문턱이다. 매장 밖 반출은 필요 없고, slight movement만으로 충분하다.</li>
+            <li>영구 박탈 의사는 taking 시점에 존재해야 한다. 단순 차용 의도라면 이후 우연한 파손만으로 larceny가 되지 않는다.</li>
+            <li>처음 taking이 trespassory였고 나중에 영구 박탈 의사가 생기면 continuing trespass doctrine이 개입할 수 있다.</li>
+            <li>Larceny by trick은 title이 아니라 possession만 사기로 취득한 경우다. title이 넘어가면 false pretenses 쟁점으로 이동한다.</li>
+          </ul>
+        </section>
+
+        <section id="elements">
+          <h2>1. Larceny의 5요소: 시험 답안의 뼈대</h2>
+          <p>
+            Common law larceny는 다음 다섯 요소를 요구한다. 각 요소는 독립된 체크리스트처럼 보이지만,
+            실제로는 “물건에 대한 점유가 언제, 어떤 의사로, 누구에게서 누구에게 이동했는가”라는 하나의
+            시간 구조로 읽어야 한다.
+          </p>
+
+          <ol class="rule-list">
+            <li><code>Trespassory taking</code><br>소유자 또는 점유자의 동의 없는 점유 이전이 있어야 한다.</li>
+            <li><code>Carrying away</code><br>Asportation이 필요하지만, 아주 작은 이동으로도 충분하다.</li>
+            <li><code>Tangible personal property</code><br>대상은 유형 동산이어야 한다.</li>
+            <li><code>Of another</code><br>자기 재산은 원칙적으로 절도 대상이 아니다.</li>
+            <li><code>Intent to permanently deprive</code><br>Taking 시점에 영구 박탈 의사가 있어야 한다.</li>
+          </ol>
+
+          <blockquote class="pullquote">
+            Larceny의 핵심 질문은 “나갔는가”가 아니라 “남의 물건에 대한 지배가 비동의로 이전되었는가”다.
+          </blockquote>
+        </section>
+
+        <section id="carrying-away">
+          <h2>2. Carrying Away: 약간의 이동만으로도 충분하다</h2>
+          <p>
+            Carrying away, 즉 asportation은 larceny에서 자주 과소평가되는 요소다.
+            하지만 common law는 이 요건을 낮게 본다. 물건을 원래 위치에서 조금만 이동시켜도,
+            또는 자기 지배 아래 넣는 행동이 있으면 충분할 수 있다.
+          </p>
+
+          <div class="case-grid">
+            <div class="case-card">
+              <strong>Q.9 · 반지를 차까지 가져갔다 돌려놓은 사안</strong>
+              <p>딸이 병실 탁자 위 어머니 반지를 가져가 차까지 갔다가 곧바로 돌려놓았더라도, 반지를 원래 위치에서 옮겨 자신의 지배 아래 둔 순간 asportation이 충족된다.</p>
+            </div>
+            <div class="case-card">
+              <strong>Q.62 · Sensor 때문에 매장 밖으로 못 나간 사안</strong>
+              <p>배우가 가게 안에서 지갑을 코트 안에 숨기고 몇 걸음 움직였다면, 매장 밖 반출 없이도 slight movement와 concealment로 carrying away가 충족된다.</p>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <strong>Takeaway.</strong>
+            “매장 밖으로 나갔는가”는 결정적 기준이 아니다. 물건의 위치 변화와 피고의 지배 확보가 핵심이다.
+          </div>
+        </section>
+
+        <section id="intent">
+          <h2>3. Intent to Permanently Deprive: 기준 시점은 Taking이다</h2>
+          <p>
+            Larceny에서 가장 중요한 정신상태는 영구 박탈 의사다. 이 의사는 taking 시점에 있어야 한다.
+            처음부터 빌릴 생각이었다면, 나중에 마음이 바뀌거나 사고로 물건이 파괴되더라도 일반적인
+            larceny는 성립하지 않는다.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>문제</th>
+                  <th>사실관계</th>
+                  <th>결론</th>
+                  <th>이유</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q.49</td>
+                  <td>야생화 초원을 지키려고 불도저 spark plug만 제거</td>
+                  <td>Larceny 부정</td>
+                  <td>불도저 자체를 영구히 박탈하려는 의사가 없다.</td>
+                </tr>
+                <tr>
+                  <td>Q.53</td>
+                  <td>지갑을 여자친구 가방에 넣어 계산대에서 발견되게 하려는 장난</td>
+                  <td>Larceny 부정</td>
+                  <td>처음부터 반환될 상황을 예정했다.</td>
+                </tr>
+                <tr>
+                  <td>Q.65</td>
+                  <td>이웃 트럭을 잠시 빌릴 생각으로 가져갔다가 사고로 전손</td>
+                  <td>Larceny 부정</td>
+                  <td>Taking 당시 의도가 단순 차용이면 이후 파괴 결과는 결정적이지 않다.</td>
+                </tr>
+                <tr>
+                  <td>Q.72</td>
+                  <td>친구 기타를 공연에 쓰고 돌려주려다 파손</td>
+                  <td>Larceny 부정</td>
+                  <td>Taking 당시 영구 박탈 의사가 없다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Essay형 쟁점에서도 같은 논리가 반복된다. 예컨대 neighbor가 print의 possession을 맡겼고
+            Ben이 나중에 팔았다면, 최초 취득이 consent에 의한 것이므로 전형적 larceny의 taking 요건과
+            continuing trespass 적용 여부가 문제된다.
+          </p>
+        </section>
+
+        <section id="continuing-trespass">
+          <h2>4. Continuing Trespass Doctrine: 나중에 생긴 의사를 어떻게 붙잡는가</h2>
+          <p>
+            원칙적으로 영구 박탈 의사는 taking 시점에 있어야 한다. 하지만 처음 taking 자체가 trespassory였다면,
+            그 위법한 점유가 계속되는 것으로 보아 나중에 형성된 영구 박탈 의사를 초기 taking과 결합시키는
+            doctrine이 있다. 이것이 continuing trespass doctrine이다.
+          </p>
+
+          <div class="diagram" aria-label="continuing trespass flow diagram">
+            <div class="flow">
+              <div class="step"><b>1. Initial taking</b>동의 없는 점유 이전이 먼저 발생한다.</div>
+              <div class="step"><b>2. No initial intent</b>처음에는 영구 박탈 의사가 명확하지 않을 수 있다.</div>
+              <div class="step"><b>3. Later intent</b>이후 물건을 영구히 박탈하려는 의사가 형성된다.</div>
+              <div class="step"><b>4. Larceny</b>계속되는 trespass와 later intent가 결합된다.</div>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <strong>Q.30 · 회사 서류를 가져온 뒤 분노로 불태운 사안</strong>
+            <p>
+              해고된 임원이 개인 물건을 찾으러 회사에 들어갔다가 회사 서류도 함께 가져온 뒤 집에서 화가 나 불태운 경우,
+              처음 taking은 trespassory였고 이후 영구 박탈 의사가 생겼으므로 continuing trespass로 larceny가 성립한다.
+            </p>
+          </div>
+
+          <div class="note-card">
+            <strong>대조 포인트.</strong>
+            처음부터 동의로 possession을 받은 경우에는 continuing trespass가 쉽게 작동하지 않는다.
+            그래서 print를 맡긴 뒤 나중에 매각한 Essay 사례는 이 doctrine의 한계를 묻는 구조가 된다.
+          </div>
+        </section>
+
+        <section id="property">
+          <h2>5. Tangible Personal Property: 절도의 대상은 어디까지인가</h2>
+          <p>
+            Common law larceny는 원칙적으로 유형 동산만 대상으로 한다. Trade secret 같은 무형 재산은
+            common law larceny의 대상이 아니지만, modern statute는 별도로 이를 포함할 수 있다.
+          </p>
+
+          <div class="case-grid">
+            <div class="case-card">
+              <strong>Q.18 · Trade secrets</strong>
+              <p>경쟁사로 옮긴 과학자가 전 회사 trade secret을 이용한 사안은, trade secret이 intangible property이므로 common law larceny 대상이 아니다.</p>
+            </div>
+            <div class="case-card">
+              <strong>Q.50 · 묘지 부착 동상</strong>
+              <p>공동묘지에 부착된 강철 기타 조형물을 절단해 즉시 트럭에 실어간 사안은, 부착 상태의 물건이 real property라는 점이 함정이다.</p>
+            </div>
+          </div>
+
+          <p>
+            특히 real property에 부착된 물건은 분리 이후 personal property가 될 수 있다. 다만 문제의
+            다수설 또는 특정 jurisdiction 기준이 “부착 상태에서 즉시 절취한 경우”를 어떻게 처리하는지
+            주의해야 한다.
+          </p>
+        </section>
+
+        <section id="mistake">
+          <h2>6. Mistake of Fact와 Claim of Right: 진심으로 내 것이라고 믿었다면</h2>
+          <p>
+            피고가 물건을 자기 재산이라고 honestly 믿었다면, 설령 그 믿음이 틀렸더라도 larceny의
+            영구 박탈 의사가 부정될 수 있다. 이 영역은 “합리적 믿음”보다 “정직한 믿음”의 의미가 중요하다.
+          </p>
+
+          <div class="case-grid">
+            <div class="case-card">
+              <strong>Q.52 · 버려진 코트라고 믿은 사안</strong>
+              <p>쓰레기통에 버려진 코트를 주워 수선한 사람은 소유자가 coat를 버렸다고 믿었으므로 intent to steal이 부정된다.</p>
+            </div>
+            <div class="case-card">
+              <strong>Q.59 · 안장이 자기 것이라고 믿은 사안</strong>
+              <p>여성이 검은 안장을 자기 것이라고 진정으로 믿었다면 intent가 없고, 그 지시를 믿고 움직인 남성도 동일하게 intent가 없다.</p>
+            </div>
+            <div class="case-card">
+              <strong>Q.70 · 자기 DVD 회수</strong>
+              <p>친구 집에서 예전에 빌려준 자기 DVD를 찾아 나온 경우, taking 대상이 <code>property of another</code>가 아니므로 larceny가 성립하지 않는다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="lost-property">
+          <h2>7. Found Property: 주인을 알 수 있는데도 가져가면</h2>
+          <p>
+            잃어버린 물건을 주운 경우에도 larceny가 될 수 있다. 핵심은 owner의 신원을 알 수 있거나
+            합리적으로 확인할 수 있는 상태에서, 피고가 그 물건을 keep하려는 의사를 가졌는가다.
+          </p>
+
+          <div class="case-card">
+            <strong>Q.69 · 지갑 발견 후 ID를 보고도 부인한 사안</strong>
+            <p>
+              경기장에서 지갑이 관중 가방에서 떨어지는 것을 보고 주운 뒤, 곧바로 주인이 와서 묻는데도 없다고 하고 가져간 경우,
+              owner를 특정할 수 있는 상태에서 keep 의사가 생겼으므로 larceny가 된다.
+            </p>
+          </div>
+        </section>
+
+        <section id="agency-consent">
+          <h2>8. Agent와 Owner Consent: 누가 속았는지, 언제 동의했는지</h2>
+          <p>
+            피고가 innocent agent를 이용해 물건을 가져오게 한 경우에도, principal에게 larceny intent가 있으면
+            larceny가 성립할 수 있다. 반대로 owner consent는 timing이 중요하다. 절도가 이미 완성된 뒤의
+            사후 동의는 방어가 되지 않는다.
+          </p>
+
+          <div class="case-grid">
+            <div class="case-card">
+              <strong>Q.14 · 직원이 모르고 그림을 가져온 사안</strong>
+              <p>갤러리 주인이 직원에게 “할아버지가 준 그림”이라고 속여 garage에서 가져오게 했다면, 직원이 innocent agent여도 principal에게 절도의사가 있으므로 taking이 충족된다.</p>
+            </div>
+            <div class="case-card">
+              <strong>Q.54 · 시계를 든 뒤 선물이라고 말한 사안</strong>
+              <p>동료 손목시계를 몰래 집어 든 직후 동료가 “그냥 가져가라”고 말해도, 비동의 taking과 slight movement가 이미 끝났으므로 사후 consent는 무효다.</p>
+            </div>
+          </div>
+
+          <div class="note-card">
+            <strong>Q.14의 함정.</strong>
+            피해자인 할아버지를 속인 것이 아니라 직원을 속인 것이므로 larceny by trick이 아니다.
+            구조는 larceny by agent다.
+          </div>
+        </section>
+
+        <section id="trick">
+          <h2>9. Larceny by Trick: Title이 아니라 Possession만 넘어간다</h2>
+          <p>
+            Larceny by trick은 피고가 사기적 동의로 possession을 얻는 경우다.
+            이때 소유자는 title을 넘긴 것이 아니라 임시 점유나 custody만 넘긴다.
+            따라서 title이 넘어간 거래형 사기와 구별해야 한다.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>분류</th>
+                  <th>피해자가 넘긴 것</th>
+                  <th>대표 사례</th>
+                  <th>결론</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Larceny by trick</td>
+                  <td>Possession 또는 custody</td>
+                  <td>Q.25 · 시장 아들이라고 거짓말하며 시계를 차보고 도주</td>
+                  <td>점원은 title이 아니라 possession만 넘겼다.</td>
+                </tr>
+                <tr>
+                  <td>Larceny by trick</td>
+                  <td>사용을 위한 possession</td>
+                  <td>Q.40 · 트럭을 빌렸지만 처음부터 팔 의도</td>
+                  <td>소유자는 use를 위한 점유만 허락했다.</td>
+                </tr>
+                <tr>
+                  <td>False pretenses</td>
+                  <td>Title</td>
+                  <td>Q.61 · 허위 개발계획으로 주택을 싼값에 매수</td>
+                  <td>집의 title 자체가 넘어갔다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <blockquote class="pullquote">
+            Larceny by trick의 질문은 “속였는가”가 아니라 “속여서 무엇을 받았는가”다. Possession이면 larceny by trick, title이면 false pretenses다.
+          </blockquote>
+        </section>
+
+        <section class="source-notes" id="source-notes">
+          <h2>Source Notes</h2>
+          <p>
+            이 리포트는 제공된 Obsidian Markdown 노트의 문제 번호와 사례 설명을 바탕으로 구성했다.
+            외부 판례명이나 조문은 추가하지 않았고, 원문에 포함된 common law rule statement와
+            문제형 fact pattern을 공개용 학습 리포트 형식으로 재배열했다.
+          </p>
+          <ul>
+            <li>주요 근거 문제: Q.9, Q.14, Q.18, Q.25, Q.30, Q.40, Q.49, Q.50, Q.52, Q.53, Q.54, Q.59, Q.61, Q.62, Q.65, Q.69, Q.70, Q.72.</li>
+            <li>주요 Essay 쟁점: 최초 취득이 consent였던 print possession 사례와 later sale intent의 larceny 분석.</li>
+            <li>분석 프레임: taking 시점, possession/title 구별, tangible personal property 제한, post-taking consent의 효과.</li>
+          </ul>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 답안 작성은 시간축으로 정리하라</h2>
+          <p>
+            Larceny 문제는 요소 암기보다 시간축 정리가 더 중요하다. 먼저 물건이 누구의 점유에 있었는지,
+            피고가 언제 그 점유를 이전받았는지, 그 이전이 동의에 의한 것인지, 그 순간 피고의 의사가 무엇이었는지를
+            순서대로 배치해야 한다. 그 다음에 asportation, property type, ownership, mistake, consent를 붙이면
+            답안이 흔들리지 않는다.
+          </p>
+          <p>
+            특히 larceny by trick에서는 사기 자체보다 피해자가 넘긴 권리의 성격을 먼저 확인해야 한다.
+            possession만 넘겼다면 larceny 계열이고, title이 넘어갔다면 false pretenses로 넘어간다.
+          </p>
+        </section>
+
+        <section class="ending" id="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>
+            절도는 “훔쳤다”는 직감으로 풀면 위험하다. 시험은 직감보다 정교하다.
+            반지를 몇 걸음 옮긴 행위는 이미 충분할 수 있고, 트럭을 부순 결과는 오히려 중요하지 않을 수 있다.
+            답은 언제나 같은 곳에서 시작한다. Taking의 순간, 피고의 의사, 그리고 피해자가 넘긴 것이 possession인지 title인지다.
+          </p>
+          <p>
+            이 세 질문을 먼저 던지면 larceny, larceny by trick, false pretenses의 경계가 훨씬 선명해진다.
+          </p>
+        </section>
+      </article>
+
+      <aside aria-label="table of contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#elements">Larceny 5요소</a></li>
+          <li><a href="#carrying-away">Carrying Away</a></li>
+          <li><a href="#intent">Intent 기준 시점</a></li>
+          <li><a href="#continuing-trespass">Continuing Trespass</a></li>
+          <li><a href="#property">Property 제한</a></li>
+          <li><a href="#mistake">Claim of Right</a></li>
+          <li><a href="#trick">Larceny by Trick</a></li>
+          <li><a href="#implications">Implications</a></li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
