@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Double Jeopardy 실전 프레임: 위험의 부착부터 재심리 예외까지</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #20201d;
+      --muted: #67645d;
+      --line: #ddd4c5;
+      --accent: #8f2f24;
+      --accent-2: #1f5c62;
+      --accent-3: #b98631;
+      --soft: #efe5d5;
+      --soft-blue: #e2eeee;
+      --code: #36312a;
+      --shadow: 0 18px 60px rgba(61, 45, 28, 0.12);
+      --radius: 8px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(143, 47, 36, 0.08), transparent 280px),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 36px;
+      align-items: end;
+      padding: 70px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.45rem, 6vw, 5.25rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+      max-width: 880px;
+    }
+
+    .subtitle {
+      margin: 24px 0 0;
+      max-width: 760px;
+      color: #3f3c36;
+      font-size: clamp(1.06rem, 2vw, 1.35rem);
+      line-height: 1.68;
+    }
+
+    .meta-card {
+      background: rgba(255, 253, 248, 0.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .meta-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .meta-card strong {
+      color: var(--ink);
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 2px;
+    }
+
+    .share-copy {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--soft-blue);
+      color: #193e42;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+      margin-top: 42px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      border-left: 3px solid var(--accent-2);
+      padding: 4px 0 4px 18px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: 0.8rem;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .toc li {
+      margin: 9px 0;
+    }
+
+    .article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 64px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 34px 0 12px;
+      font-size: 1.22rem;
+      line-height: 1.38;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .abstract {
+      padding: 32px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .abstract h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #37342f;
+    }
+
+    .key-findings {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .finding {
+      padding: 18px;
+      background: #fbf6ec;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .finding b {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 8px 0 8px 26px;
+      border-left: 5px solid var(--accent);
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      color: #2b2925;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      line-height: 1.38;
+    }
+
+    .rule-box {
+      margin: 24px 0;
+      padding: 22px;
+      background: #fff9ee;
+      border: 1px solid #dec9a8;
+      border-radius: var(--radius);
+    }
+
+    .rule-box strong {
+      color: var(--accent);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .evidence-card {
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .evidence-card .label {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+      margin: 26px 0;
+      padding: 22px;
+      background: #edf3f2;
+      border-radius: var(--radius);
+      border: 1px solid #c5d6d3;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .flow-step span {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: table;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #efe1cc;
+      color: #302a22;
+      font-size: 0.93rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    details {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    details div {
+      padding: 0 18px 18px;
+      color: #413e38;
+    }
+
+    .note {
+      padding: 22px;
+      background: #f1ebe0;
+      border-radius: var(--radius);
+      color: #4c473f;
+      font-size: 0.96rem;
+    }
+
+    .implications {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .implication {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: #fdfaf4;
+      border: 1px solid var(--line);
+    }
+
+    .ending {
+      padding: 34px;
+      background: #263f42;
+      color: #f8f3ea;
+      border-radius: var(--radius);
+    }
+
+    .ending h2 {
+      color: #fff7e8;
+    }
+
+    .ending p {
+      color: #e9ded1;
+    }
+
+    .source-notes {
+      font-size: 0.95rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+
+    code {
+      padding: 0.12em 0.34em;
+      border-radius: 5px;
+      background: #eee2d0;
+      color: var(--code);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      main,
+      .implications {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        background: rgba(255, 253, 248, 0.74);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent-2);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+      }
+
+      .key-findings,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 18px 16px 48px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .abstract,
+      .ending {
+        padding: 24px 20px;
+      }
+
+      th,
+      td {
+        padding: 12px;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="03. Post-Trial Considerations (16)">
+<meta property="og:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: Double jeopardy가 붙는 시점(attachment)을 확인한다. 단계 2: 두 기소가 same 범죄인지 Blockburger test로 판단한다. 단계 3: 같은 범죄라도 예외(retrial after mistria">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/8x7ham/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="03. Post-Trial Considerations (16)">
+<meta name="twitter:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: Double jeopardy가 붙는 시점(attachment)을 확인한다. 단계 2: 두 기소가 same 범죄인지 Blockburger test로 판단한다. 단계 3: 같은 범죄라도 예외(retrial after mistria">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/8x7ham/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <div class="kicker">Research Report · Criminal Procedure</div>
+        <h1>Double Jeopardy 실전 프레임: 위험의 부착부터 재심리 예외까지</h1>
+        <p class="subtitle">
+          MBE 형사소송법의 Post-Trial Considerations에서 반복 출제되는 이중위험금지 쟁점을
+          <strong>언제 위험이 붙는지</strong>, <strong>무엇이 같은 범죄인지</strong>, <strong>언제 다시 재판할 수 있는지</strong>로 재구성한 공개용 분석 리포트.
+        </p>
+      </div>
+
+      <aside class="meta-card" aria-label="문서 정보">
+        <p><strong>출처</strong>Crimpro 실험 노트 기반</p>
+        <p><strong>작성일</strong>2026년 5월 26일</p>
+        <p><strong>핵심 주제</strong>Double Jeopardy, Blockburger, mistrial, dual sovereignty, collateral estoppel</p>
+        <div class="share-copy">
+          공유 문구: “이중위험금지 문제는 ‘같은 사실’보다 ‘같은 범죄’와 ‘위험 부착 시점’을 먼저 보아야 한다.”
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <nav class="toc" aria-label="목차">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#abstract">초록</a></li>
+          <li><a href="#framework">분석 프레임</a></li>
+          <li><a href="#attachment">위험의 부착</a></li>
+          <li><a href="#same-offense">Same Offense</a></li>
+          <li><a href="#exceptions">재심리 예외</a></li>
+          <li><a href="#sovereignty">이중주권과 쟁점배제</a></li>
+          <li><a href="#takeaways">답안 패턴</a></li>
+        </ol>
+      </nav>
+
+      <article class="article">
+        <section id="abstract" class="abstract">
+          <h2>초록</h2>
+          <p class="lead">
+            Double Jeopardy Clause는 동일 범죄에 대한 무죄 후 재기소, 유죄 후 재기소, 중복처벌을 금지한다.
+            그러나 시험 문제에서 승부는 조항의 선언이 아니라 순서에 있다. 먼저 위험이 실제로 부착되었는지 확인하고,
+            다음으로 두 혐의가 Blockburger 기준상 같은 범죄인지 판단하며, 마지막으로 무효심리·항소파기·후발 사실·이중주권 같은 예외를 걸러야 한다.
+          </p>
+
+          <div class="key-findings">
+            <div class="finding">
+              <b>Key Finding 1</b>
+              배심재판은 배심이 선서될 때, 비배심재판은 첫 증인이 선서될 때 위험이 부착된다.
+            </div>
+            <div class="finding">
+              <b>Key Finding 2</b>
+              같은 행위가 아니라 같은 법정요소가 문제다. Blockburger는 각 범죄가 서로 다른 추가 요소를 요구하는지 묻는다.
+            </div>
+            <div class="finding">
+              <b>Key Finding 3</b>
+              증거불충분으로 유죄가 파기되면 재심리는 금지되지만, 재판상 오류로 파기되면 보통 재심리가 가능하다.
+            </div>
+            <div class="finding">
+              <b>Key Finding 4</b>
+              평결불능 배심은 manifest necessity에 해당하므로 피고인의 반대가 있어도 재심리를 허용할 수 있다.
+            </div>
+          </div>
+        </section>
+
+        <section id="framework">
+          <h2>문제 풀이의 기본 순서</h2>
+          <p>
+            이중위험금지는 직관적으로는 “한 번 재판받았으면 다시 못 한다”는 규칙처럼 보인다.
+            그러나 실제 출제는 그 직관의 빈틈을 찌른다. 예비심문에서 기각된 사건, 다른 주권자의 별도 기소,
+            경미 포함범죄의 유죄답변, 배심 교착 후 재심리처럼 결과만 보고 판단하면 쉽게 틀린다.
+          </p>
+
+          <div class="flow" aria-label="Double Jeopardy 분석 흐름">
+            <div class="flow-step">
+              <span>1</span>
+              <p><strong>Attachment</strong>: 피고인이 실제로 유죄 위험에 놓였는가?</p>
+            </div>
+            <div class="flow-step">
+              <span>2</span>
+              <p><strong>Same offense</strong>: 두 기소가 Blockburger 기준상 같은 범죄인가?</p>
+            </div>
+            <div class="flow-step">
+              <span>3</span>
+              <p><strong>Exception</strong>: 무효심리, 항소파기, hung jury, 후발 사실 등 재심리 허용 사유가 있는가?</p>
+            </div>
+            <div class="flow-step">
+              <span>4</span>
+              <p><strong>Sovereignty and estoppel</strong>: 서로 다른 주권자의 기소인지, 이전 무죄판결의 사실 판단이 쟁점배제를 만드는지 확인한다.</p>
+            </div>
+          </div>
+
+          <blockquote class="pullquote">
+            이중위험금지 문제의 첫 질문은 “억울한가?”가 아니라 “위험이 언제, 어떤 범죄에 대해, 어떤 절차에서 붙었는가?”이다.
+          </blockquote>
+        </section>
+
+        <section id="attachment">
+          <h2>1. 위험의 부착: 재판 전 절차는 보통 충분하지 않다</h2>
+          <p>
+            Double Jeopardy Clause는 국가가 피고인을 동일 범죄로 반복해 소모시키는 것을 막는다.
+            하지만 그 보호는 형사절차가 시작되었다는 이유만으로 곧바로 작동하지 않는다.
+            피고인이 실제 유죄 위험에 들어간 시점, 즉 <code>attachment</code>가 필요하다.
+          </p>
+
+          <div class="rule-box">
+            <strong>기본 룰</strong>
+            <p>배심재판에서는 <code>jury가 sworn될 때</code>, bench trial에서는 <code>첫 증인이 sworn될 때</code> jeopardy가 부착된다.</p>
+          </div>
+
+          <h3>증거가 보여주는 패턴</h3>
+          <div class="evidence-grid">
+            <div class="evidence-card">
+              <span class="label">예비심문 기각</span>
+              <p>상당한 이유 부족으로 혐의가 기각되어도 아직 위험이 부착되지 않았다. 검사는 같은 사건을 대배심에 가져갈 수 있다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">본안 중 입증실패</span>
+              <p>검찰 입증 종료 후 범죄 요소 입증 실패로 기각되면 무죄와 동등하다. 이후 같은 범죄를 되살릴 수 없다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">민사 제재</span>
+              <p>형사처벌 뒤 전문직 면허취소 같은 민사 제재가 이어져도 일반적으로 이중위험금지는 적용되지 않는다.</p>
+            </div>
+          </div>
+
+          <div class="case-list">
+            <details>
+              <summary>Q.7 · Q.11 · Q.12 · Q.14: 예비심문 또는 대배심 단계</summary>
+              <div>
+                살인미수 또는 과실치사 혐의가 예비심문에서 기각된 뒤 다시 대배심 기소가 이루어진 사안이다.
+                핵심은 예비심문과 대배심 단계에서는 아직 jeopardy가 붙지 않는다는 점이다.
+                따라서 기소 무효나 기각 신청은 받아들여지지 않는다.
+              </div>
+            </details>
+            <details>
+              <summary>Q.16: 검찰 입증 종료 후 1급 방화 기각</summary>
+              <div>
+                검찰이 “주거” 요소를 입증하지 못해 1급 방화가 기각된 뒤, 피고인이 증언 중 그 요소를 인정했다.
+                그러나 본안에서 요소 입증 실패로 기각된 이상 무죄와 같으므로 1급 방화를 다시 세울 수 없다.
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section id="same-offense">
+          <h2>2. Same Offense: Blockburger는 사실관계보다 요소를 본다</h2>
+          <p>
+            같은 사건에서 나왔다는 이유만으로 반드시 같은 범죄가 되는 것은 아니다.
+            반대로 이름이 다른 범죄라도 한 범죄의 모든 요소가 다른 범죄에 포함되면 같은 범죄로 취급될 수 있다.
+            여기서 쓰는 기준이 <code>Blockburger test</code>다.
+          </p>
+
+          <div class="rule-box">
+            <strong>Blockburger test</strong>
+            <p>각 범죄가 상대 범죄에는 없는 추가 요소를 요구하면 별개 범죄다. 한 범죄가 다른 범죄의 lesser included offense이면 원칙적으로 같은 범죄다.</p>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>상황</th>
+                <th>판단</th>
+                <th>이유</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>강도 무죄 후 강도모의 기소</td>
+                <td>가능</td>
+                <td>강도모의와 강도는 서로 다른 추가 요소를 요구한다.</td>
+              </tr>
+              <tr>
+                <td>불법감금 무죄 후 납치 기소</td>
+                <td>금지</td>
+                <td>불법감금의 모든 요소가 납치에 포함되어 같은 범죄로 취급된다.</td>
+              </tr>
+              <tr>
+                <td>강간미수 무죄 후 그 강간미수를 기초중죄로 한 중죄살인 기소</td>
+                <td>금지</td>
+                <td>중죄살인은 기초중죄의 증명을 요구하므로 이전 무죄가 결정적이다.</td>
+              </tr>
+              <tr>
+                <td>경미 포함범죄 유죄답변 당시 더 큰 범죄도 이미 기소됨</td>
+                <td>더 큰 범죄 진행 가능</td>
+                <td>동시 기소 구조에서는 경미 포함범죄 답변만으로 더 큰 범죄가 자동 차단되지 않는다.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <blockquote class="pullquote">
+            Double jeopardy의 “same”은 같은 이야기라는 뜻이 아니라, 같은 법정요소라는 뜻에 가깝다.
+          </blockquote>
+        </section>
+
+        <section id="exceptions">
+          <h2>3. 재심리 예외: 금지와 허용의 경계</h2>
+          <p>
+            위험이 붙었고 같은 범죄라면 재심리는 원칙적으로 금지된다.
+            그러나 모든 중단이나 파기가 피고인에게 최종적 승리를 주는 것은 아니다.
+            재판이 끝나지 못한 이유, 파기된 이유, 새 범죄 요소가 언제 발생했는지가 결정적이다.
+          </p>
+
+          <h3>무효심리와 manifest necessity</h3>
+          <p>
+            피고인이 무효심리를 신청한 경우 또는 명백한 필요성이 있는 경우에는 재심리가 가능하다.
+            대표적인 예가 hung jury다. 반면 판사가 대안을 검토하지 않고 성급히 무효심리를 선언하면 재심리는 금지될 수 있다.
+          </p>
+
+          <div class="evidence-grid">
+            <div class="evidence-card">
+              <span class="label">Hung jury</span>
+              <p>배심이 평결에 이르지 못하면 manifest necessity가 인정되어 재심리가 가능하다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">성급한 mistrial</span>
+              <p>예견 못한 사정이 있어도 법원이 대안을 검토하지 않으면 명백한 필요성이 부정될 수 있다.</p>
+            </div>
+            <div class="evidence-card">
+              <span class="label">피고인 신청</span>
+              <p>피고인이 무효심리를 신청한 경우에는 보통 재심리가 허용된다.</p>
+            </div>
+          </div>
+
+          <h3>항소파기: 증거불충분과 재판 오류의 차이</h3>
+          <p>
+            유죄판결이 항소에서 파기되었다고 해서 항상 재심리가 가능한 것은 아니다.
+            증거불충분은 무죄와 유사하게 취급되어 재심리를 막는다.
+            반면 배심 지시 오류, 증거법상 오류 같은 trial error는 보통 재심리를 허용한다.
+          </p>
+
+          <div class="case-list">
+            <details>
+              <summary>Q.3: 증거불충분으로 가중폭행 유죄 파기</summary>
+              <div>
+                항소심이 “어떤 합리적 사실인정자도 유죄로 볼 수 없었다”고 판단했다면 이는 무죄와 같은 기능을 한다.
+                검찰은 같은 범죄로 다시 재판할 수 없다.
+              </div>
+            </details>
+            <details>
+              <summary>Q.13: 판사의 사적 긴급사정과 무효심리</summary>
+              <div>
+                재판 중 판사가 가족 사망 소식을 듣고 변호인 의견이나 대안을 충분히 검토하지 않은 채 무효심리를 선언했다.
+                예견 못한 사정만으로는 부족하고, 합리적 재량 행사가 필요하다.
+              </div>
+            </details>
+            <details>
+              <summary>Q.15: 배심 교착</summary>
+              <div>
+                배심이 만장일치에 이르지 못한 경우는 전형적인 manifest necessity다.
+                피고인이 반대했더라도 재심리가 가능하다.
+              </div>
+            </details>
+          </div>
+
+          <h3>후발 사실: 더 큰 범죄의 요소가 나중에 생긴 경우</h3>
+          <p>
+            경미한 범죄로 이미 처벌받았더라도, 더 큰 범죄에 필요한 핵심 사실이 첫 재판 당시 존재하지 않았다면 재기소가 가능하다.
+            난폭운전 유죄답변 뒤 피해자가 사망해 과실치사가 성립한 사안이 그 예다.
+          </p>
+        </section>
+
+        <section id="sovereignty">
+          <h2>4. 이중주권과 쟁점배제: 비슷하지만 다른 두 장치</h2>
+          <p>
+            <code>Dual sovereignty</code>는 같은 행위라도 서로 다른 주권자가 각각 자기 법을 집행할 수 있다는 원칙이다.
+            주와 주, 주와 연방은 권한의 원천이 다르므로 같은 행위에 대해 별도 기소가 가능할 수 있다.
+          </p>
+
+          <p>
+            반면 <code>collateral estoppel</code>은 이전 무죄판결에서 사실상 확정된 쟁점을 같은 정부가 다음 재판에서 다시 다투지 못하게 하는 원리다.
+            즉 이중주권은 “누가 기소하는가”의 문제이고, 쟁점배제는 “이미 무엇이 결정되었는가”의 문제다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>핵심 질문</th>
+                <th>효과</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dual sovereignty</td>
+                <td>기소 주체가 서로 다른 주권자인가?</td>
+                <td>같은 행위라도 별도 기소 가능성이 있다.</td>
+              </tr>
+              <tr>
+                <td>Collateral estoppel</td>
+                <td>이전 무죄판결이 특정 사실 쟁점을 이미 결정했는가?</td>
+                <td>같은 정부가 그 쟁점을 다시 다투지 못한다.</td>
+              </tr>
+              <tr>
+                <td>Blockburger</td>
+                <td>각 범죄가 서로 다른 추가 요소를 요구하는가?</td>
+                <td>동일 범죄 여부를 판단한다.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            출제상 함정은 용어 혼동이다. A주 유죄 뒤 B주 기소는 쟁점배제 문제가 아니라 이중주권 문제다.
+            반대로 같은 주가 이전 무죄판결에서 이미 결정된 사실을 다시 다투려 하면 쟁점배제를 검토해야 한다.
+          </div>
+        </section>
+
+        <section id="takeaways">
+          <h2>5. 시험 답안 핵심 패턴</h2>
+          <p>
+            마지막 정리는 짧아야 한다. 이중위험금지 문제에서 긴 사실관계는 대개 아래 몇 가지 패턴 중 하나로 접힌다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>상황</th>
+                <th>적용 룰</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>배심 선서 전 dismissal</td>
+                <td>Jeopardy 미부착</td>
+              </tr>
+              <tr>
+                <td>무죄 후 동일 범죄 재기소</td>
+                <td>금지</td>
+              </tr>
+              <tr>
+                <td>Evidence insufficiency로 reversal</td>
+                <td>Retrial 금지</td>
+              </tr>
+              <tr>
+                <td>Trial error로 reversal</td>
+                <td>Retrial 가능</td>
+              </tr>
+              <tr>
+                <td>Hung jury</td>
+                <td>Retrial 가능</td>
+              </tr>
+              <tr>
+                <td>Lesser included offense</td>
+                <td>Same offense 가능성 높음</td>
+              </tr>
+              <tr>
+                <td>주와 연방 또는 주와 주의 별도 기소</td>
+                <td>Dual sovereignty로 가능할 수 있음</td>
+              </tr>
+              <tr>
+                <td>전문직 면허취소 등 민사 제재</td>
+                <td>일반적으로 Double Jeopardy 아님</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="implications">
+            <div class="implication">
+              <h3>수험상 함의</h3>
+              <p>
+                답안을 쓸 때는 “동일 행위라서 금지”라고 바로 결론 내리지 않는다.
+                먼저 attachment를 밝히고, 그다음 Blockburger로 same offense를 판단한 뒤, 예외를 검토하는 순서가 안정적이다.
+              </p>
+            </div>
+            <div class="implication">
+              <h3>실무적 함의</h3>
+              <p>
+                이중위험금지는 형사절차의 최종성과 국가권력 남용 방지 사이의 균형 장치다.
+                따라서 법원은 피고인을 보호하면서도 미완결 재판, 다른 주권자의 법집행, 후발 사실에 의한 기소 여지를 남긴다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="ending">
+          <h2>결론: Double Jeopardy는 순서의 과목이다</h2>
+          <p>
+            이중위험금지는 단순한 금지 규칙이 아니라 절차적 타이밍과 범죄요소 분석의 결합이다.
+            위험이 붙지 않았다면 다시 기소할 수 있고, 같은 사실이라도 다른 요소를 요구하면 별개 범죄가 될 수 있으며,
+            같은 범죄라도 hung jury나 trial error처럼 재심리를 허용하는 장면이 있다.
+          </p>
+          <p>
+            그래서 가장 좋은 답안은 감정적으로 “두 번 처벌은 부당하다”에서 출발하지 않는다.
+            “언제 위험이 붙었는가, 무엇이 같은 범죄인가, 왜 예외가 있거나 없는가”를 차례로 보여주는 답안이 가장 강하다.
+          </p>
+        </section>
+
+        <section class="source-notes">
+          <h2>Source Notes</h2>
+          <p>
+            본 문서는 Obsidian 노트 “03. Post-Trial Considerations (16)”의 내용을 공개용 연구 보고서 형식으로 재구성한 것이다.
+            원자료는 MBE 강의자막과 객관식 문제 해설을 결합한 학습 노트이며, 여기서는 Double Jeopardy Clause의 attachment,
+            Blockburger same offense test, retrial exceptions, dual sovereignty, collateral estoppel 관련 문제 패턴을 중심으로 편집했다.
+          </p>
+          <p>
+            법률 학습용 정리이며, 실제 사건에 대한 법률 자문이 아니다.
+          </p>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
