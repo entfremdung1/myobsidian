@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Pretrial Procedures: 대배심, 공소장, Brady 공개의 시험 구조</title>
+  
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ddd6c8;
+      --accent: #8b2f3c;
+      --accent-2: #205f68;
+      --accent-soft: #f3dfe3;
+      --blue-soft: #dcecef;
+      --gold-soft: #f5e8c8;
+      --code: #2f3a45;
+      --shadow: 0 22px 60px rgba(52, 43, 32, 0.12);
+      --radius: 8px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(139, 47, 60, 0.08), transparent 360px),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Segoe UI", sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header.hero {
+      padding: 72px 0 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.25rem, 6vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+      color: #161b22;
+    }
+
+    .dek {
+      max-width: 780px;
+      margin: 24px 0 0;
+      color: #3c4652;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.68;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+    }
+
+    .share-frame {
+      margin: 32px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 12px 30px rgba(52, 43, 32, 0.08);
+    }
+
+    .share-frame strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 36px;
+      align-items: start;
+      padding: 28px 0 72px;
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.86);
+      box-shadow: 0 14px 34px rgba(52, 43, 32, 0.08);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    nav.toc ol {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 20px;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    main.article {
+      min-width: 0;
+    }
+
+    section,
+    .abstract,
+    .key-findings,
+    .source-note,
+    .ending {
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: clamp(22px, 4vw, 38px);
+    }
+
+    .abstract,
+    .key-findings,
+    .source-note,
+    .ending {
+      padding: clamp(22px, 4vw, 34px);
+    }
+
+    h2,
+    h3 {
+      letter-spacing: 0;
+      color: #17202a;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.18;
+    }
+
+    h3 {
+      margin: 26px 0 10px;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul,
+    ol {
+      margin-top: 10px;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    mark {
+      padding: 0.1em 0.26em;
+      border-radius: 4px;
+      background: var(--gold-soft);
+      color: inherit;
+    }
+
+    .abstract {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .abstract h2,
+    .key-findings h2,
+    .source-note h2,
+    .ending h2 {
+      margin-bottom: 12px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: var(--radius);
+      background: #f7efe5;
+      border: 1px solid #ead8bd;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .finding-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .finding-list li {
+      margin: 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf7f0;
+    }
+
+    .finding-list b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+    }
+
+    .pullquote {
+      margin: 28px 0;
+      padding: 22px 26px;
+      border-left: 5px solid var(--accent-2);
+      background: var(--blue-soft);
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.18rem, 2.5vw, 1.55rem);
+      line-height: 1.55;
+      color: #17383d;
+    }
+
+    .rule-card {
+      margin: 18px 0;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid #ead8bd;
+      background: #fff9ec;
+    }
+
+    .rule-card strong {
+      color: var(--accent);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .case {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf7f0;
+    }
+
+    .case h4 {
+      margin: 0 0 8px;
+      color: #17202a;
+      font-size: 1rem;
+    }
+
+    .case p {
+      margin-bottom: 8px;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .answer {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.84rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 4px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      font-size: 0.96rem;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #efe4d3;
+      color: #17202a;
+    }
+
+    td {
+      background: #fffdf8;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 20px 0 6px;
+    }
+
+    .step {
+      position: relative;
+      padding: 16px;
+      min-height: 128px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf7f0;
+    }
+
+    .step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .step span {
+      display: block;
+      color: #3c4652;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .checklist {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-2);
+      font-weight: 900;
+    }
+
+    .copy-block {
+      margin-top: 16px;
+      padding: 16px;
+      border: 1px dashed #b9aa95;
+      border-radius: var(--radius);
+      background: #f7efe5;
+      color: var(--code);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .source-note {
+      color: #475467;
+    }
+
+    footer {
+      padding: 0 0 46px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      nav.toc {
+        position: static;
+      }
+
+      .abstract,
+      .finding-list,
+      .case-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 22px, var(--max));
+      }
+
+      header.hero {
+        padding-top: 46px;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section,
+      .abstract,
+      .key-findings,
+      .source-note,
+      .ending {
+        padding: 20px;
+      }
+
+      th,
+      td {
+        padding: 11px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      nav.toc,
+      .share-frame {
+        box-shadow: none;
+      }
+
+      section,
+      .abstract,
+      .key-findings,
+      .source-note,
+      .ending {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="04. Pretrial Procedures (14)">
+<meta property="og:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: 기소 방식이 indictment인지 information인지 확인한다. 단계 2: 대배심 절차에서 어떤 헌법상 권리가 적용되는지 판단한다. 단계 3: 기소장 결함이 실질적 요소 누락인지 단순 형식 문제인지 구별한다. 단계 4:">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/1m99so2/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="04. Pretrial Procedures (14)">
+<meta name="twitter:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: 기소 방식이 indictment인지 information인지 확인한다. 단계 2: 대배심 절차에서 어떤 헌법상 권리가 적용되는지 판단한다. 단계 3: 기소장 결함이 실질적 요소 누락인지 단순 형식 문제인지 구별한다. 단계 4:">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1m99so2/">
+</head>
+<body>
+  <header class="hero page">
+    <p class="eyebrow">Research Report · Criminal Procedure</p>
+    <h1>Pretrial Procedures: 대배심, 공소장, Brady 공개의 시험 구조</h1>
+    <p class="dek">공판 전 절차는 “피고인에게 어떤 절차권이 있는가”보다 먼저 “그 절차가 재판인지, 기소인지, 구금 판단인지”를 가르는 과목이다. 이 글은 MBE형 문제에서 반복되는 대배심, 공소장, Brady, 신원확인, 예비심리 쟁점을 하나의 판단 흐름으로 정리한다.</p>
+    <div class="meta-row" aria-label="문서 정보">
+      <span class="pill">출처: Crimpro 실험</span>
+      <span class="pill">작성일: 2026-05-26</span>
+      <span class="pill">태그: crimpro · pretrial · MBE</span>
+    </div>
+    <div class="share-frame">
+      <strong>Share framing</strong>
+      MBE 형사소송법 공판 전 절차를 빠르게 정리해야 한다면, 핵심은 대배심의 낮은 절차보장, Brady의 materiality, 그리고 신원확인 절차의 독립적 출처 분석이다.
+    </div>
+  </header>
+
+  <div class="layout page">
+    <nav class="toc" aria-label="목차">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#abstract">초록</a></li>
+        <li><a href="#findings">핵심 발견</a></li>
+        <li><a href="#framework">분석 프레임</a></li>
+        <li><a href="#grand-jury">대배심 절차상 권리</a></li>
+        <li><a href="#charging">공소장과 신원확인</a></li>
+        <li><a href="#brady">Brady disclosure</a></li>
+        <li><a href="#detention">예비심리와 구금</a></li>
+        <li><a href="#patterns">답안 패턴</a></li>
+        <li><a href="#implications">함의</a></li>
+      </ol>
+    </nav>
+
+    <main class="article">
+      <article>
+        <div class="abstract" id="abstract">
+          <div>
+            <h2>Abstract</h2>
+            <p>이 보고서는 MBE 강의자막과 객관식 문제를 결합한 학습 노트를 바탕으로, 형사소송법의 공판 전 절차를 시험 답안형 구조로 재정리한다. 중심 쟁점은 대배심에서의 권리 제한, indictment와 information의 차이, 공소장 변경의 한계, Brady disclosure의 성립요건, 신원확인 절차의 배제 여부, 그리고 구금에 대한 probable cause 판단이다.</p>
+            <p>전체 결론은 단순하다. <mark>대배심은 trial이 아니므로 재판 수준의 절차권을 요구할 수 없고, Brady는 공개 누락 자체보다 그 증거의 유리성·중요성·불이익을 묻는다.</mark> 공판 전 절차 문제는 권리 이름을 외우는 문제라기보다, 절차의 기능과 구제수단을 정확히 배치하는 문제다.</p>
+          </div>
+          <div class="stat-grid" aria-label="요약 지표">
+            <div class="stat"><b>14</b><span>관련 MBE형 문제 수</span></div>
+            <div class="stat"><b>5</b><span>주요 쟁점군</span></div>
+            <div class="stat"><b>★★★</b><span>대배심 절차상 권리 중요도</span></div>
+            <div class="stat"><b>Brady</b><span>공정한 재판을 위한 공개 의무</span></div>
+          </div>
+        </div>
+
+        <div class="key-findings" id="findings">
+          <h2>Key Findings</h2>
+          <ul class="finding-list">
+            <li><b>대배심은 낮은 절차보장 단계다.</b> 대배심은 유죄를 판단하지 않고 probable cause를 중심으로 기소 여부를 판단한다. 따라서 변호인 출석, 증거제출, 반대신문 같은 trial형 권리가 원칙적으로 인정되지 않는다.</li>
+            <li><b>위법수집 증거는 기소를 무효화하지 않는다.</b> 대배심은 전문증거와 위법수집 증거를 고려할 수 있다. 구제는 보통 기소 기각이 아니라 재판 단계에서의 증거배제 문제로 이동한다.</li>
+            <li><b>Brady는 materiality가 승부처다.</b> 검사가 고의로 숨겼는지보다, 유리한 증거가 공개되지 않아 결과가 달라질 합리적 개연성이 있었는지가 핵심이다.</li>
+          </ul>
+        </div>
+
+        <section id="framework">
+          <h2>분석 프레임: 공판 전 절차는 먼저 절차의 이름을 붙인다</h2>
+          <p>공판 전 절차 문제는 여러 권리 이름이 한꺼번에 등장한다. 그래서 첫 단계는 “어떤 권리가 더 중요해 보이는가”가 아니라, 현재 절차가 무엇인지를 확정하는 것이다.</p>
+
+          <div class="flow" aria-label="분석 흐름도">
+            <div class="step"><b>1</b><span>기소 방식이 indictment인지 information인지 확인한다.</span></div>
+            <div class="step"><b>2</b><span>대배심 절차에서 어떤 헌법상 권리가 적용되는지 판단한다.</span></div>
+            <div class="step"><b>3</b><span>기소장 결함이 실질적 요소 누락인지 형식 문제인지 구별한다.</span></div>
+            <div class="step"><b>4</b><span>Brady, preliminary hearing, bail·detention 이슈를 분리한다.</span></div>
+          </div>
+
+          <div class="pullquote">“공판 전 절차의 함정은 권리의 존재가 아니라, 그 권리가 아직 붙지 않는 절차에서 권리를 주장하게 만드는 데 있다.”</div>
+
+          <p>이 프레임은 특히 대배심과 신원확인 문제에서 강력하다. 정식 기소 전인지 후인지, 사진 배열인지 라인업인지, 그리고 법정 내 신원확인이 독립적 출처를 갖는지에 따라 결론이 달라진다.</p>
+        </section>
+
+        <section id="grand-jury">
+          <h2>대배심 절차상 권리: 기소 여부를 판단하는 조사기관</h2>
+          <h3>기본 원칙</h3>
+          <p>연방정부는 중범죄로 기소할 때 원칙적으로 대배심 절차를 거쳐야 한다. 그러나 주정부가 반드시 대배심 절차를 사용해야 하는 것은 아니다. <strong>Indictment</strong>는 대배심이 승인한 공소장이고, <strong>information</strong>은 검사가 직접 제출하는 공소장이다.</p>
+          <p>대배심 절차는 trial이 아니다. 따라서 피의자나 증인은 grand jury room 안에서 변호인이 함께 참석할 권리를 갖지 않는다. 방 밖에서 변호인과 상의할 수는 있지만, 대배심 방 안의 조력권은 별개의 문제다.</p>
+
+          <div class="rule-card">
+            <strong>Rule:</strong> 대배심은 유죄 판단기관이 아니라 probable cause에 기초한 기소 여부 판단기관이다. 그러므로 증거법칙이 그대로 적용되지 않고, 전문증거·위법수집 증거도 고려될 수 있다.
+          </div>
+
+          <h3>적용 범위와 한계</h3>
+          <p>대배심 절차가 느슨하다고 해서 모든 헌법 문제가 사라지는 것은 아니다. 예컨대 인종차별적 배심원 선정처럼 구조적 결함이 있으면 indictment가 문제 될 수 있다. 또한 witness는 대배심에서도 제5수정헌법상 자기부죄거부권을 주장할 수 있다.</p>
+
+          <div class="case-grid">
+            <div class="case">
+              <h4>Q.2 · 위법 압수 디스크</h4>
+              <p>CFO의 사무실에서 영장 없이 압수한 컴퓨터 디스크가 대배심 기소의 핵심 증거였다.</p>
+              <p><strong>법리:</strong> 대배심은 위법수집 증거에 근거해서도 기소할 수 있다.</p>
+              <span class="answer">정답: C · 기각 신청 deny</span>
+            </div>
+            <div class="case">
+              <h4>Q.6 · 불법 도박 수사</h4>
+              <p>요원이 집에 들어가 발견한 현금과 명함을 대배심에서 증언했고, 그 증언만으로 기소되었다.</p>
+              <p><strong>법리:</strong> 배제법칙은 대배심에 적용되지 않는다. 구제는 재판에서의 증거배제다.</p>
+              <span class="answer">정답: A · 기소 기각 불가</span>
+            </div>
+            <div class="case">
+              <h4>Q.7 · 변호인과 증인 요청</h4>
+              <p>증인은 변호인을 대배심 방에 들여보내고, 알리바이 증인을 부르게 해달라고 요청했다.</p>
+              <p><strong>법리:</strong> 대배심 방 안 변호인 조력권과 증거제출권은 인정되지 않는다.</p>
+              <span class="answer">정답: D · 권리침해 없음</span>
+            </div>
+            <div class="case">
+              <h4>Q.11 · 무죄방향 증거 미제시</h4>
+              <p>검사는 피고인에게 유리한 증거나 강요 항변 관련 사실을 대배심에 제시하지 않았다.</p>
+              <p><strong>법리:</strong> 검사는 대배심에 무죄방향 증거를 제시할 법적 의무가 없다.</p>
+              <span class="answer">정답: A · 기소 기각 불가</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="charging">
+          <h2>Charging Instrument: 공소장 변경과 신원확인의 경계</h2>
+          <h3>공소장의 역할</h3>
+          <p>공소장은 범죄의 essential 구성요건을 포함하고, 피고인에게 방어 준비와 double jeopardy 보호에 필요한 통지를 제공해야 한다. 특히 대배심 indictment의 본질적 요소는 검사가 일방적으로 변경할 수 없다.</p>
+          <p>형식적 오류나 무해한 오류는 수정 가능할 수 있지만, 범죄요소 변경은 대배심이 기소하지 않은 범죄로 피고인을 재판하는 문제가 된다.</p>
+
+          <h3>신원확인 절차와 제6수정헌법</h3>
+          <p>신원확인 문제는 공소장 자체의 문제는 아니지만, 공판 전 절차에서 자주 결합된다. 핵심은 <mark>제6수정헌법 변호인 조력권이 정식 기소 후의 라인업에는 적용되지만, 사진 배열에는 적용되지 않는다는 점</mark>이다.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>상황</th>
+                <th>핵심 판단</th>
+                <th>대표 결론</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>기소 전 대면 신원확인</td>
+                <td>제6수정헌법 변호인 조력권은 아직 부착되지 않음</td>
+                <td>기소 전이라는 이유로 배제 불가</td>
+              </tr>
+              <tr>
+                <td>기소 후 라인업</td>
+                <td>결정적 단계이므로 변호인 입회권 문제 발생</td>
+                <td>위법 라인업 식별은 배제 가능</td>
+              </tr>
+              <tr>
+                <td>사진 배열</td>
+                <td>기소 전후를 불문하고 결정적 단계가 아님</td>
+                <td>변호인 부재만으로 배제 불가</td>
+              </tr>
+              <tr>
+                <td>암시적 신원확인</td>
+                <td>적법절차상 신뢰성 심사</td>
+                <td>매우 암시적이면 배제 가능</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="case-grid">
+            <div class="case">
+              <h4>Q.4 · 기소 전 신원확인</h4>
+              <p>학생은 미란다 후 변호인과 이야기하고 싶다고 했지만, 정식 기소 전 대면 신원확인이 진행되었다.</p>
+              <p><strong>법리:</strong> 제6수정헌법 변호인 조력권은 정식 기소 후 신원확인에 적용된다.</p>
+              <span class="answer">정답: C · 배제 신청 기각</span>
+            </div>
+            <div class="case">
+              <h4>Q.12 · 기소 후 라인업과 독립적 출처</h4>
+              <p>라인업은 변호인 통지 없이 진행되었지만, 피해자의 법정 내 신원확인은 강도 당시 본 점에 근거했다.</p>
+              <p><strong>법리:</strong> 독립적 출처가 있으면 법정 내 신원확인은 증거능력이 있다.</p>
+              <span class="answer">정답: B · 배제 신청 기각</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="brady">
+          <h2>Brady Disclosure: 공개 의무의 중심은 materiality다</h2>
+          <p>검사는 피고인에게 유리하고, guilt 또는 punishment에 material한 증거를 공개해야 한다. Brady 증거에는 무죄 증거뿐 아니라 증인 탄핵자료도 포함된다.</p>
+
+          <div class="pullquote">“Brady 위반은 검사의 나쁜 의도를 처벌하는 규칙이 아니라, 숨겨진 중요 증거 때문에 재판 결과의 신뢰가 흔들렸는지를 묻는 규칙이다.”</div>
+
+          <h3>성립요건</h3>
+          <ul class="checklist">
+            <li>증거가 피고인에게 유리해야 한다. 무죄방향 증거와 탄핵자료가 모두 포함된다.</li>
+            <li>증거가 유무죄 또는 양형에 중요해야 한다.</li>
+            <li>적시에 공개되지 않아 피고인에게 prejudice가 발생해야 한다.</li>
+            <li>검사가 직접 몰랐더라도 경찰이 알고 있었다면 공개 의무의 범위에 들어올 수 있다.</li>
+            <li>피고인이 요청하지 않았더라도 중요한 증거는 공개해야 한다.</li>
+          </ul>
+
+          <div class="case-grid">
+            <div class="case">
+              <h4>Q.3 · 유급 경찰 정보원</h4>
+              <p>도난차량 매수인이 유급 경찰 정보원이라는 사실을 경찰은 알았지만 검사는 몰랐고, 변호인에게도 공개되지 않았다.</p>
+              <p><strong>법리:</strong> 탄핵자료도 Brady 증거다. 다만 미공개가 불이익을 주지 않았다면 위반이 아니다.</p>
+              <span class="answer">정답: D · prejudice 없음</span>
+            </div>
+            <div class="case">
+              <h4>Q.13 · 목격자 식별 불가 보고서</h4>
+              <p>보고서에는 유일한 목격자가 범인을 식별할 수 없다고 적혀 있었지만, 검사는 부주의로 이를 공개하지 않았다.</p>
+              <p><strong>법리:</strong> 고의 여부는 무관하다. 공개되었다면 결과가 달라질 합리적 개연성이 있으면 파기된다.</p>
+              <span class="answer">정답: C · 유죄판결 파기</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="detention">
+          <h2>Preliminary Hearing and Detention: probable cause의 judicial check</h2>
+          <p>구속된 피의자는 일정한 시점에 probable cause에 대한 judicial 판단을 받을 권리가 있다. Preliminary hearing은 유죄판단이 아니라, 재판 진행을 정당화할 probable cause를 확인하는 절차다.</p>
+
+          <div class="rule-card">
+            <strong>Gerstein point:</strong> 체포 후 구금의 상당한 이유에 대한 판사의 판단은 보통 신속하게 이루어져야 한다. 그러나 이미 대배심 기소나 체포영장으로 probable cause가 인정되었다면 별도의 판단이 필요하지 않을 수 있다.
+          </div>
+
+          <div class="case-grid">
+            <div class="case">
+              <h4>Q.10 · 대배심 기소 후 보석 거부</h4>
+              <p>피고인은 대배심 기소 후 보석 결정을 위해 판사 앞에 섰고, 별도 Gerstein 심리를 주장했다.</p>
+              <p><strong>법리:</strong> 대배심 기소로 이미 probable cause가 판단되었으므로 별도 judicial determination이 필요하지 않다.</p>
+              <span class="answer">정답: B · 권리 없음</span>
+            </div>
+          </div>
+
+          <h3>신원확인과 적법절차</h3>
+          <p>예비절차 영역에서는 암시적 신원확인도 자주 출제된다. 경찰이 사진 한 장만 보여주거나, 피고인이 이미 기소되었다고 말하는 방식은 매우 암시적일 수 있다. 다만 최종 배제 여부는 신원확인의 신뢰성, 법정 내 식별의 독립적 출처, 절차의 성격에 따라 달라진다.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>문제</th>
+                <th>사실관계의 핵심</th>
+                <th>적용 룰</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Q.1</td>
+                <td>사진 한 장과 형사의 확신 발언</td>
+                <td>암시적 절차라도 법정 내 식별이 신뢰할 만하면 허용 가능</td>
+              </tr>
+              <tr>
+                <td>Q.5</td>
+                <td>사진 한 장과 “그가 강도로 기소되었다”는 설명</td>
+                <td>매우 암시적인 절차이므로 배제 사유가 강함</td>
+              </tr>
+              <tr>
+                <td>Q.9</td>
+                <td>기소 후 병원에서 사진 배열 실시</td>
+                <td>사진 배열에는 변호인 조력권이 없다</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="patterns">
+          <h2>시험 답안 핵심 패턴</h2>
+          <p>아래 표는 MBE 선택지에서 빠르게 결론을 걸러내는 기준이다. 권리의 존재만 보지 말고, 그 권리가 어느 절차에서 작동하는지 함께 확인해야 한다.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>상황</th>
+                <th>적용 룰</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Federal felony</td>
+                <td>원칙적으로 대배심 indictment 필요</td>
+              </tr>
+              <tr>
+                <td>주 검찰</td>
+                <td>대배심 right는 필수 incorporation 아님</td>
+              </tr>
+              <tr>
+                <td>대배심 room</td>
+                <td>Counsel 참석 권리 없음</td>
+              </tr>
+              <tr>
+                <td>대배심 증거</td>
+                <td>Hearsay·위법증거 사용 가능</td>
+              </tr>
+              <tr>
+                <td>기소장 essential 구성요건 누락</td>
+                <td>중대한 결함 가능</td>
+              </tr>
+              <tr>
+                <td>유리하고 material한 증거</td>
+                <td>Brady disclosure 필요</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="copy-block">Answer frame:
+1. Identify the procedural stage.
+2. Ask whether the asserted right attaches at that stage.
+3. Separate indictment validity from trial admissibility.
+4. For Brady, test favorability, materiality, suppression, and prejudice.
+5. For identification, separate Sixth Amendment counsel from due process reliability.</div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 공정성은 절차마다 다른 방식으로 작동한다</h2>
+          <p>공판 전 절차의 공정성은 모든 단계에 동일한 재판권리를 복사해 붙이는 방식으로 보장되지 않는다. 대배심은 조사·기소 기능을 수행하므로 절차권이 좁고, Brady는 재판의 신뢰성을 보장하기 위해 검사의 공개 의무를 강화한다. 신원확인 절차는 제6수정헌법 문제와 적법절차상 신뢰성 문제를 분리해야 한다.</p>
+          <p>따라서 좋은 답안은 “피고인에게 권리가 있다”에서 멈추지 않는다. 그 권리가 언제 부착되는지, 위반이 있다면 적절한 구제가 기소 기각인지 증거배제인지, 그리고 법정에서 여전히 사용할 독립적 근거가 있는지를 끝까지 추적한다.</p>
+        </section>
+
+        <div class="source-note" id="source-notes">
+          <h2>Source Notes</h2>
+          <p>이 문서는 Obsidian 노트 <strong>“04. Pretrial Procedures (14)”</strong>를 바탕으로 작성되었다. 원문은 MBE 강의자막과 객관식 문제를 혼합한 학습 자료이며, 본 HTML 버전은 공개용 연구 보고서 형식에 맞추어 초록, 핵심 발견, 증거 섹션, 표, 답안 프레임, 함의 중심으로 재구성했다.</p>
+          <p>관련 상위 맥락은 <strong>Crimpro 실험</strong> 노트의 형사소송법 구조를 참고하되, 본문 판단과 결론은 제공된 활성 노트의 내용을 우선했다.</p>
+        </div>
+
+        <div class="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>공판 전 절차는 외워야 할 규칙이 많아 보이지만, 실제 문제는 반복적으로 같은 질문을 한다. “이 절차가 재판인가?”, “그 권리가 이미 붙었는가?”, “구제수단은 기소 기각인가 증거배제인가?” 이 세 질문만 안정적으로 던지면 대배심, Brady, 신원확인, 구금 판단 문제의 대부분은 구조적으로 풀린다.</p>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <footer class="page">
+    <p>Standalone editorial research report · sanitized HTML · no scripts, iframes, external assets, or remote styles.</p>
+  </footer>
+</body>
+</html>
