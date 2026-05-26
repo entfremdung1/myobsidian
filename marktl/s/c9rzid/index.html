@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>형사재판의 헌법적 안전장치: 배심, 대면권, 입증책임을 한 번에 읽는 Trial 쟁점</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #18212f;
+      --muted: #667085;
+      --soft: #f6f4ef;
+      --paper: #fffdf8;
+      --line: #ded8cc;
+      --accent: #9b2f2f;
+      --accent-2: #255f63;
+      --gold: #b7791f;
+      --panel: #ffffff;
+      --code: #f0ebe2;
+      --shadow: 0 18px 48px rgba(24, 33, 47, .10);
+      --radius: 8px;
+      --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Segoe UI, sans-serif;
+      --serif: Georgia, "Apple SD Gothic Neo", "Noto Serif KR", "Malgun Gothic", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--soft);
+      color: var(--ink);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      line-height: 1.78;
+      letter-spacing: 0;
+      background:
+        linear-gradient(180deg, rgba(255,253,248,.96), rgba(246,244,239,.98) 46%, #f2efe8),
+        repeating-linear-gradient(90deg, rgba(155,47,47,.035) 0, rgba(155,47,47,.035) 1px, transparent 1px, transparent 72px);
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .site {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 22px 80px;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-content: end;
+      padding: 42px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      width: fit-content;
+      margin-bottom: 22px;
+      padding: 6px 10px;
+      border: 1px solid rgba(155,47,47,.24);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(255,255,255,.62);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      max-width: 1000px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      max-width: 800px;
+      margin: 28px 0 0;
+      color: #3e4754;
+      font-size: clamp(18px, 2.2vw, 25px);
+      line-height: 1.65;
+      text-wrap: balance;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta-row span {
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+    }
+
+    .share-block {
+      margin-top: 34px;
+      max-width: 760px;
+      border-left: 4px solid var(--accent-2);
+      padding: 16px 18px;
+      background: rgba(37,95,99,.08);
+    }
+
+    .share-block strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-2);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 48px;
+      align-items: start;
+      margin-top: 48px;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    .toc {
+      position: sticky;
+      top: 20px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,248,.86);
+      box-shadow: 0 10px 28px rgba(24,33,47,.06);
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--accent);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .toc li { margin: 8px 0; }
+
+    section {
+      margin: 0 0 58px;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 46px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: #344054;
+    }
+
+    .abstract,
+    .card,
+    .finding,
+    .note,
+    .case-list,
+    .table-wrap,
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 34px rgba(24,33,47,.06);
+    }
+
+    .abstract {
+      padding: 26px;
+      border-top: 5px solid var(--accent);
+    }
+
+    .abstract h2 {
+      font-size: 30px;
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .finding {
+      padding: 18px;
+      box-shadow: none;
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .pull {
+      margin: 36px 0;
+      padding: 28px 32px;
+      border-left: 6px solid var(--gold);
+      background: #fff7e6;
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.45;
+      color: #50370a;
+    }
+
+    .rule-line {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .rule-line:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rule-line strong {
+      color: var(--accent-2);
+    }
+
+    .case-list {
+      padding: 22px;
+      margin-top: 18px;
+      box-shadow: none;
+    }
+
+    .case-list h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .case-list ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .case-list li {
+      margin: 10px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--code);
+      color: #4b5563;
+      font-size: 12px;
+      font-weight: 700;
+      vertical-align: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--accent);
+      background: #faf6ee;
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 22px 0;
+      box-shadow: none;
+    }
+
+    .diagram {
+      padding: 20px;
+      margin: 24px 0;
+      box-shadow: none;
+      background: linear-gradient(180deg, #fff, #fbfaf6);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .step {
+      position: relative;
+      min-height: 116px;
+      padding: 14px;
+      border: 1px solid #d7d0c4;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -17px;
+      top: 42%;
+      color: var(--accent-2);
+      font-weight: 900;
+    }
+
+    .step small {
+      display: block;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .check {
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(37,95,99,.07);
+    }
+
+    .note {
+      padding: 18px;
+      color: #475467;
+      background: #fbfaf6;
+      box-shadow: none;
+    }
+
+    .source-notes {
+      font-size: 14px;
+      color: #475467;
+    }
+
+    .ending {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: #18212f;
+      color: #fffdf8;
+    }
+
+    .ending h2 {
+      color: #fff;
+    }
+
+    .ending p {
+      color: #e4e7ec;
+    }
+
+    .copy-box {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px dashed rgba(255,255,255,.42);
+      background: rgba(255,255,255,.08);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      line-height: 1.65;
+      white-space: normal;
+    }
+
+    @media (max-width: 920px) {
+      .site { padding: 20px 16px 56px; }
+      .hero { min-height: auto; padding: 48px 0 44px; }
+      main { grid-template-columns: 1fr; gap: 28px; }
+      .toc { position: static; }
+      .findings-grid { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after {
+        content: "↓";
+        right: 18px;
+        top: auto;
+        bottom: -20px;
+      }
+      .rule-line { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="06. Trial (48)">
+<meta property="og:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: Jury trial 권리가 있는 범죄인지 판단한다. 단계 2: 배심원 수, 전원일치, fair crosssection, 공정성, 배트슨 문제를 확인한다. 단계 3: Confrontation Clause가 문제이면 testimo">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/c9rzid/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="06. Trial (48)">
+<meta name="twitter:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: Jury trial 권리가 있는 범죄인지 판단한다. 단계 2: 배심원 수, 전원일치, fair crosssection, 공정성, 배트슨 문제를 확인한다. 단계 3: Confrontation Clause가 문제이면 testimo">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/c9rzid/">
+</head>
+<body>
+  <div class="site">
+    <header class="hero">
+      <div class="kicker">Criminal Procedure Research Report · Trial</div>
+      <h1>형사재판의 헌법적 안전장치: 배심, 대면권, 입증책임을 한 번에 읽는 Trial 쟁점</h1>
+      <p class="subtitle">MBE 형사소송 Trial 영역은 단순 암기가 아니라 “누가 사실을 판단하는가”, “어떤 증거가 배심 앞에 놓일 수 있는가”, “어떤 오류가 판결을 뒤집는가”를 묻는다.</p>
+      <div class="meta-row">
+        <span>원문: 06. Trial (48)</span>
+        <span>출처: Crimpro 실험</span>
+        <span>작성일: 2026-05-26</span>
+        <span>태그: crimpro · split-note</span>
+      </div>
+      <div class="share-block">
+        <strong>Share framing</strong>
+        Trial 문제를 빠르게 푸는 핵심은 배심재판권, 공정한 배심, 대면권, 입증책임, 검찰 위법행위를 같은 헌법적 구조 안에서 보는 것이다.
+      </div>
+    </header>
+
+    <main>
+      <article>
+        <section id="abstract" class="abstract">
+          <h2>Abstract</h2>
+          <p class="lead">이 보고서는 MBE 강의자막과 객관식 문제를 결합한 Trial 노트를 공개용 해설 글로 재구성한 것이다. 중심 주제는 제6수정헌법의 배심재판권과 대면권, 제14수정헌법 적법절차에 따른 입증책임, 그리고 공정한 재판을 훼손하는 검찰 행위다.</p>
+          <p>Trial 영역의 문제는 대부분 다섯 단계로 정리된다. 먼저 배심재판권이 있는 중대범죄인지 확인하고, 배심 구성과 평결 요건을 본다. 이어 공정한 후보단, 배트슨, 대면권, 입증책임, 신속·공개재판 문제를 분리한다. 마지막으로 위반이 있더라도 구조적 오류인지, 무해오류인지 판단한다.</p>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="findings-grid">
+            <div class="finding">
+              <b>1. 배심재판권은 형량 기준으로 출발한다</b>
+              가능한 징역형이 6개월을 초과하면 serious offense로 보아 배심재판권이 붙는다. 6개월 이하의 여러 petty offense는 원칙적으로 합산하지 않는다.
+            </div>
+            <div class="finding">
+              <b>2. 형사 유죄평결은 만장일치가 필요하다</b>
+              6인 배심은 가능하지만, 5대 1 유죄평결은 허용되지 않는다. 배심 수와 평결 방식은 별개의 쟁점이다.
+            </div>
+            <div class="finding">
+              <b>3. 범죄요소와 적극적 항변을 구별해야 한다</b>
+              범죄의 essential elements는 검사가 합리적 의심 없이 입증해야 한다. 그러나 자기방어, 강요, 함정, 정신이상 같은 적극적 항변은 피고인에게 부담을 줄 수 있다.
+            </div>
+            <div class="finding">
+              <b>4. 일부 오류는 증거가 압도적이어도 자동 파기된다</b>
+              판사의 유죄평결 지시, 인종차별적 대배심 구성처럼 재판의 구조를 해치는 오류는 무해오류로 덮기 어렵다.
+            </div>
+          </div>
+        </section>
+
+        <section id="framework">
+          <h2>분석 프레임</h2>
+          <p>Trial 문제는 쟁점이 겹쳐 보이지만, 순서를 잡으면 빠르게 좁혀진다. 아래 흐름은 시험 답안에서 가장 먼저 작동해야 하는 체크리스트다.</p>
+          <div class="diagram" aria-label="Trial 분석 순서">
+            <div class="flow">
+              <div class="step"><small>Step 1</small>Jury trial 권리가 있는 범죄인지 판단한다.</div>
+              <div class="step"><small>Step 2</small>배심원 수, 만장일치, fair cross-section, impartiality, Batson을 확인한다.</div>
+              <div class="step"><small>Step 3</small>Confrontation Clause라면 testimonial statement와 prior cross를 본다.</div>
+              <div class="step"><small>Step 4</small>Burden of proof, speedy trial, public trial, prosecutorial misconduct를 분리한다.</div>
+              <div class="step"><small>Step 5</small>오류가 structural error인지 harmless error인지 판단한다.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="jury-right">
+          <h2>1. Jury Trial Right: 중대범죄의 문턱</h2>
+          <p>제6수정헌법의 배심재판권은 모든 범죄에 자동으로 적용되지 않는다. 기준은 실제 선고형이 아니라 법정상 가능한 최고형이다. 일반적으로 가능한 징역형이 6개월을 초과하면 serious offense이고, 6개월 이하이면 petty offense로 보아 배심재판권이 없다.</p>
+
+          <div class="pull">배심재판권의 출발점은 “이 사건이 중대범죄인가”다. 실제로 얼마나 선고됐는지가 아니라, 법이 얼마까지 허용하는지가 기준이다.</div>
+
+          <div class="rule-line">
+            <strong>6개월 초과</strong>
+            <span>serious offense. 제6수정헌법상 배심재판권이 인정된다.</span>
+          </div>
+          <div class="rule-line">
+            <strong>6개월 이하</strong>
+            <span>petty offense. 벌금이 추가되어도 통상 중대범죄로 바뀌지 않는다.</span>
+          </div>
+          <div class="rule-line">
+            <strong>여러 petty offense</strong>
+            <span>각 범죄의 최고형을 합산해 중대범죄로 만들지 않는다.</span>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.22</span>각 범죄의 최고형이 6개월 구금과 벌금이면, 두 범죄가 함께 기소되어도 배심재판권이 자동으로 생기지 않는다.</li>
+              <li><span class="tag">Q.10</span>중대범죄에서 판사가 배심에게 유죄평결을 지시하면 구조적 오류가 된다. 증거가 압도적이어도 유죄판결은 파기된다.</li>
+              <li><span class="tag">Q.4 · Q.19</span>단일 범죄의 형을 높이는 사실은 배심 영역이지만, 여러 범죄의 형을 concurrent로 할지 consecutive로 할지는 판사가 결정할 수 있다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="jury-composition">
+          <h2>2. 배심원 수와 만장일치</h2>
+          <p>형사배심은 최소 6명이어야 한다. 그러나 최소 인원 요건을 충족한다고 해서 유죄평결 요건까지 완화되는 것은 아니다. 형사 유죄평결에는 만장일치가 필요하다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>쟁점</th>
+                  <th>헌법상 기준</th>
+                  <th>시험 포인트</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>형사배심 인원</td>
+                  <td>최소 6명</td>
+                  <td>6인 배심 자체는 가능하다.</td>
+                </tr>
+                <tr>
+                  <td>형사 유죄평결</td>
+                  <td>만장일치 필요</td>
+                  <td>6명 중 5명 찬성은 위헌이다.</td>
+                </tr>
+                <tr>
+                  <td>검찰을 위한 평결지시</td>
+                  <td>불가</td>
+                  <td>판사는 무죄 방향으로만 평결을 지시할 수 있다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.11</span>6인 배심은 적법하지만, 5대 1 유죄평결은 위헌이다.</li>
+              <li><span class="tag">Q.37</span>정신이상 항변 사건에서 검찰을 위해 “제정신”에 관한 평결지시를 하는 것은 허용되지 않는다.</li>
+              <li><span class="tag">Q.26</span>유죄답변은 자발적이고 알고 한 것이어야 하며, 피고인이 배심재판권을 포기한다는 점을 이해했는지 기록으로 확인해야 한다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="fair-jury">
+          <h2>3. Fair Cross-Section과 Impartial Jury</h2>
+          <p>피고인은 특정 인종이나 성별의 배심원을 받을 권리를 갖는 것이 아니다. 헌법이 보장하는 것은 지역사회의 공정한 단면을 반영한 후보단에서, 편견 없는 실제 배심을 통해 재판받을 권리다.</p>
+
+          <div class="checklist">
+            <div class="check">공정한 단면 요건은 실제 선정된 배심이 아니라 배심원 후보단, 즉 venire에 적용된다.</div>
+            <div class="check">비대표적 후보단을 다투려면 distinctive group, 불충분한 대표성, 체계적 배제를 보여야 한다.</div>
+            <div class="check">사형에 대한 견해가 공정한 판단을 실질적으로 방해하는 예비배심원은 이유부 기피로 제외될 수 있다.</div>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.42</span>전원 백인 후보단에 대한 이의는 fair cross-section 문제다. 실제 배심이 전원 백인이라는 점만으로는 부족하다.</li>
+              <li><span class="tag">Q.1 · Q.24</span>사형에 반대해 사형 부과 투표를 할 수 없거나 공정한 판단이 방해되는 예비배심원은 제외될 수 있다.</li>
+              <li><span class="tag">Q.8</span>대배심 구성에서 인종집단을 의도적으로 배제하면 피고인이 그 집단에 속하지 않아도 다툴 수 있고, 무해오류 심사 대상이 아니다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="batson">
+          <h2>4. Batson: 무이유부 기피의 헌법적 한계</h2>
+          <p>무이유부 기피는 “이유를 말하지 않아도 되는 기피”이지, 차별적 이유로 할 수 있는 기피가 아니다. 검사뿐 아니라 형사피고인도 인종·민족·성별만을 이유로 예비배심원을 배제할 수 없다.</p>
+
+          <div class="diagram">
+            <h3>Batson 3단계</h3>
+            <div class="flow">
+              <div class="step"><small>1</small>이의 제기자가 차별의 일응 소명을 한다.</div>
+              <div class="step"><small>2</small>기피 사용자는 인종·성별 중립적 설명을 제시한다.</div>
+              <div class="step"><small>3</small>법원은 그 설명이 구실인지, 의도적 차별인지 판단한다.</div>
+              <div class="step"><small>결과</small>차별이면 평등보호 위반이다.</div>
+              <div class="step"><small>범위</small>검사와 피고인 모두에게 적용된다.</div>
+            </div>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.20</span>피고인이 남성 배심원을 모두 배제하고 성중립적 이유가 구실로 인정되면 위헌이다.</li>
+              <li><span class="tag">Q.45</span>검사가 비백인 배심원을 모두 배제하면, 피고인이 백인이더라도 배트슨 주장을 할 수 있다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="confrontation">
+          <h2>5. Confrontation Clause: Testimonial Statement의 문턱</h2>
+          <p>제6수정헌법 대면권은 피고인에게 불리한 증인을 대면하고 반대신문할 권리를 보장한다. 따라서 testimonial hearsay는 진술자가 unavailable이고, 피고인에게 과거 반대신문 기회가 있었던 경우에만 사용할 수 있다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>진술 유형</th>
+                  <th>대면권 판단</th>
+                  <th>핵심 구별</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>진행 중인 emergency 대응 진술</td>
+                  <td>대체로 non-testimonial</td>
+                  <td>현재 위험 해결 목적이면 대면권 장벽이 낮다.</td>
+                </tr>
+                <tr>
+                  <td>사건 종료 후 경찰 조사 진술</td>
+                  <td>대체로 testimonial</td>
+                  <td>재판 증거 확보 목적이면 prior cross가 필요하다.</td>
+                </tr>
+                <tr>
+                  <td>증언하지 않는 공동피고인의 자백</td>
+                  <td>Bruton 문제</td>
+                  <td>다른 피고인을 연루시키면 한정설시로도 부족하다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.30 · Q.48</span>증언하지 않는 공동피고인의 법정 외 자백이 다른 피고인을 연루시키면 대면권 침해다.</li>
+              <li><span class="tag">Q.39</span>공동피고인이 법정에서 증언하고 반대신문에 응하면 Bruton 문제는 약해진다.</li>
+              <li><span class="tag">Q.31</span>배심 선정은 피고인이 출석할 권리가 있는 재판의 결정적 단계다.</li>
+              <li><span class="tag">Q.41</span>아동 증인을 보호하기 위한 폐쇄회로 방식은 반대신문 가능성과 태도 관찰이 보장되면 허용될 수 있다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="prosecutorial-misconduct">
+          <h2>6. Prosecutorial Misconduct</h2>
+          <p>검사는 단순한 승소 당사자가 아니라 justice를 추구하는 공적 책임자다. 그래서 개인적 의견으로 유죄를 보증하거나, 증거 밖 사실을 주장하거나, 피고인의 헌법상 권리 행사를 불리하게 논평해서는 안 된다.</p>
+
+          <div class="pull">검사의 발언이 문제될 때는 “부적절했는가”에서 멈추지 말고, 그 발언이 공정재판권을 침해할 정도로 재판을 오염시켰는지까지 보아야 한다.</div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.12</span>검사가 기자에게 피고인의 유죄를 시사하는 공개발언을 하는 것은 배심 풀에 편견을 줄 수 있어 부적절하다.</li>
+              <li><span class="tag">Q.23</span>검사가 피고인의 묵비를 논평하면 오류지만, 자동 파기가 아니라 무해오류 심사를 받는다.</li>
+              <li><span class="tag">Q.29</span>브래디 위반은 유리하고 중요한 증거를 적시에 공개하지 않아 결과에 합리적 개연성 있는 영향을 준 경우 성립한다.</li>
+              <li><span class="tag">Q.36</span>검찰은 답변거래 전에 탄핵증거를 공개할 헌법상 의무가 없다.</li>
+              <li><span class="tag">Q.46</span>상당한 이유가 있는 더 중한 죄로 기소하겠다는 답변거래상 위협은 보복적 기소가 아니다.</li>
+              <li><span class="tag">Q.47</span>선의의 수사로 인한 기소 전 지연은 적법절차 위반이 아니다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="burden">
+          <h2>7. Burden of Proof: 요소와 항변의 경계</h2>
+          <p>검사는 범죄의 모든 essential elements를 합리적 의심 없는 정도로 입증해야 한다. 국가는 범죄요소를 피고인에게 반증하도록 전가할 수 없다. 그러나 적극적 항변은 다르다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>상황</th>
+                  <th>분류</th>
+                  <th>입증책임</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>알리바이</td>
+                  <td>범죄 현장 존재를 부인</td>
+                  <td>검사가 현장 존재를 합리적 의심 없이 입증</td>
+                </tr>
+                <tr>
+                  <td>동의가 범죄요소의 부존재를 뜻하는 경우</td>
+                  <td>범죄요소 부인</td>
+                  <td>검사가 부동의를 합리적 의심 없이 입증</td>
+                </tr>
+                <tr>
+                  <td>강요, 자기방어, 함정, 정신이상</td>
+                  <td>적극적 항변</td>
+                  <td>피고인에게 일정 부담 부과 가능</td>
+                </tr>
+                <tr>
+                  <td>범죄요소에 대한 mandatory presumption</td>
+                  <td>입증책임 전가 위험</td>
+                  <td>피고인에게 불리하면 위헌 가능</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.14</span>‘부부가 아닐 것’은 강간죄의 요소이므로 피고인에게 부담을 지울 수 없다. 반면 동의 착오는 적극적 항변일 수 있다.</li>
+              <li><span class="tag">Q.15 · Q.35</span>강제강간에서 동의가 부동의 요소를 부인하면 검사가 부동의를 입증해야 한다.</li>
+              <li><span class="tag">Q.16</span>강요는 범죄요소를 부인하지 않는 적극적 항변이므로 피고인에게 설득책임을 지울 수 있다.</li>
+              <li><span class="tag">Q.17</span>자기방어 증거를 범죄요소 다툼에 고려하는 것까지 막으면 적법절차 위반이다.</li>
+              <li><span class="tag">Q.25 · Q.44</span>알리바이는 피고인이 입증할 항변이 아니라 검사의 동일성·현장 존재 입증을 흔드는 증거다.</li>
+              <li><span class="tag">Q.38</span>범죄요소에 대한 강제추정은 배심에게 요소 인정을 강제하거나 피고인에게 반증책임을 전가할 수 있어 부적절하다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="speedy-public">
+          <h2>8. Speedy Trial, Public Trial, Courtroom Fairness</h2>
+          <p>신속재판권은 체포나 기소 이후부터 작동한다. 단순히 시간이 오래 지났다는 이유만으로 자동 위반이 되는 것은 아니며, 지연 기간, 지연 이유, 피고인의 권리 주장, 방어상 불이익을 종합한다.</p>
+
+          <div class="rule-line">
+            <strong>Speedy trial</strong>
+            <span>Barker factors: 지연 기간, 지연 이유, 권리 주장 여부, prejudice.</span>
+          </div>
+          <div class="rule-line">
+            <strong>Public trial</strong>
+            <span>법정 폐쇄는 중요한 이익과 좁은 범위의 조치로 정당화되어야 한다.</span>
+          </div>
+          <div class="rule-line">
+            <strong>공정한 법정 절차</strong>
+            <span>피고인은 방어를 제시하고 증인을 부르며 공정하게 재판받을 기회를 가져야 한다.</span>
+          </div>
+
+          <div class="case-list">
+            <h4>대표 사례</h4>
+            <ul>
+              <li><span class="tag">Q.27</span>신속재판권은 체포·기소 후 지연에 적용된다. 국선변호인에게 귀속되는 지연이 항상 국가 책임이 되는 것은 아니다.</li>
+              <li><span class="tag">Q.3</span>부당하게 암시적인 법정 외 신원확인에서 비롯된 법정 내 신원확인은 신뢰성이 입증되지 않으면 배제된다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="eighth">
+          <h2>9. Trial 맥락에서 자주 섞이는 제8수정헌법</h2>
+          <p>Trial 문제 안에는 사형과 소년, 지적장애, 중죄살인, 가석방 없는 종신형 같은 제8수정헌법 쟁점이 함께 들어오기도 한다. 이때는 배심 쟁점과 분리해 형벌의 허용 가능성을 먼저 정리해야 한다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>상황</th>
+                  <th>결론</th>
+                  <th>대표 문제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>범행 당시 18세 미만 피고인에 대한 사형</td>
+                  <td>금지</td>
+                  <td>Q.6, Q.7</td>
+                </tr>
+                <tr>
+                  <td>지적장애인 처형</td>
+                  <td>금지. 주는 현행 의학 지침을 무시한 엄격한 컷오프를 둘 수 없다.</td>
+                  <td>Q.5</td>
+                </tr>
+                <tr>
+                  <td>아동 강간에 대한 사형</td>
+                  <td>피해자가 사망하지 않은 강간 자체에는 사형 불가</td>
+                  <td>Q.21</td>
+                </tr>
+                <tr>
+                  <td>소년 비살인범의 가석방 없는 종신형</td>
+                  <td>금지</td>
+                  <td>Q.32, Q.34</td>
+                </tr>
+                <tr>
+                  <td>삼진아웃법</td>
+                  <td>세 번째 범죄에 대한 가중처벌로서 일반적으로 유지 가능</td>
+                  <td>Q.43</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="patterns">
+          <h2>10. 시험 답안 핵심 패턴</h2>
+          <p>아래 표는 Trial 영역에서 반복되는 문제 신호와 적용 룰을 압축한 것이다. 실제 문제에서는 문구 하나가 쟁점 분류를 바꾼다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>상황</th>
+                  <th>적용 룰</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6개월 초과 징역 가능</td>
+                  <td>Jury trial right 있음</td>
+                </tr>
+                <tr>
+                  <td>6명 미만 형사배심</td>
+                  <td>위헌 가능</td>
+                </tr>
+                <tr>
+                  <td>형사 유죄평결</td>
+                  <td>Unanimity 필요</td>
+                </tr>
+                <tr>
+                  <td>Jury 후보단에서 집단 체계적 배제</td>
+                  <td>Fair cross-section 문제</td>
+                </tr>
+                <tr>
+                  <td>Peremptory challenge의 인종·성별 차별</td>
+                  <td>Batson 문제</td>
+                </tr>
+                <tr>
+                  <td>Testimonial hearsay</td>
+                  <td>Unavailable + prior opportunity to cross-examine 필요</td>
+                </tr>
+                <tr>
+                  <td>검사의 증거 밖 주장·권리행사 논평</td>
+                  <td>Prosecutorial misconduct 검토</td>
+                </tr>
+                <tr>
+                  <td>범죄요소 입증</td>
+                  <td>Beyond a reasonable doubt</td>
+                </tr>
+                <tr>
+                  <td>공판 지연</td>
+                  <td>Barker factors로 speedy trial 판단</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications</h2>
+          <p>Trial 영역의 함정은 쟁점이 헌법 조항별로 깔끔하게 나오지 않는다는 데 있다. 한 사실관계 안에서 배심재판권, 적법절차, 대면권, 제8수정헌법, 검사의 의무가 함께 등장한다. 따라서 답안은 “권리 이름”보다 “재판에서 무엇이 잘못되었는가”를 먼저 잡아야 한다.</p>
+          <p>가장 강한 구별은 두 가지다. 첫째, 범죄요소와 적극적 항변을 구별하라. 둘째, structural error와 harmless error를 구별하라. 이 두 축만 정확하면 많은 선택지가 자연스럽게 제거된다.</p>
+        </section>
+
+        <section id="source-notes" class="source-notes">
+          <h2>Source Notes</h2>
+          <div class="note">
+            <p><strong>자료 성격:</strong> 이 글은 “MBE 강의자막과 MBE 객관식 문제를 Mix 한 것”이라는 원문의 설명을 바탕으로, Obsidian Markdown 노트 <em>06. Trial (48)</em>를 공개용 연구 보고서 형식으로 재구성했다.</p>
+            <p><strong>편집 방식:</strong> 반복되는 관련 문제 상세는 쟁점별 대표 사례로 묶고, 원문의 핵심 법리와 정답 방향을 유지했다. 공개 글의 가독성을 위해 문제 번호, 법리, 결론 중심으로 압축했다.</p>
+            <p><strong>주의:</strong> 이 문서는 학습용 정리이며 법률 자문이 아니다. 실제 사건에는 관할, 절차 단계, 최신 판례에 따른 차이가 있을 수 있다.</p>
+          </div>
+        </section>
+
+        <section id="ending" class="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>Trial 파트는 “공정한 배심 앞에서, 허용 가능한 증거로, 검사가 부담을 지고, 공개적이고 신속하게 재판받는가”라는 하나의 질문으로 묶인다. 문제를 풀 때는 먼저 배심의 역할을 보호하는 규칙인지, 증거 사용을 제한하는 규칙인지, 입증책임을 배분하는 규칙인지 분류하면 된다.</p>
+          <p>마지막으로 기억할 문장 하나는 이것이다.</p>
+          <div class="copy-box">형사재판의 헌법 규칙은 피고인을 위한 특혜가 아니라, 국가가 유죄를 입증하는 방식 자체를 통제하는 장치다.</div>
+        </section>
+      </article>
+
+      <aside class="toc" aria-label="목차">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#framework">분석 프레임</a></li>
+          <li><a href="#jury-right">Jury Trial Right</a></li>
+          <li><a href="#jury-composition">배심 수와 만장일치</a></li>
+          <li><a href="#fair-jury">Fair Cross-Section</a></li>
+          <li><a href="#batson">Batson</a></li>
+          <li><a href="#confrontation">Confrontation Clause</a></li>
+          <li><a href="#prosecutorial-misconduct">Prosecutorial Misconduct</a></li>
+          <li><a href="#burden">Burden of Proof</a></li>
+          <li><a href="#speedy-public">Speedy · Public Trial</a></li>
+          <li><a href="#patterns">시험 패턴</a></li>
+          <li><a href="#source-notes">Source Notes</a></li>
+        </ol>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
