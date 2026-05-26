@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>제4수정헌법: 수색·압수 문제를 푸는 실전 지도</title>
+  
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --soft: #f6f4ef;
+      --paper: #fffdfa;
+      --line: #ded7ca;
+      --accent: #7b3f2a;
+      --accent-2: #0f6b64;
+      --accent-3: #b8872d;
+      --shade: #ece7dc;
+      --code: #263238;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f4efe7 0%, #fffdfa 34%, #f8f6f0 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Segoe UI, sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(15, 107, 100, .28);
+    }
+
+    a:hover {
+      border-bottom-color: currentColor;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 790px;
+      margin: 24px 0 0;
+      color: #414141;
+      font-size: clamp(18px, 2.3vw, 24px);
+      line-height: 1.58;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .meta span {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .share-card {
+      margin-top: 34px;
+      padding: 20px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(15, 107, 100, .07);
+    }
+
+    .share-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--accent-2);
+    }
+
+    .share-card p {
+      margin: 0;
+      color: #2f3b39;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 46px;
+      padding: 42px 0 72px;
+    }
+
+    nav {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 250, .86);
+      backdrop-filter: blur(10px);
+    }
+
+    nav h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    nav ol {
+      margin: 0;
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    nav li {
+      margin: 8px 0;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 58px;
+      scroll-margin-top: 24px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(27px, 3.2vw, 40px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 21px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .abstract {
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 50px rgba(72, 54, 35, .08);
+    }
+
+    .abstract h2 {
+      font-size: 28px;
+    }
+
+    .key-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .finding {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .finding strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .finding p {
+      margin: 0;
+      color: #424242;
+      font-size: 15px;
+    }
+
+    .pull {
+      margin: 30px 0;
+      padding: 22px 26px;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      color: #2d2722;
+      font-family: Georgia, "Noto Serif KR", serif;
+      font-size: clamp(22px, 2.6vw, 31px);
+      line-height: 1.45;
+    }
+
+    .frame {
+      margin: 24px 0;
+      padding: 22px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .frame-title {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 14px 16px 14px 52px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--accent-2);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .rule-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rule-list li {
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent-3);
+      background: #fff;
+    }
+
+    code {
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: #eef1ef;
+      color: var(--code);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    mark {
+      padding: 1px 4px;
+      background: #fff0a8;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 22px 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: #3b2d22;
+      background: #eee7da;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .case-table td:first-child {
+      width: 86px;
+      color: var(--accent);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .diagram {
+      margin: 26px 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+    }
+
+    .flow div {
+      min-height: 88px;
+      padding: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #25302f;
+      background: #edf4f2;
+      border: 1px solid #cbded9;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .ending {
+      padding: 30px;
+      background: #23302f;
+      color: #f7f3ec;
+    }
+
+    .ending h2 {
+      color: #fff;
+    }
+
+    .ending p {
+      color: #e7e0d5;
+    }
+
+    .source-notes {
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        display: block;
+        padding-top: 28px;
+      }
+
+      nav {
+        position: static;
+        margin-bottom: 34px;
+      }
+
+      .key-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .abstract,
+      .frame,
+      .ending {
+        padding: 20px;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      th,
+      td {
+        padding: 11px;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="02. 제4수정헌법 (88)">
+<meta property="og:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: 정부행위가 있는지 확인한다. 사인의 독자적 행위는 제4수정헌법 문제가 아니다. 단계 2: 수색 또는 seizure가 있었는지 판단한다. 단계 3: 피고인에게 standing, 즉 합리적 사생활 기대가 있는지 확인한다. 단계 4">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/1o62qad/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="02. 제4수정헌법 (88)">
+<meta name="twitter:description" content="이 자료는 MBE 강의자막과 MBE 객관식 문제를 Mix 한 것임. 0. 분석 프레임 단계 1: 정부행위가 있는지 확인한다. 사인의 독자적 행위는 제4수정헌법 문제가 아니다. 단계 2: 수색 또는 seizure가 있었는지 판단한다. 단계 3: 피고인에게 standing, 즉 합리적 사생활 기대가 있는지 확인한다. 단계 4">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1o62qad/">
+</head>
+<body>
+  <header class="hero">
+    <div class="page">
+      <div class="eyebrow">Criminal Procedure Research Report</div>
+      <h1>제4수정헌법: 수색·압수 문제를 푸는 실전 지도</h1>
+      <p class="subtitle">MBE 형사소송법에서 반복되는 제4수정헌법 쟁점을 “누가 다툴 수 있는가, 무엇이 수색인가, 영장 또는 예외가 있는가, 위반이면 배제되는가”라는 흐름으로 재구성한 공개용 학습 리포트.</p>
+      <div class="meta">
+        <span>Source note: 02. 제4수정헌법 (88)</span>
+        <span>Created: 2026-05-26</span>
+        <span>Tags: crimpro · split-note</span>
+      </div>
+      <div class="share-card">
+        <strong>Share framing</strong>
+        <p>제4수정헌법 문제는 암기가 아니라 순서의 과목이다. 이 글은 standing에서 exclusionary rule까지, 시험장에서 흔들리지 않는 판단 순서를 제공한다.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="page layout">
+    <nav aria-label="목차">
+      <h2>Article Map</h2>
+      <ol>
+        <li><a href="#abstract">초록</a></li>
+        <li><a href="#findings">핵심 발견</a></li>
+        <li><a href="#framework">분석 프레임</a></li>
+        <li><a href="#privacy">Standing과 사생활 기대</a></li>
+        <li><a href="#search">Search와 Seizure</a></li>
+        <li><a href="#warrants">영장과 프랭크스</a></li>
+        <li><a href="#exceptions">영장 예외</a></li>
+        <li><a href="#exclusion">배제법칙</a></li>
+        <li><a href="#patterns">답안 패턴</a></li>
+        <li><a href="#implications">시사점</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <section id="abstract" class="abstract">
+        <h2>초록</h2>
+        <p>이 자료는 MBE 강의자막과 객관식 문제를 결합해 만든 제4수정헌법 학습 노트다. 중심 주제는 정부의 수색·압수에 대한 헌법적 통제이며, 실제 문제들은 대부분 <code>reasonable expectation of privacy</code>, 영장 요건, 자동차 예외, Terry 정지, 동의수색, 명백한 시야, 행정검색, 긴급상황, 그리고 배제법칙의 예외로 수렴한다.</p>
+        <p>핵심은 단순히 “경찰 행위가 나빴는가”가 아니다. 피고인이 그 침해를 주장할 자격이 있는지, 헌법상 수색 또는 압수가 있었는지, 영장 또는 예외가 있는지, 마지막으로 배제가 적절한 구제인지가 순차적으로 물어야 할 질문이다.</p>
+      </section>
+
+      <section id="findings">
+        <h2>Key Findings</h2>
+        <div class="key-grid">
+          <div class="finding">
+            <strong>1. Standing은 첫 관문이다</strong>
+            <p>피고인 자신에게 합리적 사생활 기대가 없으면, 타인에 대한 위법수색을 대신 주장할 수 없다.</p>
+          </div>
+          <div class="finding">
+            <strong>2. 영장 없는 주거 수색은 출발점부터 불리하다</strong>
+            <p>주거와 curtilage는 강한 보호를 받으며, 예외가 없으면 영장 없는 침입은 위헌으로 이어진다.</p>
+          </div>
+          <div class="finding">
+            <strong>3. 자동차·Terry·동의수색은 서로 다른 예외다</strong>
+            <p>자동차 예외는 차량 내 증거에 대한 probable cause, Terry는 reasonable suspicion, 동의수색은 voluntary consent와 authority가 핵심이다.</p>
+          </div>
+          <div class="finding">
+            <strong>4. 배제는 자동이 아니다</strong>
+            <p>good faith, independent source, inevitable discovery, attenuation, 대배심·민사절차 제한 때문에 증거가 살아남을 수 있다.</p>
+          </div>
+        </div>
+
+        <blockquote class="pull">제4수정헌법 문제의 실전 포인트는 “수색이 있었나?”보다 먼저 “이 피고인이 그 수색을 다툴 수 있나?”를 묻는 데 있다.</blockquote>
+      </section>
+
+      <section id="framework">
+        <h2>분석 프레임: 시험장에서의 6단계</h2>
+        <div class="diagram" aria-label="제4수정헌법 분석 흐름">
+          <div class="flow">
+            <div>정부행위 확인</div>
+            <div>Search 또는 Seizure 판단</div>
+            <div>Standing 확인</div>
+            <div>영장 요건 검토</div>
+            <div>영장 예외 검토</div>
+            <div>배제법칙과 예외</div>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li>사인의 독자적 행위인지, 정부행위인지 먼저 가른다.</li>
+          <li><code>search</code>, <code>seizure of person</code>, <code>seizure of property</code> 중 무엇이 문제인지 특정한다.</li>
+          <li>피고인에게 수색된 장소나 물건에 대한 <code>reasonable expectation of privacy</code>가 있는지 확인한다.</li>
+          <li>영장이 있다면 probable cause, neutral magistrate, particularity, Franks 문제를 검토한다.</li>
+          <li>영장이 없다면 ESCAPES 예외를 검토한다: exigent circumstances, search incident to arrest, consent, automobile, plain view, administrative search, stop and frisk.</li>
+          <li>위반이 있더라도 exclusionary rule의 적용 범위와 예외를 별도로 판단한다.</li>
+        </ol>
+      </section>
+
+      <section id="privacy">
+        <h2>Standing과 Reasonable Expectation of Privacy</h2>
+        <p>제4수정헌법상 증거배제를 주장하려면 피고인 자신이 침해된 장소나 물건에 합리적 사생활 기대를 가져야 한다. 이 권리는 일신전속적이다. 따라서 타인의 침실, 타인의 모텔방, 타인의 집에서 이루어진 수색이 위법하더라도, 피고인에게 그 공간에 대한 보호되는 기대가 없으면 배제 신청은 실패한다.</p>
+
+        <div class="frame">
+          <p class="frame-title">인정되기 쉬운 경우</p>
+          <ul class="rule-list">
+            <li>주거 거주자, 호텔·모텔 투숙객, overnight guest.</li>
+            <li>소유·점유권이 있고 사적 통제를 유지한 물건.</li>
+            <li>백화점 탈의실처럼 사회적으로 사생활 기대가 강하게 인정되는 공간.</li>
+          </ul>
+        </div>
+
+        <div class="frame">
+          <p class="frame-title">부정되기 쉬운 경우</p>
+          <ul class="rule-list">
+            <li>단순 방문자, 도난차량 운전자, 타인의 방에 대한 외부 공범.</li>
+            <li>제3자나 공중에게 노출한 정보, 길가에 수거용으로 내놓은 쓰레기.</li>
+            <li>open fields, 수감자의 감방, 위장 경찰관에게 자발적으로 한 대화.</li>
+          </ul>
+        </div>
+
+        <h3>대표 문제군</h3>
+        <table class="case-table">
+          <thead>
+            <tr>
+              <th>문항</th>
+              <th>사실관계의 핵심</th>
+              <th>결론</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q.6</td>
+              <td>피고인이 여자친구 집 찬장에 칼을 숨겼으나 단순 방문자에 불과했다.</td>
+              <td>피고인에게 standing 없음. 칼은 사용 가능.</td>
+            </tr>
+            <tr>
+              <td>Q.45 · Q.62</td>
+              <td>호텔 방에 투숙 중인 사람의 방을 지배인 동의로 수색했다.</td>
+              <td>투숙객은 방에 사생활 기대가 있고, 지배인은 동의 권한이 없다.</td>
+            </tr>
+            <tr>
+              <td>Q.51</td>
+              <td>수감자의 감방과 잠긴 상자를 교도관이 수색했다.</td>
+              <td>수감자는 감방에 제4수정헌법상 사생활 기대가 없다.</td>
+            </tr>
+            <tr>
+              <td>Q.61 · Q.63</td>
+              <td>상점 탈의실을 경찰이 감시하거나 촬영했다.</td>
+              <td>탈의실에는 합리적 사생활 기대가 있어 증거 배제.</td>
+            </tr>
+            <tr>
+              <td>Q.73</td>
+              <td>출입금지 표지와 울타리가 있는 들판에서 양귀비를 발견했다.</td>
+              <td>open fields는 보호되지 않는다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="search">
+        <h2>Search와 Seizure의 기본 개념</h2>
+        <p><code>Search</code>는 정부가 개인의 합리적 사생활 기대가 있는 영역에 침입하는 행위다. <code>Seizure of person</code>은 물리력이나 권위 표시로 이동 자유를 의도적으로 제한하는 행위이고, <code>seizure of property</code>는 소유·점유 지배를 의미 있게 침해하는 행위다.</p>
+
+        <p>물건을 “보는 것”과 “조작하는 것”은 다르다. 경찰이 기차역에서 가방을 들어 도와주는 수준을 넘어, 내용물을 확인하려고 물리적으로 눌러본다면 수색이 된다. 반대로 위장 경찰관과 나눈 대화는 상대방이 경찰이라는 사실을 몰랐더라도 연방 제4수정헌법상 보호되지 않는 경우가 많다.</p>
+
+        <h3>Curtilage와 Open Fields</h3>
+        <p>주거의 <code>curtilage</code>는 집의 사생활 활동과 밀접하게 연결된 주변 공간으로 보호된다. 판단 요소는 집과의 근접성, 울타리 포함 여부, 사용 목적, 외부 관찰 차단 조치다. 반면 <code>open fields</code>는 사유지라도 주거의 사생활 영역이 아니므로 보호되지 않는다.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>보호 여부</th>
+              <th>대표 포인트</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>울타리 친 뒷마당의 헛간·온실</td>
+              <td>보호 가능</td>
+              <td>집과 가깝고 주거 생활과 연결되면 curtilage.</td>
+            </tr>
+            <tr>
+              <td>항행 가능한 공역에서의 관찰</td>
+              <td>보통 보호 약함</td>
+              <td>1,000피트 상공 헬리콥터 관찰은 수색이 아닐 수 있음.</td>
+            </tr>
+            <tr>
+              <td>공공 골목의 쓰레기</td>
+              <td>보호 약함</td>
+              <td>누구나 접근 가능한 곳에 내놓은 쓰레기에는 기대가 없다.</td>
+            </tr>
+            <tr>
+              <td>철조망 너머 들판</td>
+              <td>보호 안 됨</td>
+              <td>침입이 불법행위일 수 있어도 제4수정헌법 수색은 아니다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="warrants">
+        <h2>영장: Probable Cause, Particularity, Franks</h2>
+        <p>수색영장은 중립적이고 독립된 치안판사가 probable cause에 근거해 발부해야 하며, 수색할 장소와 압수할 물건을 particularity 있게 특정해야 한다. 영장 요건은 현장 경찰의 재량을 사전에 제한하는 장치다.</p>
+
+        <ul class="rule-list">
+          <li><strong>Probable cause:</strong> 범죄 증거가 특정 장소에 있을 상당한 가능성.</li>
+          <li><strong>Neutral magistrate:</strong> 영장 발부자는 중립적이고 독립적이어야 한다.</li>
+          <li><strong>Particularity:</strong> 장소와 물건을 지나치게 일반적으로 적으면 general warrant 문제가 생긴다.</li>
+          <li><strong>Franks hearing:</strong> 고의 또는 중대한 무시로 포함된 허위진술이 probable cause에 필수였음을 보이면 영장을 공격할 수 있다.</li>
+        </ul>
+
+        <h3>프랭크스 심리의 경계</h3>
+        <p>단순 과실은 부족하다. 피고인은 선서진술서의 허위진술이 상당한 이유 인정에 필요했고, 경찰관이 허위임을 알았거나 진실성을 무모하게 무시했음을 보여야 한다. Q.3은 과실로 허위 정보가 포함된 경우라 영장이 무효가 되지 않았고, Q.72는 경찰관이 허위임을 알고 있었다는 추가 인정이 있어야 배제 결론에 도달한다.</p>
+
+        <h3>영장 범위 초과</h3>
+        <p>영장으로 특정된 소포를 찾아 압수했다면, 그 목적은 종료된다. 이후 집의 나머지 부분을 계속 뒤져 기관총을 발견한 Q.66 유형은 영장 범위를 넘은 수색이다. 반대로 총기를 찾는 영장은 총기가 들어갈 수 있는 잠긴 용기 수색까지 포함할 수 있다.</p>
+      </section>
+
+      <section id="exceptions">
+        <h2>영장 예외: 반복 출제되는 실전 축</h2>
+
+        <h3>1. Good Faith Exception</h3>
+        <p>경찰이 객관적으로 합리적으로 영장에 의존했다면, 영장이 나중에 무효로 밝혀져도 증거가 배제되지 않을 수 있다. 그러나 영장이 명백히 결함 있거나, 치안판사가 중립성을 잃었거나, affidavit가 고의·무모한 허위였거나, probable cause가 전혀 없으면 적용되지 않는다.</p>
+
+        <h3>2. Automobile Exception</h3>
+        <p>차량 안에 금제품 또는 범죄 증거가 있다는 probable cause가 있으면 영장 없이 차량을 수색할 수 있다. 범위는 찾는 물건이 있을 수 있는 차량 부분과 용기까지다. 마약에 대한 probable cause가 있으면 트렁크와 잠긴 공구함까지 갈 수 있지만, 술병을 찾는 수색이 담뱃갑까지 확장되기는 어렵다.</p>
+
+        <table class="case-table">
+          <thead>
+            <tr>
+              <th>문항</th>
+              <th>쟁점</th>
+              <th>결론</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Q.20 · Q.39</td>
+              <td>신뢰할 만한 제보로 차량 내 마약 거래 정황이 확인됨.</td>
+              <td>차량·트렁크·잠긴 용기 수색 가능.</td>
+            </tr>
+            <tr>
+              <td>Q.59</td>
+              <td>묘사에 맞지 않는 동승 여성의 가방 수색.</td>
+              <td>단순 동승만으로 신체·가방 수색은 정당화되지 않음.</td>
+            </tr>
+            <tr>
+              <td>Q.68</td>
+              <td>객실의 마리화나 냄새를 근거로 트렁크 수색.</td>
+              <td>트렁크에 대한 probable cause가 별도로 문제됨.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>3. Terry Stop and Frisk</h3>
+        <p><code>Terry stop</code>은 범죄활동에 대한 reasonable suspicion이 있을 때 가능한 일시적 정지다. <code>Frisk</code>는 정지된 사람이 armed and dangerous하다는 합리적 의심이 있을 때 무기 확인 목적으로 외부를 제한적으로 더듬는 행위다. frisk는 증거 수색이 아니라 officer safety 수색이다.</p>
+
+        <ul class="rule-list">
+          <li>합리적 의심은 hunch보다 높고 probable cause보다 낮다.</li>
+          <li>영장 집행 장소에 우연히 있었다는 이유만으로 그 사람을 수색할 수 없다.</li>
+          <li>적법하게 정지된 차량의 운전자와 동승자는 안전을 위해 차에서 내리게 할 수 있다.</li>
+          <li>보호적 수색은 사람이 숨을 수 있는 곳의 간략한 점검에 한정된다.</li>
+        </ul>
+
+        <h3>4. Consent Search</h3>
+        <p>동의수색은 voluntary consent와 authority가 핵심이다. 경찰이 거부권을 고지할 필요는 없지만, 강압이 없어야 한다. 제3자는 실제 권한 또는 외견상 권한이 있으면 동의할 수 있다.</p>
+
+        <p>공동거주자 문제는 자주 나온다. 두 사람이 현장에 있고 한 명이 명시적으로 반대하면, 경찰은 다른 공동거주자의 동의에 기대어 반대한 사람에게 불리한 수색을 할 수 없다. 호텔 지배인은 투숙 중인 손님 방에 동의할 권한이 없다.</p>
+
+        <h3>5. Plain View</h3>
+        <p>명백한 시야 원칙은 경찰이 적법하게 위치한 곳에서 물건을 보고, 그 범죄 관련성이 즉시 명백할 때 압수를 허용한다. 그러나 이 원칙은 <mark>보이지 않는 곳을 새로 수색할 권한</mark>을 주지 않는다. 서류를 들춰 신용카드를 찾아내는 행위는 plain view가 아니다.</p>
+
+        <h3>6. Checkpoint와 Administrative Search</h3>
+        <p>중립적 기준에 따라 운영되고 일반 범죄수사가 주된 목적이 아닌 checkpoint는 개별 reasonable suspicion 없이 허용될 수 있다. 음주운전 단속, 국경검색, 공항검색, 학교 수색, 고도로 규제된 산업의 행정검색은 완화된 기준이 적용된다. 반면 일반 마약단속 목적의 검문소는 허용되지 않는다.</p>
+
+        <h3>7. Exigent Circumstances</h3>
+        <p>생명·안전 위험, hot pursuit, 증거파괴 임박 등 긴급상황이 있으면 영장 없는 진입과 수색이 정당화될 수 있다. 총성 신고 후 부상자를 구조하기 위해 들어가 부엌 탁자 위 코카인을 본 경우는 허용되지만, 부상자가 이송된 뒤 집을 계속 뒤지는 것은 별도 예외가 필요하다.</p>
+      </section>
+
+      <section id="exclusion">
+        <h2>배제법칙: 위반이 곧 배제는 아니다</h2>
+        <p>배제법칙의 목적은 경찰 위법행위 억제다. 그래서 헌법 위반이 있더라도 모든 절차에서 자동으로 증거가 사라지는 것은 아니다.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>상황</th>
+              <th>효과</th>
+              <th>대표 논리</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Good faith</td>
+              <td>증거 허용 가능</td>
+              <td>객관적으로 합리적인 영장·기록 신뢰는 억제효과가 작다.</td>
+            </tr>
+            <tr>
+              <td>Attenuation</td>
+              <td>증거 허용 가능</td>
+              <td>유효한 미집행 체포영장 등 중간 사건이 위법성과 증거 사이를 희석한다.</td>
+            </tr>
+            <tr>
+              <td>대배심</td>
+              <td>배제법칙 미적용</td>
+              <td>기소 여부 판단 절차에는 위법수집 증거 배제가 적용되지 않는다.</td>
+            </tr>
+            <tr>
+              <td>민사소송</td>
+              <td>원칙적으로 미적용</td>
+              <td>부당사망 같은 민사절차에서는 배제법칙이 보통 적용되지 않는다.</td>
+            </tr>
+            <tr>
+              <td>기소 기각 신청</td>
+              <td>보통 부적절</td>
+              <td>제4수정헌법 위반의 구제는 재판상 증거배제이지 기소 기각이 아니다.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <blockquote class="pull">제4수정헌법의 마지막 질문은 “경찰이 틀렸는가”가 아니라 “그 틀림 때문에 이 재판에서 이 증거를 빼야 하는가”다.</blockquote>
+      </section>
+
+      <section id="patterns">
+        <h2>시험 답안 핵심 패턴</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>상황</th>
+              <th>적용 룰</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>피고인 자신의 사생활 expectation 없음</td>
+              <td>Standing 없음</td>
+            </tr>
+            <tr>
+              <td>주거 주변 사생활 공간</td>
+              <td>Curtilage 보호 가능</td>
+            </tr>
+            <tr>
+              <td>Open fields</td>
+              <td>제4수정헌법 보호 없음</td>
+            </tr>
+            <tr>
+              <td>영장 수색</td>
+              <td>Probable cause + neutral magistrate + particularity</td>
+            </tr>
+            <tr>
+              <td>허위 affidavit</td>
+              <td>Franks hearing 검토</td>
+            </tr>
+            <tr>
+              <td>무효 영장에 합리적 의존</td>
+              <td>Good faith exception 검토</td>
+            </tr>
+            <tr>
+              <td>차량 내 증거 probable cause</td>
+              <td>Automobile exception</td>
+            </tr>
+            <tr>
+              <td>일시정지</td>
+              <td>Reasonable suspicion 필요</td>
+            </tr>
+            <tr>
+              <td>무기 frisk</td>
+              <td>Armed and dangerous 의심 필요</td>
+            </tr>
+            <tr>
+              <td>동의수색</td>
+              <td>Voluntary consent + authority</td>
+            </tr>
+            <tr>
+              <td>명백한 시야</td>
+              <td>Lawful vantage point + 즉시 명백한 범죄성</td>
+            </tr>
+            <tr>
+              <td>Checkpoint</td>
+              <td>중립 기준 + 비일반범죄수사 목적</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="implications">
+        <h2>Implications: 공부법과 답안 감각</h2>
+        <p>제4수정헌법은 예외의 목록이 길어 보이지만, 실제로는 질문 순서가 안정되면 빠르게 정리된다. 특히 MBE에서는 “가장 좋은 논거”를 묻기 때문에, 정답은 종종 가장 극적인 경찰 행위가 아니라 가장 앞선 문턱 쟁점에 있다. 호텔 방이면 지배인 동의 권한, 타인의 방이면 standing, 차량이면 probable cause의 범위, 학교면 완화된 합리성 기준을 먼저 떠올려야 한다.</p>
+
+        <p>답안 작성에서는 다음 문장 구조가 유용하다. “피고인은 먼저 수색된 장소에 합리적 사생활 기대가 있어야 한다. 그 기대가 인정되면 영장 또는 예외가 필요하다. 예외가 없으면 위헌 수색이지만, 배제법칙의 적용 여부와 예외는 별도로 검토한다.” 이 한 문장이 대부분의 제4수정헌법 문제를 정리하는 골격이다.</p>
+      </section>
+
+      <section class="ending">
+        <h2>Reader-Friendly Ending</h2>
+        <p>제4수정헌법은 경찰권을 전면 금지하는 규칙이 아니라, 정부가 개인의 사생활·신체·소유를 침해할 때 어떤 이유와 절차가 필요한지를 묻는 구조다. 그래서 좋은 답안은 경찰을 비난하는 언어가 아니라, 권리의 주체, 침해의 종류, 정당화 사유, 구제수단을 차례로 분리하는 언어에서 나온다.</p>
+        <p>시험장에서 막히면 처음으로 돌아가면 된다. 이 피고인이 다툴 수 있는가. 수색 또는 압수가 있었는가. 영장 또는 예외가 있는가. 그래도 위반이면, 이 절차에서 배제할 것인가.</p>
+      </section>
+
+      <section class="source-notes">
+        <h2>Source Notes</h2>
+        <p>원자료: Obsidian note “02. 제4수정헌법 (88)”, source “Crimpro 실험”. 내용은 MBE 강의자막과 객관식 문제 해설을 결합한 학습 노트를 바탕으로 공개용 editorial research-report 형식에 맞게 재구성했다.</p>
+        <p>범위: standing, search/seizure, curtilage/open fields, warrant requirements, Franks, good faith, automobile exception, Terry stop and frisk, consent search, plain view, checkpoints, administrative searches, exigent circumstances, exclusionary rule.</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
