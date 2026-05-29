@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>상대방 당사자 진술: FRE 801(d)(2)를 읽는 실전 문법</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #5f6368;
+      --soft: #f5f1ea;
+      --paper: #fffdf8;
+      --line: #ded7cb;
+      --accent: #1f6f78;
+      --accent-dark: #164d54;
+      --gold: #b26b25;
+      --rose: #8f3b46;
+      --green: #426b4f;
+      --code: #f1e8dc;
+      --shadow: 0 22px 60px rgba(25, 25, 20, 0.08);
+      --radius: 8px;
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(245, 241, 234, 0.9), rgba(255, 253, 248, 0.96) 36rem),
+        var(--paper);
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      padding: 72px 24px 44px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 16% 20%, rgba(31, 111, 120, 0.12), transparent 28rem),
+        linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(245, 241, 234, 0.96));
+    }
+
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 44px;
+      align-items: end;
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.45rem, 5vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+      color: #111;
+    }
+
+    .subtitle {
+      margin: 24px 0 0;
+      max-width: 760px;
+      color: #383838;
+      font-size: clamp(1.04rem, 1.8vw, 1.28rem);
+      line-height: 1.78;
+    }
+
+    .share-box {
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 248, 0.72);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .share-box strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+    }
+
+    .share-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .meta-row {
+      max-width: var(--max);
+      margin: 22px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 24px 84px;
+      display: grid;
+      grid-template-columns: 248px minmax(0, 1fr);
+      gap: 52px;
+    }
+
+    .toc {
+      align-self: start;
+      position: sticky;
+      top: 24px;
+      border-left: 3px solid var(--accent);
+      padding: 4px 0 4px 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 0.85rem;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .toc li {
+      margin: 8px 0;
+    }
+
+    .article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 56px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.55rem, 2.2vw, 2.1rem);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      color: var(--accent-dark);
+      font-size: 1.16rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .lead-card,
+    .finding-grid article,
+    .case-card,
+    .note-box,
+    .table-wrap {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.9);
+      box-shadow: 0 14px 36px rgba(25, 25, 20, 0.05);
+    }
+
+    .lead-card {
+      padding: 28px;
+    }
+
+    .abstract-label {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .lead-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .rule-text {
+      margin: 26px 0;
+      padding: 24px 26px;
+      border-left: 5px solid var(--accent);
+      background: #f7f4ee;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    .rule-text p {
+      margin-bottom: 12px;
+    }
+
+    .rule-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pull {
+      margin: 34px 0;
+      padding: 2px 0 2px 26px;
+      border-left: 5px solid var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.34rem, 2.4vw, 1.9rem);
+      line-height: 1.42;
+      color: #222;
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .finding-grid article {
+      padding: 20px;
+    }
+
+    .finding-grid h3 {
+      margin-top: 0;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .finding-grid p {
+      margin-bottom: 0;
+      color: #444;
+      font-size: 0.96rem;
+    }
+
+    .diagram {
+      margin: 28px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fffdf8, #f6f0e7);
+    }
+
+    .diagram-title {
+      margin: 0 0 16px;
+      font-weight: 800;
+      color: var(--accent-dark);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow div {
+      min-height: 104px;
+      padding: 14px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .flow strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .flow span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      font-size: 0.94rem;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: #242424;
+      background: #f4eee3;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      padding: 0.12em 0.34em;
+      border-radius: 5px;
+      background: var(--code);
+      color: #4b3724;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .case-card {
+      padding: 22px;
+    }
+
+    .case-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 1.05rem;
+    }
+
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #eef5f3;
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .answer {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .case-card p {
+      margin-bottom: 10px;
+    }
+
+    .case-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .note-box {
+      padding: 22px;
+      background: #fbf6ee;
+    }
+
+    .note-box h3 {
+      margin-top: 0;
+      color: var(--rose);
+    }
+
+    .takeaway-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+    }
+
+    .takeaway-list li {
+      position: relative;
+      padding: 14px 16px 14px 42px;
+      border-bottom: 1px solid var(--line);
+      margin: 0;
+    }
+
+    .takeaway-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .takeaway-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .ending {
+      padding: 30px;
+      border-radius: var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, #164d54, #2f6f58);
+    }
+
+    .ending h2 {
+      color: #fff;
+    }
+
+    .ending p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .copy-block {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      padding: 28px 24px 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .share-box {
+        max-width: 620px;
+      }
+
+      .toc {
+        position: static;
+        border-left: 0;
+        border-top: 3px solid var(--accent);
+        padding: 16px 0 0;
+      }
+
+      .finding-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        padding: 48px 18px 34px;
+      }
+
+      main {
+        padding: 34px 18px 64px;
+        gap: 34px;
+      }
+
+      .lead-card,
+      .case-card,
+      .note-box,
+      .diagram,
+      .ending {
+        padding: 20px;
+      }
+
+      .meta-row {
+        gap: 8px;
+      }
+
+      .pill {
+        white-space: normal;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="exclusion의-한-유형으로-opposing-party-statement">
+<meta property="og:description" content="4. 상대방 당사자 진술 (Opposing party statement, FRE 801(d)(2)) ★★★ (d) Statements That Are Not Hearsay. A statement that meets the following conditions is not hearsay: (2) An Opposing Par">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/18z8zzn/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="exclusion의-한-유형으로-opposing-party-statement">
+<meta name="twitter:description" content="4. 상대방 당사자 진술 (Opposing party statement, FRE 801(d)(2)) ★★★ (d) Statements That Are Not Hearsay. A statement that meets the following conditions is not hearsay: (2) An Opposing Par">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/18z8zzn/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="kicker">Evidence Research Report · FRE 801(d)(2)</p>
+          <h1>상대방 당사자 진술은 왜 “예외”가 아니라 “비전문”인가</h1>
+          <p class="subtitle">당사자 본인, 침묵에 의한 채택, 위임 발언, 대리인·피용자 진술, 공범 진술까지. FRE 801(d)(2)는 전문법칙의 주변부가 아니라 실체적 증거로 들어오는 강력한 입구다.</p>
+        </div>
+        <aside class="share-box" aria-label="공유용 요약">
+          <strong>공유용 한 문장</strong>
+          <p>FRE 801(d)(2)는 “믿을 만해서”가 아니라 “상대방에게 불리하게 쓰이는 당사자 귀속 진술”이라서 hearsay가 아니다.</p>
+        </aside>
+      </div>
+      <div class="meta-row">
+        <span class="pill">주제: Opposing Party Statement</span>
+        <span class="pill">중요도: ★★★</span>
+        <span class="pill">모드: Editorial Blog</span>
+        <span class="pill">핵심: substantive evidence</span>
+      </div>
+    </header>
+
+    <main>
+      <nav class="toc" aria-label="목차">
+        <h2>Article Map</h2>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#rule">Rule Text</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#scope">적용 범위</a></li>
+          <li><a href="#distinctions">구별 포인트</a></li>
+          <li><a href="#cases">사례 분석</a></li>
+          <li><a href="#implications">Implications</a></li>
+        </ol>
+      </nav>
+
+      <article class="article">
+        <section id="abstract" class="lead-card">
+          <p class="abstract-label">Abstract</p>
+          <p>FRE 801(d)(2)의 상대방 당사자 진술은 hearsay exception이 아니다. 규칙 자체가 “not hearsay”라고 분류하기 때문에, 요건을 충족하면 원진술자의 불출석이나 별도의 신뢰성 보강 없이 실체적 증거로 제출될 수 있다. 이 규정의 작동 원리는 단순하다. 어떤 진술이 상대방 당사자에게 귀속될 수 있고, 그 당사자에게 불리하게 제출된다면, 법정에서 그 당사자는 설명하거나 반박할 기회를 갖는다.</p>
+          <p>실무와 시험에서는 다섯 갈래를 구분하는 것이 핵심이다. 본인의 말인지, 타인의 말을 채택했는지, 발언 권한을 위임했는지, 고용·대리 관계 범위 내의 말인지, 공모 중 공모를 촉진하기 위한 말인지가 결론을 가른다.</p>
+        </section>
+
+        <section id="rule">
+          <h2>Rule Text: FRE 801(d)(2)</h2>
+          <div class="rule-text">
+            <p><strong>(d) Statements That Are Not Hearsay.</strong> A statement that meets the following conditions is <strong>not hearsay</strong>:</p>
+            <p><strong>(2) An Opposing Party’s Statement.</strong> The statement is offered against an opposing party and was made by the party; adopted or believed true by the party; made by an authorized speaker; made by the party’s agent or employee within the scope of that relationship while it existed; or made by a coconspirator during and in furtherance of the conspiracy.</p>
+            <p>The statement must be considered but does not by itself establish the declarant’s authority, the agency relationship, or the conspiracy.</p>
+          </div>
+          <blockquote class="pull">핵심은 “진술의 신뢰성”보다 “진술의 귀속”이다. 누구의 말로 법적으로 취급할 수 있는지가 FRE 801(d)(2)의 중심 질문이다.</blockquote>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="finding-grid">
+            <article>
+              <h3>1. Exclusion, not exception</h3>
+              <p>상대방 당사자 진술은 hearsay exception이 아니라 hearsay 정의에서 빠지는 exclusion이다. 따라서 unavailability 요건은 없다.</p>
+            </article>
+            <article>
+              <h3>2. 실체적 증거로 사용 가능</h3>
+              <p>요건을 충족하면 단순 탄핵을 넘어 liability, knowledge, intent, fault 같은 본안 쟁점을 입증하는 substantive evidence가 된다.</p>
+            </article>
+            <article>
+              <h3>3. 대리인·피용자 진술은 scope가 관건</h3>
+              <p>발언 권한 자체를 따로 위임받았는지가 아니라, 고용·대리 관계가 존속하고 진술 내용이 그 관계 범위 내 사항인지가 중요하다.</p>
+            </article>
+            <article>
+              <h3>4. 공범 진술은 공동피고만으로 부족</h3>
+              <p>coconspirator exclusion은 공모가 진행 중이고, 진술이 공모를 촉진하기 위한 것이어야 비발언 공범에게도 귀속된다.</p>
+            </article>
+          </div>
+
+          <div class="diagram" aria-label="FRE 801(d)(2)의 다섯 갈래">
+            <p class="diagram-title">FRE 801(d)(2)의 다섯 갈래</p>
+            <div class="flow">
+              <div><strong>(A) 본인 진술</strong><span>당사자가 개인 또는 대표 자격으로 한 말</span></div>
+              <div><strong>(B) 채택 진술</strong><span>명시적·묵시적으로 받아들인 타인의 말</span></div>
+              <div><strong>(C) 위임 진술</strong><span>주제에 관해 발언 권한을 받은 사람의 말</span></div>
+              <div><strong>(D) 대리인·피용자</strong><span>관계 존속 중 scope 내 사항에 관한 말</span></div>
+              <div><strong>(E) 공범 진술</strong><span>공모 중, 공모 촉진을 위해 한 말</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="scope">
+          <h2>적용 범위와 한계</h2>
+          <p>상대방 당사자 진술은 당사자가 직접 법정에서 설명하거나 반박할 수 있다는 구조 위에 놓여 있다. 그래서 반대신문권 침해 문제는 일반적인 제3자 hearsay보다 약하다. 그러나 모든 불리한 말이 자동으로 들어오는 것은 아니다. 진술을 당사자에게 귀속시키는 연결 고리가 필요하다.</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>유형</th>
+                  <th>요건</th>
+                  <th>주의점</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>당사자 본인</td>
+                  <td>그 당사자가 한 말을 그 당사자에게 불리하게 제출</td>
+                  <td>자기에게 유리한 자기 진술은 이 규정으로 들어오지 않는다.</td>
+                </tr>
+                <tr>
+                  <td>Adoptive admission</td>
+                  <td>당사자가 타인의 말을 채택하거나 사실이라고 믿는 태도를 보임</td>
+                  <td>침묵에 의한 채택은 이해, 부인 가능성, 부인할 자연스러운 상황이 필요하다.</td>
+                </tr>
+                <tr>
+                  <td>Authorized statement</td>
+                  <td>해당 주제에 관해 발언 권한을 위임받은 사람의 말</td>
+                  <td>진술 자체만으로 권한을 증명할 수는 없다.</td>
+                </tr>
+                <tr>
+                  <td>Agent or employee</td>
+                  <td>관계 존속 중, 관계 범위 내 사항에 관한 말</td>
+                  <td>직무 범위와 진술 내용의 연결이 핵심이다.</td>
+                </tr>
+                <tr>
+                  <td>Coconspirator</td>
+                  <td>공모 진행 중, 공모를 촉진하기 위한 말</td>
+                  <td>공모 종료 후의 회고나 단순 자랑은 보통 부족하다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Preliminary fact의 기준</h3>
+          <p>대리권, 고용관계, 공모의 존재 같은 전제사실은 진술의 admissibility와 relevance를 좌우한다. 다만 그 진술 하나만으로 권한·관계·공모를 확정할 수는 없다. 특히 agency가 relevance의 전제사실일 때에는, 법원이 엄격한 preponderance로 확정하기보다 합리적 배심원이 대리권을 인정할 수 있을 정도의 증거가 있는지를 본다는 점이 시험상 중요하다.</p>
+        </section>
+
+        <section id="distinctions">
+          <h2>구별 포인트: 들어올 것처럼 보이지만 다른 규칙이 끼어드는 순간</h2>
+          <div class="note-box">
+            <h3>Compromise, plea, remedial measure와의 충돌</h3>
+            <ul>
+              <li>Offer of compromise 배제는 진술 당시 책임이나 금액에 관한 실제 다툼이 있어야 작동한다. 다툼 전의 사과나 보상 제안은 보통 배제되지 않는다.</li>
+              <li>형사사건의 plea negotiation 배제는 상대가 검사일 때가 핵심이다. FBI 같은 수사기관에 한 말은 별도로 보호되지 않을 수 있다.</li>
+              <li>Subsequent remedial measure는 실제 사후조치를 제한하는 규칙이지, 당사자의 모든 사과나 인정 발언을 자동으로 막는 규칙이 아니다.</li>
+              <li>Coconspirator exclusion은 “공동피고인”이라는 지위만으로 성립하지 않는다. 공모 진행 중·촉진 목적이라는 요건이 따로 필요하다.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="cases">
+          <h2>Evidence Sections: 사례로 보는 적용</h2>
+          <p>아래 사례들은 FRE 801(d)(2)가 어느 지점에서 실체적 증거의 문을 여는지 보여준다. 공통 질문은 하나다. “이 말은 법적으로 누구의 말인가?”</p>
+
+          <div class="case-list">
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.1</span><span class="tag">다툼 전 보상 제안</span></div>
+              <h3>과학박람회 쥐와 100달러 제안</h3>
+              <p>피고가 사고 직후 “미안해서 100달러를 주고 싶다”고 말한 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>피고 본인의 진술을 피고에게 불리하게 제출하므로 party-opponent 진술이다. 당시 책임에 관한 실제 다툼이 없었으므로 offer of compromise 배제도 작동하지 않는다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.4</span><span class="tag">몰래 녹음</span><span class="tag">직접 증언</span></div>
+              <h3>계약분쟁의 사적 대화</h3>
+              <p>원고가 피고와의 사적 대화에서 들은 피고의 말을 증언하려는 사안이다. 녹음은 있었지만 테이프 자체는 제출하지 않았다. <span class="answer">정답: 허용.</span></p>
+              <p>피고의 말은 party-opponent 진술이고, 원고는 직접 들은 personal knowledge로 증언한다. 녹음 내용을 증명하는 것이 아니므로 best evidence rule 문제도 없다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.5</span><span class="tag">피용자 진술</span><span class="tag">저작권</span></div>
+              <h3>저작권 담당 임원 비서의 말</h3>
+              <p>피고 회사의 저작권 담당 임원 비서가 설계도 사전 사본 입수 사실을 말했다는 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>고용관계가 존속하고, 저작권 관련 사항이 그 직무 범위와 연결되어 있으므로 agent or employee statement로 비전문이다. 별도 발언 위임까지 입증할 필요는 없다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.10</span><span class="tag">탈세</span><span class="tag">IRS 편지</span></div>
+              <h3>자필 익명 편지와 기소 회피 제안</h3>
+              <p>피고인의 필적으로 식별된 IRS 편지가 체납세 납부와 기소 회피 요청을 담고 있었다. <span class="answer">정답: 허용.</span></p>
+              <p>피고인이 작성한 불리한 진술이다. settlement나 plea negotiation 배제는 양 당사자의 협상 의사와 검사 상대 요건이 문제되는데, IRS에 일방적으로 보낸 편지는 그 보호 범위에 들어가지 않는다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.11</span><span class="tag">배관공</span><span class="tag">무료 재시공</span></div>
+              <h3>침수 직후의 무료 재시공 제안</h3>
+              <p>배관공이 “내일 들러서 무료로 다시 시공하겠다”고 응답한 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>배관공 본인의 진술을 과실 증거로 제출하는 것이므로 party-opponent 진술이다. 침수 직후에는 아직 실제 다툼이 없었고, FRE 407도 진술 자체를 전면 배제하지 않는다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.13</span><span class="tag">대리권</span><span class="tag">조건부 관련성</span></div>
+              <h3>“피고를 대신해 청약을 승낙합니다”</h3>
+              <p>피고가 여성의 actual or apparent authority를 다투는 계약분쟁 사안이다. <span class="answer">정답: 조건부 허용.</span></p>
+              <p>대리권은 진술의 relevance를 좌우하는 전제사실이다. 합리적 배심원이 대리권을 인정할 수 있을 정도의 증거가 제출되면, 그 진술은 party-opponent에게 귀속될 수 있다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.18</span><span class="tag">자전거 결함</span><span class="tag">상품권 제안</span></div>
+              <h3>직원의 새 바퀴와 25달러 상품권 제안</h3>
+              <p>수리 정책을 묻는 전화에서 직원이 사과와 보상을 제안한 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>직원이 고용 범위 내에서 한 말이므로 party-opponent 진술이다. 당시 고객은 정책을 물었을 뿐 실제 분쟁 협상 단계가 아니었으므로 compromise exclusion도 적용되지 않는다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.20</span><span class="tag">FBI</span><span class="tag">Plea 구별</span></div>
+              <h3>정보 제공 대가로 사건을 덮자는 제안</h3>
+              <p>피고인이 FBI 수사관에게 “큰 사기 정보를 줄 테니 이 휴가 건은 신경 쓰지 말라”고 제안한 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>피고인 본인의 불리한 진술이다. 형사 plea 협상 배제는 검사와의 협상에 초점이 있으므로, FBI 수사관에게 한 말은 그 규칙으로 배제되지 않는다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.22</span><span class="tag">공범 진술</span><span class="tag">강도 공모</span></div>
+              <h3>“저 보안카메라만 피하면 내일 강도는 문제없다”</h3>
+              <p>사전 답사 중 한 피고인이 한 말을 양 피고인에게 제출한 사안이다. <span class="answer">정답: 양 피고인 모두에게 허용.</span></p>
+              <p>발언자 본인에게는 party-opponent 진술이고, 비발언 공범에게는 공모 진행 중·촉진을 위한 coconspirator statement로 귀속된다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.25</span><span class="tag">위증</span><span class="tag">탄핵과 실체</span></div>
+              <h3>“사실 그 사기를 알고 있었다”</h3>
+              <p>위증 재판에서 피고인의 사후 사적 인정을 증인이 증언하는 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>피고인의 인정은 party-opponent 진술이라 비전문이다. 따라서 증언 탄핵뿐 아니라 앞선 증언이 거짓이었다는 실체적 증거로도 사용할 수 있다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.27</span><span class="tag">침묵에 의한 채택</span><span class="tag">마약 거래</span></div>
+              <h3>딜러가 피고인을 “내 파트너”라고 소개한 경우</h3>
+              <p>피고인이 악수만 하고 아무 말도 하지 않은 사안이다. <span class="answer">정답: 허용.</span></p>
+              <p>피고인이 이해하고 부인할 수 있었으며, 사실이 아니라면 합리적으로 부인했을 상황에서 침묵했다면 adoptive admission by silence가 성립할 수 있다.</p>
+            </article>
+
+            <article class="case-card">
+              <div class="case-meta"><span class="tag">Q.30</span><span class="tag">회사 피용자</span><span class="tag">사과</span></div>
+              <h3>배달 트럭 사고 후 “제가 한 일 죄송합니다”</h3>
+              <p>회사 피용자가 병원에서 피해자에게 사과한 사안이다. <span class="answer">정답: 회사에 대한 과실 증거로 허용.</span></p>
+              <p>배달 업무 중 발생한 사고에 관해 고용관계 존속 중 한 말이므로 agent or employee statement다. 이는 현재 심리상태 예외가 아니라 party-opponent exclusion으로 설명하는 것이 정확하다.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="source-notes">
+          <h2>Source Notes</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>문제군</th>
+                  <th>반복되는 증거 쟁점</th>
+                  <th>정리되는 원칙</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q.1, Q.11, Q.18</td>
+                  <td>사과·보상 제안과 compromise exclusion</td>
+                  <td>실제 다툼 전의 보상 제안은 FRE 408로 자동 배제되지 않는다.</td>
+                </tr>
+                <tr>
+                  <td>Q.10, Q.20</td>
+                  <td>정부기관·수사기관에 한 말과 plea 협상</td>
+                  <td>검사와의 plea negotiation인지가 중요하다.</td>
+                </tr>
+                <tr>
+                  <td>Q.5, Q.30</td>
+                  <td>피용자·대리인 진술</td>
+                  <td>발언 시점의 관계 존속과 직무 범위 내 사항인지가 결론을 좌우한다.</td>
+                </tr>
+                <tr>
+                  <td>Q.13</td>
+                  <td>대리권이라는 preliminary fact</td>
+                  <td>진술 자체만으로 대리권을 확정할 수 없고, 독립적 근거가 필요하다.</td>
+                </tr>
+                <tr>
+                  <td>Q.22, Q.27</td>
+                  <td>비발언자에게 말이 귀속되는 구조</td>
+                  <td>공범 진술은 진행·촉진 요건, 침묵 채택은 부인 기대 상황이 필요하다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 시험장에서의 판단 순서</h2>
+          <ul class="takeaway-list">
+            <li><strong>첫째, hearsay exception을 찾기 전에 FRE 801(d)(2)인지 먼저 본다.</strong> 이 규정은 exception이 아니라 “not hearsay”다.</li>
+            <li><strong>둘째, 누구에게 불리하게 제출되는지 확인한다.</strong> 자기에게 유리한 자기 진술은 일반적으로 이 규정의 도움을 받지 못한다.</li>
+            <li><strong>셋째, 본인 발언이 아니면 귀속 연결고리를 찾는다.</strong> 채택, 위임, 고용·대리 관계, 공모 중 촉진 발언 중 어느 갈래인지 분류한다.</li>
+            <li><strong>넷째, 다른 배제 규칙을 별도로 점검한다.</strong> FRE 408, plea negotiation, FRE 407은 hearsay 분석과 다른 축에서 작동할 수 있다.</li>
+            <li><strong>다섯째, 실체적 증거 사용 가능성을 놓치지 않는다.</strong> party-opponent 진술은 탄핵을 넘어 fault, intent, knowledge, liability를 직접 입증할 수 있다.</li>
+          </ul>
+        </section>
+
+        <section class="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>FRE 801(d)(2)를 빠르게 푸는 방법은 “말의 내용이 믿을 만한가”에서 출발하지 않는 것이다. 먼저 “그 말을 상대방의 말로 취급할 수 있는가”를 묻는다. 본인의 말이면 쉽다. 타인의 말이면 채택, 위임, 고용·대리, 공모라는 귀속 경로를 찾아야 한다. 그 다음에야 compromise, plea, remedial measure 같은 별도 배제 규칙을 확인한다.</p>
+          <p>결국 상대방 당사자 진술은 증거법에서 가장 실용적인 진입로 중 하나다. 요건만 맞으면 문은 넓게 열린다. 그러나 그 문은 “불리한 진술”이 아니라 “귀속 가능한 진술”에게 열린다.</p>
+          <div class="copy-block">
+            <strong>Copy-ready takeaway:</strong> FRE 801(d)(2)는 hearsay exception이 아니라 exclusion이다. 당사자에게 귀속되는 진술이 그 당사자에게 불리하게 제출되면, 별도 불출석 요건 없이 실체적 증거로 사용할 수 있다.
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      Standalone editorial research report · FRE 801(d)(2) Opposing Party Statement · Sanitized HTML without scripts or remote assets
+    </footer>
+  </div>
+</body>
+</html>
