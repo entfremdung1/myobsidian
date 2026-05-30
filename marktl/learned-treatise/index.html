@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Learned Treatise 권위문헌 예외: 낭독은 가능하지만 배심 열람은 안 된다</title>
+  
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf9;
+      --ink: #22201d;
+      --muted: #6f6860;
+      --line: #ded5ca;
+      --accent: #7b2f2f;
+      --accent-2: #0f5d5e;
+      --soft: #efe7dd;
+      --soft-2: #e7f0ee;
+      --code: #3b342e;
+      --shadow: 0 18px 60px rgba(37, 31, 24, 0.12);
+      --radius: 8px;
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0) 360px),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 72px;
+    }
+
+    header.hero {
+      position: relative;
+      padding: 58px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.35rem, 6vw, 5.1rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: #191715;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.25rem);
+      line-height: 1.85;
+    }
+
+    .share-frame {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 820px;
+      margin-top: 30px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.48);
+      border-radius: var(--radius);
+    }
+
+    .share-frame strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .share-frame p {
+      margin: 0;
+      color: var(--code);
+      font-size: 0.96rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+      margin-top: 36px;
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,253,249,0.78);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(37,31,24,0.05);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 12px;
+      font-size: 0.9rem;
+      color: var(--accent-2);
+      letter-spacing: 0.04em;
+    }
+
+    nav.toc ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    nav.toc li + li {
+      margin-top: 8px;
+    }
+
+    main.article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 42px;
+    }
+
+    .panel {
+      padding: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .abstract {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      border-left: 5px solid var(--accent);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 1.12rem;
+      line-height: 1.45;
+      color: #2c2925;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    ul, ol {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .lead {
+      font-size: 1.06rem;
+      color: #39342f;
+    }
+
+    .key-findings {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .finding {
+      padding: 18px;
+      background: var(--soft);
+      border: 1px solid #dbcec0;
+      border-radius: var(--radius);
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.92rem;
+    }
+
+    .finding span {
+      display: block;
+      color: #3e3933;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 24px 28px;
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+      line-height: 1.55;
+      color: #241f1b;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .rule-box {
+      margin-top: 20px;
+      padding: 22px;
+      background: #231f1b;
+      color: #f8f1e8;
+      border-radius: var(--radius);
+    }
+
+    .rule-box h3 {
+      margin-top: 0;
+      color: #fff8ef;
+    }
+
+    .rule-box code {
+      color: #ffe2b8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    .diagram {
+      margin: 22px 0 4px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      position: relative;
+      padding: 18px 14px;
+      min-height: 144px;
+      background: var(--soft-2);
+      border: 1px solid #cbdeda;
+      border-radius: var(--radius);
+    }
+
+    .step small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .step p {
+      margin: 0;
+      color: #46514f;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #ece3d8;
+      color: #312b25;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .case-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .case-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 8px 14px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+
+    .case-meta b {
+      color: #4e463e;
+    }
+
+    .answer {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f1ded9;
+      color: #812d29;
+      font-weight: 800;
+    }
+
+    .source-note {
+      padding: 22px;
+      background: rgba(255,255,255,0.44);
+      border: 1px dashed #c9bbae;
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .ending {
+      padding: 34px 28px;
+      background: linear-gradient(135deg, #fffdf9 0%, #eaf2f0 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .copy-block {
+      margin-top: 16px;
+      padding: 16px;
+      background: #fff8ef;
+      border: 1px solid #ead9c7;
+      border-radius: var(--radius);
+      color: #3d352e;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      nav.toc {
+        position: static;
+      }
+
+      .key-findings {
+        grid-template-columns: 1fr;
+      }
+
+      .diagram {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 20px 16px 52px;
+      }
+
+      header.hero {
+        padding-top: 34px;
+      }
+
+      .panel,
+      .case-card,
+      .ending {
+        padding: 20px;
+      }
+
+      .diagram {
+        grid-template-columns: 1fr;
+      }
+
+      .case-meta {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.45rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      nav.toc {
+        position: static;
+        box-shadow: none;
+      }
+
+      .panel,
+      .case-card,
+      .ending {
+        box-shadow: none;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="learned-treatise">
+<meta property="og:description" content="12. Learned treatise (권위문헌) ★★ 가. 기본 원칙 Learned treatise(권위문헌)·정기간행물·소책자의 진술은, 그것이 전문가 증인의 신문 중에 그 주의를 환기하거나 그가 의존했고, 그 문헌이 어느 당사자의 전문가나 judicial notice로 신뢰할 만한 권위로 확립되면 hearsay에서 ">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/10k31gw/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="learned-treatise">
+<meta name="twitter:description" content="12. Learned treatise (권위문헌) ★★ 가. 기본 원칙 Learned treatise(권위문헌)·정기간행물·소책자의 진술은, 그것이 전문가 증인의 신문 중에 그 주의를 환기하거나 그가 의존했고, 그 문헌이 어느 당사자의 전문가나 judicial notice로 신뢰할 만한 권위로 확립되면 hearsay에서 ">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/10k31gw/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="kicker">Evidence Law Research Report</div>
+      <h1>Learned Treatise 권위문헌 예외: 낭독은 가능하지만 배심 열람은 안 된다</h1>
+      <p class="subtitle">
+        전문가 증언과 권위문헌이 만나는 지점에서 가장 자주 틀리는 포인트는 단순하다.
+        문헌의 진술은 실체 증거로 쓸 수 있지만, 문헌 자체를 배심원에게 넘길 수는 없다.
+      </p>
+      <div class="share-frame" aria-label="공유용 요약">
+        <div>
+          <strong>공유용 제목</strong>
+          <p>권위문헌 예외 정리: “read into evidence”와 exhibit 금지의 경계</p>
+        </div>
+        <div>
+          <strong>공유용 설명</strong>
+          <p>미국 증거법 learned treatise 예외의 요건, 한계, 출제 함정을 Q.34, Q.41, Q.44, Q.45 사례로 정리한 블로그형 연구 리포트.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="목차">
+        <h2>목차</h2>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#rule">기본 법리</a></li>
+          <li><a href="#limits">적용 범위와 한계</a></li>
+          <li><a href="#cases">문제별 분석</a></li>
+          <li><a href="#implications">시험상 함의</a></li>
+        </ol>
+      </nav>
+
+      <main class="article">
+        <section id="abstract" class="panel abstract">
+          <h2>Abstract</h2>
+          <p class="lead">
+            Learned treatise, 즉 권위문헌 예외는 전문가 증언의 신뢰성을 보강하면서도 배심원의 오용 위험을 통제하기 위해 설계된 hearsay 예외다.
+            핵심은 두 겹이다. 첫째, 권위 있는 문헌의 진술은 일정 요건 아래 진실 입증을 위한 실체 증거로 사용될 수 있다.
+            둘째, 그 사용 방식은 법정에서의 낭독으로 제한되며, 책이나 논문 자체를 증거물로 제출하거나 배심원이 직접 검토하게 할 수 없다.
+          </p>
+          <p>
+            이 리포트는 권위문헌 예외의 기본 원칙, 제도적 이유, 적용 요건, 반복 출제되는 구별 포인트를 정리하고,
+            제분소 설계 과실 및 의료·형사 사례를 통해 실제 판단 구조를 재구성한다.
+          </p>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="key-findings">
+            <div class="finding">
+              <b>01. 실체 증거로 가능</b>
+              <span>요건을 충족한 권위문헌의 진술은 단순한 탄핵 자료가 아니라 진실 입증을 위한 substantive evidence로 낭독될 수 있다.</span>
+            </div>
+            <div class="finding">
+              <b>02. 배심 열람은 불가</b>
+              <span>문헌 자체는 exhibit으로 들어가지 않는다. 배심원은 법정에서 낭독된 구절만 고려할 수 있다.</span>
+            </div>
+            <div class="finding">
+              <b>03. 전문가 신문이 필요</b>
+              <span>검사나 변호사가 전문가 없이 권위서를 직접 읽는 방식은 learned treatise 예외의 문을 열지 못한다.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="rule" class="panel">
+          <h2>기본 법리: 권위문헌은 어떻게 hearsay 예외가 되는가</h2>
+          <p>
+            Learned treatise, 정기간행물, 소책자의 진술은 원칙적으로 법정 밖 진술이다. 그러나 그 문헌이 해당 분야에서 신뢰할 만한 권위로 확립되고,
+            전문가 증인의 신문 중 그 전문가의 주의를 환기하거나 그 전문가가 의존한 자료라면 hearsay 예외로 인정된다.
+          </p>
+          <div class="rule-box">
+            <h3>시험용 압축 규칙</h3>
+            <p>
+              <code>전문가 신문 중</code> + <code>주의 환기 또는 의존</code> + <code>권위성 확립</code>이 있으면,
+              문헌의 진술은 <code>read into evidence</code>될 수 있다. 그러나 문헌 자체는 exhibit으로 제출될 수 없다.
+            </p>
+          </div>
+          <div class="pullquote">
+            “권위문헌 예외의 결론은 문헌을 믿을 수 있다는 데서 끝나지 않는다. 그 믿을 수 있는 문헌을 배심원이 어떻게 접할 수 있는지가 진짜 쟁점이다.”
+          </div>
+          <p>
+            권위성은 어느 한 당사자의 전문가 증언, 상대방 전문가의 인정, 또는 judicial notice를 통해 확립될 수 있다.
+            다만 최종적으로 권위 여부를 판단하는 주체는 배심원이 아니라 법원이다.
+          </p>
+        </section>
+
+        <section id="limits">
+          <h2>적용 범위와 한계</h2>
+          <p>
+            Learned treatise 예외는 전문가 증언의 맥락 안에서만 작동한다. 전문가가 실제로 그 문헌에 의존했을 필요까지는 없다.
+            반대신문 중 특정 문헌을 제시하여 전문가의 주의를 환기하는 것만으로도 요건이 충족될 수 있다.
+            그러나 반드시 전문가 증인의 신문 과정이어야 한다.
+          </p>
+
+          <div class="diagram" aria-label="권위문헌 예외 적용 흐름">
+            <div class="step">
+              <small>STEP 1</small>
+              <b>전문가 증인 존재</b>
+              <p>문헌은 전문가 신문 중에 제시되어야 한다.</p>
+            </div>
+            <div class="step">
+              <small>STEP 2</small>
+              <b>의존 또는 주의 환기</b>
+              <p>전문가가 의존했거나 신문 중 그 주의를 환기하면 된다.</p>
+            </div>
+            <div class="step">
+              <small>STEP 3</small>
+              <b>권위성 확립</b>
+              <p>전문가 인정 또는 judicial notice로 신뢰할 권위를 세운다.</p>
+            </div>
+            <div class="step">
+              <small>STEP 4</small>
+              <b>낭독만 허용</b>
+              <p>구절은 낭독 가능하지만 문헌 자체는 배심실로 가지 않는다.</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>쟁점</th>
+                  <th>허용 여부</th>
+                  <th>이유</th>
+                  <th>시험 포인트</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>권위문헌 구절 낭독</td>
+                  <td>허용 가능</td>
+                  <td>전문가 신문 중 의존 또는 주의 환기 및 권위성 확립이 있으면 hearsay 예외</td>
+                  <td>실체 증거로 사용 가능</td>
+                </tr>
+                <tr>
+                  <td>문헌 자체를 exhibit으로 제출</td>
+                  <td>불가</td>
+                  <td>배심원이 맥락 없이 일부 또는 전체를 오용할 위험</td>
+                  <td>“read only, not received as exhibit”</td>
+                </tr>
+                <tr>
+                  <td>배심원이 책을 직접 검토</td>
+                  <td>불가</td>
+                  <td>배심원은 낭독된 부분만 고려</td>
+                  <td>Q.34, Q.41의 반복 함정</td>
+                </tr>
+                <tr>
+                  <td>전문가 없이 검사가 직접 낭독</td>
+                  <td>불가</td>
+                  <td>전문가 증인의 신문 중이라는 요건 결여</td>
+                  <td>Q.44의 핵심</td>
+                </tr>
+                <tr>
+                  <td>권위 여부 판단</td>
+                  <td>법원이 판단</td>
+                  <td>증거능력 판단은 법원의 역할</td>
+                  <td>배심원이 신뢰성을 결정하게 할 수 없음</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="cases">
+          <h2>문제별 분석</h2>
+          <p>
+            관련 문제들은 대부분 같은 골격을 반복한다. 권위문헌이라는 말이 나오면 곧바로 “실체 증거로 가능한가”만 볼 것이 아니라,
+            누가, 언제, 어떤 방식으로 문헌을 쓰려 하는지를 순서대로 확인해야 한다.
+          </p>
+
+          <div class="case-list">
+            <article class="case-card">
+              <h3>Q.34: 제분소 설계 과실과 배심 열람 요청</h3>
+              <p>
+                직업적 과실 민사재판에서 원고는 피고 엔지니어가 제분소를 동력 부족으로 설계했다고 주장했다.
+                원고 전문가가 특정 제분 시스템 책을 신뢰할 권위서로 인정했고, 자신의 견해와도 일치한다고 말했다.
+                반대신문에서 전문가가 완벽한 사람은 없다고 답했으며, 피고 전문가는 그 책이 과거에는 권위가 있었으나 지금은 낡았다고 했다.
+                원고는 배심원이 그 책을 직접 검토하게 해 달라고 요청했다.
+              </p>
+              <div class="case-meta">
+                <b>질문</b><span>법원은 배심원이 그 책을 검토하도록 허용해야 하는가?</span>
+                <b>정답</b><span><span class="answer">A — 아니다</span></span>
+                <b>이유</b><span>배심원은 변호인 또는 증인이 법정에서 낭독한 구절만 고려할 수 있다. 문헌 자체를 배심원이 직접 열람하게 할 수 없다.</span>
+              </div>
+            </article>
+
+            <article class="case-card">
+              <h3>Q.41: Smith on Milling Systems와 권위 판단 주체</h3>
+              <p>
+                Q.34와 거의 동일한 사실관계다. 원고 전문가가 <em>Smith on Milling Systems</em>를 신뢰할 권위서로 인정했고,
+                피고 전문가는 그 책이 낡았다고 반박했다. 원고는 배심원이 책을 검토해 신뢰성을 판단하게 해 달라고 요청했다.
+              </p>
+              <div class="case-meta">
+                <b>질문</b><span>법원은 배심원이 그 책을 검토하도록 허용해야 하는가?</span>
+                <b>정답</b><span><span class="answer">A — 아니다</span></span>
+                <b>이유</b><span>권위 여부 판단은 배심원이 아니라 법원이 한다. 전문가 사이에 권위성 다툼이 있어도 배심 열람 금지는 유지된다.</span>
+              </div>
+            </article>
+
+            <article class="case-card">
+              <h3>Q.44: 살인 사건에서 전문가 없이 의학 권위서 낭독</h3>
+              <p>
+                요양원 간호사인 피고인이 거주자 음식에 치명적 물질을 넣어 살해한 혐의로 재판을 받았다.
+                검사는 그 물질이 사망을 초래할 수 있음을 입증하려고 어떤 증인도 먼저 부르지 않은 채 표준 의학 권위서의 여러 페이지를 낭독하려 했다.
+              </p>
+              <div class="case-meta">
+                <b>질문</b><span>그 증거는 허용되는가?</span>
+                <b>정답</b><span><span class="answer">A — 아니다</span></span>
+                <b>이유</b><span>learned treatise 예외는 전문가 증인의 신문 중에 적용된다. 검사가 전문가 없이 직접 읽는 방식은 요건을 충족하지 못한다.</span>
+              </div>
+            </article>
+
+            <article class="case-card">
+              <h3>Q.45: 정신과 의료과실과 주의기준 구절 낭독</h3>
+              <p>
+                원고가 정신과 의료과실을 이유로 의사를 제소하고 다른 의사를 전문가로 불렀다.
+                그 전문가는 직접신문에서 한 텍스트를 해당 분야의 신뢰할 권위서로 식별했고,
+                적정 주의기준에 관한 자신의 의견 형성에 의존한 구절을 배심원에게 낭독하려 했다.
+              </p>
+              <div class="case-meta">
+                <b>질문</b><span>그 구절은 허용되는가?</span>
+                <b>정답</b><span><span class="answer">C — 그렇다</span></span>
+                <b>이유</b><span>전문가가 권위로 확립하고 의존한 learned treatise의 진술은 의견의 근거이자 적정 주의기준의 실체 증거로 낭독될 수 있다.</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="implications" class="panel">
+          <h2>Implications: 시험장에서의 판단 순서</h2>
+          <p>
+            권위문헌 문제가 나오면 답은 대개 문헌의 명성보다 절차에 있다. 문헌이 아무리 표준적이고 신뢰할 만해도,
+            전문가 신문이라는 통로를 거치지 않으면 예외가 열리지 않는다. 반대로 예외가 열려도 배심원에게 책을 넘기는 순간 한계를 넘는다.
+          </p>
+          <ul>
+            <li>먼저 전문가 증인이 법정에 있는지 확인한다.</li>
+            <li>그 전문가가 문헌에 의존했거나, 신문 중 그 문헌으로 주의를 환기받았는지 본다.</li>
+            <li>문헌이 신뢰할 만한 권위로 확립되었는지 확인한다.</li>
+            <li>제시 방식이 낭독인지, exhibit 제출 또는 배심 열람인지 구별한다.</li>
+            <li>권위 여부를 배심원에게 맡기려는 시도는 배제한다.</li>
+          </ul>
+
+          <div class="pullquote">
+            “허용되는 것은 문헌이 아니라 문헌의 진술이다. 그리고 그 진술도 배심원에게 건네지는 것이 아니라 법정에서 읽혀야 한다.”
+          </div>
+
+          <h3>Copy-ready Takeaway</h3>
+          <div class="copy-block">Learned treatise statements may be read into evidence as substantive evidence if called to the attention of or relied on by an expert witness during examination and established as reliable authority. But the treatise itself may not be admitted as an exhibit or sent to the jury.</div>
+        </section>
+
+        <section class="source-note" aria-label="Source notes">
+          <h2>Source Notes</h2>
+          <p>
+            이 글은 제공된 Obsidian Markdown 노트의 내용을 바탕으로 재구성한 연구 리포트다.
+            원문 노트의 핵심 자료는 Q.34, Q.41, Q.44, Q.45의 사실관계와 정답 해설이며,
+            이를 learned treatise 예외의 요건, 제한, 반복 출제 포인트 중심으로 정리했다.
+          </p>
+        </section>
+
+        <section class="ending">
+          <h2>Reader-friendly Ending</h2>
+          <p>
+            Learned treatise 예외는 “권위 있는 책이면 증거가 된다”는 규칙이 아니다.
+            더 정확한 규칙은 “전문가 신문을 통해 권위성이 확보된 문헌의 진술은 낭독될 수 있지만,
+            그 문헌 자체는 배심원에게 넘어가지 않는다”는 것이다.
+          </p>
+          <p>
+            따라서 시험장에서 가장 빠른 결론은 이 문장으로 정리된다.
+            <strong>낭독은 가능, exhibit은 불가, 배심 열람도 불가, 전문가 없는 직접 낭독도 불가.</strong>
+          </p>
+        </section>
+
+        <footer>
+          <p>Research report · Editorial blog format · Sanitized standalone HTML · No JavaScript, no external assets.</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
