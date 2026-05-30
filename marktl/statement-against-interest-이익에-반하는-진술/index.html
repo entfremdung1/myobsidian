@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Statement Against Interest: FRE 804 이익에 반하는 진술의 구조와 시험 포인트</title>
+  
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --soft: #f7f4ef;
+      --paper: #fffdfa;
+      --line: #ded7cc;
+      --accent: #8f3f2b;
+      --accent-dark: #642b1f;
+      --blue: #234f70;
+      --green: #3f6b51;
+      --gold: #aa7b22;
+      --card: #ffffff;
+      --shadow: 0 18px 45px rgba(38, 30, 22, 0.08);
+      --radius: 8px;
+      --measure: 760px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f6efe5 0, #fffdfa 420px),
+        var(--paper);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, -apple-system, sans-serif;
+      line-height: 1.72;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      padding: 64px 24px 44px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(143, 63, 43, 0.10), transparent 320px),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0));
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 42px;
+      align-items: end;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .kicker::before {
+      content: "";
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 860px;
+      font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+      font-size: clamp(2.35rem, 5vw, 5.1rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+      color: #1c1714;
+    }
+
+    .subtitle {
+      max-width: 730px;
+      margin: 24px 0 0;
+      color: #3f3b36;
+      font-size: clamp(1.05rem, 1.7vw, 1.32rem);
+      line-height: 1.65;
+    }
+
+    .share-card {
+      background: rgba(255, 253, 250, 0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .share-card h2 {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+      color: var(--accent-dark);
+    }
+
+    .share-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.62;
+    }
+
+    .share-text {
+      margin-top: 16px;
+      padding: 14px;
+      background: #f3eee7;
+      border-left: 4px solid var(--accent);
+      font-size: 0.92rem;
+      color: #342e29;
+    }
+
+    .layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+      display: grid;
+      grid-template-columns: 230px minmax(0, var(--measure));
+      gap: 56px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 24px;
+      padding: 18px 0;
+      border-top: 3px solid var(--ink);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 0;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(222, 215, 204, 0.7);
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #524a42;
+      background: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    section {
+      margin: 56px 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+      color: #1e1915;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 1.17rem;
+      line-height: 1.35;
+      color: var(--accent-dark);
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .lead {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: 1.05rem;
+    }
+
+    .abstract-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .key-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .finding {
+      min-height: 150px;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 0.96rem;
+    }
+
+    .finding span {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .rule-box {
+      margin: 28px 0;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #25211d;
+      color: #fff8ec;
+      box-shadow: var(--shadow);
+    }
+
+    .rule-box h3 {
+      margin-top: 0;
+      color: #f2c06f;
+    }
+
+    .rule-box ul {
+      margin-bottom: 0;
+    }
+
+    ul, ol {
+      padding-left: 1.35rem;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 28px 30px;
+      border-left: 6px solid var(--accent);
+      background: #f7f0e8;
+      color: #2c241f;
+      font-family: Georgia, "Times New Roman", "Apple SD Gothic Neo", serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.72rem);
+      line-height: 1.42;
+    }
+
+    .diagram {
+      margin: 28px 0;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .diagram-title {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .step {
+      position: relative;
+      padding: 16px 14px;
+      min-height: 122px;
+      border: 1px solid #d7cec1;
+      border-radius: var(--radius);
+      background: #faf7f2;
+    }
+
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 42%;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .step:last-child::after {
+      content: "";
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+      font-size: 0.95rem;
+    }
+
+    .step span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    th {
+      background: #efe7dc;
+      color: #2b2520;
+      font-size: 0.86rem;
+      letter-spacing: 0.03em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      background: #eee6da;
+      color: #5d271d;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.88em;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .case-card {
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 30px rgba(38, 30, 22, 0.06);
+    }
+
+    .case-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+
+    .case-card .answer {
+      display: inline-block;
+      margin: 4px 0 12px;
+      padding: 4px 9px;
+      background: #e8f0eb;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .note {
+      padding: 18px 20px;
+      background: #f5f8fa;
+      border: 1px solid #d7e2e9;
+      border-radius: var(--radius);
+      color: #31485b;
+    }
+
+    .checklist {
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 30px;
+      margin: 14px 0;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .source-notes {
+      padding: 24px;
+      background: #f4efe8;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      color: #473f38;
+      font-size: 0.95rem;
+    }
+
+    .ending {
+      margin-top: 64px;
+      padding: 34px;
+      background: #2a2521;
+      color: #fff8ec;
+      border-radius: var(--radius);
+    }
+
+    .ending h2 {
+      color: #fff8ec;
+    }
+
+    .ending p {
+      color: #eadfce;
+    }
+
+    .copy-block {
+      margin-top: 18px;
+      padding: 16px;
+      background: #1d1916;
+      border: 1px solid #51463c;
+      border-radius: var(--radius);
+      color: #f6e5c8;
+      font-size: 0.94rem;
+    }
+
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 18px;
+        padding-bottom: 0;
+      }
+
+      .toc strong {
+        grid-column: 1 / -1;
+      }
+
+      .key-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .step::after {
+        content: "↓";
+        right: 18px;
+        top: auto;
+        bottom: -18px;
+      }
+
+      .step:last-child::after {
+        content: "";
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        padding: 42px 18px 32px;
+      }
+
+      .layout {
+        padding: 28px 18px 54px;
+        gap: 28px;
+      }
+
+      .share-card,
+      .lead,
+      .rule-box,
+      .diagram,
+      .checklist,
+      .ending {
+        padding: 20px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+
+      th, td {
+        min-width: 180px;
+      }
+
+      section {
+        margin: 44px 0;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .toc,
+      .share-card {
+        position: static;
+        box-shadow: none;
+      }
+
+      .layout,
+      .hero-inner {
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="statement-against-interest-이익에-반하는-진술">
+<meta property="og:description" content="Statement against interest (이익에 반하는 진술) — FRE 804 ★★ 가. 기본 원칙 Statement against interest(이익에 반하는 진술)는 declarant의 재산적·금전적 이익에 반하거나, 타인에 대한 청구를 무효화하거나, declarant를 민·형사 책임에 노출시키는 진술로서">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/yuhrd7/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="statement-against-interest-이익에-반하는-진술">
+<meta name="twitter:description" content="Statement against interest (이익에 반하는 진술) — FRE 804 ★★ 가. 기본 원칙 Statement against interest(이익에 반하는 진술)는 declarant의 재산적·금전적 이익에 반하거나, 타인에 대한 청구를 무효화하거나, declarant를 민·형사 책임에 노출시키는 진술로서">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/yuhrd7/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker">Federal Rules of Evidence 804 · Research Report</div>
+          <h1>이익에 반하는 진술은 언제 전문법칙을 통과하는가</h1>
+          <p class="subtitle">
+            FRE 804의 <code>statement against interest</code> 예외는 단순히 “불리한 말”을 허용하는 규칙이 아니다.
+            핵심은 진술자의 unavailable 상태, 진술 당시의 자기불리성, 형사사건에서의 보강정황, 그리고 대면권 검토를 한 흐름으로 묶는 데 있다.
+          </p>
+        </div>
+
+        <aside class="share-card" aria-label="공유용 요약">
+          <h2>공유용 설명</h2>
+          <p>
+            공모자 진술, 당사자-opponent 진술, 자기부죄 진술이 뒤섞이는 FRE 문제에서
+            statement against interest를 빠르게 식별하는 기준을 정리했다.
+          </p>
+          <div class="share-text">
+            한 줄 요약: “진술자가 unavailable이고, 합리적 사람이라면 진실이 아니고서는 하지 않을 정도로 자기에게 불리한 말인가?”
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main class="layout">
+      <nav class="toc" aria-label="목차">
+        <strong>Article Map</strong>
+        <a href="#abstract">초록</a>
+        <a href="#findings">핵심 발견</a>
+        <a href="#rule">기본 원칙</a>
+        <a href="#rationale">신뢰성의 이유</a>
+        <a href="#limits">적용 범위와 한계</a>
+        <a href="#distinctions">구별 포인트</a>
+        <a href="#cases">문제별 적용</a>
+        <a href="#implications">실전 함의</a>
+      </nav>
+
+      <article>
+        <div class="meta">
+          <span class="pill">Artifact: Research Report</span>
+          <span class="pill">Mode: Editorial Blog</span>
+          <span class="pill">Topic: FRE 804</span>
+          <span class="pill">난이도: ★★</span>
+        </div>
+
+        <section id="abstract">
+          <div class="lead">
+            <span class="abstract-label">Abstract</span>
+            <p>
+              <code>Statement against interest</code>, 즉 이익에 반하는 진술은 전문증거 배제 원칙에 대한
+              FRE 804상의 예외다. 이 예외는 진술자가 재판에서 증언할 수 없는 상태일 때, 그 진술이 재산적·금전적 이익에 반하거나,
+              타인에 대한 청구를 무효화하거나, 자신을 민사 또는 형사 책임에 노출시키는 경우에 작동한다.
+            </p>
+            <p>
+              특히 형사사건에서 자기부죄적 진술을 제출할 때는 단순한 불리성만으로 부족하다. 진술의 신뢰성을 분명히 보여주는
+              <code>corroborating circumstances</code>가 필요하고, 피고인의 대면권 문제까지 함께 검토해야 한다.
+            </p>
+          </div>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="key-grid">
+            <div class="finding">
+              <b>1. Unavailability가 문을 연다</b>
+              <span>이 예외는 FRE 804 예외이므로 declarant가 unavailable일 때에만 적용된다.</span>
+            </div>
+            <div class="finding">
+              <b>2. 불리성은 진술 시점 기준이다</b>
+              <span>합리적인 사람이라면 진실이라고 믿지 않고서는 하지 않았을 정도의 자기불리성이 필요하다.</span>
+            </div>
+            <div class="finding">
+              <b>3. 형사 자기부죄 진술은 보강이 필요하다</b>
+              <span>형사사건에서 penal interest 진술을 제출하려면 신뢰성을 뒷받침하는 보강정황을 확인해야 한다.</span>
+            </div>
+          </div>
+
+          <div class="pullquote">
+            이 예외의 시험 포인트는 “불리한 말인가”가 아니라 “왜 이 말이 거짓일 가능성이 낮다고 보는가”에 있다.
+          </div>
+        </section>
+
+        <section id="rule">
+          <h2>기본 원칙: FRE 804의 작동 구조</h2>
+          <p>
+            이익에 반하는 진술은 declarant의 재산적·금전적 이익에 반하거나, 타인에 대한 청구를 무효화하거나,
+            declarant를 민사 또는 형사 책임에 노출시키는 진술이다. 규칙은 이러한 진술을 특별히 신뢰할 수 있다고 본다.
+            자기에게 손해가 되는 말을 일부러 거짓으로 할 동기는 비교적 약하다는 판단 때문이다.
+          </p>
+
+          <div class="rule-box">
+            <h3>Rule Statement</h3>
+            <ul>
+              <li>진술자는 <code>unavailable</code>이어야 한다.</li>
+              <li>진술은 재산상 이익, 청구권, 민사책임, 형사책임 중 하나에 실질적으로 반해야 한다.</li>
+              <li>합리적인 사람이라면 진실이라 믿지 않고서는 하지 않았을 진술이어야 한다.</li>
+              <li>형사사건에서 형사책임 노출 진술을 제출하려면 신뢰성을 보여주는 보강정황이 필요하다.</li>
+            </ul>
+          </div>
+
+          <div class="diagram">
+            <p class="diagram-title">Decision Flow</p>
+            <div class="flow">
+              <div class="step">
+                <b>1. Declarant 확인</b>
+                <span>법정 밖에서 문제의 말을 한 사람이 누구인지 특정한다.</span>
+              </div>
+              <div class="step">
+                <b>2. Unavailable 여부</b>
+                <span>사망, 출국, 소재불명 등 FRE 804의 unavailable 사유를 검토한다.</span>
+              </div>
+              <div class="step">
+                <b>3. 자기불리성</b>
+                <span>진술이 민사·형사 책임 또는 재산상 이익에 반하는지 본다.</span>
+              </div>
+              <div class="step">
+                <b>4. 보강·대면권</b>
+                <span>형사사건이면 corroboration과 testimonial 여부를 함께 점검한다.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rationale">
+          <h2>Underlying Rationale: 왜 믿을 만하다고 보는가</h2>
+          <p>
+            이 예외의 기초는 인간 행동에 대한 경험칙이다. 사람은 보통 자신의 돈, 재산, 청구권, 자유, 법적 지위를 해치는 말을
+            함부로 하지 않는다. 그래서 자기에게 불리한 진술은 조작 가능성이 낮고, 전문증거임에도 일정 조건 아래 배심원에게
+            전달할 만한 신뢰성이 있다고 평가된다.
+          </p>
+          <p>
+            다만 이 논리는 전면적 면허가 아니다. 진술의 일부가 자기에게 불리하면서 동시에 타인을 강하게 지목하는 경우,
+            그 타인지목 부분까지 자동으로 신뢰된다고 보기는 어렵다. 특히 형사사건에서는 보강정황과 대면권이 신뢰성 판단을
+            더 엄격하게 만든다.
+          </p>
+        </section>
+
+        <section id="limits">
+          <h2>적용 범위와 한계</h2>
+          <p>
+            이익에 반하는 진술은 coconspirator statement와 자주 혼동된다. 공모자 진술은 공모 진행 중, 공모를 촉진하기 위해
+            한 진술이어야 비전문으로 취급된다. 반면 공모가 종료된 뒤의 고백이나 사후 설명은 공모자 진술로는 들어오기 어렵다.
+            그러나 그 말이 진술자 자신의 형사책임을 노출한다면 statement against interest로 들어올 수 있다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>쟁점</th>
+                <th>Statement Against Interest</th>
+                <th>Coconspirator Statement</th>
+                <th>Party-Opponent Statement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>증거 성격</td>
+                <td>전문예외</td>
+                <td>비전문 취급</td>
+                <td>비전문 취급</td>
+              </tr>
+              <tr>
+                <td>Unavailability</td>
+                <td>필요</td>
+                <td>불요</td>
+                <td>불요</td>
+              </tr>
+              <tr>
+                <td>핵심 요건</td>
+                <td>진술자의 자기불리성</td>
+                <td>공모 중·공모 촉진 목적</td>
+                <td>상대 당사자에게 불리하게 제출</td>
+              </tr>
+              <tr>
+                <td>대표 함정</td>
+                <td>형사 자기부죄 진술의 보강정황 누락</td>
+                <td>공모 종료 후 진술을 잘못 포함</td>
+                <td>당사자가 아닌 제3자의 진술과 혼동</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            Firsthand knowledge 입증은 이 예외의 별도 요건이 아니다. 시험에서는 이 점이 오답 선택지로 자주 등장할 수 있다.
+          </div>
+        </section>
+
+        <section id="distinctions">
+          <h2>구별 포인트: 세 가지 질문으로 압축하기</h2>
+          <div class="checklist">
+            <ul>
+              <li><strong>누구의 진술인가?</strong> 당사자 본인의 말인지, 제3자의 말인지, 공모자의 말인지 먼저 분리한다.</li>
+              <li><strong>왜 들어오는가?</strong> 비전문으로 들어오는지, 전문예외로 들어오는지 증거 경로를 구분한다.</li>
+              <li><strong>형사사건인가?</strong> 자기부죄적 진술이면 corroboration과 Confrontation Clause를 함께 본다.</li>
+            </ul>
+          </div>
+
+          <h3>Party-opponent statement와의 차이</h3>
+          <p>
+            Party-opponent statement는 상대방 당사자에게 제출되는 당사자의 진술이므로 비전문이다. 따라서 declarant의
+            unavailable이 필요 없다. 반면 statement against interest는 전문예외이고, declarant가 unavailable이어야 한다.
+          </p>
+
+          <h3>Confrontation Clause와의 연결</h3>
+          <p>
+            형사사건에서 자기부죄적 진술이 문제되면, 보강정황만으로 끝나지 않는다. 그 진술이 testimonial인지도 확인해야 한다.
+            수사·기소 목적으로 경찰에게 한 진술이라면 대면권 문제가 생길 수 있지만, 가족에게 사적으로 털어놓은 말은 보통
+            nontestimonial로 평가된다.
+          </p>
+        </section>
+
+        <section id="cases">
+          <h2>관련 문제 상세: 사실관계별 적용</h2>
+          <div class="case-list">
+            <div class="case-card">
+              <h3>Q.26 요트 화재보험: “돈 받고 불 질렀다”</h3>
+              <span class="answer">정답 C · 허용</span>
+              <p>
+                원고가 요트 화재보험금을 청구하자 보험사는 원고가 친구를 고용해 방화했다고 주장한다. 화상을 입은 친구가 병원에서
+                아내에게 “돈 받고 불을 질렀다”고 말한 뒤 사망했다.
+              </p>
+              <p>
+                이 진술은 방화 형사책임을 노출시키고, 친구는 사망하여 unavailable이다. 따라서 statement against interest로 허용된다.
+                간호사가 있는 자리에서 한 말이므로 비밀성이 없어 배우자 특권도 적용되지 않는다.
+              </p>
+            </div>
+
+            <div class="case-card">
+              <h3>Q.30 교통사망: “내 잘못이야”</h3>
+              <span class="answer">정답 C · 허용</span>
+              <p>
+                사망 전날 남편이 “내 잘못이야”라고 한 진술은 자신의 민사책임을 노출시키는 말이다. 남편이 사망해 unavailable이므로
+                statement against interest 예외가 적용된다.
+              </p>
+              <p>
+                dying declaration은 별도 요건인 사망 임박에 대한 믿음이 필요하다. 이 사안에서는 그 요건이 없어 dying declaration이
+                아니라 statement against interest로 처리된다.
+              </p>
+            </div>
+
+            <div class="case-card">
+              <h3>Q.32 은행강도: 어머니에게 한 자기부죄 진술</h3>
+              <span class="answer">정답 C · 허용</span>
+              <p>
+                피고인의 친구가 출국 전 어머니에게 “은행 강도에 가담했고 잡히고 싶지 않다”고 말했다. 친구는 출국해 찾을 수 없으므로
+                unavailable이고, 강도 가담 진술은 명백히 형사책임을 노출한다.
+              </p>
+              <p>
+                형사사건이므로 보강정황이 필요하다. 검사가 피고인과 친구가 강도 당일 아침 함께 있었다는 별도 증거를 갖고 있어
+                corroboration 요건을 충족한다. 또한 어머니에게 한 사적 진술은 nontestimonial이므로 대면권도 통과한다.
+              </p>
+            </div>
+
+            <div class="case-card">
+              <h3>Q.43 도난 목걸이: 공모 종료 후 누이에게 한 말</h3>
+              <span class="answer">정답 C · 허용</span>
+              <p>
+                도난 다이아몬드 목걸이를 이미 판 뒤, 친구가 누이에게 “[그 남자]가 목걸이 판 돈 중 일부를 아직 내가 빚지고 있다고 했다”고
+                털어놓았다. 친구는 보석금을 떼고 도주해 unavailable이다.
+              </p>
+              <p>
+                목걸이가 이미 처분되어 공모가 종료된 뒤의 진술이므로 coconspirator exclusion은 적용되지 않는다. 그러나 이 말은 친구
+                자신의 공모 형사책임을 노출시키므로 statement against interest로 허용된다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 시험장에서의 처리 순서</h2>
+          <p>
+            이 주제는 암기보다 분류가 중요하다. 같은 문장도 어느 증거 경로로 제출되는지에 따라 요건이 달라진다.
+            따라서 답을 고르기 전에 “비전문인가, 전문예외인가”를 먼저 정하고, 그 다음 unavailable과 보강정황을 확인하는 편이 안전하다.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>시험 신호</th>
+                <th>바로 떠올릴 규칙</th>
+                <th>추가 확인</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>사망한 사람이 자기 잘못을 인정</td>
+                <td>Statement against interest</td>
+                <td>민사책임 또는 형사책임 노출 여부</td>
+              </tr>
+              <tr>
+                <td>도주·출국한 공범의 사적 고백</td>
+                <td>Statement against penal interest</td>
+                <td>Unavailable, corroboration, nontestimonial 여부</td>
+              </tr>
+              <tr>
+                <td>공모 후 사후 정산·고백</td>
+                <td>Coconspirator exclusion은 약함</td>
+                <td>대신 자기불리 진술인지 검토</td>
+              </tr>
+              <tr>
+                <td>상대 당사자 본인의 말</td>
+                <td>Party-opponent statement</td>
+                <td>Unavailability 불필요</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="source-notes">
+            <h3>Source Notes</h3>
+            <p>
+              이 리포트는 FRE 804의 statement against interest 예외에 관한 제공 노트를 바탕으로 구성했다.
+              핵심 근거는 unavailable 요건, 진술자의 재산상·민사상·형사상 자기불리성, 형사사건에서의 corroborating circumstances,
+              그리고 Confrontation Clause의 testimonial 분석이다.
+            </p>
+          </div>
+        </section>
+
+        <section class="ending">
+          <h2>Reader-Friendly Ending</h2>
+          <p>
+            Statement against interest는 “자기에게 손해인 말은 대체로 믿을 만하다”는 직관에서 출발하지만, 법적 적용은 더 정교하다.
+            진술자가 unavailable인지, 진술이 정말 자기 책임을 노출하는지, 형사사건에서 보강정황과 대면권을 통과하는지를 차례로 보아야 한다.
+          </p>
+          <p>
+            시험장에서 가장 좋은 압축 문장은 다음과 같다.
+          </p>
+          <div class="copy-block">
+            Declarant가 unavailable이고, 진술 당시 합리적인 사람이라면 진실이 아니고서는 하지 않았을 정도로 자기의 재산상 이익이나 민·형사 책임에 반하는 진술이면 FRE 804의 statement against interest로 허용될 수 있다. 형사사건의 penal interest 진술은 corroborating circumstances와 Confrontation Clause를 추가로 검토한다.
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>Standalone HTML research article · Sanitized static version · No JavaScript, external stylesheets, iframes, or remote assets.</p>
+    </footer>
+  </div>
+</body>
+</html>
