@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>MBE Evidence: 과거 악행 증거는 언제 허용되는가 | MIMIC와 Propensity의 경계</title>
+  
+  <style>
+    :root {
+      --ink: #1d2329;
+      --muted: #5c6773;
+      --soft: #eef2f4;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --line: #d7dedc;
+      --accent: #176f6b;
+      --accent-dark: #0d4e4d;
+      --gold: #b7832f;
+      --rose: #9d3f45;
+      --code: #f1f5f4;
+      --shadow: 0 20px 50px rgba(29, 35, 41, .08);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, #f4f2ed 0%, var(--paper) 38%, #f7f8f5 100%);
+      color: var(--ink);
+      font-family: ui-serif, Georgia, "Times New Roman", "Apple SD Gothic Neo", "Noto Serif KR", serif;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: .08em;
+      text-underline-offset: .18em;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 22px;
+      padding: 6px 10px;
+      border: 1px solid rgba(23, 111, 107, .22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .65);
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: #172026;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.65;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .share-card {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      margin: 34px 0 0;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .8);
+      box-shadow: var(--shadow);
+    }
+
+    .share-card h2,
+    .share-card p {
+      margin: 0;
+    }
+
+    .share-card h2 {
+      font-size: 18px;
+      line-height: 1.35;
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .share-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .copy-block {
+      padding: 14px 16px;
+      border-radius: 6px;
+      background: var(--code);
+      color: #243036;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 46px;
+      padding: 42px 0 72px;
+    }
+
+    aside {
+      align-self: start;
+      position: sticky;
+      top: 20px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .78);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    aside h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: var(--accent-dark);
+    }
+
+    nav ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: #2f3a42;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--soft);
+      outline: none;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 42px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(26px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      color: var(--accent-dark);
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 18px;
+    }
+
+    ul,
+    ol {
+      margin: 0 0 18px;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 8px 0;
+      font-size: 17px;
+    }
+
+    strong {
+      color: #10171c;
+    }
+
+    code {
+      padding: .12em .34em;
+      border-radius: 4px;
+      background: var(--code);
+      color: var(--accent-dark);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .abstract {
+      padding: 28px;
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .abstract p {
+      margin-bottom: 0;
+      font-size: 19px;
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .finding {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .finding p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .pullquote {
+      margin: 32px 0;
+      padding: 28px 30px;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      color: #243036;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .rule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 22px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+    }
+
+    .rule-table th,
+    .rule-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .rule-table th {
+      background: #edf4f2;
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .rule-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .flow {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      counter-reset: step;
+    }
+
+    .flow-step {
+      position: relative;
+      padding: 18px 18px 18px 58px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .flow-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 18px;
+      top: 19px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 26px;
+      text-align: center;
+    }
+
+    .flow-step h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .flow-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .case-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(23, 111, 107, .08), rgba(183, 131, 47, .08)),
+        var(--panel);
+    }
+
+    .case-card dl {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px 18px;
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .case-card dt {
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .case-card dd {
+      margin: 0;
+      color: #2e383f;
+    }
+
+    .warning {
+      padding: 20px;
+      border: 1px solid rgba(157, 63, 69, .25);
+      border-left: 5px solid var(--rose);
+      border-radius: var(--radius);
+      background: #fff7f6;
+    }
+
+    .warning p {
+      margin: 0;
+    }
+
+    .checklist {
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      background: #f0f6f5;
+      border: 1px solid rgba(23, 111, 107, .2);
+    }
+
+    .checklist ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding-left: 28px;
+      margin: 12px 0;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .source-note {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: #f3f0e8;
+      color: #4b4236;
+      font-size: 15px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .source-note p {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    .source-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ending {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: #172026;
+      color: #f8f5ec;
+    }
+
+    .ending h2 {
+      color: #ffffff;
+    }
+
+    .ending p {
+      color: #e4e1d8;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        padding-top: 46px;
+      }
+
+      .share-card,
+      .layout,
+      .finding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .case-card dl {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      p {
+        font-size: 17px;
+      }
+
+      .abstract,
+      .share-card,
+      .ending {
+        padding: 20px;
+      }
+
+      .rule-table {
+        font-size: 14px;
+      }
+
+      .rule-table th,
+      .rule-table td {
+        padding: 12px;
+      }
+
+      .pullquote {
+        padding: 22px 0;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="04. Miscellaneous (1)">
+<meta property="og:description" content="이 자료는 Evidence MBE 강의자막 정리본과 객관식 통합문제를 결합하여 만든 시험용 법리노트이다. 0. 분석 프레임 단계 1: 과거 범죄·악행(prior crime or bad act) 증거가 나오면, 그것이 &quot;성격을 보여 그 성격대로 행동했다&quot;는 금지된 추진력 논거(propensity)로 쓰이는지 먼저 본다. 단">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/1lk6cq8/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="04. Miscellaneous (1)">
+<meta name="twitter:description" content="이 자료는 Evidence MBE 강의자막 정리본과 객관식 통합문제를 결합하여 만든 시험용 법리노트이다. 0. 분석 프레임 단계 1: 과거 범죄·악행(prior crime or bad act) 증거가 나오면, 그것이 &quot;성격을 보여 그 성격대로 행동했다&quot;는 금지된 추진력 논거(propensity)로 쓰이는지 먼저 본다. 단">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/1lk6cq8/">
+</head>
+<body>
+  <header class="hero">
+    <div class="page">
+      <div class="kicker">Evidence MBE Research Report · Prior Bad Acts</div>
+      <h1>과거 악행 증거는 언제 허용되는가: Propensity 금지와 MIMIC 예외의 실전 경계</h1>
+      <p class="subtitle">MBE Evidence에서 반복 출제되는 prior crime or bad act 증거의 허용 여부를 “성격→행동” 추론과 noncharacter purpose의 차이로 정리한다.</p>
+      <div class="meta-row" aria-label="문서 정보">
+        <span class="chip">주제: Evidence · Miscellaneous</span>
+        <span class="chip">형식: 시험용 법리 리포트</span>
+        <span class="chip">핵심 키워드: MIMIC · Self-defense · Pattern</span>
+      </div>
+
+      <div class="share-card" aria-label="공유용 요약">
+        <div>
+          <h2>공유용 한 줄 설명</h2>
+          <p>과거 악행 증거는 위험하지만, “나쁜 사람이라서 그랬다”가 아니라 의도·계획·착오 배제 같은 사실 쟁점을 증명한다면 MBE 정답은 달라진다.</p>
+        </div>
+        <div class="copy-block">
+          Title: 과거 악행 증거는 언제 허용되는가<br>
+          Description: Propensity 금지와 MIMIC 예외를 self-defense 반박 사례로 읽는 Evidence MBE 핵심 정리.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page layout">
+    <aside>
+      <h2>Article Map</h2>
+      <nav aria-label="문서 목차">
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#framework">분석 프레임</a></li>
+          <li><a href="#doctrine">법리 구조</a></li>
+          <li><a href="#application">사례 적용</a></li>
+          <li><a href="#exam">시험 포인트</a></li>
+          <li><a href="#notes">Source Notes</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract">
+          <p>이 리포트는 Evidence MBE 강의자막 정리본과 객관식 통합문제를 바탕으로, 과거 범죄·악행 증거의 허용 여부를 시험 답안 관점에서 재구성한다. 핵심은 하나다. 같은 과거 행위라도 그것이 피고인의 나쁜 성격을 보여주기 위한 증거인지, 아니면 동기·의도·착오 배제·동일성·공통계획 같은 별도 쟁점을 증명하기 위한 증거인지에 따라 결론이 바뀐다.</p>
+        </div>
+      </section>
+
+      <section id="findings">
+        <h2>Key Findings</h2>
+        <div class="finding-grid">
+          <article class="finding">
+            <b>Finding 1</b>
+            <p>Prior bad acts는 “성격이 나쁘므로 이번에도 그랬다”는 propensity 논거로는 원칙적으로 금지된다.</p>
+          </article>
+          <article class="finding">
+            <b>Finding 2</b>
+            <p>MIMIC 목적이 인정되면 같은 증거도 허용될 수 있다. 시험은 대개 offered purpose를 묻는다.</p>
+          </article>
+          <article class="finding">
+            <b>Finding 3</b>
+            <p>반복되는 수법이나 행동양식은 self-defense 부존재 같은 material fact를 더 개연적으로 만들 수 있다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="framework">
+        <h2>분석 프레임: 먼저 “무엇을 위해 제시되는가”를 묻는다</h2>
+        <p>과거 범죄나 악행 증거가 나오면 사실관계의 자극성에 끌려가면 안 된다. MBE의 초점은 과거 행위 자체가 아니라 그 증거가 법정에서 어떤 추론을 위해 제시되는지에 있다.</p>
+
+        <div class="flow" aria-label="분석 단계 다이어그램">
+          <article class="flow-step">
+            <h3>Propensity 여부 확인</h3>
+            <p>증거가 “그 사람은 그런 성격이므로 이번에도 그렇게 행동했다”는 추론을 만들고 있는지 본다.</p>
+          </article>
+          <article class="flow-step">
+            <h3>Noncharacter Purpose 탐색</h3>
+            <p>동기, 의도, 착오·우연 배제, 동일성, 공통계획·수법 등 별도 쟁점과 연결되는지 확인한다.</p>
+          </article>
+          <article class="flow-step">
+            <h3>Relevance와 Material Fact 점검</h3>
+            <p>그 목적이 사건의 중요한 사실을 더 개연적으로 만드는지 판단한다.</p>
+          </article>
+        </div>
+
+        <p class="pullquote">MBE에서 prior bad acts 문제의 승부처는 “나쁜 행동이 있었는가”가 아니라 “그 행동을 어떤 논리로 쓰는가”이다.</p>
+      </section>
+
+      <section id="doctrine">
+        <h2>법리 구조: Propensity 금지와 MIMIC의 허용 논리</h2>
+        <h3>기본 원칙</h3>
+        <p>과거 범죄나 악행 증거는 어떤 사람의 성격을 보여주고, 그 성격대로 특정 사건에서 행동했다는 결론을 이끌기 위해 사용할 수 없다. 이것이 금지되는 propensity 논거다. 배심원이 현재 사건의 증거가 아니라 과거 행위에 대한 반감으로 판단할 위험이 크기 때문이다.</p>
+
+        <h3>MIMIC: 허용될 수 있는 noncharacter purpose</h3>
+        <p>그러나 같은 증거라도 성격이 아닌 관련 목적을 위해 제시된다면 허용될 수 있다. 전형적인 정리틀은 <code>MIMIC</code>이다.</p>
+
+        <table class="rule-table">
+          <thead>
+            <tr>
+              <th>분류</th>
+              <th>의미</th>
+              <th>시험상 기능</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Motive</td>
+              <td>동기</td>
+              <td>왜 그런 행위를 했는지 설명한다.</td>
+            </tr>
+            <tr>
+              <td>Intent</td>
+              <td>의도</td>
+              <td>행위가 우연이나 실수가 아니라 의도적이었다는 점을 보강한다.</td>
+            </tr>
+            <tr>
+              <td>absence of Mistake</td>
+              <td>착오·우연 배제</td>
+              <td>피고인의 “실수였다”는 설명을 반박한다.</td>
+            </tr>
+            <tr>
+              <td>Identity</td>
+              <td>동일성</td>
+              <td>특징적인 수법을 통해 행위자를 특정한다.</td>
+            </tr>
+            <tr>
+              <td>Common plan or scheme</td>
+              <td>공통계획·수법</td>
+              <td>반복되는 행동양식이 이번 사건의 특정 사실을 설명한다.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Underlying Rationale</h3>
+        <p>금지되는 논거는 “전에 그랬으니 이번에도 그랬을 것”이라는 일반적 성격 추론이다. 반대로 허용되는 논거는 특정 사건의 쟁점, 예컨대 의도·계획·착오 배제·정당방위 부존재를 직접 설명하는 추론이다. 이 차이가 증거의 운명을 가른다.</p>
+      </section>
+
+      <section id="application">
+        <h2>사례 적용: 포커 게임, 폭행, 거짓 정당방위</h2>
+        <div class="case-card">
+          <dl>
+            <dt>사실관계</dt>
+            <dd>공장 노동자는 포커 게임에서 매니저에게 돈을 잃은 뒤 매니저를 폭행해 criminal assault로 기소되었다.</dd>
+            <dt>방어 논리</dt>
+            <dd>노동자는 자신이 self-defense로 매니저를 쳤다고 증언했다.</dd>
+            <dt>검사의 증거</dt>
+            <dd>검사는 과거 두 차례 노동자가 포커 게임 후 도발 없이 사람을 폭행하고 거짓으로 정당방위를 주장했다는 증언을 제출하려 한다.</dd>
+            <dt>정답</dt>
+            <dd>허용된다. 이번에도 정당방위로 행동한 것이 아니라는 점을 입증하는 noncharacter purpose 증거이기 때문이다.</dd>
+          </dl>
+        </div>
+
+        <h3>왜 허용되는가</h3>
+        <p>이 증거가 단순히 “노동자는 폭력적 성향이 있다”는 점을 보이기 위해 제출된다면 금지된다. 그러나 여기서는 더 구체적인 목적이 있다. 과거에도 포커 게임 후 도발 없이 폭행하고, 그 뒤 거짓으로 정당방위를 주장한 반복 패턴이 있었다는 점은 이번 self-defense 주장도 사실이 아닐 가능성을 높인다.</p>
+
+        <p>따라서 증거의 기능은 성격 입증이 아니라 <strong>pattern of operation or scheme</strong>을 통해 정당방위 부존재라는 material fact를 입증하는 것이다.</p>
+
+        <div class="warning">
+          <p><strong>주의할 함정:</strong> “관련성이 없다”는 선택지는 보통 오답이다. 패턴 증거는 정당방위 부존재라는 중요한 사실을 더 개연적으로 만들기 때문에 relevance는 인정된다.</p>
+        </div>
+      </section>
+
+      <section id="exam">
+        <h2>시험 답안 핵심 패턴</h2>
+        <div class="checklist">
+          <ul>
+            <li>과거 악행 증거가 나오면 먼저 “성격→행동” 추론인지 확인한다.</li>
+            <li>선택지에 “violent nature” 같은 성격 표현이 있으면 경계한다.</li>
+            <li>선택지가 “이번 사건에서 self-defense가 아니었다”처럼 특정 사실 입증을 말하면 MIMIC 가능성을 검토한다.</li>
+            <li>반복되는 수법·행동양식은 common plan or scheme으로 정리할 수 있다.</li>
+            <li>정답 판단은 증거 자체보다 offered purpose에 달려 있다.</li>
+          </ul>
+        </div>
+
+        <h3>구별 포인트</h3>
+        <table class="rule-table">
+          <thead>
+            <tr>
+              <th>금지되는 사용</th>
+              <th>허용될 수 있는 사용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>피고인이 폭력적 성향을 가졌으므로 이번에도 폭행했을 것이라고 주장한다.</td>
+              <td>피고인이 과거에도 같은 상황에서 도발 없이 폭행하고 거짓 정당방위를 주장했다는 패턴으로 이번 self-defense 주장을 반박한다.</td>
+            </tr>
+            <tr>
+              <td>성격을 통해 행위를 추론한다.</td>
+              <td>행동양식을 통해 의도, 계획, 착오 배제, 정당방위 부존재 같은 사실 쟁점을 설명한다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="implications">
+        <h2>Implications</h2>
+        <p>이 법리는 Evidence 전반의 사고방식을 압축한다. 증거법은 “나쁜 사실”을 자동으로 배제하지 않는다. 다만 그 사실이 배심원의 편견을 자극하는 방식으로 쓰이는지, 아니면 사건의 실제 쟁점을 설명하는 방식으로 쓰이는지를 구별한다.</p>
+        <p>따라서 MBE 풀이에서는 과거 악행이라는 소재에 반응하기보다, 문제의 마지막 문장과 선택지의 표현을 읽어야 한다. “폭력적 성향”은 위험 신호이고, “이번에도 정당방위가 아니었다”는 표현은 noncharacter purpose의 신호다.</p>
+      </section>
+
+      <section id="notes">
+        <h2>Source Notes</h2>
+        <div class="source-note">
+          <p><strong>기초 자료:</strong> Evidence MBE 강의자막 정리본 및 객관식 통합문제 기반 시험용 법리노트.</p>
+          <p><strong>원문 주제:</strong> “04. Miscellaneous (1)” — prior crime or bad act evidence, MIMIC, pattern of operation or scheme, self-defense 반박.</p>
+          <p><strong>편집 방향:</strong> 공개용 블로그형 리서치 리포트로 재구성하면서 abstract, key findings, evidence sections, table, implications, source notes를 추가했다.</p>
+        </div>
+      </section>
+
+      <section class="ending">
+        <h2>Reader-Friendly Closing</h2>
+        <p>Prior bad acts 문제는 외워서 맞히는 문제처럼 보이지만, 실제로는 추론 구조를 읽는 문제다. 과거 행위가 성격을 보여주기 위한 것인지, 아니면 이번 사건의 의도·계획·착오 배제·정당방위 부존재를 설명하기 위한 것인지 묻는 순간 답안의 방향이 분명해진다.</p>
+        <p>시험장에서 기억할 문장은 짧다. <strong>과거 악행은 propensity면 금지, MIMIC이면 가능하다. 그리고 언제나 offered purpose가 결론을 가른다.</strong></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
