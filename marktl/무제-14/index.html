@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Ferris Wheel Confinement, Negligence, and NIED: A Public-Law Style Tort Analysis</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --soft: #f7f4ef;
+      --panel: #ffffff;
+      --line: #ded8ce;
+      --accent: #8a3ffc;
+      --accent-dark: #4b2a7b;
+      --green: #1f7a62;
+      --amber: #b76612;
+      --red: #b13b44;
+      --shadow: 0 18px 50px rgba(32, 33, 36, 0.10);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #fbfaf7 0%, #f5f1ea 52%, #ffffff 100%);
+      font-family: ui-serif, "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", Georgia, serif;
+      line-height: 1.72;
+      word-break: keep-all;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+      padding: 52px clamp(24px, 6vw, 72px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(138, 63, 252, 0.12), transparent 28%),
+        linear-gradient(135deg, #fffdfa 0%, #f2eee7 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.2rem, 5.6vw, 4.9rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      max-width: 780px;
+      margin: 0;
+      color: #3b3d40;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      line-height: 1.65;
+    }
+
+    .share-frame {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 780px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .share-frame strong {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .share-frame p {
+      margin: 0;
+      color: #35373a;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 34px;
+      margin-top: 34px;
+    }
+
+    aside {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 10px 30px rgba(32, 33, 36, 0.06);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    aside h2 {
+      margin: 0 0 12px;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav ol {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    main {
+      display: grid;
+      gap: 24px;
+    }
+
+    section,
+    .article-card {
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 12px 36px rgba(32, 33, 36, 0.06);
+    }
+
+    section h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    section h3 {
+      margin: 28px 0 10px;
+      font-size: clamp(1.18rem, 2vw, 1.45rem);
+      line-height: 1.28;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      color: #34373a;
+      font-size: 1.08rem;
+    }
+
+    .abstract {
+      display: grid;
+      gap: 18px;
+      border-top: 5px solid var(--accent-dark);
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .finding {
+      min-height: 190px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .finding .label {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--accent-dark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .finding h3 {
+      margin-top: 0;
+      font-size: 1.14rem;
+    }
+
+    .finding p {
+      margin-bottom: 0;
+      color: #404246;
+      font-size: 0.98rem;
+    }
+
+    .pullquote {
+      margin: 28px 0;
+      padding: 26px clamp(20px, 4vw, 34px);
+      border-left: 5px solid var(--accent);
+      background: #f7f4ff;
+      color: #2f2548;
+      font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+      line-height: 1.5;
+    }
+
+    .pullquote cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      font-style: normal;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 4px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.45;
+    }
+
+    th,
+    td {
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      color: #2c2d30;
+      background: #f0ece4;
+      font-weight: 750;
+    }
+
+    .status {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .yes {
+      background: var(--green);
+    }
+
+    .no {
+      background: var(--red);
+    }
+
+    .maybe {
+      background: var(--amber);
+    }
+
+    .diagram {
+      margin: 22px 0 8px;
+      padding: 20px;
+      border: 1px dashed #c9beb0;
+      border-radius: var(--radius);
+      background: #fffaf3;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      min-height: 126px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .time {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+      font-weight: 800;
+      font-size: 0.86rem;
+    }
+
+    .rule-box {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8faf7;
+    }
+
+    .rule-box h3 {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .rule-box ul,
+    .checklist {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .rule-box li,
+    .checklist li {
+      margin: 7px 0;
+    }
+
+    .issue-title {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .weight {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .case-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .fact-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfaf7;
+    }
+
+    .fact-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .copy-block {
+      margin: 18px 0 0;
+      padding: 18px;
+      border: 1px solid #d7d0c6;
+      border-radius: var(--radius);
+      background: #262322;
+      color: #fff9f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .source-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 28px clamp(22px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #202124;
+      color: #f7f4ef;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      color: #e8e3db;
+    }
+
+    footer small {
+      color: #c8c0b6;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .finding-grid,
+      .case-facts,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 34px 22px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      aside,
+      .share-frame {
+        display: none;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      section,
+      .hero,
+      footer {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="무제-14">
+<meta property="og:description" content="Q3  Ferris wheel confinement and NIED 사실관계와 문제  child passenger confined after accident, employee inaction, mother miscarriage Paul, age eight, and Paul’s mother, Mom, spent the mo">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/59xugl/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="무제-14">
+<meta name="twitter:description" content="Q3  Ferris wheel confinement and NIED 사실관계와 문제  child passenger confined after accident, employee inaction, mother miscarriage Paul, age eight, and Paul’s mother, Mom, spent the mo">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/59xugl/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Torts Research Report · Editorial Brief</p>
+      <h1>Ferris Wheel Confinement, Negligence, and NIED</h1>
+      <p class="dek">
+        사고 직후 관람차에 갇힌 아동, 아무 조치를 하지 않은 직원, 그리고 사고를 직접 보지 못한 임신한 어머니.
+        이 문제는 불법감금, 놀이공원 과실, 그리고 방관자형 정신적 고통 손해배상의 경계를 한 번에 묻는다.
+      </p>
+      <div class="share-frame" aria-label="Share framing">
+        <strong>Social-friendly framing</strong>
+        <p>
+          A jury could find Funworld liable for falsely imprisoning Paul and for Employee’s negligent failure to stop the rocking car, but Mom’s NIED claim likely fails because she did not contemporaneously perceive Paul’s injury.
+        </p>
+      </div>
+      <div class="meta-row">
+        <span class="pill">Artifact: Research Report</span>
+        <span class="pill">Mode: Editorial Blog</span>
+        <span class="pill">Core doctrines: False Imprisonment · Negligence · NIED</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside aria-label="Article navigation">
+        <h2>Contents</h2>
+        <nav>
+          <ol>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#findings">Key Findings</a></li>
+            <li><a href="#facts">Factual Frame</a></li>
+            <li><a href="#matrix">Issue Matrix</a></li>
+            <li><a href="#false-imprisonment">False Imprisonment</a></li>
+            <li><a href="#negligence">Negligence</a></li>
+            <li><a href="#nied">Mom’s NIED Claim</a></li>
+            <li><a href="#implications">Implications</a></li>
+            <li><a href="#sources">Source Notes</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <main>
+        <section id="abstract" class="abstract">
+          <h2>Abstract</h2>
+          <p class="lead">
+            이 보고서는 NCBE 스타일의 불법행위 문제를 공개 아티클 형식으로 재구성한 것이다.
+            핵심 질문은 세 가지다. 첫째, 사고 후 직원이 관람차를 재가동하지 않아 Paul을 차량 안에 30분간 머물게 한 것이 불법감금인지.
+            둘째, 직원이 여섯 살 아이들이 차량을 격하게 흔드는 것을 보고도 제지하지 않은 것이 과실인지.
+            셋째, 사고를 직접 목격하지 못한 Mom이 정신적 고통 및 그로 인한 유산에 대해 손해배상을 받을 수 있는지다.
+          </p>
+          <p>
+            결론은 선명하다. Paul의 불법감금 청구와 Funworld의 과실 책임은 배심원이 인정할 수 있다.
+            반면 Mom의 NIED 청구는 법적으로 취약하다. 그녀는 Paul과 가까운 친족이고 실제 신체적 결과도 겪었지만,
+            사고 당시 위험구역 안에 있지 않았고 Paul의 부상을 감각적으로, 동시적으로 목격하지도 않았다.
+          </p>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="finding-grid">
+            <article class="finding">
+              <span class="label">Finding 1</span>
+              <h3>False imprisonment: likely yes</h3>
+              <p>
+                Paul은 자발적으로 탑승했지만, 사고 후 내려달라고 요청했다. 직원이 설명 없이 30분간 재가동을 거부한 순간,
+                초기 동의의 범위를 넘어선 의도적 구금으로 평가될 수 있다.
+              </p>
+            </article>
+            <article class="finding">
+              <span class="label">Finding 2</span>
+              <h3>Negligence: likely yes</h3>
+              <p>
+                차량을 격하게 흔드는 행위는 발생 가능성이 낮더라도 피해 규모가 크다. 아이들에게 멈추라고 지시하는 부담은 작아,
+                합리적 배심원은 직원의 무대응을 주의의무 위반으로 볼 수 있다.
+              </p>
+            </article>
+            <article class="finding">
+              <span class="label">Finding 3</span>
+              <h3>NIED: likely no</h3>
+              <p>
+                Mom은 사고를 직접 보지 못했고, 100야드 밖에 있었으며, 경보를 듣고 나중에 도착했다.
+                유산이라는 중대한 결과가 있어도 방관자형 NIED의 문턱 요건을 충족하지 못한다.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="facts">
+          <h2>Factual Frame</h2>
+          <p>
+            Funworld에서 여덟 살 Paul은 관람차에 탑승했고, 임신 중이던 Mom은 피곤하여 약 100야드 떨어진 곳에서 기다렸다.
+            Employee는 Paul의 안전바를 고정했다. 관람차가 움직이자 Paul은 뒤 차량에 탄 여섯 살 남자아이 둘의 비명과 소란을 들었다.
+            Employee도 그들이 차량을 격하게 흔드는 것을 보고 들었지만 아무 조치를 하지 않았다.
+          </p>
+          <p>
+            Paul의 차량이 꼭대기에서 내려오기 시작할 때, 뒤 차량의 아이들이 안전바를 세게 흔들어 잠금이 풀렸다.
+            두 아이는 추락했고, 그중 한 명은 떨어지며 Paul을 쳤다. Employee는 관람차를 멈추고 비상 경보를 울렸다.
+            Mom은 사고를 보지 못했지만 경보를 듣고 달려왔다. 군중 때문에 Paul을 볼 수 없었고, 한 행인이 “a little boy has been killed”라고 말했다.
+          </p>
+          <p>
+            추락한 아이들은 10분 뒤 구급차로 이송되었다. Paul과 다른 승객들은 내려달라고 요청했지만 Employee는 설명 없이 관람차를 재가동하지 않았다.
+            30분 뒤 매니저가 와서야 Employee에게 재가동과 하차를 지시했다. 사고 40분 뒤 Mom은 Paul과 재회했다.
+            Paul은 경미한 부상 치료를 받았고, Mom은 사고 관련 스트레스로 유산했다.
+          </p>
+
+          <div class="diagram" aria-label="Timeline diagram">
+            <ul class="timeline">
+              <li>
+                <span class="time">Ride begins</span>
+                Paul boards; Employee fastens the safety bar. Mom waits 100 yards away.
+              </li>
+              <li>
+                <span class="time">Accident</span>
+                Two boys rock their car; the safety bar unlatches; both fall; one strikes Paul.
+              </li>
+              <li>
+                <span class="time">Emergency pause</span>
+                Employee stops the wheel and sounds an alarm. Mom arrives but cannot see Paul.
+              </li>
+              <li>
+                <span class="time">40 minutes later</span>
+                Manager orders restart; passengers exit; Paul and Mom go to the hospital.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="matrix">
+          <h2>Issue Matrix</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Legal Test</th>
+                <th>Most Important Fact</th>
+                <th>Likely Jury Finding</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>False imprisonment of Paul</td>
+                <td>Intentional confinement, no reasonable safe escape, awareness of confinement</td>
+                <td>Employee refused without explanation to restart the wheel despite pleas to exit</td>
+                <td><span class="status yes">Yes</span></td>
+              </tr>
+              <tr>
+                <td>Negligence for failure to stop rocking</td>
+                <td>Duty, breach, causation, damages; risk balanced against burden of precaution</td>
+                <td>Employee saw and heard vigorous rocking while the ride was operating</td>
+                <td><span class="status yes">Yes</span></td>
+              </tr>
+              <tr>
+                <td>Mom’s emotional distress and miscarriage</td>
+                <td>Zone of danger or bystander presence plus contemporaneous sensory perception</td>
+                <td>Mom did not see the accident and arrived only after hearing the alarm</td>
+                <td><span class="status no">No</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="false-imprisonment">
+          <div class="issue-title">
+            <h2>Issue 1: Funworld’s False Imprisonment of Paul</h2>
+            <span class="weight">NCBE weighting: 40%</span>
+          </div>
+
+          <div class="rule-box">
+            <h3>Rule</h3>
+            <ul>
+              <li>False imprisonment requires intent to confine the plaintiff within a bounded area.</li>
+              <li>The defendant’s conduct must cause confinement, or the defendant must fail to release the plaintiff despite a duty to do so.</li>
+              <li>The plaintiff must know of the confinement or be harmed by it.</li>
+              <li>There is no confinement if the plaintiff knows of a reasonable and safe means of escape.</li>
+            </ul>
+          </div>
+
+          <p>
+            Paul’s strongest claim is not that the ride initially trapped him. He voluntarily entered the Ferris wheel car and accepted the safety restraint.
+            The decisive legal moment came after the emergency response had stabilized. Paul and other passengers begged to be removed, yet Employee refused
+            to restart the wheel for 30 minutes without explanation.
+          </p>
+
+          <div class="pullquote">
+            Consent to a ride is not consent to indefinite suspension in midair after the ride operator has a duty to release passengers.
+            <cite>Core takeaway for Issue 1</cite>
+          </div>
+
+          <p>
+            Paul was confined in a limited area: the Ferris wheel car. Because it was suspended above the ground, there was no reasonable safe escape.
+            Paul was conscious of the confinement, as shown by his pleas to be taken off. Employee’s unexplained refusal supports intent: he knew Paul
+            remained confined and chose not to release him.
+          </p>
+
+          <p>
+            Funworld’s best defense is that Paul voluntarily submitted to the ride’s ordinary restraint. But that defense weakens once the ride stops
+            after an accident and the child asks to leave. The original consent covered ordinary operation, not an unexplained 30-minute detention
+            after the emergency. Since Funworld concedes Employee acted within the scope of employment, vicarious liability follows.
+          </p>
+
+          <p><strong>Conclusion:</strong> A jury could properly find that Funworld falsely imprisoned Paul.</p>
+        </section>
+
+        <section id="negligence">
+          <div class="issue-title">
+            <h2>Issue 2: Negligence for Failing to Stop the Rocking Car</h2>
+            <span class="weight">NCBE weighting: 25%</span>
+          </div>
+
+          <div class="rule-box">
+            <h3>Rule</h3>
+            <ul>
+              <li>Negligence requires duty, breach, actual and proximate causation, and damages.</li>
+              <li>Funworld owed Paul, a public invitee, reasonable care against unsafe conditions and unreasonable risks.</li>
+              <li>Reasonable care turns on foreseeable likelihood of harm, foreseeable severity of harm, and burden of precautions.</li>
+            </ul>
+          </div>
+
+          <p>
+            Funworld’s accident-history evidence helps it, but does not end the negligence analysis. National records showed only one similar injury incident
+            in 40 years. That fact suggests the probability of this exact accident was low. But negligence doctrine does not ask only whether the accident
+            was common. It also asks how serious the harm could be and how easy it would have been to reduce the risk.
+          </p>
+
+          <div class="case-facts">
+            <div class="fact-card">
+              <strong>Foreseeability</strong>
+              Employee saw and heard the two boys screaming and rocking the car vigorously while the Ferris wheel was moving.
+            </div>
+            <div class="fact-card">
+              <strong>Severity</strong>
+              A fall from a Ferris wheel car can cause grave injury or death, even if the statistical likelihood is low.
+            </div>
+            <div class="fact-card">
+              <strong>Precaution burden</strong>
+              Employee could have instructed the boys to stop, warned them, slowed the ride, or taken other ordinary operator steps.
+            </div>
+            <div class="fact-card">
+              <strong>Causation</strong>
+              The rocking led to the safety bar unlatching; the boys fell; one struck Paul, causing minor injuries.
+            </div>
+          </div>
+
+          <p>
+            The burden of precaution was small. A simple command to stop rocking, a warning, or operational intervention would have been far less costly
+            than the risk posed by a vigorously rocking elevated car. Because the fall caused Paul’s injury, the causation and damages elements are also present.
+          </p>
+
+          <p><strong>Conclusion:</strong> A jury could properly find that Funworld was negligent through Employee’s failure to act.</p>
+        </section>
+
+        <section id="nied">
+          <div class="issue-title">
+            <h2>Issue 3: Mom’s NIED Claim and Miscarriage</h2>
+            <span class="weight">NCBE weighting: 35%</span>
+          </div>
+
+          <div class="rule-box">
+            <h3>Rule</h3>
+            <ul>
+              <li>A plaintiff may recover for NIED if placed within the zone of danger and emotionally distressed by fear of physical impact.</li>
+              <li>Many jurisdictions also permit bystander recovery for close relatives who are present at the scene and contemporaneously perceive the injury.</li>
+              <li>Emotional distress based only on later news, rumor, or uncertainty generally does not satisfy the bystander rule.</li>
+            </ul>
+          </div>
+
+          <p>
+            Mom’s facts are sympathetic but legally difficult. She was Paul’s mother, she was pregnant, and she suffered a miscarriage after the stress of the incident.
+            The miscarriage supplies a serious physical consequence. But it does not cure the threshold problem: she was not in the zone of danger and did not
+            contemporaneously observe Paul’s injury.
+          </p>
+
+          <div class="pullquote">
+            The emotional harm was real; the NIED claim fails because the law limits recovery to plaintiffs who were personally endangered or who directly perceived the injury.
+            <cite>Core takeaway for Issue 3</cite>
+          </div>
+
+          <p>
+            Mom waited about 100 yards away. She did not see the boys fall, did not see one strike Paul, and arrived only after the alarm sounded.
+            Once she arrived, the crowd blocked her view. The bystander’s statement that “a little boy has been killed” intensified her panic, but it was still
+            information received after the accident rather than a sensory and contemporaneous perception of Paul’s injury.
+          </p>
+
+          <p>
+            The bystander rule is designed to distinguish direct traumatic perception from later notification or fear. Mom feared that the dead child might be Paul,
+            but the news was not even specifically about Paul. Her distress arose from uncertainty, alarm, and later-discovered facts, not from seeing or otherwise
+            directly perceiving Paul being injured.
+          </p>
+
+          <p><strong>Conclusion:</strong> Mom likely cannot recover NIED damages, even for the resulting miscarriage.</p>
+        </section>
+
+        <section id="implications">
+          <h2>Implications for Exam Writing</h2>
+          <p>
+            This problem rewards disciplined separation of sympathy from doctrine. Paul’s claims turn on concrete conduct by Employee:
+            failure to release him and failure to stop a visible danger. Mom’s claim, by contrast, turns on doctrinal limits:
+            proximity, direct perception, and the difference between witnessing injury and receiving frightening information.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Writing Move</th>
+                <th>Why It Matters</th>
+                <th>Best Use in This Problem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Identify the timing shift</td>
+                <td>Paul’s consent matters only before the emergency detention becomes unreasonable.</td>
+                <td>Emphasize the 30-minute unexplained refusal after pleas to exit.</td>
+              </tr>
+              <tr>
+                <td>Use risk-burden analysis</td>
+                <td>Low accident frequency does not defeat negligence when severity is high and precaution is easy.</td>
+                <td>Compare one prior incident in 40 years with the catastrophic risk of falling from height.</td>
+              </tr>
+              <tr>
+                <td>Separate harm from eligibility</td>
+                <td>Mom’s miscarriage proves seriousness, but not the required NIED relationship to the accident.</td>
+                <td>State that the claim fails before damages because she did not observe the injury.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Copy-ready answer frame</h3>
+          <div class="copy-block">A jury could find Funworld liable for false imprisonment because Employee intentionally kept Paul confined in a Ferris wheel car with no safe means of escape after Paul asked to be released. A jury could also find negligence because Employee saw and heard vigorous rocking, the risk of severe harm was foreseeable, and the burden of intervention was slight. Mom’s NIED claim likely fails because she was outside the zone of danger and did not contemporaneously perceive Paul’s injury, even though she later suffered a miscarriage from accident-related stress.</div>
+        </section>
+
+        <section id="sources">
+          <h2>Source Notes</h2>
+          <p class="source-note">
+            Problem facts: © National Conference of Bar Examiners. Reprinted with permission in the source note provided by the user.
+          </p>
+          <p class="source-note">
+            Model-answer framing: © Themis Bar Review. The analysis above is reorganized and editorialized for study and publication purposes, with issue weighting preserved from the provided note.
+          </p>
+          <p class="source-note">
+            Doctrinal scope: This report reflects standard U.S. torts principles commonly tested in bar-exam analysis, including false imprisonment, invitee negligence, vicarious liability, and negligent infliction of emotional distress.
+          </p>
+        </section>
+
+        <footer>
+          <p>
+            Reader-friendly ending: the clean exam answer is “yes, yes, no.” Yes to Paul’s false imprisonment claim; yes to negligence for failing to stop the rocking; no to Mom’s NIED claim because the law demands more than a devastating but indirect emotional shock.
+          </p>
+          <small>Standalone sanitized HTML document · No JavaScript, external CSS, iframes, or remote assets.</small>
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
