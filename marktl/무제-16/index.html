@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Res Ipsa Loquitur: 직접 증거가 없을 때 과실은 어떻게 말하는가</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #18202a;
+      --muted: #5f6b7a;
+      --soft: #f6f3ed;
+      --paper: #fffaf2;
+      --line: #ded6c9;
+      --accent: #9f3f2f;
+      --accent-2: #1f6f78;
+      --accent-3: #315c9a;
+      --panel: #ffffff;
+      --shadow: 0 18px 50px rgba(24, 32, 42, .10);
+      --radius: 8px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--soft);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Segoe UI", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 250, 242, .98), rgba(246, 243, 237, .96) 520px),
+        var(--soft);
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 80px;
+    }
+
+    header.hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 44px;
+      align-items: end;
+      min-height: 72vh;
+      padding: 56px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.35rem, 6vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      margin: 26px 0 0;
+      max-width: 760px;
+      color: #374253;
+      font-size: clamp(1.04rem, 2vw, 1.32rem);
+      line-height: 1.72;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .meta span {
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .share-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .share-card h2 {
+      margin: 0 0 10px;
+      font-size: .95rem;
+      color: var(--accent);
+    }
+
+    .share-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .copy-block {
+      margin-top: 16px;
+      padding: 14px;
+      border-radius: 6px;
+      background: #f2efe8;
+      border: 1px dashed #c9bba8;
+      color: #2d3642;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 42px;
+      padding-top: 42px;
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    nav.toc strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: .9rem;
+      color: var(--accent);
+    }
+
+    nav.toc a {
+      display: block;
+      padding: 7px 0;
+      color: #354152;
+      font-size: .92rem;
+      text-decoration: none;
+      border-top: 1px solid rgba(222, 214, 201, .65);
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 58px;
+      scroll-margin-top: 24px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.75rem, 3vw, 2.55rem);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: #303b49;
+    }
+
+    .abstract {
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--accent-2);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px rgba(24, 32, 42, .06);
+    }
+
+    .abstract h2 {
+      font-size: 1.35rem;
+      font-family: inherit;
+      margin-bottom: 10px;
+    }
+
+    .key-findings {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .finding {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: .92rem;
+    }
+
+    .finding p {
+      margin: 0;
+      font-size: .95rem;
+      color: #394657;
+    }
+
+    .rule-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .rule-step {
+      position: relative;
+      padding: 22px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .rule-step .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 28px 0 28px 26px;
+      border-left: 6px solid var(--accent);
+      color: #222a35;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.35rem, 3vw, 2.1rem);
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+
+    .diagram {
+      margin-top: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .flow div {
+      min-height: 118px;
+      padding: 16px;
+      border-radius: 6px;
+      border: 1px solid #d8cec0;
+      background: #faf7f1;
+      position: relative;
+    }
+
+    .flow div:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      width: 13px;
+      height: 1px;
+      background: #b9aa99;
+    }
+
+    .flow b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-3);
+    }
+
+    .matrix {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid #e6ded3;
+      text-align: left;
+    }
+
+    th {
+      background: #efe9df;
+      color: #293443;
+      font-size: .9rem;
+    }
+
+    td {
+      font-size: .94rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .case-card {
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .case-card h3 {
+      margin-top: 0;
+      color: #243247;
+    }
+
+    .case-card .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e8f1f2;
+      color: #15565f;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .checklist {
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      margin: 10px 0;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent-2);
+      font-weight: 900;
+    }
+
+    .note {
+      padding: 18px;
+      background: #f8f1e7;
+      border: 1px solid #dfcfba;
+      border-radius: var(--radius);
+      color: #3c4652;
+    }
+
+    .source-notes {
+      font-size: .94rem;
+      color: #4e5b6a;
+    }
+
+    footer {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    code {
+      padding: .12em .35em;
+      border-radius: 4px;
+      background: #ece6dc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92em;
+    }
+
+    @media (max-width: 900px) {
+      .page { padding: 20px 16px 56px; }
+
+      header.hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 28px;
+        padding-top: 34px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      nav.toc {
+        position: static;
+      }
+
+      .key-findings,
+      .rule-box,
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow div:not(:last-child)::after {
+        left: 24px;
+        right: auto;
+        top: auto;
+        bottom: -13px;
+        width: 1px;
+        height: 13px;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="무제-16">
+<meta property="og:description" content="18. Res ipsa loquitur: 추론의 기본요건 ★★★ 가. 기본 원칙 res ipsa loquitur(사실 자체가 말한다)는 negligence의 직접 증거가 없을 때, 정황증거로 피고의 negligence를 추론(permissible inference)할 수 있게 하는 법리이다. 두 요건이 필요하다. ① 원고">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/4pyn2n/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="무제-16">
+<meta name="twitter:description" content="18. Res ipsa loquitur: 추론의 기본요건 ★★★ 가. 기본 원칙 res ipsa loquitur(사실 자체가 말한다)는 negligence의 직접 증거가 없을 때, 정황증거로 피고의 negligence를 추론(permissible inference)할 수 있게 하는 법리이다. 두 요건이 필요하다. ① 원고">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/4pyn2n/">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Research Report · Torts · Evidence Through Circumstance</p>
+        <h1>Res Ipsa Loquitur: 직접 증거가 없을 때 과실은 어떻게 말하는가</h1>
+        <p class="subtitle">
+          <code>res ipsa loquitur</code>, 즉 “사실 자체가 말한다”는 법리는 과실의 직접 증거가 없을 때에도 사고의 성격과 원인 통제 구조만으로 negligence를 배심이 추론할 수 있게 한다. 핵심은 사고의 이례성, 다른 원인의 배제, 그리고 피고 측 지배 가능성이다.
+        </p>
+        <div class="meta">
+          <span>핵심 난도 ★★★</span>
+          <span>주제: Negligence</span>
+          <span>형식: Editorial Research Report</span>
+        </div>
+      </div>
+
+      <aside class="share-card" aria-label="공유용 요약">
+        <h2>Share Framing</h2>
+        <p>
+          과실의 직접 증거가 없어도 사건은 끝나지 않는다. res ipsa는 “누가 무엇을 잘못했는지”를 완전히 증명하는 법리가 아니라, 배심이 negligence를 추론할 수 있는 문을 여는 법리다.
+        </p>
+        <div class="copy-block">
+          공유 문구: 직접 증거 없는 negligence 사건에서 res ipsa loquitur가 작동하는 요건, 의료과실 변형, nondelegable duty 사례를 한 번에 정리했다.
+        </div>
+      </aside>
+    </header>
+
+    <div class="layout">
+      <nav class="toc" aria-label="목차">
+        <strong>Article Map</strong>
+        <a href="#abstract">Abstract</a>
+        <a href="#findings">Key Findings</a>
+        <a href="#rule">기본 법리</a>
+        <a href="#medical">의료과실 변형</a>
+        <a href="#procedure">소송 단계 효과</a>
+        <a href="#evidence">사례 증거표</a>
+        <a href="#distinctions">구별 포인트</a>
+        <a href="#implications">Implications</a>
+        <a href="#source-notes">Source Notes</a>
+      </nav>
+
+      <article>
+        <section id="abstract" class="abstract">
+          <h2>Abstract</h2>
+          <p>
+            Res ipsa loquitur는 negligence의 직접 증거가 부족한 사건에서 정황증거만으로 피고의 과실을 추론하도록 허용하는 원칙이다. 원고는 대체로 두 가지를 보여야 한다. 첫째, 해당 종류의 손해가 피고의 지위에 있는 자의 negligence 없이는 통상 발생하지 않는다는 점. 둘째, 증거가 다른 잠재적 원인을 배제하는 경향이 있다는 점이다.
+          </p>
+          <p>
+            이 원칙은 추정이 아니라 허용적 추론이다. 따라서 피고는 reasonable care를 다했다는 반증으로 추론을 약화시킬 수 있다. 그러나 합리적 배심이 사고의 성격과 지배 구조에서 과실을 추론할 수 있다면, 사건은 directed verdict 또는 summary judgment에서 끝나지 않고 배심 판단으로 넘어간다.
+          </p>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="key-findings">
+            <div class="finding">
+              <b>1. 직접 증거 부재는 치명타가 아니다</b>
+              <p>사고 자체가 negligence를 시사하면 원고는 구체적 행위를 특정하지 못해도 배심 단계로 갈 수 있다.</p>
+            </div>
+            <div class="finding">
+              <b>2. 핵심은 다른 원인 배제다</b>
+              <p>배타적 지배는 독립 요건이라기보다 다른 원인을 배제하는 강한 증거로 기능한다.</p>
+            </div>
+            <div class="finding">
+              <b>3. 의료사건은 더 유연하다</b>
+              <p>무의식 환자의 비정상적 부상에서는 의료팀 전원에 대한 negligence 추론이 허용될 수 있다.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="rule">
+          <h2>기본 법리: 사실 자체가 말하기 위한 두 조건</h2>
+          <p class="lead">
+            Res ipsa의 출발점은 단순하다. 어떤 사고는 통상적인 경험칙상 “누군가 조심했더라면 일어나지 않았을 사고”처럼 보인다. 하지만 법리는 이 직감을 무제한으로 허용하지 않는다. 원고는 사고 유형과 원인 구조를 통해 과실 추론의 토대를 마련해야 한다.
+          </p>
+
+          <div class="rule-box">
+            <div class="rule-step">
+              <span class="num">1</span>
+              <h3>Type of Harm</h3>
+              <p>
+                원고가 입은 손해가 피고의 지위에 있는 자의 negligence로 통상 발생하는 종류의 손해여야 한다. 예컨대 제대로 유지된 자동문이 정상 이동 중인 고객을 치거나, 통조림 안에 유리조각이 들어 있는 상황은 통상적이지 않다.
+              </p>
+            </div>
+            <div class="rule-step">
+              <span class="num">2</span>
+              <h3>Other Causes</h3>
+              <p>
+                증거가 그 harm의 다른 잠재적 원인을 배제하는 경향이 있어야 한다. 이 요건은 흔히 사고 도구나 장소가 피고의 <code>exclusive control</code> 아래 있었다는 사실로 충족된다.
+              </p>
+            </div>
+          </div>
+
+          <blockquote class="pullquote">
+            Res ipsa는 “과실을 확정한다”가 아니라 “배심이 과실을 추론할 수 있다”는 말이다.
+          </blockquote>
+
+          <div class="diagram" aria-label="res ipsa 분석 흐름">
+            <div class="flow">
+              <div>
+                <b>비정상적 사고</b>
+                negligence 없이는 통상 발생하지 않는 사고인지 본다.
+              </div>
+              <div>
+                <b>피고 측 지배</b>
+                사고 도구, 장소, 환자 신체, 제품 공정이 누구의 통제 아래 있었는지 본다.
+              </div>
+              <div>
+                <b>다른 원인 배제</b>
+                원고나 제3자의 개입 가능성이 증거상 약화되었는지 본다.
+              </div>
+              <div>
+                <b>허용적 추론</b>
+                배심이 negligence를 추론할 수 있으면 사건은 배심으로 간다.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="medical">
+          <h2>의료과실 변형: 무의식 환자의 비정상적 부상</h2>
+          <p>
+            의료과실에서는 전통적 res ipsa가 변형되어 작동한다. 환자가 무의식 상태에서 치료를 받는 동안 비정상적 부상을 입었고, 의료팀 중 최소 한 명이 환자의 신체나 injury-causing instrumentality를 지배했다면, 의료팀 전원의 negligence를 추론할 수 있다.
+          </p>
+          <p>
+            이 변형의 이유는 정보 비대칭이다. 무의식 환자는 누가 어떤 도구를 사용했고 어떤 순서로 처치했는지 알 수 없다. 반면 의료팀은 그 경위에 접근할 수 있다. 그래서 법은 공동행위가 명확히 입증되지 않아도 각 의료진에게 자신이 negligent하지 않았음을 설명하게 한다.
+          </p>
+
+          <div class="note">
+            시험 포인트: 의료 res ipsa는 “모두가 실제로 negligent했다”는 결론을 바로 내리는 법리가 아니다. 환자에게 원인 특정이 불가능하고 정보가 의료진 쪽에 있을 때, 의료팀 전원에 대한 negligence 추론을 허용하는 절차적 장치에 가깝다.
+          </div>
+        </section>
+
+        <section id="procedure">
+          <h2>소송 단계 효과: Summary Judgment와 Directed Verdict</h2>
+          <p>
+            Res ipsa가 성립하면 피고의 summary judgment나 directed verdict 신청은 쉽게 인용되지 않는다. 합리적 배심이 다른 결론에 이를 수 있는 한, 법원은 사건을 배심에게 넘겨야 한다.
+          </p>
+          <p>
+            반대로 원고의 승소가 자동으로 확정되는 것도 아니다. res ipsa는 presumption이 아니라 permissible inference이므로, 피고가 reasonable care를 다했다는 증거를 제시하면 배심은 피고의 설명을 받아들일 수 있다. 따라서 많은 res ipsa 문제의 정답은 “원고가 무조건 이긴다”가 아니라 “배심이 판단해야 한다”에 가깝다.
+          </p>
+        </section>
+
+        <section id="evidence">
+          <h2>사례 증거표: 어떤 사실이 추론을 가능하게 했는가</h2>
+          <div class="matrix">
+            <table>
+              <thead>
+                <tr>
+                  <th>문제</th>
+                  <th>사고 유형</th>
+                  <th>결정적 사실</th>
+                  <th>법적 효과</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Q.29</td>
+                  <td>마취 중 분만환자의 무릎 severe burn</td>
+                  <td>환자가 무의식 상태였고 의료팀 중 최소 한 명이 환자 신체나 도구를 지배했다.</td>
+                  <td>의료팀 전원에 대한 negligence 추론 가능.</td>
+                </tr>
+                <tr>
+                  <td>Q.33</td>
+                  <td>백화점 에스컬레이터 급정지</td>
+                  <td>invitee 안전 의무는 nondelegable duty이고, 급정지는 통상 negligence를 시사한다.</td>
+                  <td>매장의 direct 또는 vicarious liability 추론 가능.</td>
+                </tr>
+                <tr>
+                  <td>Q.49</td>
+                  <td>슈퍼마켓 자동문 역방향 개방</td>
+                  <td>슈퍼마켓이 premises 유지보수를 맡았고 자동문 사고는 적절한 유지보수와 어긋난다.</td>
+                  <td>양측 JMOL이 아니라 배심 판단 대상.</td>
+                </tr>
+                <tr>
+                  <td>Q.78</td>
+                  <td>병원 자동문이 휠체어 환자의 발을 침</td>
+                  <td>간호사는 정상 속도로 이동했고, 자동문은 적절히 유지되면 그렇게 닫히지 않아야 한다.</td>
+                  <td>병원 negligence를 배심이 추론 가능.</td>
+                </tr>
+                <tr>
+                  <td>Q.83</td>
+                  <td>통조림 옥수수 속 유리조각</td>
+                  <td>개봉 후 원고나 제3자가 유리조각을 넣지 않았다는 증거가 있다.</td>
+                  <td>canning company의 제조상 negligence 추론 가능.</td>
+                </tr>
+                <tr>
+                  <td>Q.89</td>
+                  <td>실어증 노인의 다리 골절</td>
+                  <td>여성이 ambulance service와 nursing home의 연속적 지배 아래 있었고 부상 경위 정보가 피고 측에 있다.</td>
+                  <td>둘 중 하나의 negligence 추론 가능. 둘 모두의 과실 추론은 아님.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="distinctions">
+          <h2>구별 포인트: 함정은 “직접 증거 없음”과 “독립계약자”다</h2>
+          <div class="case-grid">
+            <div class="case-card">
+              <span class="tag">Direct Evidence</span>
+              <h3>직접 증거가 없다는 이유만으로 사건은 끝나지 않는다</h3>
+              <p>
+                Res ipsa의 존재 이유가 바로 직접 증거 없는 negligence 사건을 처리하는 것이다. 따라서 “원고가 구체적 부주의 행위를 증명하지 못했다”는 선택지는 directed verdict의 충분한 근거가 되지 못한다.
+              </p>
+            </div>
+            <div class="case-card">
+              <span class="tag">Independent Contractor</span>
+              <h3>독립계약자 유지보수는 항상 방어가 아니다</h3>
+              <p>
+                점유자에게 invitee 안전에 관한 nondelegable duty가 있으면, 유지보수를 독립계약자에게 맡겼다는 사실만으로 책임이 사라지지 않는다. 피고 자신의 과실 또는 독립계약자의 과실에 대한 책임이 문제될 수 있다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="implications">
+          <h2>Implications: 답안에서 무엇을 잡아야 하는가</h2>
+          <ul class="checklist">
+            <li>사고가 negligence 없이는 통상 발생하지 않는 유형인지 먼저 쓴다.</li>
+            <li>피고의 exclusive control은 “다른 원인 배제”를 뒷받침하는 증거로 정리한다.</li>
+            <li>의료과실에서는 무의식, 비정상적 부상, 의료팀 중 최소 한 명의 지배를 연결한다.</li>
+            <li>nondelegable duty가 보이면 독립계약자 항변을 곧바로 받아들이지 않는다.</li>
+            <li>결론은 대개 “negligence가 추론될 수 있으므로 배심 판단”이라는 형태가 된다.</li>
+          </ul>
+
+          <blockquote class="pullquote">
+            좋은 답안은 과실자를 단정하기보다, 왜 배심이 과실을 추론할 수 있는지를 정확히 보여준다.
+          </blockquote>
+        </section>
+
+        <section id="source-notes" class="source-notes">
+          <h2>Source Notes</h2>
+          <p>
+            이 문서는 제공된 Obsidian Markdown 노트 「18. Res ipsa loquitur: 추론의 기본요건」을 기반으로 재구성한 독립형 HTML 연구 리포트다. 사례 표기는 원문 노트의 Q.29, Q.33, Q.49, Q.78, Q.83, Q.89를 유지했다.
+          </p>
+          <p>
+            법리 요약은 미국 불법행위법상 negligence와 res ipsa loquitur의 시험형 구조에 맞추어 정리했다. 이 글은 학습용 해설이며, 특정 사건에 대한 법률 자문이 아니다.
+          </p>
+        </section>
+
+        <footer>
+          <p>
+            Reader-friendly close: Res ipsa loquitur는 증거가 부족한 원고에게 승리를 보장하는 지름길이 아니다. 다만 사고의 성격, 지배 관계, 다른 원인의 배제가 함께 맞물릴 때 “이 사건은 배심이 들어볼 만하다”는 강력한 문을 열어준다.
+          </p>
+        </footer>
+      </article>
+    </div>
+  </div>
+</body>
+</html>
