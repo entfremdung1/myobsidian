@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Icy Roads, Hospital Infections, and Tort Liability | Negligence Research Report</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #18202a;
+      --muted: #5f6b78;
+      --soft: #f5f1ea;
+      --paper: #fffdf8;
+      --line: #ddd5c9;
+      --accent: #9b3d2f;
+      --accent-2: #1f6f74;
+      --deep: #243746;
+      --gold: #c9983f;
+      --card: #ffffff;
+      --shadow: 0 18px 50px rgba(36, 55, 70, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(245, 241, 234, 0.85), rgba(255, 253, 248, 1) 360px),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    header.hero {
+      padding: 72px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 920px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.5rem, 6vw, 5.25rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+      color: var(--deep);
+    }
+
+    .dek {
+      max-width: 780px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.65;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .meta-card {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .meta-card strong {
+      display: block;
+      color: var(--deep);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .meta-card span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 54px;
+      padding: 42px 0 72px;
+    }
+
+    nav.toc {
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.86);
+    }
+
+    nav.toc h2 {
+      margin: 0 0 12px;
+      font-size: 0.86rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    nav.toc ol {
+      padding-left: 20px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav.toc li {
+      margin: 8px 0;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 54px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.85rem, 3vw, 2.7rem);
+      line-height: 1.12;
+      color: var(--deep);
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 28px 0 12px;
+      color: var(--deep);
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .abstract {
+      padding: 28px;
+      border-left: 5px solid var(--accent);
+      background: #fff;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow);
+    }
+
+    .abstract p:last-child {
+      margin-bottom: 0;
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .finding {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .finding p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pull {
+      margin: 34px 0;
+      padding: 28px 32px;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      color: var(--deep);
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      line-height: 1.35;
+      background: rgba(201, 152, 63, 0.08);
+    }
+
+    .issue {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-top: 22px;
+    }
+
+    .issue-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #fff;
+      background: var(--deep);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .rule:first-of-type {
+      border-top: 0;
+    }
+
+    .rule strong {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .rule p {
+      margin: 0;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 28px 0 8px;
+    }
+
+    .node {
+      position: relative;
+      min-height: 108px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .node:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .node b {
+      display: block;
+      color: var(--deep);
+      line-height: 1.25;
+    }
+
+    .node span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--deep);
+      color: #fff;
+      font-size: 0.86rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    td strong {
+      color: var(--ink);
+    }
+
+    .takeaway {
+      background: var(--deep);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .takeaway h2 {
+      color: #fff;
+    }
+
+    .takeaway ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .takeaway li {
+      margin: 10px 0;
+    }
+
+    .source-note {
+      padding: 24px;
+      background: rgba(31, 111, 116, 0.08);
+      border: 1px solid rgba(31, 111, 116, 0.24);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .share-box {
+      margin-top: 26px;
+      padding: 22px;
+      border: 1px dashed var(--accent);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .share-box h3 {
+      margin-top: 0;
+    }
+
+    .copy {
+      display: block;
+      padding: 14px 16px;
+      background: var(--soft);
+      border-radius: var(--radius);
+      color: var(--deep);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      white-space: normal;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 54px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 900px) {
+      .meta-grid,
+      .finding-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      nav.toc {
+        position: static;
+      }
+
+      .diagram {
+        grid-template-columns: 1fr;
+      }
+
+      .node:not(:last-child)::after {
+        content: "↓";
+        right: 18px;
+        top: auto;
+        bottom: -22px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+      }
+
+      header.hero {
+        padding-top: 44px;
+      }
+
+      .meta-grid,
+      .finding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .abstract,
+      .issue,
+      .takeaway {
+        padding: 22px;
+      }
+
+      .rule {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border-bottom: 1px solid var(--line);
+      }
+
+      tr:last-child {
+        border-bottom: 0;
+      }
+
+      td {
+        border-bottom: 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="무제-19">
+<meta property="og:description" content="Q4  icyroad accident and hospital infection 사실관계와 문제  belowlimit driving, infection after hospitalization, res ipsa, joint liability One year ago, a man was injured when the car in">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/63wnji/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="무제-19">
+<meta name="twitter:description" content="Q4  icyroad accident and hospital infection 사실관계와 문제  belowlimit driving, infection after hospitalization, res ipsa, joint liability One year ago, a man was injured when the car in">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/63wnji/">
+</head>
+<body>
+  <header class="hero">
+    <div class="page">
+      <div class="kicker">Research Report · Torts</div>
+      <h1>Icy Roads, Hospital Infections, and the Reach of Negligence</h1>
+      <p class="dek">A winter crash starts the case, but the harder question arrives later: when accident injuries lead to hospital care, can both the driver and the hospital be responsible for a serious infection?</p>
+
+      <div class="meta-grid" aria-label="Article metadata">
+        <div class="meta-card">
+          <strong>Topic</strong>
+          <span>Negligence and proximate cause</span>
+        </div>
+        <div class="meta-card">
+          <strong>Core Doctrines</strong>
+          <span>Res ipsa loquitur; joint and several liability</span>
+        </div>
+        <div class="meta-card">
+          <strong>Format</strong>
+          <span>Editorial research report</span>
+        </div>
+        <div class="meta-card">
+          <strong>Bottom Line</strong>
+          <span>Liability may extend beyond the crash</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <nav class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#findings">Key Findings</a></li>
+          <li><a href="#facts">Fact Pattern</a></li>
+          <li><a href="#analysis">Legal Analysis</a></li>
+          <li><a href="#liability-map">Liability Map</a></li>
+          <li><a href="#implications">Implications</a></li>
+          <li><a href="#sources">Source Notes</a></li>
+        </ol>
+      </nav>
+
+      <article>
+        <section id="abstract" class="abstract">
+          <h2>Abstract</h2>
+          <p>This report analyzes a tort essay involving a passenger injured in a winter highway crash and later diagnosed with a serious infection after hospitalization. The legal problem turns on four questions: whether driving below the posted speed limit can still be negligent, whether the driver can be liable for infection damages, whether hospital negligence can be inferred without direct proof, and whether the driver can limit liability to the original accident damages.</p>
+          <p>The strongest answer is doctrinally layered: statutory compliance is evidence, not immunity; hospital-acquired infection can be a foreseeable consequence of accident-related medical care; res ipsa loquitur may permit an inference against the hospital; and joint and several liability may expose each tortfeasor to the full indivisible infection loss.</p>
+        </section>
+
+        <section id="findings">
+          <h2>Key Findings</h2>
+          <div class="finding-grid">
+            <div class="finding">
+              <b>Finding 1</b>
+              <p>A driver may be negligent while driving under the posted limit if weather, road surface, visibility, or traffic conditions make that speed unreasonable.</p>
+            </div>
+            <div class="finding">
+              <b>Finding 2</b>
+              <p>Medical complications following accident-related treatment are generally foreseeable intervening harms, not superseding causes.</p>
+            </div>
+            <div class="finding">
+              <b>Finding 3</b>
+              <p>The infection evidence supports res ipsa because the likely causes were hospital-controlled instruments or hospital-controlled infection procedures.</p>
+            </div>
+            <div class="finding">
+              <b>Finding 4</b>
+              <p>If both the driver and hospital caused the infection, the driver’s liability is not capped at the $100,000 accident injury amount.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="facts">
+          <h2>The Case in Brief</h2>
+          <p>During a winter storm, a woman drove 40 mph on an icy highway with a posted 50 mph speed limit. The car slid off the highway and overturned, injuring her front-seat passenger. He was belted, transported by hospital ambulance, and underwent emergency surgery. He remained hospitalized for 10 days.</p>
+          <p>Three days after release, he developed a fever. Blood tests revealed a serious infection usually transmitted through contaminated blood products or improperly sterilized instruments, though hospital handwashing failures and mishandling of used instruments were also possible routes. He had received no blood products, had no history of intravenous drug use, and had no recent medical treatment before the hospitalization.</p>
+
+          <blockquote class="pull">
+            Compliance with a posted speed limit answers one question. It does not answer whether the driver used reasonable care on an icy road in a winter storm.
+          </blockquote>
+
+          <p>The parties stipulated damages: $100,000 for the crash injuries and $250,000 for the infection. The resulting lawsuit against both the driver and the hospital raises causation, proof, and allocation questions.</p>
+        </section>
+
+        <section id="analysis">
+          <h2>Legal Analysis</h2>
+
+          <div class="issue">
+            <span class="issue-label">Issue 1</span>
+            <h3>Can the woman be negligent despite driving below the posted speed limit?</h3>
+            <div class="rule">
+              <strong>Rule</strong>
+              <p>Negligence asks whether the defendant used reasonable care under the circumstances. Compliance with a statute or posted limit is relevant evidence, but it does not conclusively establish due care.</p>
+            </div>
+            <div class="rule">
+              <strong>Application</strong>
+              <p>The posted 50 mph limit reflects ordinary legal permission, not a guarantee that 40 mph is safe during a winter storm on an icy highway. A reasonable driver may need to slow far below the limit, pull over, or adjust to the conditions.</p>
+            </div>
+            <div class="rule">
+              <strong>Conclusion</strong>
+              <p>A court could properly find negligence even though the driver was below the speed limit.</p>
+            </div>
+          </div>
+
+          <div class="issue">
+            <span class="issue-label">Issue 2</span>
+            <h3>Can the woman be liable for the infection damages?</h3>
+            <div class="rule">
+              <strong>Rule</strong>
+              <p>A negligent actor is liable for reasonably foreseeable harms proximately caused by the negligence. Negligent medical treatment, hospital complications, and treatment-related injuries are commonly treated as foreseeable intervening events.</p>
+            </div>
+            <div class="rule">
+              <strong>Application</strong>
+              <p>The crash foreseeably required emergency medical care. Infection is a known risk of hospitalization, surgery, and invasive medical instruments. If the trier of fact finds that the infection was contracted during the accident-related hospitalization, the causal chain remains intact.</p>
+            </div>
+            <div class="rule">
+              <strong>Conclusion</strong>
+              <p>The woman may be liable for the $250,000 infection damages in addition to the crash injury damages.</p>
+            </div>
+          </div>
+
+          <div class="issue">
+            <span class="issue-label">Issue 3</span>
+            <h3>Can the hospital be liable without direct proof of the exact negligent act?</h3>
+            <div class="rule">
+              <strong>Rule</strong>
+              <p>Under res ipsa loquitur, negligence may be inferred when the injury is of a kind that ordinarily does not occur without negligence, the likely cause was within the defendant’s control, and the plaintiff did not cause the harm.</p>
+            </div>
+            <div class="rule">
+              <strong>Application</strong>
+              <p>The infection nearly always results from contaminated blood products or improperly sterilized instruments. The patient received no blood products. He was hospitalized during the relevant exposure window, used many hospital-controlled instruments, and lacked likely outside sources. Hospital employees controlled sterilization and related infection-prevention procedures.</p>
+            </div>
+            <div class="rule">
+              <strong>Conclusion</strong>
+              <p>A court could properly infer hospital negligence through res ipsa loquitur.</p>
+            </div>
+          </div>
+
+          <div class="issue">
+            <span class="issue-label">Issue 4</span>
+            <h3>Can the woman’s liability be limited to $100,000?</h3>
+            <div class="rule">
+              <strong>Rule</strong>
+              <p>When multiple tortfeasors cause a single indivisible harm, joint and several liability may allow the plaintiff to recover the entire amount from either defendant, subject to no double recovery.</p>
+            </div>
+            <div class="rule">
+              <strong>Application</strong>
+              <p>The woman alone caused the $100,000 crash injury. But if both the woman’s negligence and the hospital’s negligence caused the infection, both are responsible for the single $250,000 infection harm.</p>
+            </div>
+            <div class="rule">
+              <strong>Conclusion</strong>
+              <p>The woman’s liability cannot be limited to $100,000. She may also be liable for the full infection damages.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="liability-map">
+          <h2>Evidence and Liability Map</h2>
+          <div class="diagram" aria-label="Causation chain diagram">
+            <div class="node">
+              <b>Winter Storm</b>
+              <span>Icy highway conditions make ordinary speed assumptions unreliable.</span>
+            </div>
+            <div class="node">
+              <b>Crash Injury</b>
+              <span>Passenger is injured and needs emergency medical care.</span>
+            </div>
+            <div class="node">
+              <b>Hospitalization</b>
+              <span>Surgery and instruments create foreseeable infection exposure.</span>
+            </div>
+            <div class="node">
+              <b>Infection</b>
+              <span>Timing and transmission evidence point to hospital exposure.</span>
+            </div>
+            <div class="node">
+              <b>Shared Liability</b>
+              <span>Driver and hospital may both answer for the infection loss.</span>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Controlling Doctrine</th>
+                <th>Most Important Fact</th>
+                <th>Likely Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Question"><strong>Below-limit driving</strong></td>
+                <td data-label="Doctrine">Reasonable care under the circumstances</td>
+                <td data-label="Fact">40 mph on an icy highway during a winter storm</td>
+                <td data-label="Result">Negligence finding is proper</td>
+              </tr>
+              <tr>
+                <td data-label="Question"><strong>Driver liability for infection</strong></td>
+                <td data-label="Doctrine">Proximate cause and foreseeable intervening harm</td>
+                <td data-label="Fact">Crash foreseeably required hospital treatment</td>
+                <td data-label="Result">Driver may owe infection damages</td>
+              </tr>
+              <tr>
+                <td data-label="Question"><strong>Hospital liability</strong></td>
+                <td data-label="Doctrine">Res ipsa loquitur</td>
+                <td data-label="Fact">No blood products; instruments and procedures under hospital control</td>
+                <td data-label="Result">Hospital negligence may be inferred</td>
+              </tr>
+              <tr>
+                <td data-label="Question"><strong>Liability cap</strong></td>
+                <td data-label="Doctrine">Joint and several liability</td>
+                <td data-label="Fact">Both defendants caused one indivisible infection harm</td>
+                <td data-label="Result">No $100,000 cap for the driver</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="implications" class="takeaway">
+          <h2>Implications for Bar Analysis</h2>
+          <ul>
+            <li>Do not treat statutory compliance as a complete defense. The reasonable-person standard remains fact-sensitive.</li>
+            <li>Separate actual cause from proximate cause. The infection must be factually connected to the hospitalization, then analyzed for foreseeability.</li>
+            <li>Use res ipsa carefully. The doctrine helps when direct evidence is missing, but the facts must still make defendant negligence more probable than not.</li>
+            <li>Keep damages categories distinct. The crash damages and infection damages have different causal stories, but the infection may become a shared indivisible harm.</li>
+          </ul>
+        </section>
+
+        <section id="sources">
+          <h2>Source Notes</h2>
+          <div class="source-note">
+            <p>This report is based on an NCBE torts essay fact pattern and a model-answer framework addressing negligence, proximate cause, res ipsa loquitur, and joint and several liability. The analysis also reflects the editor’s note that jurisdictions phrase res ipsa differently, but the common inquiry is whether the defendant’s negligence was more probably than not the cause of the injury.</p>
+            <p>The original problem identifies stipulated damages of $100,000 for accident injuries and $250,000 for infection injuries. No automobile-guest statute or medical-malpractice restriction on res ipsa is assumed.</p>
+          </div>
+
+          <div class="share-box">
+            <h3>Share Framing</h3>
+            <span class="copy">A winter crash, a hospital infection, and one hard tort question: when does liability stop? This analysis explains why below-limit driving can still be negligent, why hospital infection may be foreseeable, and how joint liability can expand the driver’s exposure.</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Reader-Friendly Bottom Line</h2>
+          <p>The case is not really about whether 40 mph is less than 50 mph. It is about whether 40 mph was reasonable on an icy highway during a winter storm, and what legal consequences follow once that negligence sends a passenger into the medical system.</p>
+          <p>If the driver’s negligence caused the crash, and the crash foreseeably led to hospitalization where the infection occurred, the driver can be liable for more than the original accident injury. If the hospital’s own negligence also caused the infection, res ipsa may support liability against the hospital, and joint and several liability may leave either defendant responsible for the full infection loss.</p>
+        </section>
+      </article>
+    </main>
+  </div>
+
+  <footer>
+    <div class="page">
+      <p>Prepared as a standalone editorial research report for public reading. This page uses inline CSS only and contains no JavaScript, external stylesheets, iframes, or remote assets.</p>
+    </div>
+  </footer>
+</body>
+</html>
