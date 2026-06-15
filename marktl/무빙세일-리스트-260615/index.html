@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>이사 정리 물품 목록 리포트 | 공간별 가구·가전·생활용품 69개 품목</title>
+  
+  
+  
+  
+  <style>
+    :root {
+      --ink: #1d2528;
+      --muted: #667175;
+      --line: #dfe6e4;
+      --paper: #fffdf8;
+      --wash: #f5f1e8;
+      --green: #35685a;
+      --green-dark: #244b41;
+      --gold: #b7843f;
+      --blue: #3d627a;
+      --rose: #a85c55;
+      --card: #ffffff;
+      --shadow: 0 18px 50px rgba(24, 43, 39, .10);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(245,241,232,.92), rgba(255,253,248,1) 280px),
+        var(--paper);
+      font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--green-dark);
+      text-decoration-color: rgba(53, 104, 90, .35);
+      text-underline-offset: 4px;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 72px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: var(--green-dark);
+      font-size: .86rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h1 {
+      max-width: 880px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(2.35rem, 6vw, 5.3rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+      color: #15221f;
+    }
+
+    .dek {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: #475457;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.75;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: end;
+      margin-top: 36px;
+    }
+
+    .share-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .share-box h2 {
+      margin: 0 0 8px;
+      font-size: .95rem;
+      letter-spacing: .03em;
+      color: var(--green-dark);
+    }
+
+    .share-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--green-dark);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 42px;
+      padding: 42px 0 76px;
+    }
+
+    aside {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.76);
+      padding: 18px;
+    }
+
+    aside h2 {
+      margin: 0 0 12px;
+      font-size: .92rem;
+      color: var(--green-dark);
+    }
+
+    nav ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: #334144;
+      text-decoration: none;
+      font-size: .93rem;
+    }
+
+    nav a:hover {
+      background: var(--wash);
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    section {
+      margin: 0 0 54px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.2;
+      color: #1d2f2a;
+    }
+
+    .section-note {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: .98rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      border: 1px solid rgba(53,104,90,.24);
+      border-radius: 999px;
+      color: var(--green-dark);
+      background: #f7fbf7;
+      font-size: .82rem;
+      font-weight: 800;
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .abstract {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .abstract p {
+      margin: 0;
+      font-size: 1.06rem;
+    }
+
+    .findings {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .finding {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .finding b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green-dark);
+    }
+
+    .finding p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .pullquote {
+      margin: 34px 0;
+      padding: 26px 30px;
+      border-left: 5px solid var(--gold);
+      background: #fff9ec;
+      font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+      line-height: 1.48;
+      color: #2d3937;
+    }
+
+    .bar-chart {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 120px 1fr 42px;
+      gap: 12px;
+      align-items: center;
+      color: #3b484b;
+      font-size: .94rem;
+    }
+
+    .track {
+      height: 12px;
+      background: #edf1ef;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .fill {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(24, 43, 39, .06);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      background: #eef4f1;
+      color: #243d37;
+      font-size: .86rem;
+      letter-spacing: .03em;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 14px;
+      vertical-align: top;
+      border-bottom: 1px solid #edf1ef;
+      color: #2b383b;
+      font-size: .95rem;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .num {
+      width: 64px;
+      color: var(--green-dark);
+      font-weight: 800;
+    }
+
+    .item {
+      width: 220px;
+      font-weight: 800;
+      color: #1f302d;
+    }
+
+    .photo-cell {
+      width: 170px;
+    }
+
+    .photo-note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      min-width: 108px;
+      border: 1px dashed #c8d4d0;
+      border-radius: 6px;
+      background: #fafbf9;
+      color: #7b8789;
+      font-size: .82rem;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .photo {
+      width: 160px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #f4f4f1;
+      display: block;
+    }
+
+    .source-notes {
+      display: grid;
+      gap: 12px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .source-notes p,
+    .ending p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .ending {
+      background: #203b35;
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .ending h2 {
+      color: #ffffff;
+    }
+
+    .ending p {
+      color: rgba(255,255,255,.78);
+      margin-top: 12px;
+    }
+
+    .copy-block {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #ffffff;
+      font-size: .96rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .quick-stats,
+      .findings {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      .quick-stats,
+      .findings {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .bar {
+        grid-template-columns: 86px 1fr 34px;
+      }
+
+      .abstract,
+      .share-box,
+      .finding,
+      .source-notes,
+      .ending {
+        padding: 20px;
+      }
+    }
+  </style>
+<meta property="og:type" content="article">
+<meta property="og:title" content="무빙세일-리스트-260615">
+<meta property="og:description" content="1. 거실(부엌쪽) | 번호 | 사진                                                                                  | 품목             | 수량/설명                                            | |  |  | ">
+<meta property="og:url" content="https://entfremdung1.github.io/myobsidian/marktl/s/os5w4e/">
+<meta property="og:image" content="https://entfremdung1.github.io/myobsidian/marktl/s/os5w4e/assets/pasted-image-20260615003157.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="무빙세일-리스트-260615">
+<meta name="twitter:description" content="1. 거실(부엌쪽) | 번호 | 사진                                                                                  | 품목             | 수량/설명                                            | |  |  | ">
+<meta name="twitter:image" content="https://entfremdung1.github.io/myobsidian/marktl/s/os5w4e/assets/pasted-image-20260615003157.png">
+<link rel="canonical" href="https://entfremdung1.github.io/myobsidian/marktl/s/os5w4e/">
+</head>
+<body>
+  <header class="hero">
+    <div class="page">
+      <p class="kicker">Moving Sale Research Report</p>
+      <h1>이사 정리 물품 목록: 공간별 가구·가전·생활용품 69개 품목</h1>
+      <p class="dek">거실과 주방, 2층 방, 기타 생활용품까지 이사 전 양도 가능한 품목을 공개용으로 다시 정리한 목록입니다. 품목별 위치와 수량, 상태 메모를 중심으로 구매자가 빠르게 판단할 수 있도록 구성했습니다.</p>
+
+      <div class="hero-grid">
+        <div class="quick-stats" aria-label="요약 통계">
+          <div class="stat"><strong>69</strong><span>총 정리 품목</span></div>
+          <div class="stat"><strong>7</strong><span>공간별 섹션</span></div>
+          <div class="stat"><strong>24</strong><span>가구·수납 중심 품목</span></div>
+          <div class="stat"><strong>11</strong><span>주방 품목 묶음</span></div>
+        </div>
+
+        <div class="share-box">
+          <h2>공유용 설명</h2>
+          <p>“이사 전 가구, 주방용품, 가전, 침실·아이방 물품을 공간별로 정리해 양도합니다. 필요한 품목 번호를 확인해 문의해 주세요.”</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page layout">
+    <aside>
+      <h2>목차</h2>
+      <nav aria-label="문서 목차">
+        <ol>
+          <li><a href="#abstract">개요</a></li>
+          <li><a href="#findings">핵심 정리</a></li>
+          <li><a href="#distribution">품목 분포</a></li>
+          <li><a href="#living-kitchen">거실 부엌쪽</a></li>
+          <li><a href="#living-entry">거실 현관쪽</a></li>
+          <li><a href="#kitchen">주방</a></li>
+          <li><a href="#appliances">가전</a></li>
+          <li><a href="#large-room">2층 큰방</a></li>
+          <li><a href="#small-room">2층 작은방</a></li>
+          <li><a href="#misc">기타</a></li>
+          <li><a href="#notes">소스 노트</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <article>
+      <section id="abstract">
+        <div class="section-head">
+          <div>
+            <h2>Abstract</h2>
+            <p class="section-note">이 목록은 단순 재고표가 아니라, 실제 생활 공간 단위로 묶인 이사 정리 리포트입니다.</p>
+          </div>
+          <span class="tag">요약</span>
+        </div>
+        <div class="abstract">
+          <p>총 69개 품목이 확인되며, 가구·수납장·침대·책장처럼 부피가 큰 품목부터 주방 조리도구, 생활가전, 청소도구, 아이용품까지 포함됩니다. 구매자는 방별 섹션을 기준으로 동선을 떠올리며 필요한 물건을 고를 수 있고, 판매자는 품목 번호를 기준으로 문의와 예약을 정리하기 쉽습니다.</p>
+        </div>
+      </section>
+
+      <section id="findings">
+        <div class="section-head">
+          <div>
+            <h2>Key Findings</h2>
+            <p class="section-note">판매·양도 관점에서 먼저 확인할 만한 포인트입니다.</p>
+          </div>
+          <span class="tag">핵심</span>
+        </div>
+
+        <div class="findings">
+          <div class="finding">
+            <b>거실 품목은 묶음 판매에 적합</b>
+            <p>식탁, 의자, 소파, TV, 책장, 신발장 등 생활 공간을 바로 구성할 수 있는 품목이 집중되어 있습니다.</p>
+          </div>
+          <div class="finding">
+            <b>주방은 ‘일괄 세팅’ 가치가 큼</b>
+            <p>밥솥, 에어프라이어, 토스터기, 정수기, 냄비류, 그릇류, 컵류가 함께 있어 새 거주자에게 실용적입니다.</p>
+          </div>
+          <div class="finding">
+            <b>침실·작업 공간 품목이 풍부</b>
+            <p>침대, 매트리스, 책상, 책장, 모니터, 프린터, 서랍장이 포함되어 방 단위 거래가 가능합니다.</p>
+          </div>
+          <div class="finding">
+            <b>상태 메모가 있는 품목은 우선 고지 필요</b>
+            <p>3인용 소파는 왼쪽 팔걸이와 패브릭 상태 메모가 있어 거래 전 사진과 상태 확인이 중요합니다.</p>
+          </div>
+        </div>
+
+        <blockquote class="pullquote">가장 빠른 거래 방식은 “품목 번호 + 공간명 + 필요한 수량”으로 문의를 받는 것입니다.</blockquote>
+      </section>
+
+      <section id="distribution">
+        <div class="section-head">
+          <div>
+            <h2>Inventory Distribution</h2>
+            <p class="section-note">공간별 품목 수를 기준으로 본 정리 우선순위입니다.</p>
+          </div>
+          <span class="tag">분포</span>
+        </div>
+
+        <div class="bar-chart" role="img" aria-label="공간별 품목 수 막대 그래프">
+          <div class="bar"><span>거실</span><div class="track"><span class="fill"></span></div><b>17</b></div>
+          <div class="bar"><span>주방</span><div class="track"><span class="fill"></span></div><b>11</b></div>
+          <div class="bar"><span>가전</span><div class="track"><span class="fill"></span></div><b>5</b></div>
+          <div class="bar"><span>2층 큰방</span><div class="track"><span class="fill"></span></div><b>13</b></div>
+          <div class="bar"><span>2층 작은방</span><div class="track"><span class="fill"></span></div><b>9</b></div>
+          <div class="bar"><span>기타</span><div class="track"><span class="fill"></span></div><b>14</b></div>
+        </div>
+      </section>
+
+      <section id="living-kitchen">
+        <div class="section-head">
+          <div>
+            <h2>1. 거실, 부엌쪽</h2>
+            <p class="section-note">식사, 휴식, TV 시청과 연결되는 메인 생활 구역입니다.</p>
+          </div>
+          <span class="tag">10 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td class="photo-cell"><span class="photo-note">사진 원본 참조</span></td><td class="item">원형식탁 및 식탁의자</td><td>4인용, 익스텐션 가능(6인용), 의자 4개: 원목 2개, 검은색 2개</td></tr>
+              <tr><td class="num">2</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">4단 서랍장</td><td>1개</td></tr>
+              <tr><td class="num">3</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">2단 서랍장</td><td>원목 1개</td></tr>
+              <tr><td class="num">4</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">2단 미니 서랍장</td><td>흰색 1개</td></tr>
+              <tr><td class="num">5</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">3인용 소파 및 소파테이블</td><td>소파용 커버 1개 포함. 소파 왼쪽 팔걸이가 느슨하고 패브릭이 낡아 커버 사용 필요</td></tr>
+              <tr><td class="num">6</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">흔들의자</td><td>쿠션 포함</td></tr>
+              <tr><td class="num">7</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">이케아 수납 겸 의자</td><td>흰색 2개</td></tr>
+              <tr><td class="num">8</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">2단 선반 신발장</td><td>1개</td></tr>
+              <tr><td class="num">9</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">쓰레기통</td><td>13갤론 2개, 소형 쓰레기통 다수</td></tr>
+              <tr><td class="num">10</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">삼성 스마트 TV, TV장</td><td>55인치</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="living-entry">
+        <div class="section-head">
+          <div>
+            <h2>2. 거실, 현관쪽</h2>
+            <p class="section-note">수납과 임시 테이블, 책장류가 모여 있는 출입 동선 구역입니다.</p>
+          </div>
+          <span class="tag">7 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">11</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">5단 책장</td><td>이케아 2개</td></tr>
+              <tr><td class="num">12</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">2단 책장</td><td>8칸</td></tr>
+              <tr><td class="num">13</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">양면 매트</td><td>1개</td></tr>
+              <tr><td class="num">14</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">라이프타임 테이블 및 흰색 접이식 의자</td><td>테이블 6-8인용 1개, 흰색 접이식 의자 4개</td></tr>
+              <tr><td class="num">15</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">신발수납장</td><td>흰색 3단 신발장 2개</td></tr>
+              <tr><td class="num">16</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">신발 수납장</td><td>여닫이식 신발 서랍장 1개</td></tr>
+              <tr><td class="num">17</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">장난감 수납박스</td><td>2개</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="kitchen">
+        <div class="section-head">
+          <div>
+            <h2>3. 주방</h2>
+            <p class="section-note">조리 가전, 식기, 수납 용기, 기본 조리도구가 함께 구성된 섹션입니다.</p>
+          </div>
+          <span class="tag">11 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">18</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">에어프라이어, 쿠쿠밥솥 6인용, 전기포트</td><td>-</td></tr>
+              <tr><td class="num">19</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">토스터기</td><td>-</td></tr>
+              <tr><td class="num">20</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">브리타 정수기, 필터, 유리물병</td><td>브리타 정수기 1개, 브리타 필터 5개, 유리물병 2개</td></tr>
+              <tr><td class="num">21</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">와플기계</td><td>와플기계 1개, 와플플레이트 7개</td></tr>
+              <tr><td class="num">22</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">냄비류</td><td>프라이팬, 압력솥, 곰솥, 냄비</td></tr>
+              <tr><td class="num">23</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">식기류</td><td>칼 다수, 가위, 수저, 포크, 스테이크 나이프, 수저통, 국자, 주걱, 집게</td></tr>
+              <tr><td class="num">24</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">그릇류</td><td>밥그릇, 국그릇, 접시, 파스타볼, 유리볼, 종지</td></tr>
+              <tr><td class="num">25</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">그릇류</td><td>반찬통, 스테인레스 미니식판, 파이렉스 유리용기, 도시락 여러 개, 마늘 소분 틀</td></tr>
+              <tr><td class="num">26</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">컵류</td><td>유리컵, 머그컵, 와인잔</td></tr>
+              <tr><td class="num">27</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">믹서기 세트</td><td>부속품 포함</td></tr>
+              <tr><td class="num">28</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">기타 주방용품</td><td>주전자, 찜기, 채반, 오븐용기</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="appliances">
+        <div class="section-head">
+          <div>
+            <h2>4. 가전</h2>
+            <p class="section-note">계절·청소·다림질 용도의 생활가전입니다.</p>
+          </div>
+          <span class="tag">5 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">29</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">유선 청소기</td><td>1개</td></tr>
+              <tr><td class="num">30</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">다리미와 다리미판</td><td>-</td></tr>
+              <tr><td class="num">31</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">선풍기</td><td>2개</td></tr>
+              <tr><td class="num">32</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">라디에이터</td><td>1개</td></tr>
+              <tr><td class="num">33</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">온풍기</td><td>1개</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="large-room">
+        <div class="section-head">
+          <div>
+            <h2>5. 2층 큰방</h2>
+            <p class="section-note">침대, 책상, 모니터, 프린터, 의류 정리용품이 함께 있는 방 단위 구성입니다.</p>
+          </div>
+          <span class="tag">13 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">34</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">킹 침대 프레임 및 퀸 매트리스</td><td>프레임과 매트리스 크기 다름. 각 1개</td></tr>
+              <tr><td class="num">35</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">싱글 침대 및 매트리스</td><td>각 1개</td></tr>
+              <tr><td class="num">36</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">테이블 겸 책상 및 책상용 쿠션 의자</td><td>흰색 6-8인용</td></tr>
+              <tr><td class="num">37</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">5단 책장, 화장대, 흰색거울</td><td>-</td></tr>
+              <tr><td class="num">38</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">나이트 스탠드, 책받침대</td><td>-</td></tr>
+              <tr><td class="num">39</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">전기매트</td><td>퀸 사이즈 2개</td></tr>
+              <tr><td class="num">40</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">플라스틱 서랍장</td><td>3단 서랍장 2개, 1단 서랍장 1개</td></tr>
+              <tr><td class="num">41</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">6단 접이식 옷정리대</td><td>3개</td></tr>
+              <tr><td class="num">42</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">모자걸이대</td><td>1개</td></tr>
+              <tr><td class="num">43</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">24인치 모니터</td><td>1개</td></tr>
+              <tr><td class="num">44</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">작은 모니터 받침대</td><td>1개</td></tr>
+              <tr><td class="num">45</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">큰 모니터 받침대</td><td>1개</td></tr>
+              <tr><td class="num">46</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">브라더 복합기 DCP-L2550DW</td><td>1개</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="small-room">
+        <div class="section-head">
+          <div>
+            <h2>6. 2층 작은방</h2>
+            <p class="section-note">침대, 책상, 책장, 조명, 베란다 의자 등 방 하나를 구성하는 품목입니다.</p>
+          </div>
+          <span class="tag">9 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">47</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">이케아 책상 및 의자</td><td>흰색/올리브색 각 1개, 흰색 의자 2개</td></tr>
+              <tr><td class="num">48</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">5단 책장</td><td>흰색 1개</td></tr>
+              <tr><td class="num">49</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">퀸 침대 및 매트리스</td><td>1세트</td></tr>
+              <tr><td class="num">50</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">협탁</td><td>1개</td></tr>
+              <tr><td class="num">51</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">3단 플라스틱 서랍장</td><td>2개</td></tr>
+              <tr><td class="num">52</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">3단 검은 책장, 나이트 스탠드</td><td>각 1개</td></tr>
+              <tr><td class="num">53</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">베란다 의자</td><td>2개</td></tr>
+              <tr><td class="num">54</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">플로어 램프</td><td>이케아 HEKTAR(헥타르)</td></tr>
+              <tr><td class="num">55</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">5단 서랍장</td><td>아이들 책상과 세트, 1개</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="misc">
+        <div class="section-head">
+          <div>
+            <h2>7. 기타</h2>
+            <p class="section-note">청소·공구·문구·조명·아이용품처럼 함께 문의가 들어올 가능성이 높은 생활 소품입니다.</p>
+          </div>
+          <span class="tag">14 items</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>번호</th><th>사진</th><th>품목</th><th>수량/설명</th></tr></thead>
+            <tbody>
+              <tr><td class="num">56</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">옷 걸이대</td><td>1개</td></tr>
+              <tr><td class="num">57</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">헤어드라이어 2개, 고데기 1개</td><td>-</td></tr>
+              <tr><td class="num">58</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">청소용품, 우산 등</td><td>3M 스위퍼 맙, 교체용 물걸레 4개, 1회용 정전기포 한 팩, 빗자루, 우산 다수</td></tr>
+              <tr><td class="num">59</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">옷걸이</td><td>어른용 및 어린이용 다수</td></tr>
+              <tr><td class="num">60</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">전동드릴, 공구함 등</td><td>각종 공구 포함, 사진 외 여러 개</td></tr>
+              <tr><td class="num">61</td><td><span class="photo-note">없음</span></td><td class="item">교체용 전구</td><td>여러 개</td></tr>
+              <tr><td class="num">62</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">아이용 문구류</td><td>사진 외 여러 개</td></tr>
+              <tr><td class="num">63</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">장난감 정리함</td><td>2개, 장난감 다수 포함</td></tr>
+              <tr><td class="num">64</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">아이용 발받침</td><td>1개</td></tr>
+              <tr><td class="num">65</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">원형의자</td><td>2개</td></tr>
+              <tr><td class="num">66</td><td><span class="photo-note">사진 원본 참조</span></td><td class="item">체중계</td><td>1개</td></tr>
+              <tr><td class="num">67</td><td><span class="photo-note">없음</span></td><td class="item">벽시계 3개, 탁상용 시계 2개</td><td>-</td></tr>
+              <tr><td class="num">68</td><td><span class="photo-note">없음</span></td><td class="item">어린이용 한글 및 영어책 등</td><td>-</td></tr>
+              <tr><td class="num">69</td><td><img class="photo" src="assets/pasted-image-20260615003157.png" alt="종이갓 램프"></td><td class="item">종이갓 램프</td><td>1개</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="section-head">
+          <div>
+            <h2>Source Notes & Implications</h2>
+            <p class="section-note">공개 게시 전 확인하면 좋은 운영 메모입니다.</p>
+          </div>
+          <span class="tag">노트</span>
+        </div>
+
+        <div class="source-notes">
+          <p><strong>이미지 처리:</strong> 제공된 로컬 매핑이 있는 이미지는 품목 69의 종이갓 램프 사진으로 보존했습니다. 그 외 사진은 원본 노트의 첨부 참조가 있었으나, 이 HTML에 사용할 수 있는 명시적 매핑이 없어 깨진 이미지 대신 “사진 원본 참조”로 표시했습니다.</p>
+          <p><strong>거래 운영:</strong> 문의는 품목 번호 기준으로 받는 것이 가장 명확합니다. 부피가 큰 품목은 픽업 가능 일자, 분해 가능 여부, 차량 적재 가능 여부를 함께 안내하면 좋습니다.</p>
+          <p><strong>상태 고지:</strong> 사용감이나 크기 불일치가 적힌 품목, 특히 소파와 침대 프레임·매트리스 조합은 거래 전에 별도 확인이 필요합니다.</p>
+        </div>
+      </section>
+
+      <section class="ending">
+        <h2>문의용 한 줄 요약</h2>
+        <p>이사 정리로 가구, 주방용품, 가전, 침실·아이방 물품을 공간별로 양도합니다. 관심 있는 품목 번호를 알려주시면 사진과 상태를 기준으로 확인해 드립니다.</p>
+        <div class="copy-block">공유 문구: “이사 전 정리 물품 69개를 공간별로 정리했습니다. 필요한 품목 번호와 함께 문의해 주세요.”</div>
+      </section>
+    </article>
+  </div>
+</body>
+</html>
